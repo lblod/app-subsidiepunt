@@ -148,28 +148,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  berichtencentrum-sync-with-kalliope:
-    image: lblod/berichtencentrum-sync-with-kalliope-service:0.18.0
-    environment:
-      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
-      MU_SPARQL_UPDATEPOINT: "http://database:8890/sparql"
-      KALLIOPE_PS_UIT_ENDPOINT: "https://kalliope-svc-test.abb.vlaanderen.be/api/poststuk-uit"
-      KALLIOPE_PS_IN_ENDPOINT: "https://kalliope-svc-test.abb.vlaanderen.be/api/poststuk-in"
-      KALLIOPE_PS_UIT_CONFIRMATION_ENDPOINT: "https://kalliope-svc-test.abb.vlaanderen.be/api/poststuk-uit/ontvangstbevestiging"
-      BERICHTEN_CRON_PATTERN: "*/5 * * * *"
-      INZENDINGEN_CRON_PATTERN: "0 22 * * *"
-      BERICHTEN_IN_CONFIRMATION_CRON_PATTERN: "*/5 * * * *"
-      MAX_MESSAGE_AGE: 2
-      MAX_SENDING_ATTEMPTS: 20
-      MAX_CONFIRMATION_ATTEMPTS: 20
-      INZENDING_BASE_URL: "https://besluiten.abb.lblod.info/supervision/submissions"
-    volumes:
-      - ./config/berichtencentrum-sync-with-kalliope:/config
-      - ./data/files:/data/files
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   filehost:
     image: nginx:1.15.2
     volumes:
