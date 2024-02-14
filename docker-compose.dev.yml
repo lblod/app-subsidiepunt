@@ -44,12 +44,6 @@ services:
     restart: "no"
   file:
     restart: "no"
-  create-bbcdr:
-    restart: "no"
-  package-bbcdr:
-    restart: "no"
-  deliver-bbcdr:
-    restart: "no"
   dbcleanup:
     restart: "no"
   filehost:
