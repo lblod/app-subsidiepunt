@@ -50,8 +50,6 @@ services:
     restart: "no"
   sink:
     restart: "no"
-  berichtencentrum-email-notification:
-    restart: "no"
   submission-email-notification:
     restart: "no"
   berichtencentrum-sync-with-kalliope:
