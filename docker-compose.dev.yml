@@ -46,10 +46,6 @@ services:
     restart: "no"
   dbcleanup:
     restart: "no"
-  filehost:
-    restart: "no"
-  sink:
-    restart: "no"
   deliver-email-service:
     restart: "no"
   download-url:
