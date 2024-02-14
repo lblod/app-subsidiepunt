@@ -140,12 +140,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  submission-email-notification:
-    image: lblod/toezicht-submission-email-notification-service:0.2.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   deliver-email-service:
     image: redpencil/deliver-email-service:0.2.0
     environment:
