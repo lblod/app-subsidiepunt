@@ -126,14 +126,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  validation:
-    image: semtech/mu-validation-service:0.3.0
-    volumes:
-      - ./config/validations:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   file:
     image: cecemel/file-service:3.3.0
     volumes:
