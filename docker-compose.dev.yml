@@ -89,8 +89,6 @@ services:
       EMAIL_FROM: "Loket Local <loket-development@redpencil.io>"
       EMAIL_TO: "loket-development@redpencil.io"
     restart: "no"
-  prepare-submissions-for-export:
-    restart: "no"
   update-bestuurseenheid-mock-login:
     restart: "no"
   reasoner:

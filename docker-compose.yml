@@ -244,12 +244,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  prepare-submissions-for-export:
-    image: lblod/prepare-submissions-for-export-service:0.7.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   eredienst-mandatarissen-consumer:
     image: lblod/delta-consumer:0.0.23
     volumes:
