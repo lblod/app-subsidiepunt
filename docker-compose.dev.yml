@@ -50,8 +50,6 @@ services:
     restart: "no"
   download-url:
     restart: "no"
-  adressenregister:
-    restart: "no"
   report-generation:
     restart: "no"
   automatic-submission:

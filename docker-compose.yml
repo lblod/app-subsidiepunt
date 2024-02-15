@@ -148,12 +148,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  adressenregister:
-    image: lblod/adressenregister-fuzzy-search-service:0.6.3
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   report-generation:
     image: lblod/loket-report-generation-service:0.6.5
     volumes:
