@@ -54,8 +54,6 @@ services:
     restart: "no"
   validate-submission:
     restart: "no"
-  toezicht-flattened-form-data-generator:
-    restart: "no"
   export-submissions:
     restart: "no"
   clean-up-submission:

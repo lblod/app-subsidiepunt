@@ -179,14 +179,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  toezicht-flattened-form-data-generator:
-    image: lblod/toezicht-flattened-form-data-generator:1.3.0
-    volumes:
-      - ./data/files/submissions:/share/submissions
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   export-submissions:
     image: lblod/mandaten-download-generator-service:0.3.6
     links:
