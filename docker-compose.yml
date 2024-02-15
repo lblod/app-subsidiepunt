@@ -216,12 +216,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  download-url-warning:
-    image: lblod/download-url-warning-service:0.1.2
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   case-number-generator:
     image: lblod/case-number-service:2.0.0
     labels:
