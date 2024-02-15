@@ -60,8 +60,6 @@ services:
     restart: "no"
   sync-with-kalliope-error-notification:
     restart: "no"
-  mandataris-archive:
-    restart: "no"
   subsidy-applications-management:
     environment:
       VERSIONED_CONFIGURATION_WATCHER: null
