@@ -48,8 +48,6 @@ services:
     restart: "no"
   deliver-email-service:
     restart: "no"
-  download-url:
-    restart: "no"
   report-generation:
     restart: "no"
   automatic-submission:
