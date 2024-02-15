@@ -50,8 +50,6 @@ services:
     restart: "no"
   report-generation:
     restart: "no"
-  automatic-submission:
-    restart: "no"
   import-submission:
     restart: "no"
   enrich-submission:
