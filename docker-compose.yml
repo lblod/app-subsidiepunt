@@ -179,19 +179,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  export-submissions:
-    image: lblod/mandaten-download-generator-service:0.3.6
-    links:
-      - virtuoso:database
-    environment:
-      EXPORT_CRON_PATTERN: "0 0 3 * * *"
-      EXPORT_FILE_BASE: "submissions"
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/system/export-submissions"
-    volumes:
-      - ./data/exports/submissions:/data/exports
-      - ./config/export/submissions:/config
-    restart: always
-    logging: *default-logging
   clean-up-submission:
     image: lblod/clean-up-submission-service:1.1.0
     volumes:

@@ -54,8 +54,6 @@ services:
     restart: "no"
   validate-submission:
     restart: "no"
-  export-submissions:
-    restart: "no"
   clean-up-submission:
     restart: "no"
   person-uri-for-social-security-number:
