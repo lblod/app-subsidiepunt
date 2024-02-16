@@ -255,10 +255,6 @@ services:
   ##############################################################################
   # Vendor endpoint
   ##############################################################################
-  vendor-login:
-    image: lblod/vendor-login-service:1.0.0
-    restart: always
-    logging: *default-logging
   sparql-authorization-wrapper:
     image: lblod/sparql-authorization-wrapper-service:1.0.0
     volumes:
