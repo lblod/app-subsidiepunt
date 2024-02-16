@@ -308,37 +308,6 @@ services:
     restart: always
     logging: *default-logging
   ################################################################################
-  # DELTA SUBMISSIONS: START
-  ################################################################################
-  delta-producer-background-jobs-initiator:
-    image: lblod/delta-producer-background-jobs-initiator:1.0.0
-    volumes:
-      - ./config/delta-producer/background-jobs-initiator:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  delta-producer-publication-graph-maintainer:
-    image: lblod/delta-producer-publication-graph-maintainer:1.0.3
-    environment:
-      MAX_BODY_SIZE: "50mb"
-      PRETTY_PRINT_DIFF_JSON: "true"
-      PUBLICATION_VIRTUOSO_ENDPOINT: "http://publication-triplestore:8890/sparql"
-      PUBLICATION_MU_AUTH_ENDPOINT: "http://publication-triplestore:8890/sparql"
-      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
-      CONFIG_SERVICES_JSON_PATH: '/config/publication-graph-maintainer/config.json'
-    volumes:
-      - ./config/delta-producer:/config
-      - ./data/files/:/share
-    # Temporary disable to no saturate the app-http-logger (should be fixed in a next version)
-    #    labels:
-    #      - "logging=true"
-    restart: always
-    logging: *default-logging
-  ################################################################################
-  # DELTA SUBMISSIONS: END
-  ################################################################################
-  ################################################################################
   # DELTA WORSHIP-SERVICES-SENSITIVE: START
   ################################################################################
   delta-producer-background-jobs-initiator-worship-services-sensitive:
