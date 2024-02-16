@@ -93,5 +93,3 @@ services:
     restart: "no"
   sparql-authorization-wrapper:
     restart: "no"
-  berichtencentrum-melding:
-    restart: "no"

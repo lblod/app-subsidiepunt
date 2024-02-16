@@ -252,19 +252,10 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  ##############################################################################
-  # Vendor endpoint
-  ##############################################################################
   sparql-authorization-wrapper:
     image: lblod/sparql-authorization-wrapper-service:1.0.0
     volumes:
       - ./config/sparql-authorization-wrapper:/config
-    restart: always
-    logging: *default-logging
-  berichtencentrum-melding:
-    image: lblod/berichten-melding-service:1.0.2
-    volumes:
-      - ./data/files:/share
     restart: always
     logging: *default-logging
   ################################################################################
