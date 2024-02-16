@@ -68,8 +68,6 @@ services:
     restart: "no"
   subsidy-application-flow-management:
     restart: "no"
-  dispatcher-worship-mandates:
-    restart: "no"
   publication-triplestore:
     restart: "no"
     ports:
