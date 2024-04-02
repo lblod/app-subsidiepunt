@@ -47,18 +47,6 @@
               ]
             }
           ]
-        },
-        {
-          "s-prefix": "schema:bankAccount",
-          "properties": [
-            "schema:identifier",
-            {
-              "s-prefix": "dct:hasPart",
-              "properties": [
-                "rdf:type"
-              ]
-            }
-          ]
         }
       ]
     }
