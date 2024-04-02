@@ -126,14 +126,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  validation:
-    image: semtech/mu-validation-service:0.3.0
-    volumes:
-      - ./config/validations:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   file:
     image: cecemel/file-service:3.3.0
     volumes:
@@ -142,46 +134,8 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  create-bbcdr:
-    image: lblod/create-bbcdr-rapporten-service:0.5.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  package-bbcdr:
-    image: lblod/package-bbcdr-rapporten-service:0.4.0
-    volumes:
-      - ./data/files:/data/files
-    environment:
-      PACKAGE_CRON_PATTERN: "0 0 * * * *"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  deliver-bbcdr:
-    image: lblod/deliver-bbcdr-rapporten-service:0.3.5
-    volumes:
-      - ./data/files:/data/files
-    environment:
-      PACKAGE_CRON_PATTERN: "0 0 * * * *"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   dbcleanup:
     image: lblod/db-cleanup-service:0.3.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  berichtencentrum-email-notification:
-    image: lblod/berichtencentrum-email-notification-service:0.3.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  submission-email-notification:
-    image: lblod/toezicht-submission-email-notification-service:0.2.0
     labels:
       - "logging=true"
     restart: always
@@ -194,81 +148,11 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  berichtencentrum-sync-with-kalliope:
-    image: lblod/berichtencentrum-sync-with-kalliope-service:0.18.0
-    environment:
-      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
-      MU_SPARQL_UPDATEPOINT: "http://database:8890/sparql"
-      KALLIOPE_PS_UIT_ENDPOINT: "https://kalliope-svc-test.abb.vlaanderen.be/api/poststuk-uit"
-      KALLIOPE_PS_IN_ENDPOINT: "https://kalliope-svc-test.abb.vlaanderen.be/api/poststuk-in"
-      KALLIOPE_PS_UIT_CONFIRMATION_ENDPOINT: "https://kalliope-svc-test.abb.vlaanderen.be/api/poststuk-uit/ontvangstbevestiging"
-      BERICHTEN_CRON_PATTERN: "*/5 * * * *"
-      INZENDINGEN_CRON_PATTERN: "0 22 * * *"
-      BERICHTEN_IN_CONFIRMATION_CRON_PATTERN: "*/5 * * * *"
-      MAX_MESSAGE_AGE: 2
-      MAX_SENDING_ATTEMPTS: 20
-      MAX_CONFIRMATION_ATTEMPTS: 20
-      INZENDING_BASE_URL: "https://besluiten.abb.lblod.info/supervision/submissions"
-    volumes:
-      - ./config/berichtencentrum-sync-with-kalliope:/config
-      - ./data/files:/data/files
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  filehost:
-    image: nginx:1.15.2
-    volumes:
-      - ./config/filehost/nginx.conf:/etc/nginx/nginx.conf
-      - ./config/filehost/conf.d:/etc/nginx/conf.d
-      - ./data/files:/data:ro
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  sink:
-    image: nginx:1.15.2
-    volumes:
-      - ./config/sink/sink.conf:/etc/nginx/conf.d/default.conf
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  adressenregister:
-    image: lblod/adressenregister-fuzzy-search-service:0.6.3
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   report-generation:
     image: lblod/loket-report-generation-service:0.6.5
     volumes:
       - ./data/files:/share
       - ./config/reports/:/config/
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  download-url:
-    image: lblod/download-url-service:1.0.3
-    environment:
-      CACHING_MAX_RETRIES: "10"
-    volumes:
-      - ./data/files:/share
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  automatic-submission:
-    image: lblod/automatic-submission-service:1.3.1
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  import-submission:
-    image: lblod/import-submission-service:1.3.0
-    volumes:
-      - ./data/files:/share
     labels:
       - "logging=true"
     restart: always
@@ -295,27 +179,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  toezicht-flattened-form-data-generator:
-    image: lblod/toezicht-flattened-form-data-generator:1.3.0
-    volumes:
-      - ./data/files/submissions:/share/submissions
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  export-submissions:
-    image: lblod/mandaten-download-generator-service:0.3.6
-    links:
-      - virtuoso:database
-    environment:
-      EXPORT_CRON_PATTERN: "0 0 3 * * *"
-      EXPORT_FILE_BASE: "submissions"
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/system/export-submissions"
-    volumes:
-      - ./data/exports/submissions:/data/exports
-      - ./config/export/submissions:/config
-    restart: always
-    logging: *default-logging
   clean-up-submission:
     image: lblod/clean-up-submission-service:1.1.0
     volumes:
@@ -339,12 +202,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  mandataris-archive:
-    image: lblod/mandataris-archive-service:0.0.6
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   subsidy-applications-management:
     image: lblod/subsidy-applications-management-service:0.11.0
     environment:
@@ -355,18 +212,6 @@ services:
       - ./config/subsidy-application-management:/config
       - ./data/files/subsidies:/data
       - ./data/files:/share
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  berichtencentrum-warning:
-    image: lblod/berichtencentrum-warning-service:0.0.2
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  download-url-warning:
-    image: lblod/download-url-warning-service:0.1.2
     labels:
       - "logging=true"
     restart: always
@@ -399,45 +244,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  prepare-submissions-for-export:
-    image: lblod/prepare-submissions-for-export-service:0.7.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  eredienst-mandatarissen-consumer:
-    image: lblod/delta-consumer:0.0.23
-    volumes:
-      - ./config/delta-consumer/eredienst-mandatarissen:/config/triples-dispatching/custom-dispatching
-      - ./data/files/consumer-files:/consumer-files
-    environment:
-      DCR_SERVICE_NAME: "eredienst-mandatarissen-consumer"
-      DCR_SYNC_BASE_URL: "https://dev.harvesting-self-service.lblod.info"
-      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/eredienst-mandatarissen-consumer"
-      DCR_DELTA_SYNC_JOB_OPERATION: "http://eredienst-mandatarissen-consumer/delta-sync"
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/WorshipCacheGraphDump"
-      DCR_INITIAL_SYNC_JOB_OPERATION: "http://eredienst-mandatarissen-consumer/initial-sync"
-      DCR_SYNC_FILES_PATH: "/sync/worship/files/"
-      DCR_CRON_PATTERN_DELTA_SYNC: "15 * * * *" # Every hour at 15 minutes past the hour
-      DCR_DISABLE_INITIAL_SYNC: "true" # prefer to enable it manually on deploy
-      DCR_KEEP_DELTA_FILES: "true"
-      DCR_DELTA_FILE_FOLDER: "/consumer-files/eredienst-mandatarissen"
-      INGEST_GRAPH: "http://eredienst-mandatarissen-consumer/temp"
-      DCR_SYNC_LOGIN_ENDPOINT: "https://dev.harvesting-self-service.lblod.info/sync/worship/login"
-      DCR_SECRET_KEY: "66d0fda1-e987-4cf3-bf8c-80ee16271214"
-      SLEEP_BETWEEN_BATCHES: "100"
-      BATCH_SIZE: "500"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  dispatcher-worship-mandates:
-    image: lblod/worship-positions-graph-dispatcher-service-loket:1.3.0
-    environment:
-      LOGLEVEL: "info"
-    labels:
-      - "logging=true"
-    restart: always
   update-bestuurseenheid-mock-login:
     image: lblod/update-bestuurseenheid-mock-login-service:0.1.2
     volumes:
@@ -446,32 +252,10 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  ##############################################################################
-  # Vendor endpoint
-  ##############################################################################
-  vendor-login:
-    image: lblod/vendor-login-service:1.0.0
-    restart: always
-    logging: *default-logging
   sparql-authorization-wrapper:
     image: lblod/sparql-authorization-wrapper-service:1.0.0
     volumes:
       - ./config/sparql-authorization-wrapper:/config
-    restart: always
-    logging: *default-logging
-  vendor-data-distribution:
-    image: lblod/vendor-data-distribution-service:1.3.2
-    environment:
-      LOGLEVEL: "error"
-      WRITE_ERRORS: "true"
-    volumes:
-      - ./config/vendor-data:/config
-    restart: always
-    logging: *default-logging
-  berichtencentrum-melding:
-    image: lblod/berichten-melding-service:1.0.2
-    volumes:
-      - ./data/files:/share
     restart: always
     logging: *default-logging
   ################################################################################
@@ -523,88 +307,6 @@ services:
       ALLOWED_ACCOUNTS: "http://services.lblod.info/diff-consumer/account,http://data.lblod.info/foaf/account/id/dd85f516-ee7c-406b-8245-91ce7f9545b7,http://data.lblod.info/foaf/account/id/4171b7a5-a4d6-42d0-bf37-f97b135fb885"
     restart: always
     logging: *default-logging
-  ################################################################################
-  # DELTA SUBMISSIONS: START
-  ################################################################################
-  delta-producer-background-jobs-initiator:
-    image: lblod/delta-producer-background-jobs-initiator:1.0.0
-    volumes:
-      - ./config/delta-producer/background-jobs-initiator:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  delta-producer-publication-graph-maintainer:
-    image: lblod/delta-producer-publication-graph-maintainer:1.0.3
-    environment:
-      MAX_BODY_SIZE: "50mb"
-      PRETTY_PRINT_DIFF_JSON: "true"
-      PUBLICATION_VIRTUOSO_ENDPOINT: "http://publication-triplestore:8890/sparql"
-      PUBLICATION_MU_AUTH_ENDPOINT: "http://publication-triplestore:8890/sparql"
-      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
-      CONFIG_SERVICES_JSON_PATH: '/config/publication-graph-maintainer/config.json'
-    volumes:
-      - ./config/delta-producer:/config
-      - ./data/files/:/share
-    # Temporary disable to no saturate the app-http-logger (should be fixed in a next version)
-    #    labels:
-    #      - "logging=true"
-    restart: always
-    logging: *default-logging
-  ################################################################################
-  # DELTA SUBMISSIONS: END
-  ################################################################################
-  ################################################################################
-  # DELTA WORSHIP-SERVICES-SENSITIVE: START
-  ################################################################################
-  delta-producer-background-jobs-initiator-worship-services-sensitive:
-    image: lblod/delta-producer-background-jobs-initiator:0.3.1
-    environment:
-      JOBS_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b/LoketAdmin"
-      DUMP_FILE_CREATION_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/deltaDumpFileCreation/worship-services-sensitive"
-      INITIAL_PUBLICATION_GRAPH_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/initialPublicationGraphSyncing/worship-services-sensitive"
-      HEALING_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/healingOperation/worship-services-sensitive"
-      CRON_PATTERN_DUMP_JOB: "0 0 6 * * 6" # weekly on saturday
-      CRON_PATTERN_HEALING_JOB: "0 0 4 * * *" # everyday at 4 AM
-      START_INITIAL_SYNC: "false" # prefer to disable it now. We want to have feeling with how the DB acts.
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  delta-producer-publication-graph-maintainer-ws-sensitive:
-    image: lblod/delta-producer-publication-graph-maintainer:0.15.1
-    environment:
-      MAX_BODY_SIZE: "50mb"
-      JOBS_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b/LoketAdmin"
-      RELATIVE_FILE_PATH: "deltas/worship-services-sensitive"
-      PUBLICATION_GRAPH: "http://redpencil.data.gift/id/deltas/producer/loket-worship-services-sensitive"
-      HEALING_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/healingOperation/worship-services-sensitive"
-      INITIAL_PUBLICATION_GRAPH_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/initialPublicationGraphSyncing/worship-services-sensitive"
-      QUEUE_POLL_INTERVAL: 3000
-      USE_VIRTUOSO_FOR_EXPENSIVE_SELECTS: "true" # some queries are just too expensive
-      SKIP_MU_AUTH_INITIAL_SYNC: "true"
-      HEALING_PATCH_GRAPH_BATCH_SIZE: 500
-      UPDATE_PUBLICATION_GRAPH_SLEEP: 200
-      SERVE_DELTA_FILES: "true"
-      DELTA_INTERVAL_MS: 10000
-      PRETTY_PRINT_DIFF_JSON: "true"
-      PUBLICATION_VIRTUOSO_ENDPOINT: "http://publication-triplestore:8890/sparql"
-      PUBLICATION_MU_AUTH_ENDPOINT: "http://publication-triplestore:8890/sparql"
-      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404"
-      PUBLISHER_URI: "http://data.lblod.info/services/delta-producer-publication-graph-maintainer-ws-sensitive"
-      FILES_GRAPH: "http://redpencil.data.gift/id/deltas/producer/worship-services-sensitive-deltas"
-      ACCOUNT: "http://data.lblod.info/foaf/account/id/f185b63e-5bd9-40a5-8906-4ac1fb5a8db7"
-    volumes:
-      - ./config/delta-producer/worship-services-sensitive:/config
-      - ./data/files/:/share
-    # Temporary disable to no saturate the app-http-logger (should be fixed in a next version)
-    #    labels:
-    #      - "logging=true"
-    restart: always
-    logging: *default-logging
-  ################################################################################
-  # DELTA WORSHIP-SERVICES-SENSITIVE: END
-  ################################################################################
   ################################################################################
   # DELTA SUBSIDIES: START
   ################################################################################
