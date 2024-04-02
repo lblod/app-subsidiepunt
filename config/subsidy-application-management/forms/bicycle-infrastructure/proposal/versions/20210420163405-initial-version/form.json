@@ -67,7 +67,6 @@
           {
             "s-prefix": "bicycleInfrastructure:objectiveEntry",
             "properties": [
-              "rdf:type",
               "bicycleInfrastructure:approachType",
               "bicycleInfrastructure:directionType",
               "bicycleInfrastructure:bikeLaneType",
