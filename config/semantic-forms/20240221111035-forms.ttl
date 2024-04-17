@@ -2046,7 +2046,40 @@ fields:c0f621fc-4c2c-456b-83f9-f087e64af03a a form:Field ;
     sh:order 5002 ;
     sh:path dct:relation;
     sh:group fields:aDynamicPropertyGroup .
-########### Aanvraag desaffectatie presbyteria/kerken ###########
+########### Aanduiding en eedaflegging van de aangewezen burgemeester ###########
+fieldGroups:215b36a1-5a37-4de0-b1b3-b2ee735d2fed a form:FieldGroup ;
+    mu:uuid "215b36a1-5a37-4de0-b1b3-b2ee735d2fed" ; 
+    form:hasField 
+                      ###Welk-beslissingsorgaan-nam-het-besluit?###
+                      fields:4c7820f0-4011-4ab4-a16a-e128800e11bc,
+
+                      ###Datum-zitting/besluit###
+                      fields:3dd6ed93-40f7-4d70-a6cb-f4de53dc8bfb,
+
+                      ###Links-naar-documenten###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95b,
+
+                      ###Bestanden###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95a,
+
+                      ###Type RemoteDataObject or FileDataObject###
+                      fields:355fe001-cdca-48cc-8a6e-88b3aab09874,
+
+                      ### RemoteDataObject/url ###
+                      fields:d0052f0d-90bc-4543-a6b0-e90a1c1117db.
+
+fields:0827fafe-ad19-49e1-8b2e-105d2c08a54a form:hasConditionalFieldGroup fields:8252a10c-f35c-486f-8314-a36c099e726c.
+
+fields:8252a10c-f35c-486f-8314-a36c099e726c a form:ConditionalFieldGroup ;
+    mu:uuid "8252a10c-f35c-486f-8314-a36c099e726c";
+    form:conditions
+      [ a form:SingleCodelistValue ;
+        form:grouping form:Bag ;
+        sh:path rdf:type ;
+        form:conceptScheme <http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5> ;
+        form:customValue <https://data.vlaanderen.be/id/concept/BesluitDocumentType/a48f2ded-78a5-45e5-a5d8-077814cec39f> # Aanduiding en eedaflegging van de aangewezen burgemeester
+      ] ;
+    form:hasFieldGroup fieldGroups:215b36a1-5a37-4de0-b1b3-b2ee735d2fed .########### Aanvraag desaffectatie presbyteria/kerken ###########
 
 fieldGroups:788cbc2b-8d7c-4b9e-b368-b1098e6ffe79 a form:FieldGroup ;
     mu:uuid "788cbc2b-8d7c-4b9e-b368-b1098e6ffe79" ; 
@@ -5202,6 +5235,68 @@ fields:205c1db4-f132-4e82-b707-48f703ac0d86 a form:ConditionalFieldGroup ;
         form:customValue <https://data.vlaanderen.be/id/concept/BesluitType/a7ea5d04-9af6-4b38-af5c-303756c34e42>
       ] ;
     form:hasFieldGroup fieldGroups:5f0ae173-ef30-445a-8411-5eee51fe1910 .
+##########################################################
+# Alert for Melding onvolledigheid inzending eredienstbestuur
+##########################################################
+fields:c6bd0564-b570-4cce-b2f0-dde771f60977 a form:Field;
+    mu:uuid "c6bd0564-b570-4cce-b2f0-dde771f60977" ;
+    sh:name "Met deze melding informeer je het eredienstbestuur en het centraal bestuur dat een ingediende budget(wijziging) of meerjarenplan(wijziging) onvolledig en bijgevolg onontvankelijk is.";
+    sh:order 101;
+    form:options """{ "skin": "warning", "icon": "alert-triangle", "size": "small", "closable": false }""";
+    form:displayType displayTypes:alert ;
+    sh:group fields:aDynamicPropertyGroup .
+
+
+#########################################################
+# Info with custom helper text for "Melding onvolledigheid inzending eredienstbestuur"
+#########################################################
+fields:f75de5f0-ac1f-479f-9c05-5c056eb9f5fc a form:Field ;
+    mu:uuid "f75de5f0-ac1f-479f-9c05-5c056eb9f5fc" ;
+    sh:name "Voeg hier de brief toe waarin je het eredienstbestuur en het centraal bestuur op de hoogte brengt van de onvolledigheid en onontvankelijkheid van een specifieke budget(wijziging) of meerjarenplan(wijziging). Door het versturen van deze brief wordt het eredienstbestuur geïnformeerd dat de toezichttermijn eigenlijk nog niet loopt.";
+    sh:order 10002;
+    form:options """{ "skin": "info", "icon": "info-circle", "size": "small", "closable": false }""";
+    form:displayType displayTypes:alert ;
+    sh:group fields:aDynamicPropertyGroup .
+
+########### Melding onvolledigheid inzending eredienstbestuur ###########
+
+fieldGroups:4840756c-d839-4ae0-b568-c986c73dd6a4 a form:FieldGroup ;
+    mu:uuid "4840756c-d839-4ae0-b568-c986c73dd6a4" ; 
+    form:hasField
+                      ###Alert(CUSTOM)###
+                      fields:c6bd0564-b570-4cce-b2f0-dde771f60977,
+                      
+                      ###Eredienst selector (Centrale besturen and besturen van eredienst)###
+                      fields:7d0a105f-0c7e-49ab-9ab8-68d5381b3b8b,
+
+                      ###Link###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95b,
+
+                      ###Bestanden###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95a,
+
+                      ###Type RemoteDataObject or FileDataObject###
+                      fields:355fe001-cdca-48cc-8a6e-88b3aab09874,
+
+                      ### RemoteDataObject/url ###
+                      fields:d0052f0d-90bc-4543-a6b0-e90a1c1117db,
+                      
+                      ###Info Upload (CUSTOM)###
+                      fields:f75de5f0-ac1f-479f-9c05-5c056eb9f5fc.
+
+fields:0827fafe-ad19-49e1-8b2e-105d2c08a54a form:hasConditionalFieldGroup fields:b099c3f4-60ff-4883-b4e3-60ad7698fd17.
+
+fields:b099c3f4-60ff-4883-b4e3-60ad7698fd17 a form:ConditionalFieldGroup ;
+    mu:uuid "b099c3f4-60ff-4883-b4e3-60ad7698fd17";
+    form:conditions
+      [ a form:SingleCodelistValue ;
+        form:grouping form:Bag ;
+        sh:path rdf:type ;
+        form:conceptScheme <http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5> ;
+        form:customValue <https://data.vlaanderen.be/id/concept/BesluitDocumentType/863caf68-97c9-4ee0-adb5-620577ea8146> # Melding onvolledigheid inzending eredienstbestuur
+      ] ;
+    form:hasFieldGroup fieldGroups:4840756c-d839-4ae0-b568-c986c73dd6a4 .
+
 ###########Niet-bindend-advies-op-oprichting###########
 
 fieldGroups:48e48b72-b8d2-49f8-a0e1-7039882f3f12 a form:FieldGroup ;
@@ -5597,7 +5692,84 @@ fields:b13143f6-f547-4aa2-9ed0-485a0dc7a354 a form:ConditionalFieldGroup ;
       ] ;
     form:hasFieldGroup fieldGroups:479990ad-12a3-43b1-a3cf-3d9897e59357 .
 
-########### Opvragen bijkomende inlichtingen eredienstbesturen (met als gevolg stuiting termijn) ###########
+##########################################################
+# Alert for Opstart beroepsprocedure naar aanleiding van een beslissing
+##########################################################
+fields:150ea04f-19c4-41f2-b058-74989366c66d a form:Field;
+    mu:uuid "150ea04f-19c4-41f2-b058-74989366c66d" ;
+    sh:name "Met deze melding wordt beroep ingesteld tegen de beslissing van de gemeente- of provincieraad over een meerjarenplan(wijziging) of budget(wijziging). Ook kan een eredienstbestuur met deze melding beroep instellen tegen de gemaakte afspraken tussen het centraal bestuur en de gemeente- of provincieoverheid.";
+    sh:order 101;
+    form:options """{ "skin": "warning", "icon": "alert-triangle", "size": "small", "closable": false }""";
+    form:displayType displayTypes:alert ;
+    sh:group fields:aDynamicPropertyGroup .
+
+##########################################################
+# Type beroepsprocedure
+##########################################################
+fields:e7c5b7f6-b096-43d0-aa36-72eb38c790eb a form:Field ;
+    mu:uuid "e7c5b7f6-b096-43d0-aa36-72eb38c790eb" ;
+    sh:name "Type beroepsprocedure" ;
+    sh:order 102 ;
+    sh:path lblodBesluit:BudgetBeroepsprocedure ;
+    form:validations
+      [ a form:RequiredConstraint ;
+        form:grouping form:Bag ;
+        sh:path lblodBesluit:BudgetBeroepsprocedure ;
+        sh:resultMessage "Dit veld is verplicht."@nl
+      ];
+    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/ba36f197-1a96-4ea2-a7f7-3b5c7ffcd6ee"}""" ;
+    form:displayType displayTypes:conceptSchemeSelector ;
+    sh:group fields:aDynamicPropertyGroup.
+
+#########################################################
+# Info with custom helper text for "Opstart beroepsprocedure naar aanleiding van een beslissing"
+#########################################################
+fields:083cb030-ad02-4c5e-9433-1e4634fec09b a form:Field ;
+    mu:uuid "083cb030-ad02-4c5e-9433-1e4634fec09b" ;
+    sh:name "Voeg hier de brief toe waarmee beroep wordt ingesteld tegen de beslissing van de gemeente- of provincieraad over een meerjarenplan(wijziging) of budget(wijziging) samen met alle bijhorende stukken óf de brief waarmee beroep wordt ingesteld tegen de gemaakte afspraken tussen het centraal bestuur en de gemeente- of provincieoverheid." ;
+    sh:order 10002 ;
+    form:options """{ "skin": "info", "icon": "info-circle", "size": "small", "closable": false }""";
+    form:displayType displayTypes:alert ;
+    sh:group fields:aDynamicPropertyGroup .
+
+########### Opstart beroepsprocedure naar aanleiding van een beslissing ###########
+
+fieldGroups:d12faf73-3a62-4117-a534-7a2f34392cc9 a form:FieldGroup ;
+    mu:uuid "d12faf73-3a62-4117-a534-7a2f34392cc9" ; 
+    form:hasField 
+                      ###Alert(CUSTOM)###
+                      fields:150ea04f-19c4-41f2-b058-74989366c66d,
+
+                      ###Type beroepsprocedure###
+                      fields:e7c5b7f6-b096-43d0-aa36-72eb38c790eb,
+
+                      ###Link###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95b,
+
+                      ###Bestanden###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95a,
+
+                      ###Type RemoteDataObject or FileDataObject###
+                      fields:355fe001-cdca-48cc-8a6e-88b3aab09874,
+
+                      ### RemoteDataObject/url ###
+                      fields:d0052f0d-90bc-4543-a6b0-e90a1c1117db,
+                      
+                      ###Info Upload (CUSTOM)###
+                      fields:083cb030-ad02-4c5e-9433-1e4634fec09b.
+
+fields:0827fafe-ad19-49e1-8b2e-105d2c08a54a form:hasConditionalFieldGroup fields:8de8583b-3b0f-4bbd-aed6-2e46b3ad7b56.
+
+fields:8de8583b-3b0f-4bbd-aed6-2e46b3ad7b56 a form:ConditionalFieldGroup ;
+    mu:uuid "8de8583b-3b0f-4bbd-aed6-2e46b3ad7b56";
+    form:conditions
+      [ a form:SingleCodelistValue ;
+        form:grouping form:Bag ;
+        sh:path rdf:type ;
+        form:conceptScheme <http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5> ;
+        form:customValue <https://data.vlaanderen.be/id/concept/BesluitDocumentType/802a7e56-54f8-488d-b489-4816321fb9ae> # Opstart beroepsprocedure naar aanleiding van een beslissing
+      ] ;
+    form:hasFieldGroup fieldGroups:d12faf73-3a62-4117-a534-7a2f34392cc9 .########### Opvragen bijkomende inlichtingen eredienstbesturen (met als gevolg stuiting termijn) ###########
 
 fieldGroups:d7fb55d4-1ba1-4c71-9ada-2ebd1969e360 a form:FieldGroup ;
     mu:uuid "d7fb55d4-1ba1-4c71-9ada-2ebd1969e360" ; 
@@ -7271,7 +7443,40 @@ fields:8f4d113b-ac51-4579-a2d7-ac77caedc303 a form:ConditionalFieldGroup ;
       ] ;
     form:hasFieldGroup fieldGroups:81f3de49-f87b-46a7-97ad-8d3c1ba34f9d .
 
-fieldGroups:374b83d5-0c4d-430f-a94c-d6996c492d96 a form:FieldGroup ;
+########### Strandconcessies - reddingsdiensten kustgemeenten ###########
+fieldGroups:34a1099d-c6e0-4029-93de-b4444c260c17 a form:FieldGroup ;
+    mu:uuid "34a1099d-c6e0-4029-93de-b4444c260c17" ; 
+    form:hasField 
+                      ###Welk-beslissingsorgaan-nam-het-besluit?###
+                      fields:4c7820f0-4011-4ab4-a16a-e128800e11bc,
+
+                      ###Datum-zitting/besluit###
+                      fields:3dd6ed93-40f7-4d70-a6cb-f4de53dc8bfb,
+
+                      ###Links-naar-documenten###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95b,
+
+                      ###Bestanden###
+                      fields:c955d641-b9b3-4ec7-9838-c2a477c7e95a,
+
+                      ###Type RemoteDataObject or FileDataObject###
+                      fields:355fe001-cdca-48cc-8a6e-88b3aab09874,
+
+                      ### RemoteDataObject/url ###
+                      fields:d0052f0d-90bc-4543-a6b0-e90a1c1117db.
+
+fields:0827fafe-ad19-49e1-8b2e-105d2c08a54a form:hasConditionalFieldGroup fields:0849ec1c-a6bf-48f6-91de-cb3701c466b0.
+
+fields:0849ec1c-a6bf-48f6-91de-cb3701c466b0 a form:ConditionalFieldGroup ;
+    mu:uuid "0849ec1c-a6bf-48f6-91de-cb3701c466b0";
+    form:conditions
+      [ a form:SingleCodelistValue ;
+        form:grouping form:Bag ;
+        sh:path rdf:type ;
+        form:conceptScheme <http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5> ;
+        form:customValue <https://data.vlaanderen.be/id/concept/BesluitDocumentType/ae6168d2-8119-46b1-b810-9f529be95a62> # Strandconcessies - reddingsdiensten kustgemeenten
+      ] ;
+    form:hasFieldGroup fieldGroups:34a1099d-c6e0-4029-93de-b4444c260c17 .fieldGroups:374b83d5-0c4d-430f-a94c-d6996c492d96 a form:FieldGroup ;
     mu:uuid "374b83d5-0c4d-430f-a94c-d6996c492d96" ;
     form:hasField
 
