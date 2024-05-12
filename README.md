@@ -1,16 +1,5 @@
-# Digitaal loket
+# Subsidiepunt
 
-Digitaal Loket application on top of multiple application profiles as defined on:
-* http://data.vlaanderen.be/ns/mandaat
-* http://data.vlaanderen.be/doc/applicatieprofiel/mandatendatabank
-* https://data.vlaanderen.be/doc/applicatieprofiel/besluit-subsidie/
-* https://lblod.github.io/pages-vendors/#/docs/leidinggevenden
-* [Needs ref.] eredienst mandatendatabank
-* [Needs ref.] eredienst bedienaren
-* https://lblod.github.io/pages-vendors/#/docs/submission-annotations
-* [Needs ref.] personeelsbeheer
-* [Needs ref.] berichtencentrum
-* [Needs ref.] BBC-DR
 
 ## What's included?
 
@@ -41,7 +30,7 @@ First install `git-lfs` (see <https://github.com/git-lfs/git-lfs/wiki/Installati
   git clone https://github.com/lblod/app-digitaal-loket.git
 
   # Move into the directory
-  cd app-digitaal-loket
+  cd app-subsidiepunt
 ```
 To ease all typing for `docker-compose` commands, start by creating the following files in the directory of the project.
 A `docker-compose.override.yml` file with following content:
@@ -53,7 +42,7 @@ And an `.env` file with following content:
 COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml:docker-compose.override.yml
 ```
 ##### If you start for the first time
-The loket app is huge, and a lot of data is being intialized. We want to make sure you don't overload your machine too much doing this the first time.
+The subsidiepunt app is huge, and a lot of data is being intialized. We want to make sure you don't overload your machine too much doing this the first time.
 It's an optional step, if you trust your machine is powerful enough, you can move on.
 This step should only be done once.
 First start virtuoso and let it setup itself
@@ -91,14 +80,14 @@ Wait for everything to boot to ensure clean caches.
 Probably the first thing you'll want to do, is see wether the app is running correctly. The fastest way forward is creating a `docker-compose.override.yml` file next to the other `docker-compose.yml` files, and add
 ```
 # (...)
-  loket:
+  subsidiepunt:
     ports:
       - 4205:80
 ```
 This way, you can directly connect to a built version of the frontend on port `4205`. Note, you might have conflicts because the port is already busy.
 you're free to change `4205` to whatever suits you.
 
-Once the migrations have ran, you can start developing your application by connecting the ember frontend application to this backend.  See <https://github.com/lblod/frontend-loket> for more information on development with the ember application.
+Once the migrations have ran, you can start developing your application by connecting the ember frontend application to this backend.  See <https://github.com/lblod/frontend-subsidiepunt> for more information on development with the ember application.
 
 
 #### Running the regular setup
