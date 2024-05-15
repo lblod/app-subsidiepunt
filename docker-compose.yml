@@ -7,26 +7,8 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
-  loket:
-    image: lblod/frontend-loket:0.89.0
-    links:
-      - identifier:backend
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  dashboard:
-    image: lblod/frontend-dashboard:1.6.0
-    environment:
-      EMBER_LOGIN_ROUTE: "mock-login"
-    links:
-      - identifier:backend
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  vendor-management:
-    image: lblod/frontend-vendor-access-management:0.8.0
+  frontend:
+    image: lblod/frontend-subsidiepunt:0.0.3
     links:
       - identifier:backend
     labels:
@@ -153,36 +135,6 @@ services:
     volumes:
       - ./data/files:/share
       - ./config/reports/:/config/
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  enrich-submission:
-    image: lblod/enrich-submission-service:1.8.0
-    environment:
-      ACTIVE_FORM_FILE: "share://semantic-forms/20240110093200-forms.ttl"
-    volumes:
-      - ./config/semantic-forms:/share/semantic-forms
-      - ./data/files/submissions:/share/submissions
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  validate-submission:
-    image: lblod/validate-submission-service:1.2.1
-    environment:
-      MAX_BODY_SIZE: "10000kb"
-    volumes:
-      - ./config/semantic-forms:/share/semantic-forms
-      - ./data/files/submissions:/share/submissions
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  clean-up-submission:
-    image: lblod/clean-up-submission-service:1.1.0
-    volumes:
-      - ./data/files:/share
     labels:
       - "logging=true"
     restart: always
@@ -362,6 +314,33 @@ services:
   ################################################################################
   # DELTA CONSUMERS
   ################################################################################
+
+  ################################################################################
+  # LOKET SUBSIDIE CONSUMER
+  ################################################################################
+  subsidies-consumer:
+    image: lblod/delta-consumer:0.0.21
+    environment:
+      DCR_SERVICE_NAME: "subsidies-consumer"
+      DCR_SYNC_BASE_URL: "https://loket.lblod.info" # replace with link to Loket API
+      DCR_SYNC_FILES_PATH: "/sync/subsidies/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/SubsidiesCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/subsidies"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/deltaSync/subsidies"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/subsidies-consumer"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lblod.info/sync/subsidies/login"
+      INGEST_GRAPH: "http://mu.semte.ch/temp-file-ingest-graph"
+    volumes:
+      - ./data/files/consumer-files/subsidies:/consumer-files/
+      - ./config/subsidies-consumer/subsidy-files-dispatching:/config/triples-dispatching/custom-dispatching
+      - ./data/files:/share
+    restart: always
+    labels:
+      - "logging=true"
+
   ################################################################################
   # OP PUBLIC CONSUMER
   ################################################################################
