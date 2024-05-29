@@ -98,14 +98,6 @@
   :resource-base (s-url "http://data.lblod.info/id/identificatoren/")
   :on-path "memberships")
 
-(define-resource administrative-unit ()
-  :class (s-prefix "besluit:Bestuurseenheid")
-  :super `((s-prefix "organization"))
-  :has-one `((classification :via ,(s-prefix "org:classification")
-                             :as "administrative-unit-classification-code"))
-  :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/")
-  :on-path "administrative-units")
-
 (define-resource identifier ()
   :class (s-prefix "adms:Identifier")
   :properties `((:notation :string ,(s-prefix "skos:notation"))
