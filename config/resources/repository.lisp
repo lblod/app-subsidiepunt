@@ -80,3 +80,7 @@
 (add-prefix "organisatie" "https://data.vlaanderen.be/ns/organisatie#")
 
 (add-prefix "pera" "http://publications.europa.eu/resource/authority/")
+
+(add-prefix "fv" "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#")
+(add-prefix "ver" "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/")
+(add-prefix "lblodgeneriek" "https://data.lblod.info/vocabularies/generiek/")
