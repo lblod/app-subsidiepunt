@@ -131,3 +131,43 @@
   :features '(include-uri)
   :resource-base (s-url "http://data.lblod.info/id/contact-punten/")
   :on-path "contact-points")
+
+(define-resource activity ()
+  :class (s-prefix "skos:Concept")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/")
+  :on-path "activities"
+)
+
+
+(define-resource recognition ()
+  :class (s-prefix "fv:Erkenning")
+  :has-one `((association :via ,(s-prefix "fv:heeftErkenning")
+                          :inverse t
+                          :as "association"))
+  :resource-base (s-url "http://data.lblod.info/id/erkenningen/")
+  :on-path "recognitions"
+)
+
+;; TODO: fix duplicate site resource, combine into 1? Conflicting property(naming)
+(define-resource site ()
+  :class (s-prefix "org:Site")
+  :properties `((:description :string ,(s-prefix "dct:description")))
+  :has-many `((contact-points :via ,(s-prefix "org:siteAddress")
+                              :as "contact-point")
+              (associations :via ,(s-prefix "org:hasSite")
+                            :inverse t
+                            :as "association"))
+  :has-one `((address :via ,(s-prefix "organisatie:bestaatUit")
+                      :as "address")
+             (site-type :via ,(s-prefix "ere:vestigingstype")
+                        :as "site-type"))
+  :resource-base (s-url "http://data.lblod.info/id/vestigingen/")
+)
+
+(define-resource site-type ()
+  :class (s-prefix "code:TypeVestiging")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :resource-base (s-url "http://lblod.data.gift/concepts/")
+)
+
