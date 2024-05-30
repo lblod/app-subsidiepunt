@@ -8,7 +8,7 @@
   ;; :has-one `((classification :via ,(s-prefix "org:classification") :as "administrative-unit-classification-code"))
 
 ;;"RESHUFFLED" from slave-besluit.lisp
-(define-resource bestuurseenheid (organization) ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
+(define-resource bestuurseenheid () ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
   :class (s-prefix "besluit:Bestuurseenheid")
   :properties `((:naam :string ,(s-prefix "skos:prefLabel"))
                 (:alternatieve-naam :string-set ,(s-prefix "skos:altLabel"))
