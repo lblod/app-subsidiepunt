@@ -60,7 +60,11 @@
                          :inverse t
                          :as "lid")
              (tijdsinterval :via ,(s-prefix "org:memberDuring")
-                            :as "lid-gedurende"))
+                            :as "lid-gedurende")
+             (person :via ,(s-prefix "org:member")
+                     :as "person")
+             (association :via ,(s-prefix "org:organization")
+                          :as "association"))
   :resource-base (s-url "http://data.lblod.info/id/lidmaatschappen/")
   :features '(include-uri)
   :on-path "lidmaatschappen")
@@ -113,7 +117,9 @@
              (identificator :via ,(s-prefix "adms:identifier")
                             :as "identificator")
              (geslacht-code :via ,(s-prefix "persoon:geslacht")
-                            :as "geslacht"))
+                            :as "geslacht")
+             (site :via ,(s-prefix "org:basedAt")
+                            :as "site"))
   :resource-base (s-url "http://data.lblod.info/id/personen/")
   :features '(include-uri)
   :on-path "personen")
@@ -136,7 +142,13 @@
 
 (define-resource identificator ()
   :class (s-prefix "adms:Identifier")
-  :properties `((:identificator :string ,(s-prefix "skos:notation"))) ;; TODO: should have a specific type
+  :properties `((:identificator :string ,(s-prefix "skos:notation")) ;; TODO: should have a specific type
+              (:local-name :string ,(s-prefix "skos:prefLabel")))
+  :has-one `((identifier-type :via ,(s-prefix "dct:type")
+                            :as "identifier-type")
+            (identifying :via ,(s-prefix "adms:identified")
+                        :inverse t
+                        :as "organization"))
   :resource-base (s-url "http://data.lblod.info/id/identificatoren/")
   :features '(include-uri)
   :on-path "identificatoren")
