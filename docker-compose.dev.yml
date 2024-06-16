@@ -40,15 +40,9 @@ services:
     restart: "no"
   file:
     restart: "no"
-  dbcleanup:
-    restart: "no"
   deliver-email-service:
     restart: "no"
   report-generation:
-    restart: "no"
-  person-uri-for-social-security-number:
-    restart: "no"
-  sync-with-kalliope-error-notification:
     restart: "no"
   subsidy-applications-management:
     environment:
@@ -70,12 +64,4 @@ services:
     environment:
       EMAIL_FROM: "Subsidiepunt Local <subsidiepunt-development@redpencil.io>"
       EMAIL_TO: "subsidiepunt-development@redpencil.io"
-    restart: "no"
-  update-bestuurseenheid-mock-login:
-    restart: "no"
-  reasoner:
-    restart: "no"
-  op-public-consumer:
-    restart: "no"
-  sparql-authorization-wrapper:
     restart: "no"
