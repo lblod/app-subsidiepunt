@@ -116,12 +116,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  dbcleanup:
-    image: lblod/db-cleanup-service:0.3.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   deliver-email-service:
     image: redpencil/deliver-email-service:0.2.0
     environment:
@@ -135,21 +129,6 @@ services:
     volumes:
       - ./data/files:/share
       - ./config/reports/:/config/
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  person-uri-for-social-security-number:
-    image: lblod/person-uri-for-social-security-number-service:0.4.0
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  sync-with-kalliope-error-notification:
-    image: lblod/sync-with-kalliope-error-notification-service:0.1.3
-    environment:
-      EMAIL_FOLDER: "http://data.lblod.info/id/mail-folders/2"
-      EMAIL_GRAPH: "http://mu.semte.ch/graphs/system/email"
     labels:
       - "logging=true"
     restart: always
@@ -194,20 +173,6 @@ services:
       - ./config/error-alert:/config/
     labels:
       - "logging=true"
-    restart: always
-    logging: *default-logging
-  update-bestuurseenheid-mock-login:
-    image: lblod/update-bestuurseenheid-mock-login-service:0.1.2
-    volumes:
-      - ./config/mock-login:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  sparql-authorization-wrapper:
-    image: lblod/sparql-authorization-wrapper-service:1.0.0
-    volumes:
-      - ./config/sparql-authorization-wrapper:/config
     restart: always
     logging: *default-logging
   ################################################################################
@@ -314,66 +279,3 @@ services:
   ################################################################################
   # DELTA CONSUMERS
   ################################################################################
-
-  ################################################################################
-  # LOKET SUBSIDIE CONSUMER
-  ################################################################################
-  subsidies-consumer:
-    image: lblod/delta-consumer:0.0.21
-    environment:
-      DCR_SERVICE_NAME: "subsidies-consumer"
-      DCR_SYNC_BASE_URL: "https://loket.lblod.info" # replace with link to Loket API
-      DCR_SYNC_FILES_PATH: "/sync/subsidies/files"
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/SubsidiesCacheGraphDump"
-      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/subsidies"
-      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/deltaSync/subsidies"
-      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/subsidies-consumer"
-      DCR_DISABLE_INITIAL_SYNC: "true"
-      DCR_KEEP_DELTA_FILES: "true"
-      DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      DCR_SYNC_LOGIN_ENDPOINT: "https://loket.lblod.info/sync/subsidies/login"
-      INGEST_GRAPH: "http://mu.semte.ch/temp-file-ingest-graph"
-    volumes:
-      - ./data/files/consumer-files/subsidies:/consumer-files/
-      - ./config/subsidies-consumer/subsidy-files-dispatching:/config/triples-dispatching/custom-dispatching
-      - ./data/files:/share
-    restart: always
-    labels:
-      - "logging=true"
-
-  ################################################################################
-  # OP PUBLIC CONSUMER
-  ################################################################################
-  reasoner:
-    image: eyereasoner/reasoning-service:increased-stack-limit
-    volumes:
-      - ./config/reasoner:/config
-    restart: always
-    labels:
-      - "logging=true"
-    logging: *default-logging
-  op-public-consumer:
-    image: lblod/delta-consumer:0.0.24
-    environment:
-      DCR_SERVICE_NAME: "op-public-consumer"
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info" # replace with link to OP API
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/PublicCacheGraphDump"
-      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/op-public"
-      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/deltaSync/op-public"
-      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-public-consumer"
-      DCR_DISABLE_INITIAL_SYNC: "true"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
-      BATCH_SIZE: 1000
-      DCR_SYNC_FILES_PATH: "/sync/public/files"
-      FILE_SYNC_GRAPH: "http://mu.semte.ch/graphs/temp/original-physical-files-data"
-      KEEP_DELTA_FILES: "true"
-      DCR_ENABLE_DELTA_CONTEXT: "true"
-      DCR_LANDING_ZONE_DATABASE: "publication-triplestore"
-      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/op-public"
-    volumes:
-      - ./config/op-consumer/public:/config/triples-dispatching/custom-dispatching
-      - ./data/files/consumer-files/op-public:/consumer-files/
-    restart: always
-    labels:
-      - "logging=true"
-    logging: *default-logging
