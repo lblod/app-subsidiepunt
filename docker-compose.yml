@@ -15,6 +15,16 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  dashboard:
+    image: lblod/frontend-dashboard:1.6.0
+    environment:
+      EMBER_LOGIN_ROUTE: "mock-login"
+    links:
+      - identifier:backend
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   identifier:
     image: semtech/mu-identifier:1.10.1
     labels:
