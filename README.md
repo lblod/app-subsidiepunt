@@ -21,11 +21,7 @@ This repository harvest two setups.  The base of these setups resides in the sta
 You'll need a beefy machine, with at least 16 GB of ram.
 
 #### Running the dev setup
-First install `git-lfs` (see <https://github.com/git-lfs/git-lfs/wiki/Installation>)
 ```
- # Ensure git-lfs is enabled after installation
-  git lfs install
-
   # Clone this repository
   git clone https://github.com/lblod/app-digitaal-loket.git
 
@@ -41,35 +37,7 @@ And an `.env` file with following content:
 ```
 COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml:docker-compose.override.yml
 ```
-##### If you start for the first time
-The subsidiepunt app is huge, and a lot of data is being intialized. We want to make sure you don't overload your machine too much doing this the first time.
-It's an optional step, if you trust your machine is powerful enough, you can move on.
-This step should only be done once.
-First start virtuoso and let it setup itself
-```
-docker-compose up virtuoso
-```
-Wait for the logs
-
-```
-HTTP/WebDAV server online at 8890
-Server online at 1111 (pid 1)
-```
-Stop the service, usually `ctrl+c`
-Then run the migrations
-```
-drc up migrations
-```
-This will take a while. You may choose to monitor the migrations service in a separate terminal to and wait for the overview of all migrations to appear: `docker-compose logs -f --tail=100 migrations`. When finished it should look similar to this:
-
-```
-[2023-04-07 20:13:15] INFO  WEBrick 1.4.2
-[2023-04-07 20:13:15] INFO  ruby 2.5.1 (2018-03-29) [x86_64-linux]
-== Sinatra (v1.4.8) has taken the stage on 80 for production with backup from WEBrick
-[2023-04-07 20:13:15] INFO  WEBrick::HTTPServer#start: pid=13 port=80
-```
-
-##### Normal start
+##### Starting the app
 This should be your go-to way of starting the stack.
 ```
 docker-compose up # or 'docker-compose up -d' if you want to run it in the background
@@ -101,95 +69,97 @@ Once the migrations have ran, you can start developing your application by conne
   OpenAPI documentation can be generated using [cl-resources-openapi-generator](https://github.com/mu-semtech/cl-resources-openapi-generator).
 
 ### Ingesting external data
-#### Administrative units
-Only the 'normal' (i.e. non-worship) administrative units are provided by default.
-If you need to ingest the data for worship administrative units, you will need to ingest the data through deltas from:
-
-  * [Organisations portal](https://organisaties.abb.vlaanderen.be)
-    * Note: this app also has a development and qa environment available.
-##### steps
-  - The next steps assume `.env` file has been set, cf. supra.
-  - Ensure the following configuration is defined in the `docker-compose.override.yml`
-    ```
-    op-public-consumer:
-        environment:
-          DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be"
-          DCR_DISABLE_INITIAL_SYNC: "true"
-          DCR_DISABLE_DELTA_INGEST: "true"
-    update-bestuurseenheid-mock-login:
-        entrypoint: ["echo", "Service-disabled to not confuse the service"]
-    ```
-  - `docker-compose up -d`
-  - Ensure all migrations have run and the stack is started and running properly.
-  - Extra step in case of a resync, run:
-    ```
-    docker-compose exec op-public-consumer curl -X POST http://localhost/flush
-    docker-compose logs -f --tail=200 op-public-consumer
-    ```
-      - This should end with `Flush successful`.
-  - Update `docker-compose.override.yml` with
-    ```
-      op-public-consumer:
-        environment:
-          DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be"
-          DCR_DISABLE_INITIAL_SYNC: "false" # -> this changed
-          DCR_DISABLE_DELTA_INGEST: "false" # -> this changed
-      update-bestuurseenheid-mock-login:
-        entrypoint: ["echo", "Service-disabled to not confuse the service"]
-    ```
- - `docker-compose up -d`
- - This might take a while if `docker-compose logs op-public-consumer |grep success`
-      Returns: `Initial sync http://redpencil.data.gift/id/job/URI has been successfully run`; you should be good.
-      (Your computer will also stop making noise)
- - In `docker-compose.override.yml`, remove the disabled service
-       ```
-        update-bestuurseenheid-mock-login:
-          entrypoint: ["echo", "Service-disabled to not confuse the service"]
-       ```
-       The mock-logins will be created when a cron job kicks in. You can control the moment it triggers by playing with the `CRON_PATTERN` variable.
-       See the `README.md` of the related service for more options.
+Currently no external data is to be ingested. This might change over time.
 
 ### Setting up the delta-producers related services
 
-To make sure the app can share data, producers need to be set up. There is an intial sync, that is potentially very expensive, and must be started manually
+To ensure the app can share data, producers need to be set up. There is an initial sync that is potentially very expensive and must be started manually. In the case of this app, there is only one delta-stream: the one for sharing information about the existing subsidies-dossiers. Note, of course, this might evolve over time.
+We will keep the procedure here for subsidies; SIMILAR procedure should be expected if other types of data need to be shared. Consider the following bits of text as a tutorial rather than general documentation.
 
-#### producers mandatarissen/leidinggevenden/submissions
+⚠️We are currently referring to slightly older versions of the delta production services. If you go to the repositories of the respective services, ensure you are looking at the correct versions. ⚠
 
-(Note: similar for other producers)
+#### High level description
+Delta production consists of four stages.
+
+The first stage is an initial sync of the publication graph. This stage takes the necessary data from the source graph and populates the publication graph. Afterward, it creates a dump file (as a `dcat:Dataset`) to make it available for consumers. The reasons for this stage are:
+- Usually, there is already relevant data available in the database for consumers.
+- Packaging it as a dump file speeds up the first sync for consumers compared to using small delta files.
+
+The second stage, after the initial sync, is the 'normal operation mode'. In this stage, internal deltas come in, and the publication graph maintainer decides whether the data needs to be published to the outside world.
+
+The third stage is 'healing mode', where a periodic job checks if any internal deltas were missed and corrects this by updating the published information. This can occur due to migration (not creating deltas), service crashes, premature shutdowns, etc.
+
+The fourth stage involves creating a periodic dump file (or snapshot) of the published data. This allows new consumers to start from the latest snapshot instead of replaying all the small delta files from the beginning.
+
+Note: All these steps can be turned off, but this is not the default setting.
+
+#### Setting up producer for subsidies: initial sync
+To ensure that the app can share data, it is necessary to set up the producers. First, ensure a significant dataset is present in the database.
+The [delta-producer-background-jobs-initiator](https://github.com/lblod/delta-producer-background-jobs-initiator) is responsible for initiating the initial sync job. To trigger this job, follow the steps below.
 
 1. make sure the app is up and running, the migrations have run
 2. in docker-compose.override.yml, make sure the following configuration is provided:
 ```
-  delta-producer-background-jobs-initiator-mandatarissen: # or
+  delta-producer-background-jobs-initiator-subsidies:
     environment:
       START_INITIAL_SYNC: 'true'
 ```
-3. `drc up -d delta-producer-background-jobs-initiator-mandatarissen`
-4. You can follow the status of the job, through the dashboard
+3. `drc up -d delta-producer-background-jobs-initiator-subsidies`
+4. You can follow the status of the job, through the dashboard.
+
+##### Troubleshooting
+Please note that the system expects this initial sync job to run only once. If something fails (or gets stuck on busy for an excessive amount of time), delete the job through the dashboard. Assuming the configuration is still the same, simply run `drc restart delta-producer-background-jobs-initiator`.
+There are also other ways to trigger this job; please refer to the docs of `delta-producer-background-jobs-initiator`.
+Also; if something goes wrong; the first logs to check are these of the `delta-producer-publication-graph-maintainer-subsidies`.
+
+#### Setting up mandatees-decisions 'normal operation mode'
+If the initial sync is successful, it should automatically work. Note that if the healing job is running, it will temporarily disable normal operation mode until the healing is finished.
+
+#### Setting up subsidies 'healing mode'
+If the initial sync is successful, the default configuration will ensure healing kicks in periodically. The service for managing these jobs is again [delta-producer-background-jobs-initiator](https://github.com/lblod/delta-producer-background-jobs-initiator). :warning: again, make sure to look at the proper version.
+For the exact parameters; check the configuration in the `docker-compose.yml`
+
+##### Troubleshooting
+Please note that the system expects only one healing job to run at a time. If you want to restart it, first delete the previous healing job through the dashboard. To restart the healing job manually, please refer to the documentation of `delta-producer-background-jobs-initiator`.
+
+#### Setting up subsidies dumps
+Dumps are used by consumers as a snapshot to start from, this is faster than consuming all delta's. They are generated by the [delta-producer-dump-file-publisher](https://github.com/lblod/delta-producer-dump-file-publisher) which is started by a task created by the [delta-producer-background-jobs-initiator](https://github.com/lblod/delta-producer-background-jobs-initiator). The necessary config is already present in this repository. It's recommended to set up dumps on a regular interval.
+Check `CRON_PATTERN_DUMP_JOB` variable to control the cron-job
+
+Make sure to re-created the background-job-initiator service after changing the config.
+
+Dumps will be generated in [data/files/delta-producer-dumps](data/files/delta-producer-dumps/).
+
+```bash
+docker compose up -d delta-producer-background-jobs-initiator-subsidies
+```
+#### Troubleshooting
+Please note that the system expects only one dump job to run at a time.
+You can delete the respective job in the `jobs-dashboard`. To trigger it manually on the spot, refer to the `delta-producer-background-jobs-initiator` documentation. Also, if something goes wrong, the first logs to check are those of the `delta-producer-dump-file-publisher`.
 
 ##### Deltas producer: extra considerations
-###### Separate publication-triplestore
-Due to performance issues, related to the high usage, a separate triplestore (virtuoso) has been introduced to offload the publication of the data.
-This architectural change is currently under evaluation. The criteria for evaluation will be: the performance win vs the practical consequences of such change.
+###### Why a Separate Triple Store: Publication Triplestore?
 
-If deemed succesful, we might consider moving the remaining publication graphs to this triplestore too (mandatarissen and leidinggevenden).
+The publication triple store was introduced for several reasons:
 
-As a consequence, producers using the separate triplestore, will also publish and host the json-diff files.
-Mainly to simplify the transition to a separate publication triple store (else we would need a separate mu-auth and deltanotifier).
-In essence, it takes over https://github.com/lblod/delta-producer-json-diff-file-publisher, although both can still be combined.
+- The data it contains is operational data (published info) which is not the source data of your app. This makes it easier to manage code-wise, as you don't need to account for this data in your original triplestore (e.g., migrations remain the same, and the code doesn't need to consider that graph).
+- Performance-wise, it is usually better for the source database since it doesn't need to manage a potential duplicate of your data.
+- In some apps, this triple store is also used as the store for the landing zone of the consumer, serving as a safe space for messy (incomplete) data, which you can filter out when storing in the source database. 
+
+It's a bit of a workaround for the future features of mu-auth.
 
 ###### Sharing of attachments and other file data.
 If files need to be shared over deltas (attachments, form-data, cached-files) you will need to set in a docker-compose.override.yml
 ```
 #(...)
-  delta-producer-publication-graph-maintainer-submissions:
+  delta-producer-publication-graph-maintainer-subsidies:
     KEY: "foo-bar
 ```
 This will needs to be set in the consuming stack too. See [delta-producer-publication-graph-maintainer](https://github.com/lblod/delta-producer-publication-graph-maintainer) for more informmation on the implications.
 
 ##### Additional notes
 
-###### Performance (mandatarissen/leidinggevenden)
+###### Performance
 - The default virtuoso settings might be too weak if you need to ingest the production data. Hence, there is better config, you can take over in your `docker-compose.override.yml`
 ```
   virtuoso:
