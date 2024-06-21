@@ -214,5 +214,3 @@
   :resource-base (s-url "http://data.lblod.info/id/zittingen/")
   :features '(include-uri)
   :on-path "zittingen")
-
-(read-domain-file "slave-publicatie-gn-domain.lisp")

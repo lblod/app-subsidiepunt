@@ -21,42 +21,14 @@
              (bestuurseenheid-classificatie-code :via ,(s-prefix "besluit:classificatie")
                                                  :as "classificatie"))
 
-  :has-many `((contact-punt :via ,(s-prefix "schema:contactPoint")
-                            :as "contactinfo")
+  :has-many `(
               (bestuursorgaan :via ,(s-prefix "besluit:bestuurt")
                               :inverse t
                               :as "bestuursorganen")
-              (vendor :via ,(s-prefix "muAccount:canActOnBehalfOf")
-                              :inverse t
-                              :as "vendors")
               (participation :via ,(s-prefix "m8g:playsRole")
                             :as "participations"))
 
   :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/")
   :features '(include-uri)
   :on-path "bestuurseenheden"
-)
-
-;;"RESHUFFLED" from worship-units.lisp
-(define-resource worship-administrative-unit (bestuurseenheid)
-  :class (s-prefix "ere:EredienstBestuurseenheid")
-  :has-one `((recognized-worship-type :via ,(s-prefix "ere:typeEredienst")
-                                      :as "recognized-worship-type"))
-  :has-many `((minister-position :via ,(s-prefix "ere:wordtBediendDoor")
-                                 :as "minister-positions"))
-  :resource-base (s-url "http://data.lblod.info/id/eredienstBestuurseenheden/")
-  :features '(include-uri)
-  :on-path "worship-administrative-units"
-)
-
-;;"RESHUFFLED" from worship-units.lisp
-(define-resource worship-service (worship-administrative-unit)
-  :class (s-prefix "ere:BestuurVanDeEredienst")
-  :properties `((:denomination :string ,(s-prefix "ere:denominatie"))
-                (:cross-border :boolean ,(s-prefix "ere:grensoverschrijdend")))
-  :has-one `((local-involvement :via ,(s-prefix "org:organization")
-                          :as "local-involvement"))
-  :resource-base (s-url "http://data.lblod.info/id/besturenVanDeEredienst/")
-  :features '(include-uri)
-  :on-path "worship-services"
 )
