@@ -76,7 +76,7 @@ Currently no external data is to be ingested. This might change over time.
 To ensure the app can share data, producers need to be set up. There is an initial sync that is potentially very expensive and must be started manually. In the case of this app, there is only one delta-stream: the one for sharing information about the existing subsidies-dossiers. Note, of course, this might evolve over time.
 We will keep the procedure here for subsidies; SIMILAR procedure should be expected if other types of data need to be shared. Consider the following bits of text as a tutorial rather than general documentation.
 
-:warning: We are currently referring to slightly older versions of the delta production services. If you go to the repositories of the respective services, ensure you are looking at the correct versions. :warning
+⚠️We are currently referring to slightly older versions of the delta production services. If you go to the repositories of the respective services, ensure you are looking at the correct versions. ⚠
 
 #### High level description
 Delta production consists of four stages.
