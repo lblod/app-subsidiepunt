@@ -120,7 +120,7 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "o-subs-rwf",
         useage: [:read, :write, :read_for_write],
-        access: access_by_role( "LoketLB-subsidies" ),
+        access: access_by_role( "SubsidiepuntGebruiker" ),
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{
