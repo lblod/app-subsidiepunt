@@ -16,7 +16,7 @@
         "http://purl.org/dc/terms/creator"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie"
     },
@@ -35,7 +35,7 @@
         "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#url"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"
     },
@@ -55,7 +55,7 @@
         "http://www.w3.org/ns/adms#status"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject"
     },
@@ -67,7 +67,7 @@
         "http://data.europa.eu/m8g/role"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://data.europa.eu/m8g/Participation"
     },
@@ -76,7 +76,7 @@
         "http://data.europa.eu/m8g/playsRole"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid"
     },
@@ -91,7 +91,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/plan-samenleven/priority"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/plan-samenleven/PlanLivingTogetherEntry"
     },
@@ -104,7 +104,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/plan-samenleven/planLivingTogetherEntry"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/PlanLivingTogetherTable"
     },
@@ -239,7 +239,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/ApplicationForm"
     },
@@ -269,7 +269,7 @@
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/public",
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelAanbod"
     },
@@ -287,7 +287,7 @@
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/public",
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/SubsidiemaatregelAanbodReeks"
     },
@@ -420,7 +420,7 @@
         "http://xmlns.com/foaf/0.1/familyName"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://schema.org/ContactPoint"
     },
@@ -430,7 +430,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/decision-upload/FormData"
     },
@@ -440,7 +440,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/pictures-upload/FormData"
     },
@@ -450,7 +450,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/report-upload/FormData"
     },
@@ -460,7 +460,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/award-report-upload/FormData"
     },
@@ -470,7 +470,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/accountability-note-upload/FormData"
     },
@@ -480,7 +480,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/justification-costs-upload/FormData"
     },
@@ -490,7 +490,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/justification-expropriations-upload/FormData"
     },
@@ -500,7 +500,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/invoice-upload/FormData"
     },
@@ -512,7 +512,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://schema.org/BankAccount"
     },
@@ -524,7 +524,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostEntry"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#EstimatedCostTable"
     },
@@ -538,7 +538,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#share"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#EstimatedCostEntry"
     },
@@ -550,7 +550,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveEntry"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#ObjectiveTable"
     },
@@ -564,7 +564,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#kilometers"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#ObjectiveEntry"
     },
@@ -574,7 +574,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/climate/attachment/FormData"
     },
@@ -584,7 +584,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/climate/signed-pact/FormData"
     },
@@ -597,7 +597,7 @@
         "http://data.lblod.info/vocabularies/subsidie/climate/climateEntry"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/ClimateTable"
     },
@@ -615,7 +615,7 @@
         "http://purl.org/linked-data/cube#order"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://data.lblod.info/vocabularies/subsidie/climate/ClimateEntry"
     },
@@ -626,7 +626,7 @@
         "http://purl.org/dc/terms/description"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/contact-tracing/contact-and-source-tracking-objective-one/FormData"
     },
@@ -637,7 +637,7 @@
         "http://purl.org/dc/terms/description"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/contact-tracing/contact-and-source-tracking-objective-two/FormData"
     },
@@ -648,7 +648,7 @@
         "http://purl.org/dc/terms/description"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/contact-tracing/contact-and-source-tracking-objective-three/FormData"
     },
@@ -659,7 +659,7 @@
         "http://purl.org/dc/terms/description"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/contact-tracing/contact-and-source-tracking-objective-four/FormData"
     },
@@ -670,7 +670,7 @@
         "http://mu.semte.ch/vocabularies/ext/engagementEntry"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/EngagementTable"
     },
@@ -683,7 +683,7 @@
         "http://mu.semte.ch/vocabularies/ext/volunteers"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://mu.semte.ch/vocabularies/ext/EngagementEntry"
     },
@@ -698,7 +698,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/additionalActionTargetedAudienceOther"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/additonalAction"
     },
@@ -709,7 +709,7 @@
         "http://mu.semte.ch/vocabularies/ext/applicationFormEntry"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/ApplicationFormTable"
     },
@@ -724,7 +724,7 @@
         "http://purl.org/dc/terms/created"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://mu.semte.ch/vocabularies/ext/ApplicationFormEntry"
     },
@@ -734,7 +734,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/ukraine-nooddorpen/accountability-summary/FormData"
     },
@@ -744,7 +744,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/ukraine-nooddorpen/accountability-proof/FormData"
     },
@@ -754,7 +754,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/urban-renewal/urban-renewal-application-form/FormData"
     },
@@ -764,7 +764,7 @@
         "http://purl.org/dc/terms/hasPart"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/urban-renewal/urban-renewal-attachments/FormData"
     },
@@ -778,7 +778,7 @@
         "http://schema.org/jobTitle"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://mu.semte.ch/vocabularies/ext/PoliticalReferenceContactPoint"
     },
@@ -792,7 +792,7 @@
         "http://mu.semte.ch/vocabularies/ext/financingAmount"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://mu.semte.ch/vocabularies/ext/FinancingPartner"
     },
@@ -809,7 +809,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelPrivatePartnerListingUnit"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelUnit"
     },
@@ -823,7 +823,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelTimingListingUnitEindDatum"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelTimingUnit"
     },
@@ -836,7 +836,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelStadListingUnitBedrag"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelStadUnit"
     },
@@ -849,7 +849,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelPubliekePartnerListingUnitBedrag"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelPubliekePartnerListingUnit"
     },
@@ -862,7 +862,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelPrivatePartnerListingBedrag"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/projectOnderdeelPrivatePartnerListingUnit"
     },
@@ -876,7 +876,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnitBedrag"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/organizations/.*/LoketLB-subsidies"
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit"
     }
