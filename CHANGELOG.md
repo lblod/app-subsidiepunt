@@ -1,5 +1,7 @@
 # 
-## v1.0.0
+## v1.1.1 HOTFIX
+- Add missing rdf types to exisiting form-data
+## v1.1.0
 ### General
 #### Migrations
 - append-loket-admin-rights-to-abb
