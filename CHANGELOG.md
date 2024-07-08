@@ -1,4 +1,7 @@
-# 
+# Changelog
+## v1.1.2 
+### Frontend
+- v1.1.2
 ## v1.1.1 HOTFIX
 - Add missing rdf types to exisiting form-data
 ## v1.1.0
