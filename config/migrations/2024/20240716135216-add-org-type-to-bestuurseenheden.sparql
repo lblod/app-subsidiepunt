@@ -7,4 +7,5 @@ WHERE {
   GRAPH ?g {
     ?subject a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>.
   }
+  BIND(IRI(STR(?g)) AS ?g)
 }
