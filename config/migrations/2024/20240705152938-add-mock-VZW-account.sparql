@@ -58,7 +58,7 @@ INSERT {
      BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
 
      VALUES ?g {
-        <http://mu.semte.ch/graphs/organizations/3691beca-84ba-40ad-be53-d2b009826f70>
+        <http://mu.semte.ch/graphs/organizations/3e5edbbb-26e0-49f9-9082-55f2297bd73a>
         <http://mu.semte.ch/graphs/public> 
      } 
 }
