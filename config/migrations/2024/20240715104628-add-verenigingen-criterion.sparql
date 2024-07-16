@@ -9,15 +9,16 @@ INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
     # Create ACMIDMOrganisationClassification concept scheme
     <http://data.vlaanderen.be/id/conceptscheme/ACMIDMOrganisationClassification> a <http://www.w3.org/2004/02/skos/core#ConceptScheme>;
-      skos:prefLabel "ACM/IDM Organisation Classification" ;
-      skos:definition "...". # TODO: which definition?
+      skos:prefLabel "ACM/IDM OrganisatieClassificatie"@nl ;
+      skos:prefLabel "ACM/IDM OrganisationClassification"@en ;
+      skos:definition "Lijst van type organisaties binnen ACM/IDM"@nl .
 
     # Add concept-scheme for economische actors
     <http://data.vlaanderen.be/id/conceptscheme/ACMIDMOrganisationClassification/c6157470-9fb3-4e8d-a9b7-8737dbfa3642>
       rdf:type skos:Concept ;
       skos:prefLabel "Economische actor"@nl ;
       skos:prefLabel "Economic actor"@en ;
-      skos:definition "... " ; # TODO: which definition?
+      skos:definition "Economische actoren binnen ACM/IDM"@nl ;
       skos:topConceptOf ns3:ACMIDMOrganisationClassification ;
       skos:inScheme ns3:ACMIDMOrganisationClassification .
 
