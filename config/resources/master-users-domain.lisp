@@ -6,8 +6,8 @@
                 (:rijksregister-nummer :string ,(s-prefix "dct:identifier")))
   :has-many `((account :via ,(s-prefix "foaf:account")
                        :as "account")
-              (organisatie :via ,(s-prefix "foaf:member")
-                              :as "organisaties")
+              (organization :via ,(s-prefix "foaf:member")
+                              :as "organizations")
              )
   :on-path "gebruikers"
 )

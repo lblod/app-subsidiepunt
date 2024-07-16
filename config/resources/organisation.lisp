@@ -1,4 +1,4 @@
-(define-resource organisatie ()
+(define-resource organization ()
   :class (s-prefix "org:Organization")
   :properties `((:name :string ,(s-prefix "skos:prefLabel")))
   :has-one `(
@@ -36,7 +36,7 @@
 ;; ORDER REALLY MATTERS FOR NOW!
 
 ;;"RESHUFFLED" from slave-besluit.lisp
-(define-resource bestuurseenheid (organisatie) ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
+(define-resource bestuurseenheid (organization) ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
   :class (s-prefix "besluit:Bestuurseenheid")
   :properties `((:naam :string ,(s-prefix "skos:prefLabel"))
                 (:alternatieve-naam :string-set ,(s-prefix "skos:altLabel"))
