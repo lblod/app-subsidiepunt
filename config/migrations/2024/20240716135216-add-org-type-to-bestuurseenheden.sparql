@@ -1,0 +1,10 @@
+INSERT {
+  GRAPH ?g {
+    ?subject a <http://www.w3.org/ns/org#Organization>.
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?subject a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>.
+  }
+}
