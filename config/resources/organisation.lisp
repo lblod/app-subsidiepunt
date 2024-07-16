@@ -1,3 +1,34 @@
+(define-resource organisatie ()
+  :class (s-prefix "org:Organization")
+  :properties `((:name :string ,(s-prefix "skos:prefLabel")))
+  :has-one `(
+            (organization-classification-codes :via ,(s-prefix "org:classification")
+                              :as "classificatie"))
+  :has-many `(
+              (identifier :via ,(s-prefix "adms:identifier")
+                              :as "identifiers"))
+
+  :resource-base (s-url "http://data.lblod.info/id/organisaties/")
+  :features '(include-uri)
+  :on-path "organisaties"
+)
+
+(define-resource organization-classification-codes ()
+  :class (s-prefix "ext:OrganizationClassificationCode")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :resource-base (s-url "http://data.vlaanderen.be/id/concept/OrganizationClassificationCode/")
+  :features '(include-uri)
+  :on-path "organization-classification-codes"
+)
+
+(define-resource identifier ()
+  :class (s-prefix "adms:Identifier")
+  :properties `((:id-name :string ,(s-prefix "skos:notation")))
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/")
+  :features '(include-uri)
+  :on-path "identifiers"
+)
+
 ;; re-shuffle declaration of files, because
 ;; mu-resource 1.21.0 is sensible when files
 ;; are declared vs loaded the class hierarchy
@@ -5,7 +36,7 @@
 ;; ORDER REALLY MATTERS FOR NOW!
 
 ;;"RESHUFFLED" from slave-besluit.lisp
-(define-resource bestuurseenheid () ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
+(define-resource bestuurseenheid (organisatie) ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
   :class (s-prefix "besluit:Bestuurseenheid")
   :properties `((:naam :string ,(s-prefix "skos:prefLabel"))
                 (:alternatieve-naam :string-set ,(s-prefix "skos:altLabel"))
@@ -32,3 +63,4 @@
   :features '(include-uri)
   :on-path "bestuurseenheden"
 )
+
