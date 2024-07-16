@@ -10,7 +10,7 @@
 
   :resource-base (s-url "http://data.lblod.info/id/organisaties/")
   :features '(include-uri)
-  :on-path "organisaties"
+  :on-path "organizations"
 )
 
 (define-resource organization-classification-codes ()
