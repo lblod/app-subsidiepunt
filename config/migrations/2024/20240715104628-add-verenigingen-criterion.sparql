@@ -1,9 +1,26 @@
 PREFIX lblodSubsidie: <http://lblod.data.gift/vocabularies/subsidie/>
 PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
 PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX ns3: <http://data.vlaanderen.be/id/conceptscheme/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
+    # Create ACMIDMOrganisationClassification concept scheme
+    <http://data.vlaanderen.be/id/conceptscheme/ACMIDMOrganisationClassification> a <http://www.w3.org/2004/02/skos/core#ConceptScheme>;
+      skos:prefLabel "ACM/IDM Organisation Classification" ;
+      skos:definition "...". # TODO: which definition?
+
+    # Add concept-scheme for economische actors
+    <http://data.vlaanderen.be/id/conceptscheme/ACMIDMOrganisationClassification/c6157470-9fb3-4e8d-a9b7-8737dbfa3642>
+      rdf:type skos:Concept ;
+      skos:prefLabel "Economische actor"@nl ;
+      skos:prefLabel "Economic actor"@en ;
+      skos:definition "... " ; # TODO: which definition?
+      skos:topConceptOf ns3:ACMIDMOrganisationClassification ;
+      skos:inScheme ns3:ACMIDMOrganisationClassification .
+
     # Add new criterion for verenigingen
     <http://data.lblod.info/id/criterions/28fe1648-dd25-4772-b5e9-0eed4e8f4b90>
       a <http://data.europa.eu/m8g/Criterion> ;
@@ -22,6 +39,6 @@ INSERT DATA {
      a <http://data.europa.eu/m8g/CriterionRequirement> ;
      mu:uuid "27499267-9fc8-4fa5-9ac6-d1b553ab342e" ;
      <http://purl.org/dc/terms/description> "Criteriumvereiste: het bestuur heeft classificatiecode vereniging." ;
-     lblodSubsidie:isSatisfiableBy <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/> . # TODO: add BestuurseenheidClassificatieCode for vereniging
+     lblodSubsidie:isSatisfiableBy <http://data.vlaanderen.be/id/conceptscheme/ACMIDMOrganisationClassification/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> .
   }
 }
