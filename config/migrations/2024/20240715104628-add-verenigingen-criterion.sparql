@@ -42,6 +42,6 @@ INSERT DATA {
      a <http://data.europa.eu/m8g/CriterionRequirement> ;
      mu:uuid "27499267-9fc8-4fa5-9ac6-d1b553ab342e" ;
      <http://purl.org/dc/terms/description> "Criteriumvereiste: het bestuur heeft classificatiecode economische actor." ;
-     lblodSubsidie:isSatisfiableBy <http://data.vlaanderen.be/id/conceptscheme/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> .
+     lblodSubsidie:isSatisfiableBy <http://data.lblod.info/id/conceptscheme/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> .
   }
 }
