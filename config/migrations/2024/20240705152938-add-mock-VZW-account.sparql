@@ -17,14 +17,16 @@ PREFIX regorg: <http://www.w3.org/ns/regorg#>
 PREFIX act: <http://data.lblod.info/id/concept/activiteit/>
 PREFIX pav: <http://purl.org/pav/>
 PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
 
-# MOCK VZW 
+# MOCK VZW
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
     <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization ;
         mu:uuid '3e5edbbb-26e0-49f9-9082-55f2297bd73a';
         skos:prefLabel "Mock VZW" ;
         dc:description "Mock VZW for testing" ;
+        besluit:classificatie <http://data.lblod.info/id/concept/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> ;
         adms:identifier <http://data.lblod.info/id/identificatoren/4faddea9-b959-4eed-aa4e-b6ec84b14249>.
 
     <http://data.lblod.info/id/identificatoren/4faddea9-b959-4eed-aa4e-b6ec84b14249> a adms:Identifier;
@@ -46,7 +48,7 @@ INSERT {
      ?account a foaf:OnlineAccount;
            mu:uuid ?uuidAccount;
            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-           ext:sessionRole "SubsidiepuntGebruiker". 
+           ext:sessionRole "SubsidiepuntGebruiker".
   }
 } WHERE {
      <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization;
@@ -59,6 +61,6 @@ INSERT {
 
      VALUES ?g {
         <http://mu.semte.ch/graphs/organizations/3e5edbbb-26e0-49f9-9082-55f2297bd73a>
-        <http://mu.semte.ch/graphs/public> 
-     } 
+        <http://mu.semte.ch/graphs/public>
+     }
 }
