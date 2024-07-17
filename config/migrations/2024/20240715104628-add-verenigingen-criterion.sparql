@@ -15,7 +15,7 @@ INSERT DATA {
       skos:definition "Lijst van type organisaties binnen ACM/IDM"@nl .
 
     # Add concept-scheme for economische actoren
-    <http://data.lblod.info/id/conceptscheme/c6157470-9fb3-4e8d-a9b7-8737dbfa3642>
+    <http://data.lblod.info/id/concept/c6157470-9fb3-4e8d-a9b7-8737dbfa3642>
       mu:uuid "c6157470-9fb3-4e8d-a9b7-8737dbfa3642" ;
       rdf:type skos:Concept ;
       skos:prefLabel "Economische actor"@nl ;
@@ -41,6 +41,6 @@ INSERT DATA {
      a <http://data.europa.eu/m8g/CriterionRequirement> ;
      mu:uuid "27499267-9fc8-4fa5-9ac6-d1b553ab342e" ;
      <http://purl.org/dc/terms/description> "Criteriumvereiste: de organisatie heeft classificatiecode economische actor." ;
-     lblodSubsidie:isSatisfiableBy <http://data.lblod.info/id/conceptscheme/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> .
+     lblodSubsidie:isSatisfiableBy <http://data.lblod.info/id/concept/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> .
   }
 }
