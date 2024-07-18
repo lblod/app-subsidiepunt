@@ -25,6 +25,7 @@ INSERT DATA {
         mu:uuid '3e5edbbb-26e0-49f9-9082-55f2297bd73a';
         skos:prefLabel "Mock VZW" ;
         dc:description "Mock VZW for testing" ;
+        org:classification <http://data.lblod.info/id/concept/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> ;
         adms:identifier <http://data.lblod.info/id/identificatoren/4faddea9-b959-4eed-aa4e-b6ec84b14249>.
 
     <http://data.lblod.info/id/identificatoren/4faddea9-b959-4eed-aa4e-b6ec84b14249> a adms:Identifier;
