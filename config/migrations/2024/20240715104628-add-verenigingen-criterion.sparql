@@ -17,7 +17,7 @@ INSERT DATA {
     # Add concept-scheme for economische actoren
     <http://data.lblod.info/id/concept/c6157470-9fb3-4e8d-a9b7-8737dbfa3642>
       mu:uuid "c6157470-9fb3-4e8d-a9b7-8737dbfa3642" ;
-      rdf:type skos:Concept ;
+      rdf:type skos:Concept , ext:OrganizationClassificationCode;
       skos:prefLabel "Economische actor"@nl ;
       skos:prefLabel "Economic actor"@en ;
       skos:definition "Economische actoren binnen ACM/IDM"@nl ;
