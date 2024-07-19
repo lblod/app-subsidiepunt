@@ -590,20 +590,13 @@ nodes:incomeType
 	sh:order 1;
 	sh:path ext:soortenInkomsten.
 
-nodes:f0d14635-879d-44ff-ae9b-2c34ed278f8a
-	 a form:Field;
-	form:displayType displayTypes:begrotingstabelTotal;
-	form:partOf nodes:2d3e6aac-6a81-4f70-83a1-5315275ad355;
-  xsd:target ( ext:Expense ext:expenseAmount ), ( ext:Income ext:incomeAmount );
-	sh:name "Totaal";
-	sh:order 2.
 
 emb:source-node
 	 a form:Form,
 	form:TopLevelForm;
 	form:includes nodes:068992a7-e93b-4e09-9047-034e6699583e,
 	nodes:0dd992f9-4512-405d-80d6-b6381ec7d53e, nodes:1af789aa-49d2-419d-87ee-5014e8aa75ec, nodes:1c0e55b3-bd82-47ca-8c01-33edd7b131c3, nodes:243fde9a-ad78-489c-a950-ab6fda6d54f6, nodes:32223769-2e97-485e-bfef-e689e043ac62, nodes:396e0acf-c88b-4c4d-a0ad-3b4714866a28, nodes:4bfeb9f9-cb17-4432-9f6f-837540c1e700, nodes:605c7fda-f84a-45e2-a326-a8a5983883ab, nodes:612bdaf7-d755-471e-b7e3-036992ee0602,
-nodes:6e3cf229-c58b-413f-a8ac-90a2ea1d1091, nodes:6f0c146e-a479-41cf-a209-99eb703c286f, nodes:7448c804-cac4-4d5c-ba2c-b4a52b47da7f, nodes:74c83e68-3c82-4ae4-b5a2-68346a8a7695, nodes:834b7c21-7a4f-46f0-9653-6f4e970e1546, nodes:942cb8aa-d787-4ade-9abd-16d8d7bf72bd, nodes:944f37e1-0a0e-4e3d-bcd1-0e362c26f391, nodes:99d5b32f-63ba-4a04-8f35-5d9b70ccddbe, nodes:9af49577-a98f-42a0-a424-199136bad130, nodes:9f0c03a1-a588-4150-a9b7-9ddfb8a5edb9, nodes:a2283409-c32c-453b-8a95-783428e4df53, nodes:aab3b6ea-db2c-4786-bf6a-401882292e6b, nodes:adb9b4f4-12d3-4d3c-a7ae-a6caa41ab82d, nodes:b66708ab-f00d-42ab-955f-4ef3f9e940f4, nodes:cb3b87cb-eaaa-4e91-8e7f-1a571025d684, nodes:e25f0f63-62ca-4c34-bf94-6e7409c1521a, nodes:e92536e7-7415-408e-ac66-a6e82c5fa9bb, nodes:eaea798c-8af2-4f7b-bd84-840461ddc4a3, nodes:f0d14635-879d-44ff-ae9b-2c34ed278f8a, nodes:eca15be5-abbe-4351-b23a-a0459aaaf51b, nodes:expenseTable, nodes:incomeTable, nodes:somInkomsten, nodes:somUitgaven;
+nodes:6e3cf229-c58b-413f-a8ac-90a2ea1d1091, nodes:6f0c146e-a479-41cf-a209-99eb703c286f, nodes:7448c804-cac4-4d5c-ba2c-b4a52b47da7f, nodes:74c83e68-3c82-4ae4-b5a2-68346a8a7695, nodes:834b7c21-7a4f-46f0-9653-6f4e970e1546, nodes:942cb8aa-d787-4ade-9abd-16d8d7bf72bd, nodes:944f37e1-0a0e-4e3d-bcd1-0e362c26f391, nodes:99d5b32f-63ba-4a04-8f35-5d9b70ccddbe, nodes:9af49577-a98f-42a0-a424-199136bad130, nodes:9f0c03a1-a588-4150-a9b7-9ddfb8a5edb9, nodes:a2283409-c32c-453b-8a95-783428e4df53, nodes:aab3b6ea-db2c-4786-bf6a-401882292e6b, nodes:adb9b4f4-12d3-4d3c-a7ae-a6caa41ab82d, nodes:b66708ab-f00d-42ab-955f-4ef3f9e940f4, nodes:cb3b87cb-eaaa-4e91-8e7f-1a571025d684, nodes:e25f0f63-62ca-4c34-bf94-6e7409c1521a, nodes:e92536e7-7415-408e-ac66-a6e82c5fa9bb, nodes:eaea798c-8af2-4f7b-bd84-840461ddc4a3, nodes:eca15be5-abbe-4351-b23a-a0459aaaf51b, nodes:expenseTable, nodes:incomeTable, nodes:somInkomsten, nodes:somUitgaven;
 	form:partOf nodes:2d3e6aac-6a81-4f70-83a1-5315275ad355,
 	nodes:354f7be8-2ab6-4d58-9f7a-dc8051613b35, nodes:69aa4aae-b45c-434a-bc12-ca69100544dc, nodes:a5918896-a804-487d-b2f3-e1dcd8a61e4a, nodes:ae1a10a9-a2c1-4889-9fcb-e8a2542f4541, nodes:b12c7fa8-f842-4ba4-8d0c-c05b9c2e0d3a, nodes:b216bee1-75fa-484f-9533-af3e081d5b21, nodes:d7b33768-3723-4291-a7be-3d8a7d7cdbc1, nodes:ea6faa0b-f3a4-4e80-8b7d-5ef8ff6c1cf4 .
 

@@ -176,9 +176,9 @@
   :properties `((:description :string ,(s-prefix "dct:description"))
                 (:role :url ,(s-prefix "m8g:role"))
                 (:identifier :string ,(s-prefix "dct:identifier")))
-  :has-one `((bestuurseenheid :via ,(s-prefix "m8g:playsRole")
+  :has-one `((organization :via ,(s-prefix "m8g:playsRole")
                             :inverse t
-                            :as "participating-bestuurseenheid"))
+                            :as "participating-organization"))
   :has-many `((agents :via ,(s-prefix "m8g:playsRole")
                              :inverse t
                              :as "participating-agents")
