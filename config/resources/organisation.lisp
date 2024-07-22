@@ -13,7 +13,7 @@
   :on-path "organizations"
 )
 
-(define-resource organization-classification-codes ()
+(define-resource organization-classification-code ()
   :class (s-prefix "ext:OrganizationClassificationCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/OrganizationClassificationCode/")
