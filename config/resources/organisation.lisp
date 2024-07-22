@@ -2,7 +2,7 @@
   :class (s-prefix "org:Organization")
   :properties `((:naam :string ,(s-prefix "skos:prefLabel")))
   :has-one `(
-            (organization-classification-codes :via ,(s-prefix "org:classification")
+            (organization-classification-code :via ,(s-prefix "org:classification")
                               :as "classificatie"))
   :has-many `(
               (identifier :via ,(s-prefix "adms:identifier")
@@ -15,7 +15,7 @@
   :on-path "organizations"
 )
 
-(define-resource organization-classification-codes ()
+(define-resource organization-classification-code ()
   :class (s-prefix "ext:OrganizationClassificationCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/OrganizationClassificationCode/")
