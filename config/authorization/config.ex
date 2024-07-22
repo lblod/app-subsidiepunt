@@ -74,6 +74,8 @@ defmodule Acl.UserGroups.Config do
                         "http://mu.semte.ch/vocabularies/ext/BestuursorgaanClassificatieCode",
                         "http://publications.europa.eu/ontology/euvoc#Country",
                         "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
+                        "http://www.w3.org/ns/org#Organization",
+                        "http://mu.semte.ch/vocabularies/ext/OrganizationClassificationCode",
                         "http://www.w3.org/2004/02/skos/core#ConceptScheme",
                         "http://www.w3.org/2004/02/skos/core#Concept",
                         "http://lblod.data.gift/vocabularies/subsidie/SubsidiemaatregelConsumptieStatus",
@@ -144,6 +146,7 @@ defmodule Acl.UserGroups.Config do
                         constraint: %ResourceConstraint{
                           resource_types: [
                             "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
+                            "http://www.w3.org/ns/org#Organization",
                             # Sometimes a very specific list of organisations should be able submit for a subsidy.
                             # This is unfortunatly the most elegant way.
                             "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelAanbod",
