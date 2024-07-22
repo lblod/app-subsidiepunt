@@ -1,6 +1,6 @@
 (define-resource organization ()
   :class (s-prefix "org:Organization")
-  :properties `((:name :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:naam :string ,(s-prefix "skos:prefLabel")))
   :has-one `(
             (organization-classification-codes :via ,(s-prefix "org:classification")
                               :as "classificatie"))
