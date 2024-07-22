@@ -88,8 +88,7 @@ defmodule Acl.UserGroups.Config do
                         "http://data.europa.eu/m8g/Criterion",
                         "http://data.europa.eu/m8g/RequirementGroup",
                         "http://data.europa.eu/m8g/CriterionRequirement",
-                        "http://data.europa.eu/m8g/Requirement",
-                        "http://www.w3.org/ns/org#Organization"
+                        "http://data.europa.eu/m8g/Requirement"
                       ]
                     } },
                   %GraphSpec{
