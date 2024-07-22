@@ -12,6 +12,14 @@ defmodule Dispatcher do
   #   forward conn, path, "http://resource/themes/"
   # end
 
+  match "/organizations/*path" do
+    forward conn, path, "http://cache/organizations/"
+  end
+
+  match "/organization-classification-codes/*path" do
+    forward conn, path, "http://cache/organization-classification-codes/"
+  end
+
   match "/bestuurseenheden/*path" do
     forward conn, path, "http://cache/bestuurseenheden/"
   end
@@ -42,7 +50,7 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/gebruikers/"
   end
   match "/accounts/*path" do
-    forward conn, path, "http://cache/accounts/"
+    forward conn, path, "http://resource/accounts/"
   end
   match "/document-statuses/*path" do
     forward conn, path, "http://cache/document-statuses/"

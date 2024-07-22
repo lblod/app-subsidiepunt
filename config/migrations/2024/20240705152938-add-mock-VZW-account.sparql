@@ -1,0 +1,65 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX ns1: <https://data.vlaanderen.be/ns/>
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX code: <http://data.vlaanderen.be/id/concept/>
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX act: <http://data.lblod.info/id/concept/activiteit/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX org: <http://www.w3.org/ns/org#>
+
+# MOCK VZW 
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization ;
+        mu:uuid '3e5edbbb-26e0-49f9-9082-55f2297bd73a';
+        skos:prefLabel "Mock VZW" ;
+        dc:description "Mock VZW for testing" ;
+        org:classification <http://data.lblod.info/id/concept/c6157470-9fb3-4e8d-a9b7-8737dbfa3642> ;
+        adms:identifier <http://data.lblod.info/id/identificatoren/4faddea9-b959-4eed-aa4e-b6ec84b14249>.
+
+    <http://data.lblod.info/id/identificatoren/4faddea9-b959-4eed-aa4e-b6ec84b14249> a adms:Identifier;
+        mu:uuid "4faddea9-b959-4eed-aa4e-b6ec84b14249";
+        skos:notation "V0000001".
+  }
+}
+
+;
+
+INSERT {
+  GRAPH ?g {
+     ?persoon a foaf:Person;
+           mu:uuid ?uuidPersoon;
+           foaf:firstName ?classificatie;
+           foaf:familyName ?naam;
+           foaf:member <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> ;
+           foaf:account ?account.
+     ?account a foaf:OnlineAccount;
+           mu:uuid ?uuidAccount;
+           foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+           ext:sessionRole "SubsidiepuntGebruiker". 
+  }
+} WHERE {
+     <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization;
+     skos:prefLabel ?naam.
+     BIND(CONCAT(?classificatie, " ", ?naam) as ?volledigeNaam)
+     BIND(MD5(?volledigeNaam) as ?uuidPersoon)
+     BIND(MD5(CONCAT(?volledigeNaam,"ACCOUNT")) as ?uuidAccount)
+     BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
+     BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
+
+     VALUES ?g {
+        <http://mu.semte.ch/graphs/organizations/3e5edbbb-26e0-49f9-9082-55f2297bd73a>
+        <http://mu.semte.ch/graphs/public> 
+     } 
+}
