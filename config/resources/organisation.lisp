@@ -2,7 +2,7 @@
   :class (s-prefix "org:Organization")
   :properties `((:naam :string ,(s-prefix "skos:prefLabel")))
   :has-one `(
-            (organization-classification-codes :via ,(s-prefix "org:classification")
+            (organization-classification-code :via ,(s-prefix "org:classification")
                               :as "classificatie"))
   :has-many `(
               (identifier :via ,(s-prefix "adms:identifier")
