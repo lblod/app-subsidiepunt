@@ -52,7 +52,9 @@ INSERT {
   }
 } WHERE {
      <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization;
-     skos:prefLabel ?naam.
+        skos:prefLabel ?naam;
+        org:classification/skos:prefLabel ?classificatie.
+     FILTER(LANG(?classificatie) = "nl")
      BIND(CONCAT(?classificatie, " ", ?naam) as ?volledigeNaam)
      BIND(MD5(?volledigeNaam) as ?uuidPersoon)
      BIND(MD5(CONCAT(?volledigeNaam,"ACCOUNT")) as ?uuidAccount)
