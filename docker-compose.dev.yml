@@ -7,7 +7,7 @@ services:
     ports:
       - "443:443"
   mocklogin:
-    image: aatauil/mock-login:verenigingen-0.0.2
+    image: lblod/mock-login-service:0.7.0
     environment:
       GROUP_TYPE: "http://www.w3.org/ns/org#Organization"
   frontend:
