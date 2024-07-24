@@ -1,6 +1,11 @@
 (define-resource organization ()
   :class (s-prefix "org:Organization")
-  :properties `((:naam :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:naam :string ,(s-prefix "skos:prefLabel"))
+                (:alternatieve-naam :string-set ,(s-prefix "skos:altLabel"))
+                (:wil-mail-ontvangen :boolean ,(s-prefix "ext:wilMailOntvangen")) ;;Voorkeur in berichtencentrum
+                (:mail-adres :string ,(s-prefix "ext:mailAdresVoorNotificaties"))
+                (:is-trial-user :boolean ,(s-prefix "ext:isTrailUser"))
+                (:view-only-modules :string-set ,(s-prefix "ext:viewOnlyModules")))
   :has-one `(
             (organization-classification-code :via ,(s-prefix "org:classification")
                               :as "classificatie"))
@@ -40,12 +45,6 @@
 ;;"RESHUFFLED" from slave-besluit.lisp
 (define-resource bestuurseenheid (organization) ;; Subclass of m8g:PublicOrganisation, which is a subclass of dct:Agent
   :class (s-prefix "besluit:Bestuurseenheid")
-  :properties `((:naam :string ,(s-prefix "skos:prefLabel"))
-                (:alternatieve-naam :string-set ,(s-prefix "skos:altLabel"))
-                (:wil-mail-ontvangen :boolean ,(s-prefix "ext:wilMailOntvangen")) ;;Voorkeur in berichtencentrum
-                (:mail-adres :string ,(s-prefix "ext:mailAdresVoorNotificaties"))
-                (:is-trial-user :boolean ,(s-prefix "ext:isTrailUser"))
-                (:view-only-modules :string-set ,(s-prefix "ext:viewOnlyModules")))
 
   :has-one `((werkingsgebied :via ,(s-prefix "besluit:werkingsgebied")
                              :as "werkingsgebied")
