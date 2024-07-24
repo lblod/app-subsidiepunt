@@ -220,7 +220,7 @@
                         :as "creator")
              (submission-document-status :via ,(s-prefix "adms:status")
                                          :as "status"))
-  :has-many `((bestuurseenheid :via ,(s-prefix "lblodSubsidie:collaborator")
+  :has-many `((organization :via ,(s-prefix "lblodSubsidie:collaborator")
                                       :as "collaborators")
               (file :via ,(s-prefix "dct:source")
                            :as "sources"))
