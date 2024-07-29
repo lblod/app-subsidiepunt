@@ -590,7 +590,6 @@ nodes:incomeType
 	sh:order 1;
 	sh:path ext:soortenInkomsten.
 
-
 emb:source-node
 	 a form:Form,
 	form:TopLevelForm;
