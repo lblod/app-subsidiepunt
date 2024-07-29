@@ -30,11 +30,11 @@ INSERT DATA {
       dct:isPartOf  <http://data.lblod.info/id/subsidie-application-flows/bcede7ac-e70d-4633-b108-5ea17882d5c3>;
       dct:source <config://forms/gelijke-kansen/versions/20240709142746/form.ttl>.
 
-    # New subsidy step periode from 15 april 2024 (midnight) to 31 mei 2025
+    # New subsidy step periode from 15 april 2024 (midnight) to 31 mei 2024
     <http://data.lblod.info/id/periodes/e7e60c38-ff13-49c4-b3a3-3278f8570789> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "e7e60c38-ff13-49c4-b3a3-3278f8570789";
       <http://data.europa.eu/m8g/startTime> "2024-04-14T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
-      <http://data.europa.eu/m8g/endTime> "2025-05-31T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+      <http://data.europa.eu/m8g/endTime> "2024-05-31T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
 
     # Create new subsidy and link to reeks
     <http://data.lblod.info/id/subsidy-measure-offers/848b5ca2-323f-4b98-9df1-512764ceb4e4>
@@ -42,7 +42,6 @@ INSERT DATA {
       mu:uuid "848b5ca2-323f-4b98-9df1-512764ceb4e4";
       dct:title """Gelijke kansen""";
       skos:prefLabel """Gelijke kansen""";
-      <http://data.europa.eu/m8g/hasCriterion> <http://data.lblod.info/id/criterions/f5ea0615-0b0a-47db-a38c-6097ff80815d> ; # Add Gemeentes criterion (for testing purposes, can be removed later)
       <http://data.europa.eu/m8g/hasCriterion> <http://data.lblod.info/id/criterions/28fe1648-dd25-4772-b5e9-0eed4e8f4b90>> ; # Add economische actoren criterion
       cpsv:follows <http://data.lblod.info/id/subsidy-procedural-steps/1b8434f3-349a-40c4-a6a8-979fb8e0987e> ;
       lblodSubsidie:heeftReeks <http://data.lblod.info/id/subsidy-measure-offer-series/390d055e-0be1-42fe-b4c1-dcfc4c74a13c> .
@@ -56,10 +55,10 @@ INSERT DATA {
       mobiliteit:periode <http://data.lblod.info/id/periodes/0a0b89ef-24a1-4da0-a0eb-13f070c474db> ;
       lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/1b8434f3-349a-40c4-a6a8-979fb8e0987e>.
 
-    # New subsidy periode from 15 april 2024 (midnight) to 31 mei 2025
+    # New subsidy periode from 15 april 2024 (midnight) to 31 mei 2024
     <http://data.lblod.info/id/periodes/0a0b89ef-24a1-4da0-a0eb-13f070c474db> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "0a0b89ef-24a1-4da0-a0eb-13f070c474db";
       <http://data.europa.eu/m8g/startTime> "2024-04-14T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
-      <http://data.europa.eu/m8g/endTime> "2025-05-31T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+      <http://data.europa.eu/m8g/endTime> "2024-05-31T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
   }
 }
