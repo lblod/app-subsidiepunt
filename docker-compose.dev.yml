@@ -38,6 +38,8 @@ services:
     restart: "no"
   resource:
     restart: "no"
+  db-cleanup:
+    restart: "no"
   login:
     restart: "no"
   file:
