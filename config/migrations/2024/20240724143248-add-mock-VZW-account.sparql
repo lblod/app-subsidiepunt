@@ -17,8 +17,9 @@ PREFIX regorg: <http://www.w3.org/ns/regorg#>
 PREFIX act: <http://data.lblod.info/id/concept/activiteit/>
 PREFIX pav: <http://purl.org/pav/>
 PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
 
-# MOCK VZW 
+# MOCK VZW
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
     <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization ;
@@ -47,11 +48,13 @@ INSERT {
      ?account a foaf:OnlineAccount;
            mu:uuid ?uuidAccount;
            foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-           ext:sessionRole "SubsidiepuntGebruiker". 
+           ext:sessionRole "SubsidiepuntGebruiker".
   }
 } WHERE {
      <http://data.lblod.info/id/organisaties/3e5edbbb-26e0-49f9-9082-55f2297bd73a> a org:Organization;
-     skos:prefLabel ?naam.
+        skos:prefLabel ?naam;
+        org:classification/skos:prefLabel ?classificatie.
+     FILTER(LANG(?classificatie) = "nl")
      BIND(CONCAT(?classificatie, " ", ?naam) as ?volledigeNaam)
      BIND(MD5(?volledigeNaam) as ?uuidPersoon)
      BIND(MD5(CONCAT(?volledigeNaam,"ACCOUNT")) as ?uuidAccount)
@@ -60,6 +63,6 @@ INSERT {
 
      VALUES ?g {
         <http://mu.semte.ch/graphs/organizations/3e5edbbb-26e0-49f9-9082-55f2297bd73a>
-        <http://mu.semte.ch/graphs/public> 
-     } 
+        <http://mu.semte.ch/graphs/public>
+     }
 }
