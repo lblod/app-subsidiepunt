@@ -114,6 +114,8 @@ services:
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
       LOG_SINK_URL: "http://sink"
+      ORGANIZATION_TYPE: "http://www.w3.org/ns/org#Organization"
+      GROUP_TYPE_LABEL: "organizations"
     labels:
       - "logging=true"
     restart: always
