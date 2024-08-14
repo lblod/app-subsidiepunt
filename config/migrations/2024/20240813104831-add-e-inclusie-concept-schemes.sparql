@@ -1,0 +1,367 @@
+# Add concept schemes used by e-inclusion
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    # Acties e-inclusie 6645CA25396E5AB8E50DB866
+    <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "14f53028-5c5c-4c9e-9e41-de46590b647a" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Acties e-inclusie" ;
+      <http://www.w3.org/2004/02/skos/core#note> "keuzes voor extra acties E-inclusie" .
+
+    <http://lblod.data.gift/concepts/c9b14645-ab92-4b01-833d-14834d54a4a8>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "c9b14645-ab92-4b01-833d-14834d54a4a8" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie rond individuele toegang tot internet op het thuisadres van kwetsbare burgers" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a> .
+
+    <http://lblod.data.gift/concepts/b443571d-3857-483e-ab53-4ee1ce9c377c>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "b443571d-3857-483e-ab53-4ee1ce9c377c" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie rond opzetten van een overkoepelend e-inclusiebeleid binnen het lokaal bestuur" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a> .
+
+    <http://lblod.data.gift/concepts/ff963fb1-cb16-4bfe-bd4e-645beed1fecd>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "ff963fb1-cb16-4bfe-bd4e-645beed1fecd" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie rond betaalbare en kwaliteitsvolle toegang tot hardware, software en openbaar internet" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a> .
+
+    <http://lblod.data.gift/concepts/5df29fac-062f-4978-bb8e-f7566044e42d>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "5df29fac-062f-4978-bb8e-f7566044e42d" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie rond het versterken van competenties, vaardigheden en attitudes om digitaal mee te zijn" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a> .
+
+    <http://lblod.data.gift/concepts/97cc83b3-8a01-4d3c-8b77-958775ca7fab>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "97cc83b3-8a01-4d3c-8b77-958775ca7fab" ;
+      <http://purl.org/linked-data/cube#order> 5 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie rond het opzetten van een ondersteuningsnetwerk waar burgers terecht kunnen met digitale vragen" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a> .
+
+    <http://lblod.data.gift/concepts/139a4d2c-ff73-4528-b6da-b7c92b6ee1e8>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "139a4d2c-ff73-4528-b6da-b7c92b6ee1e8" ;
+      <http://purl.org/linked-data/cube#order> 6 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie rond e-inclusion by design (werken aan digitale toegankelijkheid en gebruiksvriendelijkheid van lokale toepassingen)" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/14f53028-5c5c-4c9e-9e41-de46590b647a> .
+
+
+    # e-inclusie toepassing 2F 666016D0C2B1B23627F4D7B8
+    <http://lblod.data.gift/concept-schemes/5d34d724-680b-4e31-917d-6ad9cf76e4b5>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "5d34d724-680b-4e31-917d-6ad9cf76e4b5" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "e-inclusie toepasing 2F" ;
+      <http://www.w3.org/2004/02/skos/core#note> "Acties rond e-inclusion by design (werken aan digitale toegankelijk en gebruiksvriendelijkheid van lokale toepassingen)" .
+
+    <http://lblod.data.gift/concepts/e0340024-cf97-43b4-a3d3-cd86929b3f1a>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "e0340024-cf97-43b4-a3d3-cd86929b3f1a" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Het betrekken van eindgebruikers" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/5d34d724-680b-4e31-917d-6ad9cf76e4b5> .
+
+    <http://lblod.data.gift/concepts/571f8bb1-7e2a-4c35-b425-4f89560edd8d>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "571f8bb1-7e2a-4c35-b425-4f89560edd8d" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Het betrekken van externe experten" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/5d34d724-680b-4e31-917d-6ad9cf76e4b5> .
+
+    <http://lblod.data.gift/concepts/3f31a9f2-217b-4977-aa39-f0e0d57e4552>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "3f31a9f2-217b-4977-aa39-f0e0d57e4552" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Het organiseren van kennisdeling tussen verschillende diensten" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/5d34d724-680b-4e31-917d-6ad9cf76e4b5> .
+
+    <http://lblod.data.gift/concepts/1fdc2203-33d8-4372-b4f5-158a4e610b44>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "1fdc2203-33d8-4372-b4f5-158a4e610b44" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Geen van bovenstaande" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/5d34d724-680b-4e31-917d-6ad9cf76e4b5> .
+
+
+    # e-inclusie van toepassing voor actie 6645CA60396E5AB8E50DB86D
+    <http://lblod.data.gift/concept-schemes/db720651-2bc6-480a-805d-5976b3fcbb50>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "db720651-2bc6-480a-805d-5976b3fcbb50" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "e-inclusie van toepassing voor actie" ;
+      <http://www.w3.org/2004/02/skos/core#note> "meerdere opties voor e-inclusie toepassing" .
+
+    <http://lblod.data.gift/concepts/fa2068cb-74f0-4756-abbf-980b84461414>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "fa2068cb-74f0-4756-abbf-980b84461414" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Actief informatie verspreiden" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/db720651-2bc6-480a-805d-5976b3fcbb50> .
+
+    <http://lblod.data.gift/concepts/915baad5-4504-496d-857f-6e40d504d20e>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "915baad5-4504-496d-857f-6e40d504d20e" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Mensen financieel ondersteunen" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/db720651-2bc6-480a-805d-5976b3fcbb50> .
+
+    <http://lblod.data.gift/concepts/eb7a4778-92c8-45df-9593-b04bb1f81def>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "eb7a4778-92c8-45df-9593-b04bb1f81def" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Uitvoeren van een digi-connectiviteitsscan bij mensen thuis" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/db720651-2bc6-480a-805d-5976b3fcbb50> .
+
+    <http://lblod.data.gift/concepts/9471a2b8-d6cb-438e-97cd-7812a55c9d3b>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "9471a2b8-d6cb-438e-97cd-7812a55c9d3b" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Geen van bovenstaande" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/db720651-2bc6-480a-805d-5976b3fcbb50> .
+
+
+    # e-inclusie toepassing 2C 6660144DC2B1B23627F4D7AB
+    <http://lblod.data.gift/concept-schemes/fbabbcab-ab24-4c11-bec4-7fffb8c4dad7>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "fbabbcab-ab24-4c11-bec4-7fffb8c4dad7" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "e-inclusie toepassing 2C" ;
+      <http://www.w3.org/2004/02/skos/core#note> "Acties rond betaalbare kwaliteitsvolle toegang tot hardware, software en openbaar internet" .
+
+    <http://lblod.data.gift/concepts/7dcacdd2-a44b-47cc-bac3-d48f4c387264>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "7dcacdd2-a44b-47cc-bac3-d48f4c387264" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Nieuwe openbare plaatsen openen waar mensen toegang krijgen tot internet/hardware/software" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/fbabbcab-ab24-4c11-bec4-7fffb8c4dad7> .
+
+    <http://lblod.data.gift/concepts/4fbc915a-7b75-44c9-9b62-f3eab1fc1a43>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "4fbc915a-7b75-44c9-9b62-f3eab1fc1a43" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Bestaande openbare plaatsen waar mensen toegang krijgen tot internet/hardware/software verbeteren" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/fbabbcab-ab24-4c11-bec4-7fffb8c4dad7> .
+
+    <http://lblod.data.gift/concepts/6ff700d6-214f-4e79-ad2c-5868db53699b>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "6ff700d6-214f-4e79-ad2c-5868db53699b" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Mensen financieel bijstaan bij de aankoop van hardware en/of software" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/fbabbcab-ab24-4c11-bec4-7fffb8c4dad7> .
+
+    <http://lblod.data.gift/concepts/083c300b-7a05-473e-94b9-8a49f2ac485b>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "083c300b-7a05-473e-94b9-8a49f2ac485b" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Geen van bovenstaande" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/fbabbcab-ab24-4c11-bec4-7fffb8c4dad7> .
+
+
+    # e-inclusie toepassing 2E 66601554C2B1B23627F4D7B1
+    <http://lblod.data.gift/concept-schemes/da003279-0385-4deb-9173-c6bc3bc00d76>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "da003279-0385-4deb-9173-c6bc3bc00d76" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "e-inclusie toepassing 2E" ;
+      <http://www.w3.org/2004/02/skos/core#note> "Acties rond een ondersteuningsnetwerk opzetten waar burgers terecht kunnen met digitale vragen" .
+
+    <http://lblod.data.gift/concepts/0710a02a-9746-456f-a556-3b97b6d3f1e0>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "0710a02a-9746-456f-a556-3b97b6d3f1e0" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Een netwerk van locaties waar mensen terecht kunnen met digitale vragen uitbouwen" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/da003279-0385-4deb-9173-c6bc3bc00d76> .
+
+    <http://lblod.data.gift/concepts/a27ab8a4-2f8b-4160-94cb-0d525727e04c>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "a27ab8a4-2f8b-4160-94cb-0d525727e04c" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Aan outreaching doen" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/da003279-0385-4deb-9173-c6bc3bc00d76> .
+
+    <http://lblod.data.gift/concepts/12216e9e-2c8c-464a-a633-c8a4cdbd1b22>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "12216e9e-2c8c-464a-a633-c8a4cdbd1b22" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Een digibuddy-werking opzetten" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/da003279-0385-4deb-9173-c6bc3bc00d76> .
+
+    <http://lblod.data.gift/concepts/6ff01fdd-aa71-49af-8bb3-5bfd4d1078e2>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "6ff01fdd-aa71-49af-8bb3-5bfd4d1078e2" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Geen van bovenstaande" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/da003279-0385-4deb-9173-c6bc3bc00d76> .
+
+
+    # e-inclusie samenwerking 6645CAFF396E5AB8E50DB881
+    <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "305b862a-85ce-4479-b9a1-291e03ae6a39" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "e-inclusie samenwerking" ;
+      <http://www.w3.org/2004/02/skos/core#note> "e-inclusie" .
+
+    <http://lblod.data.gift/concepts/6b9daac8-cb0f-44ee-b64c-04c00373e567>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "6b9daac8-cb0f-44ee-b64c-04c00373e567" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Een of meerdere lokale besturen" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/db00937f-f311-4c97-a2b9-fa90b9c24304>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "db00937f-f311-4c97-a2b9-fa90b9c24304" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Sociale organisatie(s)" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/7d8fcbd2-bd96-4cef-95b5-0084b65bce7e>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "7d8fcbd2-bd96-4cef-95b5-0084b65bce7e" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Privé-onderneming(en)" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/a9304a88-84cb-4b2c-91d4-4793ac967b24>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "a9304a88-84cb-4b2c-91d4-4793ac967b24" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Burgers" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/7a9c84d0-0aa8-46e0-a1fa-08cb97013583>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "7a9c84d0-0aa8-46e0-a1fa-08cb97013583" ;
+      <http://purl.org/linked-data/cube#order> 5 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Provincie" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/d5c95913-247c-4316-ad26-209cb5458da1>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "d5c95913-247c-4316-ad26-209cb5458da1" ;
+      <http://purl.org/linked-data/cube#order> 6 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Intercommunale" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/fdea1cc0-5a32-4341-9150-7d25bf6e695b>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "fdea1cc0-5a32-4341-9150-7d25bf6e695b" ;
+      <http://purl.org/linked-data/cube#order> 7 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "We werkten hiervoor niet samen met andere" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+    <http://lblod.data.gift/concepts/eb89ff3b-2809-478f-b73d-96d34ab838f7>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "eb89ff3b-2809-478f-b73d-96d34ab838f7" ;
+      <http://purl.org/linked-data/cube#order> 8 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Andere" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/305b862a-85ce-4479-b9a1-291e03ae6a39> .
+
+
+    # e-inclusie doelgroep 6645CA99396E5AB8E50DB872
+    <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "8e82b7d3-5251-4137-b3f4-94d8ff954864" ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "e-inclusie doelgroep" ;
+      <http://www.w3.org/2004/02/skos/core#note> "doelgroepen voor e-inclusie" .
+
+    <http://lblod.data.gift/concepts/ab3cba18-183d-47f8-b17e-f50904cbd991>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "ab3cba18-183d-47f8-b17e-f50904cbd991" ;
+      <http://purl.org/linked-data/cube#order> 1 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Volwassenen (+18 en -65)" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/d437d8db-471c-404e-8a1e-7a5af456928a>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "d437d8db-471c-404e-8a1e-7a5af456928a" ;
+      <http://purl.org/linked-data/cube#order> 2 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Ouderen (+65)" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/03eee7b9-7fe2-4565-a56c-4f699a024966>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "03eee7b9-7fe2-4565-a56c-4f699a024966" ;
+      <http://purl.org/linked-data/cube#order> 3 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Kinderen en jongeren (-18)" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/98b9d618-afd3-4626-8bc5-9d7ecaf8f957>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "98b9d618-afd3-4626-8bc5-9d7ecaf8f957" ;
+      <http://purl.org/linked-data/cube#order> 4 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Laaggeschoolden en/of laaggeletterden" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/45e990d0-83aa-43e3-8084-4186e0da1cce>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "45e990d0-83aa-43e3-8084-4186e0da1cce" ;
+      <http://purl.org/linked-data/cube#order> 5 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Personen in kansarmoede" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/5f843520-676a-4b09-9858-7ed70b47c4de>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "5f843520-676a-4b09-9858-7ed70b47c4de" ;
+      <http://purl.org/linked-data/cube#order> 6 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Personen met buitenlandse herkomst" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/528eaf03-6c4a-41a6-b81c-9649cc93c600>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "528eaf03-6c4a-41a6-b81c-9649cc93c600" ;
+      <http://purl.org/linked-data/cube#order> 7 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Personen met een beperking" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/e4f900cd-a28c-4b21-98e7-bd41ecd92fcb>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "e4f900cd-a28c-4b21-98e7-bd41ecd92fcb" ;
+      <http://purl.org/linked-data/cube#order> 8 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Alleenstaanden" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/7f7eb921-0fb4-4772-afcc-29b8c81e4f0d>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "7f7eb921-0fb4-4772-afcc-29b8c81e4f0d" ;
+      <http://purl.org/linked-data/cube#order> 9 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Anderstaligen" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/d19cbdaf-2540-40eb-98a6-62e3556f507c>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "d19cbdaf-2540-40eb-98a6-62e3556f507c" ;
+      <http://purl.org/linked-data/cube#order> 10 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Eigen medewerkers" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/3da19d49-8788-4594-84a5-47d91aee88bf>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "3da19d49-8788-4594-84a5-47d91aee88bf" ;
+      <http://purl.org/linked-data/cube#order> 11 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Werkzoekenden" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/bbf9782a-3dc8-4582-a531-090de6962c76>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "bbf9782a-3dc8-4582-a531-090de6962c76" ;
+      <http://purl.org/linked-data/cube#order> 12 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Cliënten OCMW" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/60db3e1a-788b-4b32-9f21-e128e95fb297>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "60db3e1a-788b-4b32-9f21-e128e95fb297" ;
+      <http://purl.org/linked-data/cube#order> 13 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Alle inwoners" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+
+    <http://lblod.data.gift/concepts/8b50a1b9-6f28-4214-bd01-3e1364122192>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://mu.semte.ch/vocabularies/core/uuid> "8b50a1b9-6f28-4214-bd01-3e1364122192" ;
+      <http://purl.org/linked-data/cube#order> 14 ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Andere" ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8e82b7d3-5251-4137-b3f4-94d8ff954864> .
+  }
+}
