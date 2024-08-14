@@ -1,5 +1,8 @@
 # Changelog
 ## v1.2.0
+### login
+- add organization environment variables
+## v1.2.0
 ### General
 - Add verenigingen support in subsidiepunt
 ## v1.1.3 
