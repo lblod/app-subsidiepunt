@@ -1,0 +1,25 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>
+
+# Gelijke kansen subsidie
+DELETE {
+  GRAPH ?g {
+    ?s m8g:endTime ?endTimeSubsidy .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?s m8g:endTime "2024-10-31T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+  }
+}
+WHERE {
+  GRAPH ?g {
+    VALUES ?s {
+      <http://data.lblod.info/id/periodes/e7e60c38-ff13-49c4-b3a3-3278f8570789> # Subsidie periode
+      <http://data.lblod.info/id/periodes/0a0b89ef-24a1-4da0-a0eb-13f070c474db> # Stap periode
+    }
+    ?s m8g:endTime ?endTimeSubsidy .
+  }
+}
