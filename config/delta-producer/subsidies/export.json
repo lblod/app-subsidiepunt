@@ -19,6 +19,8 @@
     },
     {
       "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://mu.semte.ch/vocabularies/core/uuid",
         "http://data.europa.eu/m8g/playsRole"
       ],
       "graphsFilter": [
@@ -273,7 +275,19 @@
         "http://mu.semte.ch/vocabularies/ext/politicalReferenceContactPoint",
         "http://mu.semte.ch/vocabularies/ext/FinancingPartner",
         "http://lblod.data.gift/vocabularies/projectOnderdeelUnit",
-        "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit"
+        "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit",
+        "http://lblod.data.gift/vocabularies/subsidie/toekomstigeElementenBeschrijving",
+        "http://lblod.data.gift/vocabularies/subsidie/beschrijvingActieInternetKwetsbareBurgers",
+        "http://lblod.data.gift/vocabularies/subsidie/succesfactorenBeschrijving",
+        "http://lblod.data.gift/vocabularies/subsidie/actieVanToepassing",
+        "http://lblod.data.gift/vocabularies/subsidie/doelgroepBereiktAndereOptie",
+        "http://lblod.data.gift/vocabularies/subsidie/actieVanToepassingEigenInput",
+        "http://lblod.data.gift/vocabularies/subsidie/actieSamenwerkingAndereOptie",
+        "http://lblod.data.gift/vocabularies/subsidie/actieDoelgroepBereikt",
+        "http://lblod.data.gift/vocabularies/subsidie/vervolgGepland",
+        "http://lblod.data.gift/vocabularies/subsidie/actieSamenwerking",
+        "http://lblod.data.gift/vocabularies/subsidie/actieImpactBeschrijving",
+        "http://mu.semte.ch/vocabularies/ext/action"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
@@ -916,6 +930,28 @@
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit"
+    },
+    {
+      "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://mu.semte.ch/vocabularies/core/uuid",
+        "http://www.w3.org/ns/shacl#order",
+        "http://lblod.data.gift/vocabularies/subsidie/actieVanToepassingExtraActie1",
+        "http://lblod.data.gift/vocabularies/subsidie/toekomstigeElementenBeschrijvingExtaActie",
+        "http://lblod.data.gift/vocabularies/subsidie/geplandVervolgExtraActie",
+        "http://lblod.data.gift/vocabularies/subsidie/additionalActionTargetedAudienceOther",
+        "http://lblod.data.gift/vocabularies/subsidie/extraActieSamenwerking",
+        "http://lblod.data.gift/vocabularies/subsidie/extraActieImpactBeschrijving",
+        "http://lblod.data.gift/vocabularies/subsidie/succesfactorenBeschrijvingExtraActie",
+        "http://lblod.data.gift/vocabularies/subsidie/extraActieDoelgroepBereikt",
+        "http://lblod.data.gift/vocabularies/subsidie/extraActieBeschrijving",
+        "http://lblod.data.gift/vocabularies/subsidie/additionalActionType",
+        "http://lblod.data.gift/vocabularies/subsidie/geplandVervolgExtraActie"
+      ],
+      "graphsFilter": [
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
+      ],
+      "type": "http://lblod.data.gift/vocabularies/subsidie/e-inclusion/has-additional-action/FormData"
     }
   ]
 }
