@@ -45,4 +45,4 @@ async function findFormFromStep1( { mu, sudo }, form ) {
   return results.bindings[0].firstForm.value;
 }
 
-module.exports = [ extractor, missingTypesExtractor ];
+module.exports = [ extractor ];
