@@ -1,5 +1,4 @@
 const contactInfoExtractor = require('./extractors/contact-info-extractor');
-const missingTypesExtractor = require('./extractors/missing-types-extractor');
 
 const extractor = {
   name: 'e-inclusion-subsidy/accountability/first-step-as-source',
