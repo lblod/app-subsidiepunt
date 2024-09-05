@@ -1,0 +1,47 @@
+INSERT {
+  GRAPH ?g {
+    ?formData <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://lblod.data.gift/vocabularies/subsidie/e-inclusion/has-additional-action/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://lblod.data.gift/vocabularies/subsidie/hasAdditionalAction> ?formData .
+    ?formData ?p_f ?o_f .
+  }
+
+  FILTER NOT EXISTS {
+    ?formData <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type .
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?contactPoint <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/ContactPoint> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?s <http://schema.org/contactPoint> ?contactPoint .
+    ?contactPoint ?p_c ?o_c .
+  }
+
+  FILTER NOT EXISTS {
+    ?contactPoint <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type .
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?formData <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/BankAccount> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://schema.org/bankAccount> ?formData .
+    ?formData ?p_f ?o_f .
+  }
+
+  FILTER NOT EXISTS {
+    ?formData <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type .
+  }
+}
