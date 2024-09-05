@@ -1,4 +1,9 @@
 # Changelog
+## v1.3.0
+- fix the required bicycle infrastructure file uploads
+- update e-inclusion verantwoording form
+- add db-cleanup
+- update frontend
 ## v1.2.0
 ### login
 - add organization environment variables
