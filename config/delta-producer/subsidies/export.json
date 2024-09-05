@@ -946,7 +946,9 @@
         "http://lblod.data.gift/vocabularies/subsidie/extraActieDoelgroepBereikt",
         "http://lblod.data.gift/vocabularies/subsidie/extraActieBeschrijving",
         "http://lblod.data.gift/vocabularies/subsidie/additionalActionType",
-        "http://lblod.data.gift/vocabularies/subsidie/geplandVervolgExtraActie"
+        "http://lblod.data.gift/vocabularies/subsidie/geplandVervolgExtraActie",
+        "http://lblod.data.gift/vocabularies/subsidie/actieSamenwerkingAndereOptie",
+        "http://lblod.data.gift/vocabularies/subsidie/actieSamenwerkingAndereOptieExtra"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
