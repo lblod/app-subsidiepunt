@@ -245,6 +245,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/contactAndSourceTrackingObjectiveFour",
         "http://lblod.data.gift/vocabularies/subsidie/EngagementTable",
         "http://lblod.data.gift/vocabularies/subsidie/amount",
+        "http://lblod.data.gift/vocabularies/subsidie/validatedAmount",
         "http://lblod.data.gift/vocabularies/subsidie/currentEInclusionActions",
         "http://lblod.data.gift/vocabularies/subsidie/actionShortDescription",
         "http://lblod.data.gift/vocabularies/subsidie/actionFullDescription",
