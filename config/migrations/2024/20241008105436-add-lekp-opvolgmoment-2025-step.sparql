@@ -1,0 +1,43 @@
+PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
+PREFIX lblodSubsidie: <http://lblod.data.gift/vocabularies/subsidie/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX cpsv: <http://purl.org/vocab/cpsv#>
+PREFIX xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    # add follows reference to the subsidy measure offer
+    <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e> cpsv:follows <http://data.lblod.info/id/subsidy-procedural-steps/b5fbbf47-32b7-4f3d-bf5c-2589fcb24960> .
+
+    # add link from subsidy-measure-offer-series to subsidy-procedural-step
+    <http://lblod.data.info/id/subsidy-measure-offer-series/87b87f00-6f87-4412-be26-ea531220457c> lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/b5fbbf47-32b7-4f3d-bf5c-2589fcb24960>.
+
+    <http://lblod.data.info/id/subsidie-application-flow-steps/3514ae35-e18e-48b5-8647-80c06d926c78> xkos:next <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>.
+
+    # create new subsidie-application-flow-step
+    <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107> a lblodSubsidie:ApplicationStep;
+      mu:uuid "10b2a1d8-f3ca-44d7-b987-6eeb7b844107";
+      qb:order 4;
+      xkos:previous  <http://lblod.data.info/id/subsidie-application-flow-steps/3514ae35-e18e-48b5-8647-80c06d926c78>;
+      dct:references <http://data.lblod.info/id/subsidy-procedural-steps/b5fbbf47-32b7-4f3d-bf5c-2589fcb24960> ;
+      dct:isPartOf <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; #this should be the application-flow of climate
+      dct:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>.
+
+    # Create new subsidy-procedural-step
+    <http://data.lblod.info/id/subsidy-procedural-steps/b5fbbf47-32b7-4f3d-bf5c-2589fcb24960> a subsidie:Subsidieprocedurestap;
+      mu:uuid "b5fbbf47-32b7-4f3d-bf5c-2589fcb24960";
+      dct:description """Opvolgmoment 2025""";
+      mobiliteit:periode <http://data.lblod.info/id/periodes/677bb850-6e1a-438a-aa38-21e0b1a7dd94>.
+
+    # New period for step opvolgmoment 2025
+    <http://data.lblod.info/id/periodes/677bb850-6e1a-438a-aa38-21e0b1a7dd94> a <http://data.europa.eu/m8g/PeriodOfTime>;
+      mu:uuid "677bb850-6e1a-438a-aa38-21e0b1a7dd94";
+      # Time is set to 10 november 23:00 because UTC+1 this becomes 11 november 00:00
+      <http://data.europa.eu/m8g/startTime> "2024-11-11T23:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      # Time is set to 01 may 21:59:00 because UTC+2 in May and it becomes 23:59.
+      <http://data.europa.eu/m8g/endTime> "2025-05-01T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+  }
+}
