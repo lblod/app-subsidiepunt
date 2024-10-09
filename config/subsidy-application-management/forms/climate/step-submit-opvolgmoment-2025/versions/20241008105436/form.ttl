@@ -156,7 +156,7 @@ fields:2f746700-757d-49cb-902b-b190a624c83d a form:Field ;
 
 fields:7039dfb8-917e-457e-8a72-822b38c9153b a form:Field ;
     mu:uuid "7039dfb8-917e-457e-8a72-822b38c9153b" ;
-    sh:name "Laad hier vrijblijvend uw LEKP rapport op" ;
+    sh:name "Laad hier het voorgelegde (LEKP-)rapport op" ;
     sh:order 60 ;
     sh:path ( lblodSubsidie:attachmentLEKPReport dct:hasPart ) ;
     form:displayType displayTypes:files ;
