@@ -1,0 +1,200 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos:  <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct:   <http://purl.org/dc/terms/>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/4b207355-9208-4e44-a20c-818800b7cc77> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"4b207355-9208-4e44-a20c-818800b7cc77" ;
+      skos:prefLabel	"Fusie Antwerpen" ;
+      <http://www.w3.org/ns/adms#identifier>	"207500123" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207500123" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/f37adc99-7d8d-4379-a8a5-5a6fd51c0470> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"f37adc99-7d8d-4379-a8a5-5a6fd51c0470" ;
+      skos:prefLabel	"Fusie Beveren-Kruibeke-Zwijndrecht" ;
+      <http://www.w3.org/ns/adms#identifier>	"207462313" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207462313" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/41273726-0c98-4a20-bfa1-9af96c8ad143> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"41273726-0c98-4a20-bfa1-9af96c8ad143" ;
+      skos:prefLabel	"Fusie Bilzen-Hoeselt" ;
+      <http://www.w3.org/ns/adms#identifier>	"207475377" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207475377" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/83b303e4-940e-4c47-ace1-6f8af5e22b1c> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"83b303e4-940e-4c47-ace1-6f8af5e22b1c" ;
+      skos:prefLabel	"Fusie Tongeren-Borgloon" ;
+      <http://www.w3.org/ns/adms#identifier>	"207067482" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207067482" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/c83ad029-7837-43a3-8352-7c5b6d722f88> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"c83ad029-7837-43a3-8352-7c5b6d722f88" ;
+      skos:prefLabel	"Fusie Nazareth-De Pinte" ;
+      <http://www.w3.org/ns/adms#identifier>	"207450534" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207450534" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/ffd8bfd4-34f4-4dab-aa59-a989b5885a2f> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"ffd8bfd4-34f4-4dab-aa59-a989b5885a2f" ;
+      skos:prefLabel	"Fusie Pajottegem" ;
+      <http://www.w3.org/ns/adms#identifier>	"207508338" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207508338" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/05a4ca46-3ed1-4cb0-9e36-fb68d9ad62eb> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"05a4ca46-3ed1-4cb0-9e36-fb68d9ad62eb" ;
+      skos:prefLabel	"Fusie Tessenderlo-Ham" ;
+      <http://www.w3.org/ns/adms#identifier>	"216772234" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "216772234" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/26cbea51-05b0-4c54-ac91-c204944bb7b9> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"26cbea51-05b0-4c54-ac91-c204944bb7b9" ;
+      skos:prefLabel	"Fusie Hasselt" ;
+      <http://www.w3.org/ns/adms#identifier>	"207466964" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207466964" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/c768e82d-79a9-423f-9bf3-21d5dfd60adf> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"c768e82d-79a9-423f-9bf3-21d5dfd60adf" ;
+      skos:prefLabel	"Fusie Lochristi" ;
+      <http://www.w3.org/ns/adms#identifier>	"207452514" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207452514" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/fd7e031a-c038-44c7-98bf-2c040f2de278> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"fd7e031a-c038-44c7-98bf-2c040f2de278" ;
+      skos:prefLabel	"Fusie Lokeren" ;
+      <http://www.w3.org/ns/adms#identifier>	"207463402" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207463402" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/6e135dbd-5417-413a-9951-08223ffb9662> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"6e135dbd-5417-413a-9951-08223ffb9662" ;
+      skos:prefLabel	"Fusie Merelbeke-Melle" ;
+      <http://www.w3.org/ns/adms#identifier>	"207453009" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207453009" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/2b6557de-a91c-4373-9336-af23eb62ad86> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"2b6557de-a91c-4373-9336-af23eb62ad86" ;
+      skos:prefLabel	"Fusie Tielt" ;
+      <http://www.w3.org/ns/adms#identifier>	"207463402" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207463402" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/ea69945e-0aae-4b64-a252-c1d0da2bc53f> rdf:type	<http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>, <http://www.w3.org/ns/org#Organization> ;
+      <http://mu.semte.ch/vocabularies/core/uuid>	"ea69945e-0aae-4b64-a252-c1d0da2bc53f" ;
+      skos:prefLabel	"Fusie Wingene" ;
+      <http://www.w3.org/ns/adms#identifier>	"207433015" ;
+      <http://mu.semte.ch/vocabularies/ext/kbonummer> "207433015" ;
+      <http://www.w3.org/ns/regorg#orgStatus>	<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      <http://data.vlaanderen.be/ns/besluit#classificatie>	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+      <http://mu.semte.ch/vocabularies/ext/inProvincie> <http://data.lblod.info/id/werkingsgebieden/f2bda6eb42c1ab85c4ef36588a043ac2bfeffa31bfb88bb7abc597f01efe270b>;
+      <http://data.vlaanderen.be/ns/besluit#werkingsgebied> <http://data.lblod.info/id/werkingsgebieden/f7ee528550fde82654c7506f58856198864920a54f010c25a81c21942dc0091d>.
+  }
+}
+;
+
