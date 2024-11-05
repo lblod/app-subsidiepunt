@@ -1,0 +1,55 @@
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext:     <http://mu.semte.ch/vocabularies/ext/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX mandaat: <http://data.vlaanderen.be/ns/mandaat#>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+
+INSERT {
+  GRAPH ?g {
+    ?persoon
+      a               foaf:Person ;
+      mu:uuid         ?uuidPersoon ;
+      foaf:firstName  ?classificatie ;
+      foaf:familyName ?naam ;
+      foaf:member     ?bestuurseenheid ;
+      foaf:account    ?account .
+
+    ?account
+      a                           foaf:OnlineAccount ;
+      mu:uuid                     ?uuidAccount ;
+      foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service> ;
+      ext:sessionRole             "SubsidiepuntGebruiker" .
+  }
+}
+WHERE {
+  VALUES ?bestuurseenheid {
+    <http://data.lblod.info/id/bestuurseenheden/4b207355-9208-4e44-a20c-818800b7cc77>,  # Fusie Antwerpen
+    <http://data.lblod.info/id/bestuurseenheden/f37adc99-7d8d-4379-a8a5-5a6fd51c0470>,  # Fusie Beveren-Kruibeke-Zwijndrecht
+    <http://data.lblod.info/id/bestuurseenheden/41273726-0c98-4a20-bfa1-9af96c8ad143>,  # Fusie Bilzen-Hoeselt
+    <http://data.lblod.info/id/bestuurseenheden/83b303e4-940e-4c47-ace1-6f8af5e22b1c>,  # Fusie Tongeren-Borgloon
+    <http://data.lblod.info/id/bestuurseenheden/c83ad029-7837-43a3-8352-7c5b6d722f88>,  # Fusie Nazareth-De Pinte
+    <http://data.lblod.info/id/bestuurseenheden/ffd8bfd4-34f4-4dab-aa59-a989b5885a2f>,  # Fusie Pajottegem
+    <http://data.lblod.info/id/bestuurseenheden/05a4ca46-3ed1-4cb0-9e36-fb68d9ad62eb>,  # Fusie Tessenderlo-Ham
+    <http://data.lblod.info/id/bestuurseenheden/26cbea51-05b0-4c54-ac91-c204944bb7b9>,  # Fusie Hasselt
+    <http://data.lblod.info/id/bestuurseenheden/c768e82d-79a9-423f-9bf3-21d5dfd60adf>,  # Fusie Lochristi
+    <http://data.lblod.info/id/bestuurseenheden/fd7e031a-c038-44c7-98bf-2c040f2de278>,  # Fusie Lokeren
+    <http://data.lblod.info/id/bestuurseenheden/6e135dbd-5417-413a-9951-08223ffb9662>,  # Fusie Merelbeke-Melle
+    <http://data.lblod.info/id/bestuurseenheden/2b6557de-a91c-4373-9336-af23eb62ad86>,  # Fusie Tielt
+    <http://data.lblod.info/id/bestuurseenheden/ea69945e-0aae-4b64-a252-c1d0da2bc53f>   # Fusie Wingene
+  }
+
+  ?bestuurseenheid
+    a                                     besluit:Bestuurseenheid ;
+    skos:prefLabel                        ?naam ;
+    besluit:classificatie/skos:prefLabel  ?classificatie .
+
+  BIND(CONCAT(?classificatie, " ", ?naam) AS ?volledigeNaam)
+  BIND(MD5(?volledigeNaam) AS ?uuidPersoon)
+  BIND(MD5(CONCAT(?volledigeNaam, "ACCOUNT")) AS ?uuidAccount)
+  BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
+  BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
+
+  BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", STRAFTER(STR(?bestuurseenheid), "http://data.lblod.info/id/bestuurseenheden/"))) AS ?g)
+}
