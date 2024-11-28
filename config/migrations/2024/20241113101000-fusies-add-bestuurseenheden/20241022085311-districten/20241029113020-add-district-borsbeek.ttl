@@ -1,0 +1,6 @@
+<http://data.lblod.info/id/bestuurseenheden/4b44e6f1-113b-4692-b149-44a889b215f2> a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> ;
+  <http://data.vlaanderen.be/ns/besluit#classificatie> <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000003>;
+  <http://mu.semte.ch/vocabularies/core/uuid> "4b44e6f1-113b-4692-b149-44a889b215f2";
+  <http://www.w3.org/2004/02/skos/core#prefLabel> "Borsbeek";
+  <http://data.vlaanderen.be/ns/besluit#classificatie> <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000003>;
+  <http://www.w3.org/ns/regorg#orgStatus> <http://lblod.data.gift/concepts/abf4fee82019f88cf122f986830621ab> .
