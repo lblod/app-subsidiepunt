@@ -1,0 +1,182 @@
+PREFIX dcterm: <http://purl.org/dc/terms/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX schema:     <http://schema.org/>
+
+# CONSUMPTION TRIPLES
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Nazareth-De Pinte"
+    ?consumption a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
+      <http://mu.semte.ch/vocabularies/core/uuid> ?uuid;
+      <http://purl.org/dc/terms/created> ?created;
+      <http://purl.org/dc/terms/modified> ?modified;
+      <http://purl.org/dc/terms/source> ?step;
+      <http://purl.org/vocab/cpsv#follows> ?formFlow; 
+      <http://mu.semte.ch/vocabularies/ext/lastModifiedBy> ?lastModified;
+      <http://www.w3.org/ns/adms#status> ?status;
+      <http://purl.org/dc/terms/creator> ?creator;
+      <http://data.europa.eu/m8g/hasParticipation> ?participation;
+      <http://www.w3.org/2007/uwa/context/common.owl#active> ?activeStep;
+      <http://data.vlaanderen.be/ns/transactie#isInstantieVan> <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2>. # Fietsinfrastructuur
+
+      ?participation a <http://data.europa.eu/m8g/Participation>;
+        ?participationPredicates ?participationSubjects.
+
+      ?step a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm>;
+        ?stepPredicates ?stepSubjects.
+  }
+}
+WHERE {
+  VALUES ?sourceGraph {
+    <http://mu.semte.ch/graphs/organizations/e39bc997aa6dd9f240277735efd745b6a0422614d2b36cf01825c86b1b91a9ee/SubsidiepuntGebruiker> # De Pinte
+    <http://mu.semte.ch/graphs/organizations/0327a51548f73607f8a5ec11b36711a3c96703686ad93a3d632718c135c295db/SubsidiepuntGebruiker> # Nazareth    
+  }
+  GRAPH ?sourceGraph {
+    ?consumption a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
+      <http://data.vlaanderen.be/ns/transactie#isInstantieVan> <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2>; # Fietsinfrastructuur
+      <http://mu.semte.ch/vocabularies/core/uuid> ?uuid;
+      <http://purl.org/dc/terms/created> ?created;
+      <http://purl.org/dc/terms/modified> ?modified;
+      <http://purl.org/dc/terms/source> ?step;
+      <http://purl.org/vocab/cpsv#follows> ?formFlow; 
+      <http://mu.semte.ch/vocabularies/ext/lastModifiedBy> ?lastModified;
+      <http://www.w3.org/ns/adms#status> ?status;
+      <http://purl.org/dc/terms/creator> ?creator;
+      <http://data.europa.eu/m8g/hasParticipation> ?participation.
+
+      OPTIONAL {
+        ?consumption <http://www.w3.org/2007/uwa/context/common.owl#active> ?activeStep.
+      }
+
+      OPTIONAL {
+        ?participation ?participationPredicates ?participationSubjects.
+      }
+
+      OPTIONAL {
+        ?step ?stepPredicates ?stepSubjects.
+      }
+  }
+};
+
+# Get Data From UploadFields
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Nazareth-De Pinte
+    ?step ?uploadPredicate ?formData. 
+    ?formData a ?type.
+    ?formData ?formDataPredicate ?fileDataObject.
+    ?fileDataObject ?fdoPredicate ?fdoSubject.
+    ?dataSource <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource> ?fileDataObject.
+  }
+}
+WHERE {
+  # Define the target graphs to retrieve data from
+  VALUES ?sourceGraph {
+    <http://mu.semte.ch/graphs/organizations/e39bc997aa6dd9f240277735efd745b6a0422614d2b36cf01825c86b1b91a9ee/SubsidiepuntGebruiker> # De Pinte
+    <http://mu.semte.ch/graphs/organizations/0327a51548f73607f8a5ec11b36711a3c96703686ad93a3d632718c135c295db/SubsidiepuntGebruiker> # Nazareth   
+  }
+
+  # All upload predicates + Type pairs
+  VALUES (?uploadPredicate ?type) {
+    (<http://lblod.data.gift/vocabularies/subsidie/picturesUpload>                    <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/pictures-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/decisionUpload>                    <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/decision-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/justificationCostsUpload>          <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/justification-costs-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/reportUpload>                      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/report-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/accountabilityNoteUpload>          <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/accountability-note-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/awardReportUpload>                 <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/award-report-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/justificationExpropriationsUpload> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/justification-expropriations-upload/FormData>)
+    (<http://lblod.data.gift/vocabularies/subsidie/invoiceUpload>                     <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/invoice-upload/FormData>)
+  }
+
+  # Fetch data from all target graphs
+  GRAPH ?sourceGraph {
+    ?step ?uploadPredicate ?formData.
+    ?formData a ?type.
+
+    # Direct relationships
+    OPTIONAL {
+      ?formData ?formDataPredicate ?fileDataObject.
+    }
+
+    # FileDataObject
+    OPTIONAL {
+      ?fileDataObject ?fdoPredicate ?fdoSubject.
+    }
+
+  # FileDataObject
+    OPTIONAL {
+      ?dataSource <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource> ?fileDataObject.
+    }
+  }
+};
+
+# BankAccount & Contactpoint
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Nazareth-De Pinte
+    ?step <http://schema.org/contactPoint> ?contactPoint.
+    ?contactPoint ?contactPointPredicate ?contactPointSubject.
+
+    ?step <http://schema.org/bankAccount> ?bankAccount.
+    ?bankAccount ?bankAccountPredicate ?bankAccountSubject.
+  }
+}
+WHERE {
+  VALUES ?sourceGraph {
+    <http://mu.semte.ch/graphs/organizations/e39bc997aa6dd9f240277735efd745b6a0422614d2b36cf01825c86b1b91a9ee/SubsidiepuntGebruiker> # De Pinte
+    <http://mu.semte.ch/graphs/organizations/0327a51548f73607f8a5ec11b36711a3c96703686ad93a3d632718c135c295db/SubsidiepuntGebruiker> # Nazareth     
+  }
+
+  GRAPH ?sourceGraph {
+    ?consumption <http://data.vlaanderen.be/ns/transactie#isInstantieVan> <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2>;
+                 <http://purl.org/dc/terms/source> ?step.
+
+    OPTIONAL {
+      ?step <http://schema.org/contactPoint> ?contactPoint.
+      ?contactPoint ?contactPointPredicate ?contactPointSubject.
+    }
+
+    OPTIONAL {
+      ?step <http://schema.org/bankAccount> ?bankAccount.
+      ?bankAccount ?bankAccountPredicate ?bankAccountSubject.
+    }
+  }
+};
+
+
+# Data Tables
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Nazareth-De Pinte
+    ?step ?tablePredicate ?table.
+    ?table a ?tableType;
+      <http://mu.semte.ch/vocabularies/core/uuid> ?tableUuid;
+      ?extraPredicate ?extraObject.
+    ?extraObject ?entryPredicate ?entryObject.
+  }
+}
+WHERE {
+  VALUES ?sourceGraph {
+    <http://mu.semte.ch/graphs/organizations/e39bc997aa6dd9f240277735efd745b6a0422614d2b36cf01825c86b1b91a9ee/SubsidiepuntGebruiker> # De Pinte
+    <http://mu.semte.ch/graphs/organizations/0327a51548f73607f8a5ec11b36711a3c96703686ad93a3d632718c135c295db/SubsidiepuntGebruiker> # Nazareth   
+  }
+
+  # Define table types and their associated predicates
+  VALUES (?tablePredicate ?tableType ?extraPredicate) {
+    (<http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#ObjectiveTable> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveEntry>)
+    (<http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#EstimatedCostTable> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostEntry>)
+  }
+
+  GRAPH ?sourceGraph {
+    # Match tables associated with steps
+    ?step ?tablePredicate ?table.
+    ?table a ?tableType;
+      <http://mu.semte.ch/vocabularies/core/uuid> ?tableUuid.
+
+    # Handle extra entries for the table
+    OPTIONAL {
+      ?table ?extraPredicate ?extraObject.
+      OPTIONAL {
+        ?extraObject ?entryPredicate ?entryObject.
+      }
+    }
+  }
+}
+
