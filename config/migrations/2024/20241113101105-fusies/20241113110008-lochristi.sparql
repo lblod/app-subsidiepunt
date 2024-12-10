@@ -21,6 +21,8 @@ INSERT {
       ?participation a <http://data.europa.eu/m8g/Participation>;
         ?participationPredicates ?participationSubjects.
 
+      ?participatingOrganization <http://data.europa.eu/m8g/playsRole> ?participation.
+
       ?step a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm>;
         ?stepPredicates ?stepSubjects.
   }
@@ -48,6 +50,10 @@ WHERE {
 
       OPTIONAL {
         ?participation ?participationPredicates ?participationSubjects.
+      }
+
+      OPTIONAL {
+        ?participatingOrganization <http://data.europa.eu/m8g/playsRole> ?participation.
       }
 
       OPTIONAL {
