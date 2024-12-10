@@ -1,0 +1,92 @@
+@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix besluit:	<http://data.vlaanderen.be/ns/besluit#> .
+@prefix dcterms:	<http://purl.org/dc/terms/> .
+@prefix org:	<http://www.w3.org/ns/org#> .
+@prefix skos:	<http://www.w3.org/2004/02/skos/core#> .
+@prefix bestuurseenheden:	<http://data.lblod.info/id/bestuurseenheden/> .
+@prefix werkingsgebieden:	<http://data.lblod.info/id/werkingsgebieden/> .
+@prefix mu:	<http://mu.semte.ch/vocabularies/core/> .
+@prefix prov:	<http://www.w3.org/ns/prov#> .
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ext:	<http://mu.semte.ch/vocabularies/ext/> .
+@prefix bestuursorganen:	<http://data.lblod.info/id/bestuursorganen/> .
+
+# Gemeente Beveren-Kruibeke-Zwijndrecht
+<http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9>	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> .
+<http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9>	skos:prefLabel	"Beveren-Kruibeke-Zwijndrecht" .
+<http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9>	org:linkedTo	bestuurseenheden:fd41f573-7d9a-4d9f-b7d0-d5b6114d1622 .
+<http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9>	besluit:werkingsgebied	werkingsgebieden:b97c1b58-6431-4509-ab94-3300d27759a8 .
+<http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9>	mu:uuid	"19483103-318e-435a-aa37-45e485406ee9" .
+werkingsgebieden:b97c1b58-6431-4509-ab94-3300d27759a8	rdf:typePajottegem	prov:Location .
+werkingsgebieden:b97c1b58-6431-4509-ab94-3300d27759a8	rdfs:label	"Beveren-Kruibeke-Zwijndrecht" .
+werkingsgebieden:b97c1b58-6431-4509-ab94-3300d27759a8	ext:werkingsgebiedNiveau	"Gemeente" ;
+	mu:uuid	"b97c1b58-6431-4509-ab94-3300d27759a8" .
+
+# Gemeente Nazareth-De Pinte
+<http://data.lblod.info/id/bestuurseenheden/1ca65d65-54ff-4b44-b750-bd70c91191af>	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
+	skos:prefLabel	"Nazareth-De Pinte" ;
+	org:linkedTo	<http://data.lblod.info/id/bestuurseenheden/7d53f659-3a3b-44b1-9e77-3ea067678c0e> ;
+	besluit:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/41362ab2-5130-4160-b76b-4bfa5d9a1f59> ;
+	mu:uuid	"1ca65d65-54ff-4b44-b750-bd70c91191af" .
+<http://data.lblod.info/id/werkingsgebieden/41362ab2-5130-4160-b76b-4bfa5d9a1f59>	rdf:type	prov:Location ;
+	rdfs:label	"Nazareth-De Pinte" ;
+	ext:werkingsgebiedNiveau	"Gemeente" ;
+	mu:uuid	"41362ab2-5130-4160-b76b-4bfa5d9a1f59" .
+
+# Gemeente Pajottegem
+bestuurseenheden:add1e4eb-9ec7-4ea6-af82-335aa76b7d48	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
+	skos:prefLabel	"Pajottegem" ;
+	org:linkedTo	<http://data.lblod.info/id/bestuurseenheden/650378e7-1bee-4737-91ff-5b20ac4623cf> ;
+	besluit:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/92398c49-30d5-46b2-af90-37f135c89e47> ;
+	mu:uuid	"add1e4eb-9ec7-4ea6-af82-335aa76b7d48" .
+<http://data.lblod.info/id/werkingsgebieden/92398c49-30d5-46b2-af90-37f135c89e47>	rdf:type	prov:Location ;
+	rdfs:label	"Pajottegem" ;
+	ext:werkingsgebiedNiveau	"Gemeente" ;
+	mu:uuid	"92398c49-30d5-46b2-af90-37f135c89e47" .
+
+# Gemeente Merelbeke-Melle
+bestuurseenheden:b8bb293d-aa22-4b43-bda4-0b6af76e9493	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
+	skos:prefLabel	"Merelbeke-Melle" ;
+	org:linkedTo	<http://data.lblod.info/id/bestuurseenheden/5d94b2fd-60ee-4e56-a1f0-a586d596adf6> ;
+	besluit:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/62fef519-b1de-4a0f-911a-c63a5365c17b> ;
+	mu:uuid	"b8bb293d-aa22-4b43-bda4-0b6af76e9493" .
+<http://data.lblod.info/id/werkingsgebieden/62fef519-b1de-4a0f-911a-c63a5365c17b>	rdf:type	prov:Location ;
+	rdfs:label	"Merelbeke-Melle" ;
+	ext:werkingsgebiedNiveau	"Gemeente" ;
+	mu:uuid	"62fef519-b1de-4a0f-911a-c63a5365c17b" .
+
+# OCMW Beveren-Kruibeke-Zwijndrecht
+bestuurseenheden:fd41f573-7d9a-4d9f-b7d0-d5b6114d1622	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000002> ;
+	skos:prefLabel	"Beveren-Kruibeke-Zwijndrecht" ;
+	org:linkedTo	<http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9> ;
+	besluit:werkingsgebied	werkingsgebieden:b97c1b58-6431-4509-ab94-3300d27759a8 ;
+	mu:uuid	"fd41f573-7d9a-4d9f-b7d0-d5b6114d1622" .
+
+# OCMW Nazareth-De Pinte
+<http://data.lblod.info/id/bestuurseenheden/7d53f659-3a3b-44b1-9e77-3ea067678c0e>	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000002> ;
+	skos:prefLabel	"Nazareth-De Pinte" ;
+	org:linkedTo	<http://data.lblod.info/id/bestuurseenheden/1ca65d65-54ff-4b44-b750-bd70c91191af> ;
+	besluit:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/41362ab2-5130-4160-b76b-4bfa5d9a1f59> ;
+	mu:uuid	"7d53f659-3a3b-44b1-9e77-3ea067678c0e" .
+
+# OCMW Pajottegem
+<http://data.lblod.info/id/bestuurseenheden/650378e7-1bee-4737-91ff-5b20ac4623cf>	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000002> ;
+	skos:prefLabel	"Pajottegem" ;
+	org:linkedTo	bestuurseenheden:add1e4eb-9ec7-4ea6-af82-335aa76b7d48 ;
+	besluit:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/92398c49-30d5-46b2-af90-37f135c89e47> ;
+	mu:uuid	"650378e7-1bee-4737-91ff-5b20ac4623cf" .
+
+# OCMW Merelbeke-Melle
+<http://data.lblod.info/id/bestuurseenheden/5d94b2fd-60ee-4e56-a1f0-a586d596adf6>	rdf:type	besluit:Bestuurseenheid, org:Organization ;
+	besluit:classificatie	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000002> ;
+	skos:prefLabel	"Merelbeke-Melle" ;
+	org:linkedTo	bestuurseenheden:b8bb293d-aa22-4b43-bda4-0b6af76e9493 ;
+	besluit:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/62fef519-b1de-4a0f-911a-c63a5365c17b> ;
+	mu:uuid	"5d94b2fd-60ee-4e56-a1f0-a586d596adf6" .

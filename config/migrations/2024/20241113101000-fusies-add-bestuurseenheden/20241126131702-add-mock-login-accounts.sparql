@@ -1,0 +1,60 @@
+
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX mandaat: <http://data.vlaanderen.be/ns/mandaat#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?persoon a foaf:Person;
+           mu:uuid ?uuidPersoon;
+           foaf:firstName ?classificatie;
+           foaf:familyName ?naam;
+           foaf:member ?bestuurseenheid;
+           foaf:account ?account.
+  ?account a foaf:OnlineAccount;
+           mu:uuid ?uuidAccount;
+           foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+           ext:sessionRole "SubsidiepuntGebruiker". 
+           }
+  GRAPH ?g {
+  ?persoon a foaf:Person;
+           mu:uuid ?uuidPersoon;
+           foaf:firstName ?classificatie;
+           foaf:familyName ?naam;
+           foaf:member ?bestuurseenheid;
+           foaf:account ?account.
+  ?account a foaf:OnlineAccount;
+           mu:uuid ?uuidAccount;
+           foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+           ext:sessionRole "SubsidiepuntGebruiker".
+          }
+}
+WHERE {
+     ?bestuurseenheid a besluit:Bestuurseenheid;
+     mu:uuid ?uuid;
+     skos:prefLabel ?naam;
+     besluit:classificatie/skos:prefLabel ?classificatie.
+
+     BIND(CONCAT(?classificatie, " ", ?naam) as ?volledigeNaam)
+     BIND(MD5(?volledigeNaam) as ?uuidPersoon)
+     BIND(MD5(CONCAT(?volledigeNaam,"ACCOUNT")) as ?uuidAccount)
+     BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
+     BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
+     BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/",?uuid)) AS ?g )
+
+     VALUES ?bestuurseenheid  {
+        <http://data.lblod.info/id/bestuurseenheden/4b44e6f1-113b-4692-b149-44a889b215f2> # District Borsbeek
+        <http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9> # Gemeente Beveren-Kruibeke-Zwijndrecht
+        <http://data.lblod.info/id/bestuurseenheden/1ca65d65-54ff-4b44-b750-bd70c91191af> # Gemeente Nazareth-De Pinte
+        <http://data.lblod.info/id/bestuurseenheden/add1e4eb-9ec7-4ea6-af82-335aa76b7d48> # Gemeente Pajottegem
+        <http://data.lblod.info/id/bestuurseenheden/b8bb293d-aa22-4b43-bda4-0b6af76e9493> # Gemeente Merelbeke-Melle
+        <http://data.lblod.info/id/bestuurseenheden/fd41f573-7d9a-4d9f-b7d0-d5b6114d1622> # OCMW Beveren-Kruibeke-Zwijndrecht
+        <http://data.lblod.info/id/bestuurseenheden/7d53f659-3a3b-44b1-9e77-3ea067678c0e> # OCMW Nazareth-De Pinte
+        <http://data.lblod.info/id/bestuurseenheden/650378e7-1bee-4737-91ff-5b20ac4623cf> # OCMW Pajottegem
+        <http://data.lblod.info/id/bestuurseenheden/5d94b2fd-60ee-4e56-a1f0-a586d596adf6> # OCMW Merelbeke-Melle
+     }
+}
