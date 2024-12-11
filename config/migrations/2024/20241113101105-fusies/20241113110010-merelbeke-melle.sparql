@@ -4,7 +4,7 @@ PREFIX schema:     <http://schema.org/>
 
 # CONSUMPTION TRIPLES
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/5d94b2fd-60ee-4e56-a1f0-a586d596adf6/SubsidiepuntGebruiker> { # Merelbeke-melle
+  GRAPH <http://mu.semte.ch/graphs/organizations/b8bb293d-aa22-4b43-bda4-0b6af76e9493/SubsidiepuntGebruiker> { # Merelbeke-melle
     ?consumption a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
       <http://mu.semte.ch/vocabularies/core/uuid> ?uuid;
       <http://purl.org/dc/terms/created> ?created;
@@ -65,7 +65,7 @@ WHERE {
 
 # Get Data From UploadFields
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/5d94b2fd-60ee-4e56-a1f0-a586d596adf6/SubsidiepuntGebruiker> { # Merelbeke-melle
+  GRAPH <http://mu.semte.ch/graphs/organizations/b8bb293d-aa22-4b43-bda4-0b6af76e9493/SubsidiepuntGebruiker> { # Merelbeke-melle
     ?step ?uploadPredicate ?formData. 
     ?formData a ?type.
     ?formData ?formDataPredicate ?fileDataObject.
@@ -116,7 +116,7 @@ WHERE {
 
 # BankAccount & Contactpoint
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/5d94b2fd-60ee-4e56-a1f0-a586d596adf6/SubsidiepuntGebruiker> { # Merelbeke-melle
+  GRAPH <http://mu.semte.ch/graphs/organizations/b8bb293d-aa22-4b43-bda4-0b6af76e9493/SubsidiepuntGebruiker> { # Merelbeke-melle
     ?step <http://schema.org/contactPoint> ?contactPoint.
     ?contactPoint ?contactPointPredicate ?contactPointSubject.
 
@@ -150,7 +150,7 @@ WHERE {
 # Data Tables
 
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/5d94b2fd-60ee-4e56-a1f0-a586d596adf6/SubsidiepuntGebruiker> { # Merelbeke-melle
+  GRAPH <http://mu.semte.ch/graphs/organizations/b8bb293d-aa22-4b43-bda4-0b6af76e9493/SubsidiepuntGebruiker> { # Merelbeke-melle
     ?step ?tablePredicate ?table.
     ?table a ?tableType;
       <http://mu.semte.ch/vocabularies/core/uuid> ?tableUuid;
