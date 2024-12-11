@@ -4,7 +4,7 @@ PREFIX schema:     <http://schema.org/>
 
 # CONSUMPTION TRIPLES
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Pajottegem"
+  GRAPH <http://mu.semte.ch/graphs/organizations/add1e4eb-9ec7-4ea6-af82-335aa76b7d48/SubsidiepuntGebruiker> { # Pajottegem"
     ?consumption a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
       <http://mu.semte.ch/vocabularies/core/uuid> ?uuid;
       <http://purl.org/dc/terms/created> ?created;
@@ -66,7 +66,7 @@ WHERE {
 
 # Get Data From UploadFields
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Pajottegem
+  GRAPH <http://mu.semte.ch/graphs/organizations/add1e4eb-9ec7-4ea6-af82-335aa76b7d48/SubsidiepuntGebruiker> { # Pajottegem
     ?step ?uploadPredicate ?formData. 
     ?formData a ?type.
     ?formData ?formDataPredicate ?fileDataObject.
@@ -118,7 +118,7 @@ WHERE {
 
 # BankAccount & Contactpoint
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Pajottegem
+  GRAPH <http://mu.semte.ch/graphs/organizations/add1e4eb-9ec7-4ea6-af82-335aa76b7d48/SubsidiepuntGebruiker> { # Pajottegem
     ?step <http://schema.org/contactPoint> ?contactPoint.
     ?contactPoint ?contactPointPredicate ?contactPointSubject.
 
@@ -153,7 +153,7 @@ WHERE {
 # Data Tables
 
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> { # Pajottegem
+  GRAPH <http://mu.semte.ch/graphs/organizations/add1e4eb-9ec7-4ea6-af82-335aa76b7d48/SubsidiepuntGebruiker> { # Pajottegem
     ?step ?tablePredicate ?table.
     ?table a ?tableType;
       <http://mu.semte.ch/vocabularies/core/uuid> ?tableUuid;
