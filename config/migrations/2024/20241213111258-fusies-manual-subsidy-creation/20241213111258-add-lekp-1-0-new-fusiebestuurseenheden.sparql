@@ -1,0 +1,468 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX cpsv: <http://purl.org/vocab/cpsv#>
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX transactie: <http://data.vlaanderen.be/ns/transactie#>
+PREFIX context: <http://www.w3.org/2007/uwa/context/common.owl#>
+PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+
+
+# Antwerpen
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/670db1d66c0de3b931962e1044033ccfa9d6e3023aa9828a5f252c3bc69bd32c/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/6fa1df8d-d8fa-4adc-9ce9-3c45e2e1a2ab> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "6fa1df8d-d8fa-4adc-9ce9-3c45e2e1a2ab";
+                 dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/4e232cde-0f44-40de-ab49-14239a35301b>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/3cfa24e8-b644-4210-a53b-2a413db258ce>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/4e232cde-0f44-40de-ab49-14239a35301b> a m8g:Participation;
+                   mu:uuid "4e232cde-0f44-40de-ab49-14239a35301b";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/670db1d66c0de3b931962e1044033ccfa9d6e3023aa9828a5f252c3bc69bd32c> m8g:playsRole <http://data.lblod.info/id/participations/4e232cde-0f44-40de-ab49-14239a35301b>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/3cfa24e8-b644-4210-a53b-2a413db258ce> a subsidie:ApplicationForm;
+                     mu:uuid "3cfa24e8-b644-4210-a53b-2a413db258ce";
+                     dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+
+# Bilzen
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/99da98a7a0087d3429b084ebfc4eb5d488c593790d4d5af7253982a2e21a6a5f/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/127ddb07-990d-44d0-9d97-91553deb9b76> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "127ddb07-990d-44d0-9d97-91553deb9b76";
+                 dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/84486b1d-bdf3-4e88-bdd4-f3da6ecd71b9>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/109c9f25-8b82-4cff-90bd-7b23e892a965>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/84486b1d-bdf3-4e88-bdd4-f3da6ecd71b9> a m8g:Participation;
+                   mu:uuid "84486b1d-bdf3-4e88-bdd4-f3da6ecd71b9";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/99da98a7a0087d3429b084ebfc4eb5d488c593790d4d5af7253982a2e21a6a5f> m8g:playsRole <http://data.lblod.info/id/participations/84486b1d-bdf3-4e88-bdd4-f3da6ecd71b9>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/109c9f25-8b82-4cff-90bd-7b23e892a965> a subsidie:ApplicationForm;
+                     mu:uuid "109c9f25-8b82-4cff-90bd-7b23e892a965";
+                     dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Ham
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/05099fa1f6524b8b994d86f61549455d2c00b2a956d5308683ac2d1f810fc729/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/03c0561d-1275-43a4-9498-f3a86bfa6366> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "03c0561d-1275-43a4-9498-f3a86bfa6366";
+                 dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/ad71b71f-3ed8-48cb-9d71-63ff7cc246d8>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/ce3fffcc-4fe4-45f3-adc2-dc4ccd326b53>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/ad71b71f-3ed8-48cb-9d71-63ff7cc246d8> a m8g:Participation;
+                   mu:uuid "ad71b71f-3ed8-48cb-9d71-63ff7cc246d8";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/05099fa1f6524b8b994d86f61549455d2c00b2a956d5308683ac2d1f810fc729> m8g:playsRole <http://data.lblod.info/id/participations/ad71b71f-3ed8-48cb-9d71-63ff7cc246d8>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/ce3fffcc-4fe4-45f3-adc2-dc4ccd326b53> a subsidie:ApplicationForm;
+                     mu:uuid "ce3fffcc-4fe4-45f3-adc2-dc4ccd326b53";
+                     dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Pajottegem
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/add1e4eb-9ec7-4ea6-af82-335aa76b7d48/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/9be79714-799e-4a91-a9b0-7daacf462a80> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "9be79714-799e-4a91-a9b0-7daacf462a80";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/1f7ee25c-1ffa-42ac-b956-debb9fbba940>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/d42ad1fa-88a6-4a91-98f9-9c18f956e352>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/1f7ee25c-1ffa-42ac-b956-debb9fbba940> a m8g:Participation;
+                   mu:uuid "1f7ee25c-1ffa-42ac-b956-debb9fbba940";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/add1e4eb-9ec7-4ea6-af82-335aa76b7d48> m8g:playsRole <http://data.lblod.info/id/participations/1f7ee25c-1ffa-42ac-b956-debb9fbba940>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/d42ad1fa-88a6-4a91-98f9-9c18f956e352> a subsidie:ApplicationForm;
+                     mu:uuid "d42ad1fa-88a6-4a91-98f9-9c18f956e352";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Hasselt
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/9db1b46874a57fe63c08fb5f16b117e6f61fdd98e7f64f745d0fceb9d3731169/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/b4558179-ee84-4055-b2de-cd21fe4ac43a> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "b4558179-ee84-4055-b2de-cd21fe4ac43a";
+                 dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/ca111c74-31da-41ba-80fa-3701ed0ccdaa>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/81077512-d7d0-4b73-b720-882db25e99d5>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/ca111c74-31da-41ba-80fa-3701ed0ccdaa> a m8g:Participation;
+                   mu:uuid "ca111c74-31da-41ba-80fa-3701ed0ccdaa";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/9db1b46874a57fe63c08fb5f16b117e6f61fdd98e7f64f745d0fceb9d3731169> m8g:playsRole <http://data.lblod.info/id/participations/ca111c74-31da-41ba-80fa-3701ed0ccdaa>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/81077512-d7d0-4b73-b720-882db25e99d5> a subsidie:ApplicationForm;
+                     mu:uuid "81077512-d7d0-4b73-b720-882db25e99d5";
+                     dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Wingene
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/99ed6eee81a7aca47517cbffb46eaba38f3987eeb4ad32c020898644769eb615/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/c5b5422c-98b2-40fe-8bbb-f3f08bfa9b56> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "c5b5422c-98b2-40fe-8bbb-f3f08bfa9b56";
+                 dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/abbf13d3-5462-4de9-86c9-a613cdf544dd>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/193562c3-a0b0-40ae-ae09-0b2492415326>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/abbf13d3-5462-4de9-86c9-a613cdf544dd> a m8g:Participation;
+                   mu:uuid "abbf13d3-5462-4de9-86c9-a613cdf544dd";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/99ed6eee81a7aca47517cbffb46eaba38f3987eeb4ad32c020898644769eb615> m8g:playsRole <http://data.lblod.info/id/participations/abbf13d3-5462-4de9-86c9-a613cdf544dd>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/193562c3-a0b0-40ae-ae09-0b2492415326> a subsidie:ApplicationForm;
+                     mu:uuid "193562c3-a0b0-40ae-ae09-0b2492415326";
+                     dcterm:created "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-01T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Beveren-Kruibeke-Zwijndrecht
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/19483103-318e-435a-aa37-45e485406ee9/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/08b47eb3-86a6-446c-83c9-f070a251151d> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "08b47eb3-86a6-446c-83c9-f070a251151d";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/e3be72a2-9125-4483-8341-f9022483be32>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/4f61c86e-6078-4e84-8ff6-bf227a8fb68c>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/e3be72a2-9125-4483-8341-f9022483be32> a m8g:Participation;
+                   mu:uuid "e3be72a2-9125-4483-8341-f9022483be32";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/19483103-318e-435a-aa37-45e485406ee9> m8g:playsRole <http://data.lblod.info/id/participations/e3be72a2-9125-4483-8341-f9022483be32>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/4f61c86e-6078-4e84-8ff6-bf227a8fb68c> a subsidie:ApplicationForm;
+                     mu:uuid "4f61c86e-6078-4e84-8ff6-bf227a8fb68c";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Tongeren-borgloon
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/104f32d7fb8d4b8b61b71717301656f136fe046eabaf126fb3325896b5c2d625/SubsidiepuntGebruiker> { 
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/51b0a4c3-c2be-4e09-8290-c53cb7a7f203> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "51b0a4c3-c2be-4e09-8290-c53cb7a7f203";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/0b513909-cbd7-42fa-bd08-830ab9c1e780>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/0595e6a3-89fc-4f48-a688-3511cdcf2227>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/0b513909-cbd7-42fa-bd08-830ab9c1e780> a m8g:Participation;
+                   mu:uuid "0b513909-cbd7-42fa-bd08-830ab9c1e780";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/104f32d7fb8d4b8b61b71717301656f136fe046eabaf126fb3325896b5c2d625> m8g:playsRole <http://data.lblod.info/id/participations/0b513909-cbd7-42fa-bd08-830ab9c1e780>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/0595e6a3-89fc-4f48-a688-3511cdcf2227> a subsidie:ApplicationForm;
+                     mu:uuid "0595e6a3-89fc-4f48-a688-3511cdcf2227";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Nazareth-De Pinte
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/93175bd7-575e-49d7-906d-e84923fb66c9> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "93175bd7-575e-49d7-906d-e84923fb66c9";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/375f8d3e-e3e4-4384-84ac-97211259cc5b>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/d3fce8a0-d34e-46ab-aa9a-c42d2ced8282>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/375f8d3e-e3e4-4384-84ac-97211259cc5b> a m8g:Participation;
+                   mu:uuid "375f8d3e-e3e4-4384-84ac-97211259cc5b";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/1ca65d65-54ff-4b44-b750-bd70c91191af> m8g:playsRole <http://data.lblod.info/id/participations/375f8d3e-e3e4-4384-84ac-97211259cc5b>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/d3fce8a0-d34e-46ab-aa9a-c42d2ced8282> a subsidie:ApplicationForm;
+                     mu:uuid "d3fce8a0-d34e-46ab-aa9a-c42d2ced8282";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Lochristi
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/2ac1bb2a7d7bbd98e2e7a24be2c67e42171788a71c2436a33060626593bb2f78/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/1249d0af-6c7a-4d78-8751-c6f610b87eae> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "1249d0af-6c7a-4d78-8751-c6f610b87eae";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/1020f655-0c56-4c91-94e7-d2d8e10acbb3>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/fdf0095a-b444-4eec-b72c-3ee3afa2edc4>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/1020f655-0c56-4c91-94e7-d2d8e10acbb3> a m8g:Participation;
+                   mu:uuid "1020f655-0c56-4c91-94e7-d2d8e10acbb3";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/2ac1bb2a7d7bbd98e2e7a24be2c67e42171788a71c2436a33060626593bb2f78> m8g:playsRole <http://data.lblod.info/id/participations/1020f655-0c56-4c91-94e7-d2d8e10acbb3>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/fdf0095a-b444-4eec-b72c-3ee3afa2edc4> a subsidie:ApplicationForm;
+                     mu:uuid "fdf0095a-b444-4eec-b72c-3ee3afa2edc4";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Lokeren
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/cb2a6e0a490ee881ddd0d9ded7f2b3d1dc2df7e57a19d014caac054bfa355f5a/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/23800ebb-d49e-4b02-86b8-54fdcafd1402> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "23800ebb-d49e-4b02-86b8-54fdcafd1402";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/bf6186a4-4d0d-49fa-a7a4-141d4cccec21>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/9d5d0e86-535f-4a65-b64c-b438cd22a26d>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/bf6186a4-4d0d-49fa-a7a4-141d4cccec21> a m8g:Participation;
+                   mu:uuid "bf6186a4-4d0d-49fa-a7a4-141d4cccec21";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/cb2a6e0a490ee881ddd0d9ded7f2b3d1dc2df7e57a19d014caac054bfa355f5a> m8g:playsRole <http://data.lblod.info/id/participations/bf6186a4-4d0d-49fa-a7a4-141d4cccec21>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/9d5d0e86-535f-4a65-b64c-b438cd22a26d> a subsidie:ApplicationForm;
+                     mu:uuid "9d5d0e86-535f-4a65-b64c-b438cd22a26d";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Merelbeke-melle
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/b8bb293d-aa22-4b43-bda4-0b6af76e9493/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/529ed0b7-5612-4da5-b4c9-90d05dc0e892> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "529ed0b7-5612-4da5-b4c9-90d05dc0e892";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/49da4de4-67d0-48fb-9606-a2d417b8bee9>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/9d5d0e86-535f-4a65-b64c-b438cd22a26d>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/49da4de4-67d0-48fb-9606-a2d417b8bee9> a m8g:Participation;
+                   mu:uuid "49da4de4-67d0-48fb-9606-a2d417b8bee9";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/b8bb293d-aa22-4b43-bda4-0b6af76e9493> m8g:playsRole <http://data.lblod.info/id/participations/49da4de4-67d0-48fb-9606-a2d417b8bee9>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/9d5d0e86-535f-4a65-b64c-b438cd22a26d> a subsidie:ApplicationForm;
+                     mu:uuid "9d5d0e86-535f-4a65-b64c-b438cd22a26d";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
+
+# Tielt
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/b36da606fba6dd4dc99ae1ef5f4a52bba3268d33f4bc2cd1e65b87f01f35101a/SubsidiepuntGebruiker> {
+    # Subsidy measure consumption
+    <http://data.lblod.info/id/subsidy-measure-consumptions/96bb72c8-9d37-4f7f-9b48-94458f371bbf> a subsidie:SubsidiemaatregelConsumptie;
+                 mu:uuid "96bb72c8-9d37-4f7f-9b48-94458f371bbf";
+                 dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                 dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                 context:active <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>; # Opvolgmoment 2025
+                 cpsv:follows <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9>; # LEKP 1.0 Flow
+                 adms:status <http://lblod.data.gift/concepts/c849ca98-455d-4f31-9e95-a3d9d06e4497>; # Actief
+                 m8g:hasParticipation <http://data.lblod.info/id/participations/9bae07e2-e4c4-42c1-9c5a-417b3e7acac8>; # Participation
+                 transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>; # Lokaal Energie- en Klimaatpact 1.0
+                 dcterm:source <http://data.lblod.info/id/application-forms/55e03bff-7d9e-4591-b1a1-b99336047437>. # Application form
+
+    # Participation
+    <http://data.lblod.info/id/participations/9bae07e2-e4c4-42c1-9c5a-417b3e7acac8> a m8g:Participation;
+                   mu:uuid "9bae07e2-e4c4-42c1-9c5a-417b3e7acac8";
+                   m8g:role <http://lblod.data.gift/concepts/d8b8f3d1-7574-4baf-94df-188a7bd84a3a>. # Aanvrager
+
+    # Bestuurseenheid
+    <http://data.lblod.info/id/bestuurseenheden/b36da606fba6dd4dc99ae1ef5f4a52bba3268d33f4bc2cd1e65b87f01f35101a> m8g:playsRole <http://data.lblod.info/id/participations/9bae07e2-e4c4-42c1-9c5a-417b3e7acac8>.
+
+    # Application form
+    <http://data.lblod.info/id/application-forms/55e03bff-7d9e-4591-b1a1-b99336047437> a subsidie:ApplicationForm;
+                     mu:uuid "55e03bff-7d9e-4591-b1a1-b99336047437";
+                     dcterm:created "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Creation date
+                     dcterm:modified "2025-01-06T09:00:00.000Z"^^xsd:dateTime; # Modification date
+                     dcterm:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/10b2a1d8-f3ca-44d7-b987-6eeb7b844107>;
+                     dcterm:source <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.json>, 
+                                   <config://forms/climate/step-submit-opvolgmoment-2025/versions/20241008105436/form.ttl>; # Form configuration files
+                     adms:status <http://lblod.data.gift/concepts/6b7ae118-4653-48f2-9d9a-4712f8c30da9>. # Nieuw
+  }
+}
