@@ -76,7 +76,7 @@ INSERT {
 WHERE {
   # Define the target graphs to retrieve data from
   VALUES ?sourceGraph {
-    <http://mu.semte.ch/graphs/organizations/5a4b2b4f1de1f3b91b0348a7eb6d6aa0ef9420b8ec31374970c9ffe933a79515/SubsidiepuntGebruiker> # Moerbeke
+    <http://mu.semte.ch/graphs/organizations/5a4b2b4f1de1f3b91b0348a7eb6d6aa0ef9420b8ec31374970c9ffe933a79515/SubsidiepuntGebruiker> # Meulebeke
   }
 
   # All upload predicates + Type pairs
@@ -125,7 +125,7 @@ INSERT {
 }
 WHERE {
   VALUES ?sourceGraph {
-    <http://mu.semte.ch/graphs/organizations/5a4b2b4f1de1f3b91b0348a7eb6d6aa0ef9420b8ec31374970c9ffe933a79515/SubsidiepuntGebruiker> # Moerbeke
+    <http://mu.semte.ch/graphs/organizations/5a4b2b4f1de1f3b91b0348a7eb6d6aa0ef9420b8ec31374970c9ffe933a79515/SubsidiepuntGebruiker> # Meulebeke
   }
 
   GRAPH ?sourceGraph {
@@ -158,7 +158,7 @@ INSERT {
 }
 WHERE {
   VALUES ?sourceGraph {
-    <http://mu.semte.ch/graphs/organizations/5a4b2b4f1de1f3b91b0348a7eb6d6aa0ef9420b8ec31374970c9ffe933a79515/SubsidiepuntGebruiker> # Moerbeke
+    <http://mu.semte.ch/graphs/organizations/5a4b2b4f1de1f3b91b0348a7eb6d6aa0ef9420b8ec31374970c9ffe933a79515/SubsidiepuntGebruiker> # Meulebeke
   }
 
   # Define table types and their associated predicates
