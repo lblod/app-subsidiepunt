@@ -112,7 +112,8 @@
     },
     {
       "properties": [
-        "http://data.europa.eu/m8g/playsRole"
+        "http://data.europa.eu/m8g/playsRole",
+        "http://data.vlaanderen.be/ns/besluit#classificatie"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
