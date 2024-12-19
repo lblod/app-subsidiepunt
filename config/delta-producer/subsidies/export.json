@@ -9,6 +9,7 @@
         "http://www.w3.org/2004/02/skos/core#prefLabel",
         "http://purl.org/dc/terms/description",
         "http://www.w3.org/ns/org#classification",
+        "http://data.vlaanderen.be/ns/besluit#classificatie",
         "http://www.w3.org/ns/adms#identifier",
         "http://data.europa.eu/m8g/playsRole"
       ],
@@ -112,8 +113,7 @@
     },
     {
       "properties": [
-        "http://data.europa.eu/m8g/playsRole",
-        "http://data.vlaanderen.be/ns/besluit#classificatie"
+        "http://data.europa.eu/m8g/playsRole"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
