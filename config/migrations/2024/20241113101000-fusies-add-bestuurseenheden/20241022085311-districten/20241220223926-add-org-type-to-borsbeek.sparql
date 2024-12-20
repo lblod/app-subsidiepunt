@@ -1,0 +1,5 @@
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/4b44e6f1-113b-4692-b149-44a889b215f2> a <http://www.w3.org/ns/org#Organization>
+  }
+}
