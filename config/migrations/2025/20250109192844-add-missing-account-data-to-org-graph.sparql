@@ -1,0 +1,34 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX org: <http://www.w3.org/ns/org#>
+
+# Some accounts (including the triples) only existed in the public graph
+# This query copies them to the organization graph
+
+INSERT {
+  GRAPH ?organizationGraph {
+    ?account ?predicate ?object .
+  }
+}
+WHERE {
+  # Retrieve accounts from the public graph
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?account a <http://xmlns.com/foaf/0.1/OnlineAccount> .
+    ?account ?predicate ?object.
+    
+    ?person foaf:account ?account.
+    ?person foaf:member/mu:uuid ?group_uuid.
+  }
+
+  # Make sure the account doesnt already exist in orgaization graph
+  FILTER NOT EXISTS {
+    GRAPH ?otherGraph {
+      ?account a <http://xmlns.com/foaf/0.1/OnlineAccount> .
+    }
+    FILTER(?otherGraph != <http://mu.semte.ch/graphs/public>)
+  }
+
+  # Construct the organization graph URI dynamically
+  BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?group_uuid)) AS ?organizationGraph)
+}
