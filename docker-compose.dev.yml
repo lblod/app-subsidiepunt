@@ -30,6 +30,8 @@ services:
     ports:
       - "8890:8890"
     restart: "no"
+  op-public-consumer:
+    restart: "no"
   deltanotifier:
     restart: "no"
   migrations:
