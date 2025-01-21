@@ -71,3 +71,5 @@ services:
       EMAIL_FROM: "Subsidiepunt Local <subsidiepunt-development@redpencil.io>"
       EMAIL_TO: "subsidiepunt-development@redpencil.io"
     restart: "no"
+  mock-account-generation:
+    restart: "no"
