@@ -305,3 +305,35 @@ services:
   ################################################################################
   # DELTA CONSUMERS
   ################################################################################
+
+  ################################################################################
+  # LDES PRODUCERS
+  ################################################################################
+
+  ldes-delta-pusher:
+    image: redpencil/ldes-delta-pusher:latest
+    # profiles: ["dev"] # Disable ldes feed by default until ready for qa/prod
+    environment:
+      LDES_ENDPOINT: 'http://ldes-backend/subsidies-statusses'
+    volumes:
+      - ./config/ldes/:/config/
+    restart: always
+
+  ldes-backend:
+    image: redpencil/fragmentation-producer:0.4.0
+    # profiles: ["dev"] # Disable ldes feed by default until ready for qa/prod
+    environment:
+      FOLDER_DEPTH: 1
+      PAGE_RESOURCES_COUNT: 50
+      LDES_STREAM_PREFIX: 'http://data.lblod.info/streams/op/'
+      TIME_TREE_RELATION_PATH: 'http://www.w3.org/ns/prov#generatedAtTime'
+      CACHE_SIZE: 10
+      DATA_FOLDER: '/data'
+      ENABLE_AUTH: 'false'
+    restart: always
+    volumes:
+      - './data/ldes-feed/:/data/'
+
+  ################################################################################
+  # LDES PRODUCERS: END
+  ################################################################################

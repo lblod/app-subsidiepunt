@@ -69,3 +69,13 @@ services:
       EMAIL_FROM: "Subsidiepunt Local <subsidiepunt-development@redpencil.io>"
       EMAIL_TO: "subsidiepunt-development@redpencil.io"
     restart: "no"
+  ldes-delta-pusher:
+    environment:
+      WRITE_INITIAL_STATE: true
+      LDES_BASE: http://localhost/streams/ldes
+      LDES_FOLDER: subsidies 
+    restart: "no"
+  ldes-backend:
+    environment:
+      BASE_URL: "http://localhost/ldes/"
+    restart: "no"
