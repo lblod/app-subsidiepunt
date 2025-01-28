@@ -202,7 +202,9 @@ services:
     restart: always
     logging: *default-logging
   mock-account-generation:
-    image: lblod/update-bestuurseenheid-mock-login-service:0.4.0
+    image: lblod/update-bestuurseenheid-mock-login-service:0.5.0
+    environment:
+      GROUP_TYPE: "org:Organization"
     volumes:
       - ./config/mock-login:/config
     labels:
