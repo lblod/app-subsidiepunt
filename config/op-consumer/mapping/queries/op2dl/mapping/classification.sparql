@@ -1,0 +1,18 @@
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+
+CONSTRUCT {
+  ?s besluit:classificatie ?o .
+} WHERE {
+  ?s org:classification ?o .
+
+  FILTER EXISTS {
+    ?s a ?type .
+    VALUES ?type {
+      <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode>
+      <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode>
+      <http://mu.semte.ch/vocabularies/ext/OrganizationClassificationCode>
+      <http://www.w3.org/2004/02/skos/core#Concept>
+    }
+  }
+}

@@ -30,6 +30,8 @@ services:
     ports:
       - "8890:8890"
     restart: "no"
+  op-public-consumer:
+    restart: "no"
   deltanotifier:
     restart: "no"
   migrations:
@@ -68,4 +70,6 @@ services:
     environment:
       EMAIL_FROM: "Subsidiepunt Local <subsidiepunt-development@redpencil.io>"
       EMAIL_TO: "subsidiepunt-development@redpencil.io"
+    restart: "no"
+  mock-account-generation:
     restart: "no"
