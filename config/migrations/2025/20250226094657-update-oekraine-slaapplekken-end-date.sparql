@@ -1,0 +1,46 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+
+# Oekraine Slaapplekken
+# Update subsidy and step deadlines
+DELETE {
+  GRAPH ?g {
+    ?s m8g:endTime ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/cbc00fd0-0d0e-4c99-8dfc-691db7dde72d> m8g:endTime "2026-05-31T21:59:00Z"^^xsd:dateTime . # Subsidy deadline
+    <http://data.lblod.info/id/periodes/9e11f337-8575-4c8f-a9e5-34d7d91988da> m8g:endTime "2026-05-31T21:59:00Z"^^xsd:dateTime . # Aanvraag step deadline
+  }
+}
+WHERE {
+  GRAPH ?g {
+    VALUES ?s {
+      <http://data.lblod.info/id/periodes/cbc00fd0-0d0e-4c99-8dfc-691db7dde72d>
+      <http://data.lblod.info/id/periodes/9e11f337-8575-4c8f-a9e5-34d7d91988da>
+    }
+    ?s m8g:endTime ?endTime .
+  }
+}
+
+;
+
+# Update series description
+DELETE {
+  GRAPH ?g {
+    <http://lblod.data.info/id/subsidy-measure-offer-series/fecdeba8-cabb-43b0-a0a1-3ab7a1d4a773> dcterm:description ?description .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://lblod.data.info/id/subsidy-measure-offer-series/fecdeba8-cabb-43b0-a0a1-3ab7a1d4a773> dcterm:description "14/03/2022 — 31/05/2026" .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://lblod.data.info/id/subsidy-measure-offer-series/fecdeba8-cabb-43b0-a0a1-3ab7a1d4a773> dcterm:description ?description .
+  }
+}
