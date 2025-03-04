@@ -49,7 +49,7 @@ INSERT {
     <http://data.lblod.info/id/subsidy-measure-offer-series/da90ffdd-cc10-4b45-8f3d-3717ff52ac3a> a lblodSubsidie:SubsidiemaatregelAanbodReeks;
       mu:uuid "da90ffdd-cc10-4b45-8f3d-3717ff52ac3a";
       dct:title "Oproep 2025"@nl;
-      dct:description ""@nl;
+      dct:description "15/03/2025 — 31/05/2025"@nl;
       common:active <http://data.lblod.info/id/subsidie-application-flows/9adcd473-b896-4400-8f72-7c50bd54093f>;
       lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/d1a17b65-7d44-4802-848a-d0b56cd44688>.
   }
