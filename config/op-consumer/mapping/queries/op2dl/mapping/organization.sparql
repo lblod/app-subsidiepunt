@@ -1,17 +1,8 @@
 CONSTRUCT {
-  ?s ?p ?o .
-}
+  ?s a <http://www.w3.org/ns/org#Organization> . 
+}  
 WHERE {
-  ?s ?p ?o .
-
-  FILTER EXISTS {
-    VALUES ?type {
-      <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>
-      <http://www.w3.org/ns/org#Organization>
-    }
-
-    ?s a ?type .
-  }
+  ?s a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> .
 
   FILTER NOT EXISTS {
     VALUES ?type {
@@ -23,6 +14,4 @@ WHERE {
 
     ?s a ?type .
   }
-  
-  FILTER (?p NOT IN (<http://www.w3.org/ns/adms#identifier>, <http://www.w3.org/ns/org#classification>))
 }
