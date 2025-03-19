@@ -18,7 +18,6 @@ WHERE {
       <http://data.lblod.info/vocabularies/erediensten/BestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/CentraalBestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/RepresentatiefOrgaan>
-      <http://purl.org/dc/terms/Agent>
     }
 
     ?s a ?type .
