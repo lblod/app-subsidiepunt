@@ -214,12 +214,12 @@ ext:begrotingDocument
             [
                 a form:RequiredConstraint;
                 form:grouping form:Bag;
-                sh:path lblodSubsidie:begrotingDocument;
+                sh:path (lblodSubsidie:begrotingDocument dct:hasPart);
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Laad hier uw begroting op";
     sh:order 18;
-    sh:path lblodSubsidie:begrotingDocument .
+    sh:path (lblodSubsidie:begrotingDocument dct:hasPart) .
 
 nodes:ee85d17b-8758-4c6a-b176-ef57f2120d04 a form:Field ;
     sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
@@ -387,12 +387,12 @@ doelgroep (Welke situatie wil je verbeteren met dit project?). Geef aan hoe de d
             [
                 a form:RequiredConstraint;
                 form:grouping form:Bag;
-                sh:path ext:doelpubliekProject;
+                sh:path lblodSubsidie:doelpubliekProject;
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Beoogde doelgroep(en)";
     sh:order 25;
-    sh:path ext:doelpubliekProject .
+    sh:path lblodSubsidie:doelpubliekProject .
 
 ext:overzichtErkenningenSubForm a form:SubForm;
     form:includes
@@ -541,36 +541,13 @@ hoe je zal inzetten op integrale toegankelijkheid van het project. (Kijk voor in
     sh:order 31;
     sh:path lblodSubsidie:aandachtIntersectionaliteit .
 
-##########################################################
-# UPLOAD FIELD START
-##########################################################
-
 ext:bijlageDocument
     a form:Field;
     form:displayType displayTypes:files;
     form:partOf ext:bijlageSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:bijlageDocument;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
     sh:name "Laad hier alle relevante bijlagen op";
     sh:order 23;
-    sh:path lblodSubsidie:bijlageDocument .
-
-nodes:08ebe38b-9b5f-43be-9b61-e1ee58da1168 a form:Field ;
-    sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
-    sh:order 23 ;
-    sh:path ( ext:bijlageDocument dct:hasPart rdf:type );
-    form:partOf ext:bijlageSection .
-
-##########################################################
-# UPLOAD FIELD END
-##########################################################
-
-
+    sh:path (lblodSubsidie:bijlageDocument dct:hasPart) .
 
 ext:postnummerEnGemeente
     a form:Field;
