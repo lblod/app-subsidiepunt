@@ -1,4 +1,11 @@
 # Changelog
+## Unreleased
+- fix op consumer config to avoid accidental deletes
+### Deploy Notes
+- OP consumer update:
+```
+drc up -d op-public-consumer
+```
 ## v1.3.0
 - fix the required bicycle infrastructure file uploads
 - update e-inclusion verantwoording form

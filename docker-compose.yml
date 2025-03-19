@@ -339,7 +339,7 @@ services:
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/op-consumer/mapping:/config/mapping
+      - ./config/delta-consumers/op-consumer/mapping:/config/mapping
       - ./data/files/consumer-files/op-public:/consumer-files/
     restart: always
     labels:
