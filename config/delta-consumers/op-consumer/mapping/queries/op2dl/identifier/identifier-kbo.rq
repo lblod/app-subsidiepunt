@@ -20,16 +20,15 @@ WHERE {
   ?gestructureerdeIdentificator
     generiek:lokaleIdentificator ?kboNummer.
 
-  ?oganization
+  ?organization
     adms:identifier ?identifier.
 
   FILTER NOT EXISTS {
-    ?oganization a ?type .
+    ?organization a ?type .
     VALUES ?type {
       <http://data.lblod.info/vocabularies/erediensten/BestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/CentraalBestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/RepresentatiefOrgaan>
-      <http://purl.org/dc/terms/Agent>
     }
   }
 }
