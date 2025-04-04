@@ -1,27 +1,27 @@
 CONSTRUCT {
-  ?s ?p ?o;
-    a <http://www.w3.org/ns/org#Organization> . 
-}  
+  ?s ?p ?o .
+}
 WHERE {
   ?s ?p ?o .
+
   FILTER EXISTS {
-    ?s a ?type .
     VALUES ?type {
       <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>
       <http://www.w3.org/ns/org#Organization>
     }
+
+    ?s a ?type .
   }
 
   FILTER NOT EXISTS {
-    ?s a ?type .
     VALUES ?type {
       <http://data.lblod.info/vocabularies/erediensten/BestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/CentraalBestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/RepresentatiefOrgaan>
-      <http://purl.org/dc/terms/Agent>
     }
+
+    ?s a ?type .
   }
   
   FILTER (?p NOT IN (<http://www.w3.org/ns/adms#identifier>, <http://www.w3.org/ns/org#classification>))
-  
 }
