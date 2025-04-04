@@ -1,29 +1,35 @@
 PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
 PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
-PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX persoon: <https://data.vlaanderen.be/ns/persoon#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
 
 CONSTRUCT {
-  ?organization
-    dcterms:identifier ?ovoNummer.
+  ?organizatie
+    ext:kbonummer ?kboNummer;
+    dcterms:identifier ?kboNummer.
 }
 WHERE {
   ?identifier
-    skos:notation "OVO-nummer";
+    skos:notation "KBO nummer";
     generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator.
 
   ?gestructureerdeIdentificator
-    generiek:lokaleIdentificator ?ovoNummer.
+    generiek:lokaleIdentificator ?kboNummer.
 
-  ?bestuurseenheid
+  ?oganization
     adms:identifier ?identifier.
 
   FILTER NOT EXISTS {
-    ?bestuurseenheid a ?type .
+    ?oganization a ?type .
     VALUES ?type {
       <http://data.lblod.info/vocabularies/erediensten/BestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/CentraalBestuurVanDeEredienst>
       <http://data.lblod.info/vocabularies/erediensten/RepresentatiefOrgaan>
+      <http://purl.org/dc/terms/Agent>
     }
   }
 }

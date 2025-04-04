@@ -1,6 +1,0 @@
-CONSTRUCT {
-  ?s <http://www.w3.org/2004/02/skos/core#inScheme>  <http://lblod.data.gift/concept-schemes/dcfb437e-1219-4d1e-891d-057f262da9d6>.
-}
-WHERE {
-  ?s <http://www.w3.org/ns/org#classification> <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>.
-}
