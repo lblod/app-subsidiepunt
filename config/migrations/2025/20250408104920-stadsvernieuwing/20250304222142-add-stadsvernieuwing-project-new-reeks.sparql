@@ -34,7 +34,7 @@ INSERT DATA {
     <http://data.lblod.info/id/periodes/b2670848-e7bb-4dc7-9320-0fe264aaac68> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "b2670848-e7bb-4dc7-9320-0fe264aaac68";
       <http://data.europa.eu/m8g/startTime> "2025-03-15T23:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
-      <http://data.europa.eu/m8g/endTime> "2025-05-31T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+      <http://data.europa.eu/m8g/endTime> "2025-06-12T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
   }
 }
 
@@ -49,7 +49,7 @@ INSERT {
     <http://data.lblod.info/id/subsidy-measure-offer-series/18c21437-78ae-45e7-92f3-f8d3e62fa703> a lblodSubsidie:SubsidiemaatregelAanbodReeks;
       mu:uuid "18c21437-78ae-45e7-92f3-f8d3e62fa703";
       dct:title "Oproep 2025"@nl;
-      dct:description "15/03/2025 — 31/05/2025"@nl;
+      dct:description "15/03/2025 — 12/06/2025"@nl;
       common:active <http://data.lblod.info/id/subsidie-application-flows/2385e555-d6b9-476c-8884-06594db5093c>;
       lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/53b9686a-a435-46f4-acf0-514146684940>.
   }
