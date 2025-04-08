@@ -1,0 +1,21 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+DELETE {
+  GRAPH ?g {
+    ?s rdf:type foaf:OnlineAccount;
+     <http://mu.semte.ch/vocabularies/ext/sessionRole> "LoketLB-subsidies" .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?s rdf:type foaf:OnlineAccount;
+     <http://mu.semte.ch/vocabularies/ext/sessionRole> "SubsidiepuntGebruiker" .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?s rdf:type foaf:OnlineAccount;
+     <http://mu.semte.ch/vocabularies/ext/sessionRole> "LoketLB-subsidies" ;
+       foaf:accountServiceHomepage	<https://github.com/lblod/mock-login-service>.
+  }
+}
