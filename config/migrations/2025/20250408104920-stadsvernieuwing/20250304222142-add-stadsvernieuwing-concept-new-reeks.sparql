@@ -11,28 +11,28 @@ PREFIX qb: <http://purl.org/linked-data/cube#>
 
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
-    <http://data.lblod.info/id/subsidy-procedural-steps/89c2d7c2-335e-458b-a276-208811e8affa> a subsidie:Subsidieprocedurestap;
-      mu:uuid "89c2d7c2-335e-458b-a276-208811e8affa";
+    <http://data.lblod.info/id/subsidy-procedural-steps/f9321a5b-d22c-440d-b97b-49b10d14a47f> a subsidie:Subsidieprocedurestap;
+      mu:uuid "f9321a5b-d22c-440d-b97b-49b10d14a47f";
       dct:description "Aanvraag";
       subsidie:Subsidieprocedurestap.type <http://lblod.data.gift/concepts/ee855aae-eb10-44aa-ae01-38c4f6cca0f6>;
-      mobiliteit:periode <http://data.lblod.info/id/periodes/dd3ad1a1-94c2-4257-8510-0b26d51f91a3>.
+      mobiliteit:periode <http://data.lblod.info/id/periodes/73f559f8-608b-4654-857a-76b1d14188fd>.
 
     # New application flow
-    <http://data.lblod.info/id/subsidie-application-flows/8f6e9bc8-9f25-4b6f-835a-934bc4f43169> a lblodSubsidie:ApplicationFlow;
-      mu:uuid "8f6e9bc8-9f25-4b6f-835a-934bc4f43169";
-      xkos:belongsTo <http://data.lblod.info/id/subsidy-measure-offer-series/e6cfc630-0a82-4341-8433-68fe6304e175>;
-      xkos:next <http://data.lblod.info/id/subsidie-application-flow-steps/fdc10cb5-8a8e-41b8-b1d8-4f4f33d35bc2>.
+    <http://data.lblod.info/id/subsidie-application-flows/f4c64343-e509-4870-a037-72f2e6d78c03> a lblodSubsidie:ApplicationFlow;
+      mu:uuid "f4c64343-e509-4870-a037-72f2e6d78c03";
+      xkos:belongsTo <http://data.lblod.info/id/subsidy-measure-offer-series/de40ebbb-157d-4cad-ae51-18fd688d8d96>;
+      xkos:next <http://data.lblod.info/id/subsidie-application-flow-steps/a3318c29-106c-4353-80ca-711ff09daaa0>.
 
-    <http://data.lblod.info/id/subsidie-application-flow-steps/fdc10cb5-8a8e-41b8-b1d8-4f4f33d35bc2> a lblodSubsidie:ApplicationStep;
-      mu:uuid "fdc10cb5-8a8e-41b8-b1d8-4f4f33d35bc2";
+    <http://data.lblod.info/id/subsidie-application-flow-steps/a3318c29-106c-4353-80ca-711ff09daaa0> a lblodSubsidie:ApplicationStep;
+      mu:uuid "a3318c29-106c-4353-80ca-711ff09daaa0";
       qb:order 0;
-      dct:references <http://data.lblod.info/id/subsidy-procedural-steps/89c2d7c2-335e-458b-a276-208811e8affa>;
-      dct:isPartOf <http://data.lblod.info/id/subsidie-application-flows/8f6e9bc8-9f25-4b6f-835a-934bc4f43169>;
-      dct:source <config://forms/urban-renewal-concept-subsidy/application/versions/20250409094018-oproep-2025/form.ttl>.
+      dct:references <http://data.lblod.info/id/subsidy-procedural-steps/f9321a5b-d22c-440d-b97b-49b10d14a47f>;
+      dct:isPartOf <http://data.lblod.info/id/subsidie-application-flows/f4c64343-e509-4870-a037-72f2e6d78c03>;
+      dct:source <config://forms/urban-renewal/application-phase2/versions/20250304132142-oproep-2025/form.ttl>.
 
     # New periode from 9 February midnight to 30 April 23:59
-    <http://data.lblod.info/id/periodes/dd3ad1a1-94c2-4257-8510-0b26d51f91a3> a <http://data.europa.eu/m8g/PeriodOfTime>;
-      mu:uuid "dd3ad1a1-94c2-4257-8510-0b26d51f91a3";
+    <http://data.lblod.info/id/periodes/73f559f8-608b-4654-857a-76b1d14188fd> a <http://data.europa.eu/m8g/PeriodOfTime>;
+      mu:uuid "73f559f8-608b-4654-857a-76b1d14188fd";
       <http://data.europa.eu/m8g/startTime> "2025-03-15T23:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
       <http://data.europa.eu/m8g/endTime> "2025-06-12T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
   }
@@ -42,16 +42,16 @@ INSERT DATA {
 
 INSERT {
   GRAPH ?newGraph {
-    # Add new reeks to the existing stadsvernieuwing - concept subsidy 
-    <http://lblod.data.info/id/subsidy-measure-offers/e0b5d28a-041b-4ef9-bd45-c4f0d7da3298> lblodSubsidie:heeftReeks <http://data.lblod.info/id/subsidy-measure-offer-series/e6cfc630-0a82-4341-8433-68fe6304e175>.
+    # Add new reeks to the existing stadsvernieuwing - concept subsidy - phase 2
+    <http://data.lblod.info/id/subsidy-measure-offers/e0b5d28a-041b-4ef9-bd45-c4f0d7da3298> lblodSubsidie:heeftReeks <http://data.lblod.info/id/subsidy-measure-offer-series/de40ebbb-157d-4cad-ae51-18fd688d8d96>.
 
     # New subsidiemaatergelaanbodreeks Oproep 2025
-    <http://data.lblod.info/id/subsidy-measure-offer-series/e6cfc630-0a82-4341-8433-68fe6304e175> a lblodSubsidie:SubsidiemaatregelAanbodReeks;
-      mu:uuid "e6cfc630-0a82-4341-8433-68fe6304e175";
+    <http://data.lblod.info/id/subsidy-measure-offer-series/de40ebbb-157d-4cad-ae51-18fd688d8d96> a lblodSubsidie:SubsidiemaatregelAanbodReeks;
+      mu:uuid "de40ebbb-157d-4cad-ae51-18fd688d8d96";
       dct:title "Oproep 2025"@nl;
       dct:description "15/03/2025 — 12/06/2025"@nl;
-      common:active <http://data.lblod.info/id/subsidie-application-flows/8f6e9bc8-9f25-4b6f-835a-934bc4f43169>;
-      lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/89c2d7c2-335e-458b-a276-208811e8affa>.
+      common:active <http://data.lblod.info/id/subsidie-application-flows/f4c64343-e509-4870-a037-72f2e6d78c03>;
+      lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/f9321a5b-d22c-440d-b97b-49b10d14a47f>.
   }
 } WHERE {
   VALUES ?bestuureenheid {
