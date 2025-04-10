@@ -10,14 +10,13 @@
         "PREFIX sh:             <http://www.w3.org/ns/shacl#>"
       ],
       "properties": [
-        "lblodSubsidie:projectName",
-        "ext:samenvattingSummaryDescription",
-        "ext:schetsDeKwaliteitDescription",
-        "ext:ProjectorganisatieEnRegiefunctieDescription",
-        "ext:BeschrijfParticipatieCommunicatieInteractieDescription",
-        "ext:ProjectfaseringMetProjectverloopTimingEnRisicobeheerDescription",
-        "ext:AanvraagSubsidieEnBetekenisVoorStadsvernieuwingsprojectDescription",
-        "lblodSubsidie:subsidieBedragAanvraag",
+          "lblodSubsidie:projectName",
+          "lblodSubsidie:samenvattingSummaryDescription",
+          "lblodSubsidie:diagnose",
+          "lblodSubsidie:visieEnBeleidscontext",
+          "lblodSubsidie:ambitieusProject",
+          "lblodSubsidie:coalitieCoproductieEnPartnerschap",
+          "lblodSubsidie:momentum",
         {
           "s-prefix": "schema:contactPoint",
           "properties": [
@@ -50,69 +49,12 @@
           ]
         },
         {
-          "s-prefix": "lblodSubsidie:urbanRenewalApplicationForm",
+          "s-prefix": " lblodSubsidie:attachment",
           "properties": [
             {
               "s-prefix": "dct:hasPart",
               "properties": [
                 "rdf:type"
-              ]
-            }
-          ]
-        },
-        {
-          "s-prefix": " lblodSubsidie:urbanRenewalAttachments",
-          "properties": [
-            {
-              "s-prefix": "dct:hasPart",
-              "properties": [
-                "rdf:type"
-              ]
-            }
-          ]
-        },
-        {
-          "s-prefix": "lblodSubsidie:projectOnderdeelUnit",
-          "properties": [
-            "rdf:type",
-            "sh:order",
-            "lblodSubsidie:projectOnderdeelNaam",
-            "lblodSubsidie:projectOnderdeelBeschrijving",
-            {
-              "s-prefix": "lblodSubsidie:projectOnderdeelTimingUnit",
-              "properties": [
-                "rdf:type",
-                "sh:order",
-                "lblodSubsidie:projectOnderdeelTimingListingUnitBeschrijving",
-                "lblodSubsidie:projectOnderdeelTimingListingUnitStartDatum",
-                "lblodSubsidie:projectOnderdeelTimingListingUnitEindDatum"
-              ]
-            },
-            {
-              "s-prefix": "lblodSubsidie:projectOnderdeelStadUnit",
-              "properties": [
-                "rdf:type",
-                "sh:order",
-                "lblodSubsidie:projectOnderdeelStadListingUnitAandeel",
-                "lblodSubsidie:projectOnderdeelStadListingUnitBedrag"
-              ]
-            },
-            {
-              "s-prefix": "lblodSubsidie:projectOnderdeelPubliekePartnerListingUnit",
-              "properties": [
-                "rdf:type",
-                "sh:order",
-                "lblodSubsidie:projectOnderdeelPubliekePartnerListingUnitNaam",
-                "lblodSubsidie:projectOnderdeelPubliekePartnerListingUnitBedrag"
-              ]
-            },
-            {
-              "s-prefix": "lblodSubsidie:projectOnderdeelPrivatePartnerListingUnit",
-              "properties": [
-                "rdf:type",
-                "sh:order",
-                "lblodSubsidie:projectOnderdeelPrivatePartnerListingNaam",
-                "lblodSubsidie:projectOnderdeelPrivatePartnerListingBedrag"
               ]
             }
           ]
@@ -125,6 +67,14 @@
             "lblodSubsidie:subsidieBedragListingUnitNaam",
             "lblodSubsidie:subsidieBedragListingUnitMotivering",
             "lblodSubsidie:subsidieBedragListingUnitBedrag"
+          ]
+        },
+        {
+          "s-prefix": "lblodSubsidie:bestandenListingUnit",
+          "properties": [
+            "rdf:type",
+            "sh:order",
+            "lblodSubsidie:bestandNaam"
           ]
         }
       ]
