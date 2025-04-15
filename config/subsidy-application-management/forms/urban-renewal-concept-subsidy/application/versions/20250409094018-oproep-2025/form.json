@@ -9,6 +9,8 @@
       "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>"
     ],
     "properties": [
+      "lblodSubsidie:projectNaam",
+      "lblodSubsidie:aanvraagType",
       "lblodSubsidie:diagnose",
       "lblodSubsidie:verwachtingen",
       "lblodSubsidie:vernieuwdKarakter",
@@ -54,6 +56,11 @@
           "lblodSubsidie:bestandNaam"
         ]
       }
+    ]
+  },
+  "meta": {
+    "schemes": [
+      "http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9"
     ]
   }
 }  

@@ -30,6 +30,8 @@ ext:form a form:Form, form:TopLevelForm ;
   form:includes ext:telephoneNumberPoliticalReference ;
   form:includes ext:emailAddressPoliticalReference ;
   form:includes ext:jobTitlePoliticalReference ;
+  form:includes ext:projectNaam ;
+  form:includes ext:aanvraagType ;
   form:includes ext:diagnose ;
   form:includes ext:verwachtingen ;
   form:includes ext:vernieuwdKarakter ;
@@ -242,6 +244,58 @@ ext:politicalReferenceSection
       form:displayType  displayTypes:defaultInput ;
       sh:group       ext:politicalReferenceSection .
 
+##########################################################
+# Property Group: Project
+##########################################################
+ext:projectSection
+    a               form:Section ;
+    sh:name         "Project" ;
+    sh:order        4 .
+
+  ##########################################################
+  # Property Group: Project Name
+  ##########################################################
+    ext:projectNaam
+        a                 form:Field ;
+        sh:name           "Projectnaam" ;
+        sh:order          1 ;
+        sh:path           lblodSubsidie:projectNaam ;
+        form:validations
+                          [ a                 form:RequiredConstraint ;
+                            form:grouping     form:Bag ;
+                            sh:resultMessage  "Dit veld is verplicht." ;
+                            sh:path           lblodSubsidie:projectNaam
+                          ] ;
+        form:displayType  displayTypes:defaultInput ;
+        sh:group       ext:projectSection .
+
+  ##########################################################
+  # Property Group: Aanvraag type
+  ##########################################################
+
+      ext:aanvraagType
+        a                 form:Field ;
+        sh:name           "Aanvraag type" ;
+        form:help         """Bijsturing van een bestaand stadsvernieuwingsproject
+alleen in uitzonderlijke omstandigheden en in samenspraak met het team stedenbeleid en de jury
+stadsvernieuwing (kwaliteitskamer).""";
+        sh:order          1 ;
+        sh:path           lblodSubsidie:aanvraagType ;
+        form:validations
+          [ a form:ConceptSchemeConstraint ;
+            form:grouping form:Bag ;
+            sh:path lblodSubsidie:aanvraagType ;
+            form:conceptScheme <http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9> ;
+            sh:resultMessage "Selecteer een optie."@nl
+          ],
+          [ a form:RequiredConstraint ;
+            form:grouping form:Bag ;
+            sh:resultMessage "Dit veld is verplicht."@nl;
+            sh:path lblodSubsidie:aanvraagType
+          ] ;
+    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9", "orderBy": "http://purl.org/linked-data/cube#order"}""" ;
+    form:displayType displayTypes:conceptSchemeRadioButtons ;
+    sh:group       ext:projectSection .
 
 ##########################################################
 # Property Group: Samenvatting eventuele aanpassingen
@@ -250,7 +304,7 @@ ext:inzetConceptstudieSection
     a               form:Section ;
     sh:name         "Inzet van de conceptstudie" ;
     sh:order        4 .
-
+    
  ##########################################################
   # Field: Diagnose
   ##########################################################
@@ -283,7 +337,7 @@ projectgebied?
       sh:group       ext:inzetConceptstudieSection .
 
  ##########################################################
-  # Field: Diagnose
+  # Field: verwachting
   ##########################################################
   ext:verwachtingen
       a                 form:Field ;
