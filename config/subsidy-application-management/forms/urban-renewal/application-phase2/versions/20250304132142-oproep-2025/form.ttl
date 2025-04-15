@@ -406,7 +406,7 @@ ext:strategischBelangSection
   ext:ambitieusProject
       a                 form:Field ;
       sh:name           "Een ambitieus project" ;
-      form:help         """<p>kernachtig het ambitieniveau voor de stad, omliggende gemeenten en dorpskernen binnen de administratieve grenzen van de stad, gebaseerd op de verschillende onderdelen in het project.</p>
+      form:help         """<p>Schets kernachtig het ambitieniveau voor de stad, omliggende gemeenten en dorpskernen binnen de administratieve grenzen van de stad, gebaseerd op de verschillende onderdelen in het project.</p>
 <ul style="list-style-type:disc; margin-left: 30px;">
   <li>
     Welke onderdelen stel je centraal binnen dit stadsvernieuwingsproject en waarom?
@@ -416,6 +416,13 @@ ext:strategischBelangSection
   </li>
   <li>
     Is dit een project dat ook voor andere steden en gemeenten leerzaam kan zijn?
+  </li>
+  <li>
+  In geval het project zich situeert in een dorpskern en/of omliggende gemeente: Waarom draagt dit
+stadsvernieuwingsproject bij aan evenwichtige verdeling tussen stad, de dorpskernen binnen de
+administratieve grenzen van de stad en omliggende gemeenten? Op welke aspecten hiervan wil de stad
+met het project inzetten? Hoe worden de verschillende nagestreefde aspecten aan elkaar gekoppeld en
+versterken ze elkaar? Waarom is dit een goed geïntegreerd project?
   </li>
 </ul>
 """;
