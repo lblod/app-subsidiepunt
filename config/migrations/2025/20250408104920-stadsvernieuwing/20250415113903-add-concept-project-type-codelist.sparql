@@ -1,0 +1,29 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    # Concept scheme
+    <http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9> a skos:ConceptScheme ;
+      mu:uuid "c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9" ;
+      skos:prefLabel "Types stadsvernieuwingsprojecten"@nl .
+
+    # Concept 1: New project
+    <http://lblod.data.gift/concepts/d8b8f31a-4c84-43c5-9b87-c1e3038f98b2> a skos:Concept ;
+      mu:uuid "d8b8f31a-4c84-43c5-9b87-c1e3038f98b2" ;
+      skos:prefLabel "Ontwerp voor een nieuw stadsvernieuwingsproject"@nl ;
+      qb:order 1;
+      skos:inScheme <http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9> ;
+      skos:topConceptOf <http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9> .
+
+    # Concept 2: Adjustment of existing project  
+    <http://lblod.data.gift/concepts/f5c24e7b-2a9e-4d6f-b98c-e21478b512d3> a skos:Concept ;
+      mu:uuid "f5c24e7b-2a9e-4d6f-b98c-e21478b512d3" ;
+      skos:prefLabel "Bijsturing van een bestaand stadsvernieuwingsproject"@nl ;
+      qb:order 2;
+      skos:inScheme <http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9> ;
+      skos:topConceptOf <http://lblod.data.gift/concept-schemes/c0e6b7c7-5474-4f6a-b1c8-8d81e8d4f5c9> .
+  }
+}
