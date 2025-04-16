@@ -1,0 +1,15 @@
+CONSTRUCT {
+  ?s ?p ?o .
+}  
+WHERE {
+  ?s ?p ?o .
+  FILTER EXISTS {
+    ?s a ?type .
+    VALUES ?type {
+      <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode>
+      <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode>
+      <http://mu.semte.ch/vocabularies/ext/OrganizationClassificationCode>
+      <http://www.w3.org/2004/02/skos/core#Concept>
+    }
+  }
+}

@@ -1,0 +1,20 @@
+# Update stadsvernieuwing concept deadline
+DELETE {
+  GRAPH ?g {
+    ?s <http://data.europa.eu/m8g/endTime> ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    # Time is set to 21:59:00 because Belgium time is UTC+2 instead of UTC+1 in May
+    ?s <http://data.europa.eu/m8g/endTime> "2025-05-26T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+  }
+}
+WHERE {
+  GRAPH ?g {
+    VALUES ?s {
+      <http://data.lblod.info/id/periodes/73f559f8-608b-4654-857a-76b1d14188fd> # stadsvernieuwing concept deadline
+    }
+    ?s <http://data.europa.eu/m8g/endTime> ?endTime .
+  }
+}
