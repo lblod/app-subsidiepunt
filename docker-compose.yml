@@ -232,7 +232,7 @@ services:
     environment:
       EMAIL_FROM: "noreply@lblod.info"
       EMAIL_TO: "support+lblod@redpencil.io"
-      APP_NAME: "app-digitaal-loket-dev"
+      APP_NAME: "app-subsidiepunt"
       OUTBOX: "http://data.lblod.info/id/mail-folders/2"
     labels:
       - "logging=true"
@@ -351,28 +351,48 @@ services:
   ################################################################################
 
   ldes-delta-pusher:
-    image: redpencil/ldes-delta-pusher:latest
-    # profiles: ["dev"] # Disable ldes feed by default until ready for qa/prod
+    image: redpencil/ldes-delta-pusher:1.2.5
     environment:
-      LDES_ENDPOINT: 'http://ldes-backend/subsidies-statusses'
+      LDES_ENDPOINT: "http://ldes-backend"
+      LDES_BASE: "https://dev.subsidiepunt.lblod.info/streams/ldes"
+      LDES_FOLDER: public # ignored as we have an ldes config that sets the stream folder
+      DATA_FOLDER: /data
+      CRON_HEALING: "0 0 0 * * *" # Every day at midnight
+      AUTO_HEALING: "true"
+      CRON_CHECKPOINT: "0 0 5 1 * *"
+      SUDO_QUERY_RETRY_TIMEOUT_INCREMENT_FACTOR: 0.003
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: 429,500,502,503,504
+      MAX_PAGE_SIZE_BYTES: 10000000
+      INITIAL_STATE_LIMIT: 10000
+      WRITE_INITIAL_STATE: "true"
+
     volumes:
       - ./config/ldes/:/config/
+      - ./data/ldes-feed/:/data/
     restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
+    links:
+      - virtuoso:database
 
   ldes-backend:
-    image: redpencil/fragmentation-producer:0.4.0
-    # profiles: ["dev"] # Disable ldes feed by default until ready for qa/prod
-    environment:
-      FOLDER_DEPTH: 1
-      PAGE_RESOURCES_COUNT: 50
-      LDES_STREAM_PREFIX: 'http://data.lblod.info/streams/op/'
-      TIME_TREE_RELATION_PATH: 'http://www.w3.org/ns/prov#generatedAtTime'
-      CACHE_SIZE: 10
-      DATA_FOLDER: '/data'
-      ENABLE_AUTH: 'false'
+    image: redpencil/fragmentation-producer:0.4.2
     restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
+    environment:
+      BASE_URL: "https://dev.subsidiepunt.lblod.info/streams/ldes/"
+      FOLDER_DEPTH: 1
+      PAGE_RESOURCES_COUNT: 20
+      LDES_STREAM_PREFIX: "https://dev.subsidiepunt.lblod.info/streams/ldes/"
+      TIME_TREE_RELATION_PATH: "http://www.w3.org/ns/prov#generatedAtTime"
+      CACHE_SIZE: 10
+      DATA_FOLDER: "/data"
+      ENABLE_AUTH: "false"
     volumes:
-      - './data/ldes-feed/:/data/'
+      - "./data/ldes-feed/:/data/"
 
   ################################################################################
   # LDES PRODUCERS: END

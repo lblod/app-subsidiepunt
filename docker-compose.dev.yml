@@ -74,12 +74,16 @@ services:
   mock-account-generation:
     restart: "no"
   ldes-delta-pusher:
-    environment:
-      WRITE_INITIAL_STATE: true
-      LDES_BASE: http://localhost/streams/ldes
-      LDES_FOLDER: subsidies 
     restart: "no"
+    environment:
+      DEBUG: "true"
+      WRITE_INITIAL_STATE: false
+      # LDES_BASE: http://localhost/streams/ldes
+      # LDES_FOLDER: subsidies 
   ldes-backend:
-    environment:
-      BASE_URL: "http://localhost/ldes/"
     restart: "no"
+    environment:
+      # BASE_URL: "http://localhost/streams/ldes/"
+      # LDES_STREAM_PREFIX: "http://localhost/streams/ldes/"
+    ports:
+      - "6666:80"
