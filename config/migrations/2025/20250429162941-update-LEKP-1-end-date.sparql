@@ -1,0 +1,22 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+
+# LEKP 1.0
+# Update subsidy last step deadlines
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/677bb850-6e1a-438a-aa38-21e0b1a7dd94> m8g:endTime ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/677bb850-6e1a-438a-aa38-21e0b1a7dd94> m8g:endTime "2025-06-30T21:59:00Z"^^xsd:dateTime . # Subsidy deadline
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/677bb850-6e1a-438a-aa38-21e0b1a7dd94> m8g:endTime ?endTime .
+  }
+}
