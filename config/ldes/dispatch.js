@@ -1,29 +1,26 @@
 import { moveTriples } from "../support";
-import { query, sparqlEscapeUri } from 'mu';
+import { Changeset } from "../types";
 
+// This dispatch function processes each changeset and moves the relevant triples
 export default async function dispatch(changesets) {
-	for (const changeset of changesets) {
-		const subjects = new Set(changeset.inserts.map((insert) => insert.subject.value));
-		for (const subject of subjects) {
-			const { results: { bindings } } = await query(`
-        PREFIX adms: <http://www.w3.org/ns/adms#>
-  
-        CONSTRUCT {
-          ?subsidieApplication a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>
-              adms:status ?status
-        } WHERE {
-          ?subsidieApplication a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>
-            adms:status ?status.
-        }
-			`);
-      if(bindings.length){
-        console.log('SUCCESS')
-        await moveTriples([
-          {
-            inserts: bindings.map(({ s, p, o}) => { return { subject: s, predicate: p, object: o} }),
+  for (const changeset of changesets) {
+    await moveTriples([
+      {
+        inserts: changeset.inserts,
+        deletes: changeset.deletes,
+        query: `
+          PREFIX adms: <http://www.w3.org/ns/adms#>
+          PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+
+          CONSTRUCT {
+            ?subsidieApplication adms:status ?status .
           }
-        ])
+          WHERE {
+            ?subsidieApplication a subsidie:SubsidiemaatregelConsumptie ;
+                                 adms:status ?status .
+          }
+        `
       }
-		}
-	}
+    ]);
+  }
 }
