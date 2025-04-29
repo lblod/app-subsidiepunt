@@ -3,6 +3,7 @@ import deltaProducerPublicationGraphMaintainerSubsidies from './delta-producer-p
 import deltaProducerReportGenerator from './delta-producer-report-generator';
 import errorAlert from './error-alert';
 import jobsController from './jobs-controller';
+import ldes from './ldes';
 import resource from './resource';
 
 export default [
@@ -10,6 +11,7 @@ export default [
   ...deltaProducerPublicationGraphMaintainerSubsidies,
   ...deltaProducerReportGenerator,
   ...errorAlert,
+  ...ldes,
   ...jobsController,
   ...resource
 ];
