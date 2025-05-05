@@ -314,6 +314,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/titelProject",
         "http://lblod.data.gift/vocabularies/subsidie/korteOmschrijvingProject",
         "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningenListing",
+        "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen",
         "http://lblod.data.gift/vocabularies/subsidie/aandachtIntersectionaliteit",
         "http://lblod.data.gift/vocabularies/subsidie/bijlageDocument",
         "http://lblod.data.gift/vocabularies/subsidie/postnummerEnGemeente",
