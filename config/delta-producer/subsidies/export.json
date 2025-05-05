@@ -533,6 +533,7 @@
     {
       "properties": [
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://www.w3.org/ns/shacl#order",
         "http://lblod.data.gift/vocabularies/subsidie/redenErkenning",
         "http://lblod.data.gift/vocabularies/subsidie/subsidierendeInstanties",
         "http://lblod.data.gift/vocabularies/subsidie/bedrag"
@@ -540,7 +541,7 @@
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
-      "type": "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen"
+      "type": "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen/FormData"
     },
     {
       "properties": [
