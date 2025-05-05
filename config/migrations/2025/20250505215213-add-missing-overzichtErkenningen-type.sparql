@@ -1,0 +1,10 @@
+INSERT {
+  GRAPH ?g {
+    ?erkenningFormData a <http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen/FormData>
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen> ?erkenningFormData.
+    }
+}
