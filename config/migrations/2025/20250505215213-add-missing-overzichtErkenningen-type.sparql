@@ -1,10 +1,12 @@
 INSERT {
   GRAPH ?g {
-    ?erkenningFormData a <http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen/FormData>
+    ?erkenningFormData a <http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen/FormData> .
   }
 }
 WHERE {
-  GRAPH ?g {
-    ?applicationForm <http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen> ?erkenningFormData.
-    }
+  GRAPH ?h {
+    ?applicationForm a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm> ;
+      <http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen> ?erkenningFormData .
+  }
+  BIND(?h AS ?g)
 }
