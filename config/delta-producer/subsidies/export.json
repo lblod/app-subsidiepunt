@@ -528,7 +528,7 @@
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
-      "type": "http://lblod.data.gift/vocabularies/subsidie/bijlageDocument"
+      "type": "http://lblod.data.gift/vocabularies/subsidie/bijlageDocument/FormData"
     },
     {
       "properties": [
@@ -551,7 +551,7 @@
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
-      "type": "http://lblod.data.gift/vocabularies/subsidie/begrotingDocument"
+      "type": "http://lblod.data.gift/vocabularies/subsidie/begrotingDocument/FormData"
     },
     {
       "properties": [
