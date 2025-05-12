@@ -366,7 +366,7 @@ services:
       INITIAL_STATE_LIMIT: 10000
 
     volumes:
-      - ./config/ldes/:/config/
+      - ./config/ldes:/config
       - ./data/ldes-feed/:/data/
     restart: always
     logging: *default-logging
