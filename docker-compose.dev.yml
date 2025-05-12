@@ -77,7 +77,6 @@ services:
     restart: "no"
     environment:
       DEBUG: "true"
-      WRITE_INITIAL_STATE: false
       # LDES_BASE: http://localhost/streams/ldes
       # LDES_FOLDER: subsidies 
   ldes-backend:
