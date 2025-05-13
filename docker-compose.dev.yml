@@ -77,12 +77,8 @@ services:
     restart: "no"
     environment:
       DEBUG: "true"
-      # LDES_BASE: http://localhost/streams/ldes
-      # LDES_FOLDER: subsidies 
+      LDES_BASE: "http://localhost:90/ldes"
   ldes-backend:
     restart: "no"
     environment:
-      # BASE_URL: "http://localhost/streams/ldes/"
-      # LDES_STREAM_PREFIX: "http://localhost/streams/ldes/"
-    ports:
-      - "6666:80"
+      BASE_URL: "http://localhost:90/ldes"

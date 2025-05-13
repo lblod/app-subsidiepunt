@@ -391,7 +391,7 @@ services:
       DATA_FOLDER: "/data"
       ENABLE_AUTH: "false"
     volumes:
-      - "./data/ldes-feed/:/data/"
+      - ./data/ldes-feed/:/data/
 
   ################################################################################
   # LDES PRODUCERS: END
