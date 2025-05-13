@@ -100,7 +100,7 @@ async function filterSubjectsOfInterest(changesets) {
   return allFilteredSubjects;
 }
 
-export default async function dispatch(changesets: Changeset[]) {
+export default async function dispatch(changesets) {
   const subjects = await filterSubjectsOfInterest(changesets);
   const subsidieMaatRegelConsumptieData  = await constructSubsidieMaatregelConsumptieData(subjects);
   const tombstoneData = await constructTombstoneData(subjects);
