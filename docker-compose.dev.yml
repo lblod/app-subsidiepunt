@@ -10,6 +10,8 @@ services:
     image: lblod/mock-login-service:0.7.0
     environment:
       GROUP_TYPE: "http://www.w3.org/ns/org#Organization"
+  impersonation:
+    restart: "no"
   frontend:
     restart: "no"
     environment:
