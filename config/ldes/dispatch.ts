@@ -15,12 +15,14 @@ async function constructSubsidieMaatregelConsumptieData(subjects) {
   const queryStr = `
     CONSTRUCT {
       ?target a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
-       <http://www.w3.org/ns/adms#status> ?status.
+       <http://www.w3.org/ns/adms#status> ?status;
+       <http://purl.org/dc/terms/modified> ?modified.
     }
     WHERE {
      VALUES ?target { ${safeSubjects} }
      ?target a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
-       <http://www.w3.org/ns/adms#status> ?status.
+       <http://www.w3.org/ns/adms#status> ?status;
+       <http://purl.org/dc/terms/modified> ?modified.
    }`;
 
   const { results: { bindings } } = await querySudo(queryStr);
@@ -101,6 +103,7 @@ async function filterSubjectsOfInterest(changesets) {
 }
 
 export default async function dispatch(changesets) {
+  //TODO: we could bundle the changesets with a sleep or something
   const subjects = await filterSubjectsOfInterest(changesets);
   const subsidieMaatRegelConsumptieData  = await constructSubsidieMaatregelConsumptieData(subjects);
   const tombstoneData = await constructTombstoneData(subjects);
