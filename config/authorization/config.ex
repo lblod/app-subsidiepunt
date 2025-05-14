@@ -57,7 +57,7 @@ defmodule Acl.UserGroups.Config do
       query: "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
       SELECT DISTINCT ?session_role WHERE {
         VALUES ?session_role {
-          \"Subsidiepunt-admin\"
+          \"SubsidiepuntAdmin\"
         }
         VALUES ?session_id {
           <SESSION_ID>
@@ -178,8 +178,10 @@ defmodule Acl.UserGroups.Config do
                           predicates: %NoPredicates{
                             except: [
                               "http://data.europa.eu/m8g/playsRole"
-                            ] } } } ] },
+                            ] } } } ]
+      },
 
+      # // Admin users
       %GroupSpec{
         name: "o-admin-sessions-rwf",
         useage: [:read, :write, :read_for_write],
@@ -189,6 +191,21 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/sessions",
             constraint: %ResourceFormatConstraint{
               resource_prefix: "http://mu.semte.ch/sessions/"
+            }
+          },
+        ]
+      },
+      %GroupSpec{
+        name: "o-admin-sessions-rwf",
+        useage: [:read_for_write],
+        access: is_admin(),
+        graphs: [
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/public",
+            constraint: %ResourceConstraint {
+              resource_types: [
+                "http://xmlns.com/foaf/0.1/OnlineAccount"
+                ],
             }
           },
         ]
