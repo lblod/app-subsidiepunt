@@ -1,6 +1,6 @@
 INSERT {
   GRAPH ?g {
-    ?mock <http://mu.semte.ch/vocabularies/ext/sessionRole> "Subsidiepunt-admin" .
+    ?mock <http://mu.semte.ch/vocabularies/ext/sessionRole> "SubsidiepuntAdmin" .
   }
 }
 WHERE {
