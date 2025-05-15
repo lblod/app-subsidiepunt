@@ -1,8 +1,15 @@
 export const initialization = {
   public: {
     "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie": {
+      graphFilter: `
+        FILTER(?g NOT IN (
+          <http://mu.semte.ch/graphs/transformed-ldes-data>,
+          <http://mu.semte.ch/graphs/ldes-dump>
+        ))
+      `,
       filter: `
         VALUES ?p {
+          <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
           <http://www.w3.org/ns/adms#status>
           <http://purl.org/dc/terms/modified>
           <http://data.europa.eu/m8g/hasParticipation>
@@ -10,6 +17,12 @@ export const initialization = {
       `,
     },
     "http://www.w3.org/2004/02/skos/core#Concept": {
+      graphFilter: `
+        FILTER(?g NOT IN (
+          <http://mu.semte.ch/graphs/transformed-ldes-data>,
+          <http://mu.semte.ch/graphs/ldes-dump>
+        ))
+      `,
       // Only filter the status relevant for the SubsidiemaatregelConsumptie, and Roles
       filter: `
         VALUES ?scheme {
@@ -18,22 +31,40 @@ export const initialization = {
         }
 
         VALUES ?p {
+          <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
           <http://www.w3.org/2004/02/skos/core#prefLabel>
+          <http://purl.org/dc/terms/modified>
         }
 
         ?s <http://www.w3.org/2004/02/skos/core#inScheme> ?scheme.
        `
     },
     "http://www.w3.org/ns/org#Organization": {
+      graphFilter: `
+        FILTER(?g NOT IN (
+          <http://mu.semte.ch/graphs/transformed-ldes-data>,
+          <http://mu.semte.ch/graphs/ldes-dump>
+        ))
+      `,
       filter: `
         VALUES ?p {
+          <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
           <http://data.europa.eu/m8g/playsRole>
+          <http://purl.org/dc/terms/modified>
         }
       `
     },
     "http://data.europa.eu/m8g/Participation": {
+      graphFilter: `
+        FILTER(?g NOT IN (
+          <http://mu.semte.ch/graphs/transformed-ldes-data>,
+          <http://mu.semte.ch/graphs/ldes-dump>
+        ))
+      `,
       filter: `
         VALUES ?p {
+          <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+          <http://purl.org/dc/terms/modified>
           <http://data.europa.eu/m8g/role>
         }
       `
