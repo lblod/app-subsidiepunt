@@ -350,6 +350,14 @@ services:
   # LDES PRODUCERS
   ################################################################################
 
+  modified:
+    image: lblod/track-modified-service:0.0.1
+    labels:
+      - "logging=true"
+    volumes:
+      - ./config/modified:/config
+    restart: always
+    logging: *default-logging
   ldes-delta-pusher:
     image: redpencil/ldes-delta-pusher:1.2.5
     environment:
