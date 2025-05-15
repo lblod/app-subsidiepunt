@@ -2,20 +2,29 @@ export type HealingConfig = Awaited<ReturnType<typeof getHealingConfig>>;
 export const getHealingConfig = async () => {
   return {
     public: {
+      graphsToExclude: [
+        "http://mu.semte.ch/graphs/transformed-ldes-data",
+        "http://mu.semte.ch/graphs/ldes-dump"
+      ],
       entities: {
-        "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie": [
-          "http://purl.org/dc/terms/modified",
-          "http://www.w3.org/ns/adms#status",
-          "http://data.europa.eu/m8g/hasParticipation"
-        ],
-        "http://data.europa.eu/m8g/Participation": [
-          "http://data.europa.eu/m8g/role"
-        ],
-        "http://www.w3.org/ns/org#Organization": [
-          "http://data.europa.eu/m8g/playsRole"
-        ],
+        "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie": {
+          healingPredicates: [
+          "http://purl.org/dc/terms/modified"
+          ]
+        },
+        "http://data.europa.eu/m8g/Participation": {
+          healingPredicates: [
+            "http://purl.org/dc/terms/modified"
+          ],
+        },
+        "http://www.w3.org/ns/org#Organization": {
+          healingPredicates: [
+          "http://purl.org/dc/terms/modified"
+          ]
+        },
         "http://www.w3.org/2004/02/skos/core#Concept": {
           healingPredicates: [
+            "http://purl.org/dc/terms/modified",
             "http://www.w3.org/2004/02/skos/core#prefLabel"
           ],
           instanceFilter: `
