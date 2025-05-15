@@ -358,16 +358,18 @@ services:
       - ./config/modified:/config
     restart: always
     logging: *default-logging
+
   ldes-delta-pusher:
     image: redpencil/ldes-delta-pusher:1.2.5
     environment:
       LDES_ENDPOINT: "http://ldes-backend"
-      LDES_BASE: "https://dev.subsidiepunt.lblod.info/streams/ldes"
-      LDES_FOLDER: public # ignored as we have an ldes config that sets the stream folder
+      LDES_BASE: "http://ldes-backend/public"
+      LDES_FOLDER: whoopie # ignored as we have an ldes config that sets the stream folder
       DATA_FOLDER: /data
-      CRON_HEALING: "0 0 0 * * *" # Every day at midnight
+      CRON_HEALING: "* * * * *" # Every day at midnight
+      #CRON_HEALING: "0 0 0 * * *" # Every day at midnight
       AUTO_HEALING: "true"
-      CRON_CHECKPOINT: "0 0 5 1 * *"
+      #CRON_CHECKPOINT: "0 0 5 1 * *"
       SUDO_QUERY_RETRY_TIMEOUT_INCREMENT_FACTOR: 0.003
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: 429,500,502,503,504
       MAX_PAGE_SIZE_BYTES: 10000000
@@ -380,8 +382,8 @@ services:
     logging: *default-logging
     labels:
       - "logging=true"
-    links:
-      - virtuoso:database
+    # links:
+    #   - virtuoso:database
 
   ldes-backend:
     image: redpencil/fragmentation-producer:0.4.2

@@ -1,8 +1,80 @@
 import { moveTriples } from "../support";
 import { Changeset } from "../types";
-import { sparqlEscapeUri } from "mu";
+import { sparqlEscapeUri, sparqlEscapeString, sparqlEscape } from "mu";
 import { querySudo } from "@lblod/mu-auth-sudo";
+import { addData, getConfigFromEnv } from "@lblod/ldes-producer";
+import { LDES_FRAGMENTER } from "../environment";
 
+
+export const bindingToTriple = (binding) =>
+  `${sparqlEscapeUri(binding.s.value)} ${sparqlEscapeUri(
+    binding.p.value
+)} ${sparqlEscapeObject(binding.o)} .`;
+
+
+const datatypeNames = {
+  "http://www.w3.org/2001/XMLSchema#dateTime": "dateTime",
+  "http://www.w3.org/2001/XMLSchema#date": "date",
+  "http://www.w3.org/2001/XMLSchema#decimal": "decimal",
+  "http://www.w3.org/2001/XMLSchema#integer": "int",
+  "http://www.w3.org/2001/XMLSchema#float": "float",
+  "http://www.w3.org/2001/XMLSchema#boolean": "bool",
+};
+
+const sparqlEscapeObject = (bindingObject): string => {
+  const escapeType = datatypeNames[bindingObject.datatype] || "string";
+  if (bindingObject.datatype === "http://www.w3.org/2001/XMLSchema#dateTime") {
+    // sparqlEscape formats it slightly differently and then the comparison breaks in healing
+    const safeValue = `${bindingObject.value}`;
+    return `${sparqlEscapeString(safeValue.split('"').join(""))}^^xsd:dateTime`;
+  }
+  return bindingObject.type === "uri"
+    ? sparqlEscapeUri(bindingObject.value)
+    : sparqlEscape(bindingObject.value, escapeType);
+};
+
+export default async function dispatch(changesets) {
+  // TODO: we could bundle the changesets with a sleep or something, sparql-parser can help here. 
+  // NOTE:
+  //    In case we delete the resource complelety, the healing will take care of this.
+  //    It's a lot of boilerplate to create tombstones based on (internal) deltas,
+  //     so we defer that to another step.
+  const subjects = new Set();
+  for (const changeset of changesets) {
+    changeset.inserts.forEach((entry) => subjects.add(entry.subject.value));
+    changeset.deletes.forEach((entry) => subjects.add(entry.subject.value));
+  }
+
+  if(![...subjects].length) {
+    return
+  }
+
+  const safeSubjects = getSafeSubjects(subjects).join('\n');
+
+  // Note omitting Concepts for now, since it doesn't move that much and healing can take care
+  const data = [ ... await constructSubsidieMaatregelConsumptieData(safeSubjects),
+                 ... await constructParticipationData(safeSubjects),
+                 ... await constructOrganizationData(safeSubjects),
+                 ... await constructTombstoneData(safeSubjects)
+               ];
+
+  let newData = data.join('\n');
+  const safeData = `@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n${newData}`;
+
+  await addData(getConfigFromEnv(), {
+        contentType: "text/turtle",
+        folder: "public",
+        body: safeData,
+        fragmenter: LDES_FRAGMENTER,
+      });
+
+
+  //await moveTriples([ { inserts: data } ]);
+}
+
+/********************************************************
+ * HELPERS
+ ********************************************************/
 function getSafeSubjects(subjects) {
   return Array.from(subjects)
     .map((subject) => {
@@ -10,104 +82,111 @@ function getSafeSubjects(subjects) {
     });
 }
 
-async function constructSubsidieMaatregelConsumptieData(subjects) {
-  const safeSubjects = getSafeSubjects(subjects).join('\n');
+function cleanupBindings(bindings) {
+  if(bindings?.length) {
+    return bindings.map((binding) => {
+      return bindingToTriple(binding);
+    });
+  } else return [];
+}
+
+async function constructSubsidieMaatregelConsumptieData(safeSubjects) {
   const queryStr = `
     CONSTRUCT {
       ?target a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
-       <http://www.w3.org/ns/adms#status> ?status;
-       <http://purl.org/dc/terms/modified> ?modified.
-    }
-    WHERE {
-     VALUES ?target { ${safeSubjects} }
-     ?target a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
-       <http://www.w3.org/ns/adms#status> ?status;
-       <http://purl.org/dc/terms/modified> ?modified.
-   }`;
-
-  const { results: { bindings } } = await querySudo(queryStr);
-
-  if(bindings?.length) {
-    return bindings.map(({ s, p, o }) => {
-      return { subject: s, predicate: p, object: o };
-    });
-  } else return [];
-}
-
-async function constructTombstoneData(subjects) {
-  const safeSubjects = getSafeSubjects(subjects).join('\n');
-  const queryStr = `
-    CONSTRUCT {
-      ?target a <http://www.w3.org/ns/activitystreams#Tombstone>.
+        ?p ?o.
     }
     WHERE {
       VALUES ?target { ${safeSubjects} }
-      FILTER NOT EXISTS {
-        ?target a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
-          <http://www.w3.org/ns/adms#status> ?status.
+      VALUES ?p {
+        <http://www.w3.org/ns/adms#status>
+        <http://purl.org/dc/terms/modified>
+        <http://data.europa.eu/m8g/hasParticipation>
       }
-    }`;
+      GRAPH ?g {
+        ?target a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>;
+          ?p ?o.
+       }
+      FILTER(?g NOT IN (
+        <http://mu.semte.ch/graphs/transformed-ldes-data>,
+        <http://mu.semte.ch/graphs/ldes-dump>
+      ))
+   }`;
 
   const { results: { bindings } } = await querySudo(queryStr);
-
-  if(bindings?.length) {
-    return bindings.map(({ s, p, o }) => {
-      return { subject: s, predicate: p, object: o };
-    });
-  } else return [];
+  return cleanupBindings(bindings);
 }
 
-async function filterSubjectsOfInterest(changesets) {
-  //Note: this is taken from delta-publication-graph-maintainer.
-
-  let allFilteredSubjects = [];
-
-  // Get types from the delta: (For "DELETE" statement might be the only place containing this info)
-  for (let changeSet of changesets) {
-    const triples = [...changeSet.inserts, ...changeSet.deletes];
-
-    const filteredSubjects = triples
-      .filter(t =>
-          t.predicate.value == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type'
-          &&
-          t.object.value == 'http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie')
-      .map(t => t.subject.value);
-
-    allFilteredSubjects = [ ...allFilteredSubjects, ...filteredSubjects ];
-  }
-
-  console.log(`Found ${allFilteredSubjects.length} in delta, checking tripleStore for rdf:type`);
-
-  // Get types from the store; we're not guaranteed having type information in the delta, hence the double check.
-  for (let changeSet of changesets) {
-    const triples = [...changeSet.inserts, ...changeSet.deletes];
-
-    let subjects = triples.map(t => t.subject.value)
-    subjects  = [ ...new Set(subjects) ]; //avoid doubles
-
-    for(const subject of subjects) {
-      const result = await querySudo(`
-        ASK {
-          ${sparqlEscapeUri(subject)} a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>.
-        }
-      `);
-
-      if(result.boolean) {
-        allFilteredSubjects.push(subject);
-      }
+async function constructParticipationData(safeSubjects) {
+  const queryStr = `
+    CONSTRUCT {
+      ?target a <http://data.europa.eu/m8g/Participation>;
+        ?p ?o.
     }
-  }
+    WHERE {
+      VALUES ?target { ${safeSubjects} }
+      VALUES ?p {
+          <http://purl.org/dc/terms/modified>
+          <http://data.europa.eu/m8g/role>
+      }
+      GRAPH ?g {
+        ?target a <http://data.europa.eu/m8g/Participation>;
+          ?p ?o.
+      }
+      FILTER(?g NOT IN (
+         <http://mu.semte.ch/graphs/transformed-ldes-data>,
+         <http://mu.semte.ch/graphs/ldes-dump>
+       ))
+   }`;
 
-  allFilteredSubjects = [ ...new Set(allFilteredSubjects) ]; //ensure unique values
-  return allFilteredSubjects;
+  const { results: { bindings } } = await querySudo(queryStr);
+  return cleanupBindings(bindings);
 }
 
-export default async function dispatch(changesets) {
-  //TODO: we could bundle the changesets with a sleep or something
-  const subjects = await filterSubjectsOfInterest(changesets);
-  const subsidieMaatRegelConsumptieData  = await constructSubsidieMaatregelConsumptieData(subjects);
-  const tombstoneData = await constructTombstoneData(subjects);
-  const data = [ ...subsidieMaatRegelConsumptieData, ...tombstoneData ];
+async function constructOrganizationData(safeSubjects) {
+  const queryStr = `
+    CONSTRUCT {
+      ?target a <http://www.w3.org/ns/org#Organization>;
+        ?p ?o.
+    }
+    WHERE {
+      VALUES ?target { ${safeSubjects} }
+      VALUES ?p {
+          <http://purl.org/dc/terms/modified>
+          <http://data.europa.eu/m8g/playsRole>
+      }
+      GRAPH ?g {
+        ?target a <http://www.w3.org/ns/org#Organization>;
+          ?p ?o.
+      }
+      FILTER(?g NOT IN (
+         <http://mu.semte.ch/graphs/transformed-ldes-data>,
+         <http://mu.semte.ch/graphs/ldes-dump>
+       ))
+   }`;
 
-  await moveTriples([ { inserts: data } ]);
+  const { results: { bindings } } = await querySudo(queryStr);
+  return cleanupBindings(bindings);
+}
+
+async function constructTombstoneData(safeSubjects) {
+  const queryStr = `
+    CONSTRUCT {
+      ?target a <http://www.w3.org/ns/activitystreams#Tombstone>;
+        ?p ?o.
+    }
+    WHERE {
+      VALUES ?target { ${safeSubjects} }
+      GRAPH ?g {
+        ?target a <http://www.w3.org/ns/activitystreams#Tombstone>;
+          ?p ?o.
+      }
+      FILTER(?g NOT IN (
+         <http://mu.semte.ch/graphs/transformed-ldes-data>,
+         <http://mu.semte.ch/graphs/ldes-dump>
+       ))
+   }`;
+
+  const { results: { bindings } } = await querySudo(queryStr);
+  return cleanupBindings(bindings);
 }
