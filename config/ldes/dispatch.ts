@@ -1,37 +1,6 @@
 import { moveTriples } from "../support";
-import { Changeset } from "../types";
-import { sparqlEscapeUri, sparqlEscapeString, sparqlEscape } from "mu";
+import { sparqlEscapeUri } from "mu";
 import { querySudo } from "@lblod/mu-auth-sudo";
-import { addData, getConfigFromEnv } from "@lblod/ldes-producer";
-import { LDES_FRAGMENTER } from "../environment";
-
-
-export const bindingToTriple = (binding) =>
-  `${sparqlEscapeUri(binding.s.value)} ${sparqlEscapeUri(
-    binding.p.value
-)} ${sparqlEscapeObject(binding.o)} .`;
-
-
-const datatypeNames = {
-  "http://www.w3.org/2001/XMLSchema#dateTime": "dateTime",
-  "http://www.w3.org/2001/XMLSchema#date": "date",
-  "http://www.w3.org/2001/XMLSchema#decimal": "decimal",
-  "http://www.w3.org/2001/XMLSchema#integer": "int",
-  "http://www.w3.org/2001/XMLSchema#float": "float",
-  "http://www.w3.org/2001/XMLSchema#boolean": "bool",
-};
-
-const sparqlEscapeObject = (bindingObject): string => {
-  const escapeType = datatypeNames[bindingObject.datatype] || "string";
-  if (bindingObject.datatype === "http://www.w3.org/2001/XMLSchema#dateTime") {
-    // sparqlEscape formats it slightly differently and then the comparison breaks in healing
-    const safeValue = `${bindingObject.value}`;
-    return `${sparqlEscapeString(safeValue.split('"').join(""))}^^xsd:dateTime`;
-  }
-  return bindingObject.type === "uri"
-    ? sparqlEscapeUri(bindingObject.value)
-    : sparqlEscape(bindingObject.value, escapeType);
-};
 
 export default async function dispatch(changesets) {
   // TODO: we could bundle the changesets with a sleep or something, sparql-parser can help here. 
@@ -55,21 +24,11 @@ export default async function dispatch(changesets) {
   const data = [ ... await constructSubsidieMaatregelConsumptieData(safeSubjects),
                  ... await constructParticipationData(safeSubjects),
                  ... await constructOrganizationData(safeSubjects),
-                 ... await constructTombstoneData(safeSubjects)
+                 ... await constructTombstoneData(safeSubjects),
+                 ... await constructConceptData(safeSubjects)
                ];
 
-  let newData = data.join('\n');
-  const safeData = `@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n${newData}`;
-
-  await addData(getConfigFromEnv(), {
-        contentType: "text/turtle",
-        folder: "public",
-        body: safeData,
-        fragmenter: LDES_FRAGMENTER,
-      });
-
-
-  //await moveTriples([ { inserts: data } ]);
+  await moveTriples([ { inserts: data } ]);
 }
 
 /********************************************************
@@ -84,8 +43,8 @@ function getSafeSubjects(subjects) {
 
 function cleanupBindings(bindings) {
   if(bindings?.length) {
-    return bindings.map((binding) => {
-      return bindingToTriple(binding);
+    return bindings.map(({ s, p, o }) => {
+      return { subject: s, predicate: p, object: o };
     });
   } else return [];
 }
@@ -126,7 +85,6 @@ async function constructParticipationData(safeSubjects) {
     WHERE {
       VALUES ?target { ${safeSubjects} }
       VALUES ?p {
-          <http://purl.org/dc/terms/modified>
           <http://data.europa.eu/m8g/role>
       }
       GRAPH ?g {
@@ -152,7 +110,6 @@ async function constructOrganizationData(safeSubjects) {
     WHERE {
       VALUES ?target { ${safeSubjects} }
       VALUES ?p {
-          <http://purl.org/dc/terms/modified>
           <http://data.europa.eu/m8g/playsRole>
       }
       GRAPH ?g {
@@ -181,6 +138,41 @@ async function constructTombstoneData(safeSubjects) {
         ?target a <http://www.w3.org/ns/activitystreams#Tombstone>;
           ?p ?o.
       }
+      FILTER(?g NOT IN (
+         <http://mu.semte.ch/graphs/transformed-ldes-data>,
+         <http://mu.semte.ch/graphs/ldes-dump>
+       ))
+   }`;
+
+  const { results: { bindings } } = await querySudo(queryStr);
+  return cleanupBindings(bindings);
+}
+
+async function constructConceptData(safeSubjects) {
+  const queryStr = `
+    CONSTRUCT {
+      ?target a <http://www.w3.org/2004/02/skos/core#Concept>;
+        ?p ?o.
+    }
+    WHERE {
+
+      VALUES ?target { ${safeSubjects} }
+
+      VALUES ?p {
+        <http://www.w3.org/2004/02/skos/core#prefLabel>
+      }
+      VALUES ?scheme {
+        <http://lblod.data.gift/concept-schemes/94818b96-5b18-48b8-a125-1e6825b6b724>
+        <http://lblod.data.gift/concept-schemes/f7274d7f-31d5-4b02-aca8-b96481115651>
+      }
+
+      GRAPH ?g {
+        ?target a <http://www.w3.org/2004/02/skos/core#Concept>;
+          ?p ?o.
+      }
+
+      ?target <http://www.w3.org/2004/02/skos/core#inScheme> ?scheme.
+
       FILTER(?g NOT IN (
          <http://mu.semte.ch/graphs/transformed-ldes-data>,
          <http://mu.semte.ch/graphs/ldes-dump>
