@@ -79,7 +79,6 @@ services:
     restart: "no"
     environment:
       DEBUG: "true"
-      LDES_BASE: "http://ldes-backend"
   ldes-backend:
     restart: "no"
     environment:
