@@ -350,11 +350,11 @@ services:
   # LDES PRODUCERS
   ################################################################################
   ldes-delta-pusher:
-    image: redpencil/ldes-delta-pusher:1.2.5
+    image: redpencil/ldes-delta-pusher:1.2.7
     environment:
       LDES_ENDPOINT: "http://ldes-backend"
       LDES_BASE: "http://ldes-backend/public"
-      LDES_FOLDER: whoopie # ignored as we have an ldes config that sets the stream folder
+      LDES_FOLDER: public # ignored as we have an ldes config that sets the stream folder
       DATA_FOLDER: /data
       CRON_HEALING: "* * * * *" # Every day at midnight
       #CRON_HEALING: "0 0 0 * * *" # Every day at midnight
@@ -363,8 +363,9 @@ services:
       SUDO_QUERY_RETRY_TIMEOUT_INCREMENT_FACTOR: 0.003
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: 429,500,502,503,504
       MAX_PAGE_SIZE_BYTES: 10000000
-      INITIAL_STATE_LIMIT: 10000
-      WRITE_INITIAL_STATE: "true"
+      INITIAL_STATE_LIMIT: 500
+      HEALING_LIMIT: 500
+      WRITE_INITIAL_STATE: "false"
     volumes:
       - ./config/ldes:/config
       - ./data/ldes-feed/:/data/
