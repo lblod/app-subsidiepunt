@@ -33,7 +33,6 @@ export const initialization = {
         VALUES ?p {
           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
           <http://www.w3.org/2004/02/skos/core#prefLabel>
-          <http://purl.org/dc/terms/modified>
         }
 
         ?s <http://www.w3.org/2004/02/skos/core#inScheme> ?scheme.
@@ -50,7 +49,6 @@ export const initialization = {
         VALUES ?p {
           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
           <http://data.europa.eu/m8g/playsRole>
-          <http://purl.org/dc/terms/modified>
         }
       `
     },
@@ -64,7 +62,6 @@ export const initialization = {
       filter: `
         VALUES ?p {
           <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-          <http://purl.org/dc/terms/modified>
           <http://data.europa.eu/m8g/role>
         }
       `
