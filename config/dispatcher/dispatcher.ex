@@ -129,7 +129,7 @@ defmodule Dispatcher do
   #################################################################
   # LDES-producer
   #################################################################
-  get "/ldes/*path" do
+  get "/streams/ldes/subsidies/*path" do
     forward conn, path, "http://ldes-backend/"
   end
 
