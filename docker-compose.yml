@@ -353,13 +353,12 @@ services:
     image: redpencil/ldes-delta-pusher:1.2.7
     environment:
       LDES_ENDPOINT: "http://ldes-backend"
-      LDES_BASE: "http://ldes-backend"
-      LDES_FOLDER: public # ignored as we have an ldes config that sets the stream folder
+      LDES_BASE: "https://dev.subsidiepunt.lblod.info/streams/ldes/subsidies"
+      LDES_FOLDER: public
       DATA_FOLDER: /data
-      CRON_HEALING: "* * * * *" # Every day at midnight
-      #CRON_HEALING: "0 0 0 * * *" # Every day at midnight
+      CRON_HEALING: "0 0 0 * * *" # Every day at midnight
       AUTO_HEALING: "true"
-      #CRON_CHECKPOINT: "0 0 5 1 * *"
+      CRON_CHECKPOINT: "0 0 5 1 * *"
       SUDO_QUERY_RETRY_TIMEOUT_INCREMENT_FACTOR: 0.003
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: 429,500,502,503,504
       MAX_PAGE_SIZE_BYTES: 10000000
@@ -380,10 +379,10 @@ services:
     labels:
       - "logging=true"
     environment:
-      BASE_URL: "https://dev.subsidiepunt.lblod.info/streams/ldes/"
+      BASE_URL: "https://dev.subsidiepunt.lblod.info/streams/ldes/subsidies/"
+      LDES_STREAM_PREFIX: "https://dev.subsidiepunt.lblod.info/streams/ldes/subsidies/"
       FOLDER_DEPTH: 1
       PAGE_RESOURCES_COUNT: 20
-      LDES_STREAM_PREFIX: "https://dev.subsidiepunt.lblod.info/streams/ldes/"
       TIME_TREE_RELATION_PATH: "http://www.w3.org/ns/prov#generatedAtTime"
       CACHE_SIZE: 10
       DATA_FOLDER: "/data"

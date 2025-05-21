@@ -79,7 +79,9 @@ services:
     restart: "no"
     environment:
       DEBUG: "true"
+      LDES_BASE: "http://localhost:90/streams/ldes/subsidies"
   ldes-backend:
     restart: "no"
     environment:
-      BASE_URL: "http://localhost:90/ldes"
+      BASE_URL: "http://localhost:90/streams/ldes/subsidies/"
+      LDES_STREAM_PREFIX: "http://localhost:90/streams/ldes/subsidies/"
