@@ -17,6 +17,7 @@
           "lblodSubsidie:ambitieusProject",
           "lblodSubsidie:coalitieCoproductieEnPartnerschap",
           "lblodSubsidie:momentum",
+          "lblodSubsidie:subsidieBedragAanvraag",
         {
           "s-prefix": "schema:contactPoint",
           "properties": [

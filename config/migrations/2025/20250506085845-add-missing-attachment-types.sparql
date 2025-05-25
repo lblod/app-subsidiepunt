@@ -1,0 +1,29 @@
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/begrotingDocument/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://lblod.data.gift/vocabularies/subsidie/begrotingDocument> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/begrotingDocument/FormData> .
+    }
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/bijlageDocument/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://lblod.data.gift/vocabularies/subsidie/bijlageDocument> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/bijlageDocument/FormData> .
+    }
+  }
+}

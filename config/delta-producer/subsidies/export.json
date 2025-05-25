@@ -290,7 +290,39 @@
         "http://lblod.data.gift/vocabularies/subsidie/vervolgGepland",
         "http://lblod.data.gift/vocabularies/subsidie/actieSamenwerking",
         "http://lblod.data.gift/vocabularies/subsidie/actieImpactBeschrijving",
-        "http://mu.semte.ch/vocabularies/ext/action"
+        "http://mu.semte.ch/vocabularies/ext/action",
+        "http://lblod.data.gift/vocabularies/subsidie/telephone",
+        "http://lblod.data.gift/vocabularies/subsidie/website",
+        "http://lblod.data.gift/vocabularies/subsidie/email",
+        "http://lblod.data.gift/vocabularies/subsidie/algemeneDoelstellingenEnOpdrachten",
+        "http://lblod.data.gift/vocabularies/subsidie/startDatum",
+        "http://lblod.data.gift/vocabularies/subsidie/juridischStatuut",
+        "http://lblod.data.gift/vocabularies/subsidie/akkoordClausule",
+        "http://lblod.data.gift/vocabularies/subsidie/overzichtMedewerkers",
+        "http://lblod.data.gift/vocabularies/subsidie/begrotingDocument",
+        "http://lblod.data.gift/vocabularies/subsidie/aanpakEnKwaliteitsbewaking",
+        "http://lblod.data.gift/vocabularies/subsidie/ondernemingsnummer",
+        "http://lblod.data.gift/vocabularies/subsidie/overzichtAndereSubsidierendeInstanties",
+        "http://lblod.data.gift/vocabularies/subsidie/verantwoordingBegroteMiddelen",
+        "http://lblod.data.gift/vocabularies/subsidie/familyName",
+        "http://lblod.data.gift/vocabularies/subsidie/beoogdeResultatenProject",
+        "http://lblod.data.gift/vocabularies/subsidie/einddatumProject",
+        "http://lblod.data.gift/vocabularies/subsidie/straatEnNummer",
+        "http://lblod.data.gift/vocabularies/subsidie/doelpubliekProject",
+        "http://lblod.data.gift/vocabularies/subsidie/bevestigingWaarheid",
+        "http://lblod.data.gift/vocabularies/subsidie/firstName",
+        "http://lblod.data.gift/vocabularies/subsidie/titelProject",
+        "http://lblod.data.gift/vocabularies/subsidie/korteOmschrijvingProject",
+        "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningenListing",
+        "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen",
+        "http://lblod.data.gift/vocabularies/subsidie/aandachtIntersectionaliteit",
+        "http://lblod.data.gift/vocabularies/subsidie/bijlageDocument",
+        "http://lblod.data.gift/vocabularies/subsidie/postnummerEnGemeente",
+        "http://lblod.data.gift/vocabularies/subsidie/samenwerkingsverbandenToelichting",
+        "http://lblod.data.gift/vocabularies/subsidie/verduurzamingEnOpenbaarmaking",
+        "http://lblod.data.gift/vocabularies/subsidie/doelstellingenToelichting",
+        "http://lblod.data.gift/vocabularies/subsidie/gevraagdeSubsidieGelijkeKansen",
+        "http://lblod.data.gift/vocabularies/subsidie/bankAccount"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
@@ -487,6 +519,39 @@
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/decision-upload/FormData"
+    },
+    {
+      "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://purl.org/dc/terms/hasPart"
+      ],
+      "graphsFilter": [
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
+      ],
+      "type": "http://lblod.data.gift/vocabularies/subsidie/bijlageDocument/FormData"
+    },
+    {
+      "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://www.w3.org/ns/shacl#order",
+        "http://lblod.data.gift/vocabularies/subsidie/redenErkenning",
+        "http://lblod.data.gift/vocabularies/subsidie/subsidierendeInstanties",
+        "http://lblod.data.gift/vocabularies/subsidie/bedrag"
+      ],
+      "graphsFilter": [
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
+      ],
+      "type": "http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen/FormData"
+    },
+    {
+      "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://purl.org/dc/terms/hasPart"
+      ],
+      "graphsFilter": [
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
+      ],
+      "type": "http://lblod.data.gift/vocabularies/subsidie/begrotingDocument/FormData"
     },
     {
       "properties": [
