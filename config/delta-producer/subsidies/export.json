@@ -322,7 +322,16 @@
         "http://lblod.data.gift/vocabularies/subsidie/verduurzamingEnOpenbaarmaking",
         "http://lblod.data.gift/vocabularies/subsidie/doelstellingenToelichting",
         "http://lblod.data.gift/vocabularies/subsidie/gevraagdeSubsidieGelijkeKansen",
-        "http://lblod.data.gift/vocabularies/subsidie/bankAccount"
+        "http://lblod.data.gift/vocabularies/subsidie/bankAccount",
+        "http://lblod.data.gift/vocabularies/subsidie/aanvraagType",
+        "http://lblod.data.gift/vocabularies/subsidie/diagnose",
+        "http://lblod.data.gift/vocabularies/subsidie/verwachtingen",
+        "http://lblod.data.gift/vocabularies/subsidie/vernieuwdKarakter",
+        "http://lblod.data.gift/vocabularies/subsidie/waaromVraagConceptsubsidie",
+        "http://lblod.data.gift/vocabularies/subsidie/omschrijvingNoodConceptbegeleiding",
+        "http://lblod.data.gift/vocabularies/subsidie/projectorganisatie",
+        "http://lblod.data.gift/vocabularies/subsidie/verloopConceptstudie",
+        "http://lblod.data.gift/vocabularies/subsidie/bestandNaam"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
@@ -998,6 +1007,18 @@
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit"
+    },
+    {
+      "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://mu.semte.ch/vocabularies/core/uuid",
+        "http://www.w3.org/ns/shacl#order",
+        "http://lblod.data.gift/vocabularies/subsidie/bestandNaam"
+      ],
+      "graphsFilter": [
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
+      ],
+      "type": "http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit"
     },
     {
       "properties": [
