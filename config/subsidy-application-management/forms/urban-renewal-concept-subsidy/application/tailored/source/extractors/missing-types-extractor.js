@@ -10,8 +10,6 @@ module.exports = {
     const SUBSIDIE = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/');
     const EXT = new $rdf.Namespace('http://mu.semte.ch/vocabularies/ext/');
 
-    
-    const POLITICAL_REFERENCE_CONTACTPOINT = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/politicalReferenceContactPoint');
     const SCHEMA = new $rdf.Namespace('http://schema.org/');
     const ATTACHMENT = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/attachment');
     const BESTANDEN_LISTING_UNIT = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit');
@@ -25,7 +23,7 @@ module.exports = {
     store.add($rdf.sym(contactPoint), RDF_TYPE, SCHEMA('ContactPoint'), graphs.additions);
 
     store.add($rdf.sym(source.uri), EXT('politicalReferenceContactPoint'), $rdf.sym(politicalReferenceContactPoint), graphs.additions);
-    store.add($rdf.sym(politicalReferenceContactPoint), RDF_TYPE, POLITICAL_REFERENCE_CONTACTPOINT('FormData'), graphs.additions);
+    store.add($rdf.sym(politicalReferenceContactPoint), RDF_TYPE, EXT('PoliticalReferenceContactPoint'), graphs.additions);
 
     store.add($rdf.sym(source.uri), SUBSIDIE('attachment'), $rdf.sym(attachment), graphs.additions);
     store.add($rdf.sym(attachment), RDF_TYPE, ATTACHMENT('FormData'), graphs.additions);
