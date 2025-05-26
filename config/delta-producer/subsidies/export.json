@@ -209,6 +209,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/invoiceUpload",
         "http://lblod.data.gift/vocabularies/subsidie/awardReportUpload",
         "http://lblod.data.gift/vocabularies/subsidie/attachment",
+        "http://mu.semte.ch/vocabularies/ext/attachment",
         "http://lblod.data.gift/vocabularies/subsidie/attachmentLEKPReport",
         "http://lblod.data.gift/vocabularies/subsidie/attachmentFinancialReport",
         "http://lblod.data.gift/vocabularies/subsidie/signedPact",
@@ -339,9 +340,9 @@
         "http://lblod.data.gift/vocabularies/subsidie/ambitieusProject",
         "http://lblod.data.gift/vocabularies/subsidie/coalitieCoproductieEnPartnerschap",
         "http://lblod.data.gift/vocabularies/subsidie/momentum",
-        "http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit"
-
-
+        "http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit",
+        "http://mu.semte.ch/vocabularies/ext/bestandenListingUnit",
+        "http://lblod.data.gift/vocabularies/subsidie/projectNaam"
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
@@ -538,6 +539,16 @@
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure/decision-upload/FormData"
+    },
+    {
+      "properties": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://purl.org/dc/terms/hasPart"
+      ],
+      "graphsFilter": [
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
+      ],
+      "type": "http://lblod.data.gift/vocabularies/subsidie/attachment/FormData"
     },
     {
       "properties": [
