@@ -12,6 +12,9 @@ defmodule Dispatcher do
   #   forward conn, path, "http://resource/themes/"
   # end
 
+  match "/job-initiator/*path" do
+    forward conn, path, "http://delta-producer-background-jobs-initiator-subsidies/"
+  end
 
   match "/impersonations/*path" do
     forward conn, path, "http://impersonation/impersonations/"
