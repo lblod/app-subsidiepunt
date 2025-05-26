@@ -1,0 +1,74 @@
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/politicalReferenceContactPoint/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://mu.semte.ch/vocabularies/ext/politicalReferenceContactPoint> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/politicalReferenceContactPoint/FormData> .
+    }
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/attachment/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://mu.semte.ch/vocabularies/ext/attachment> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/attachment/FormData> .
+    }
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://mu.semte.ch/vocabularies/ext/bestandenListingUnit> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit/FormData> .
+    }
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/financingPartner/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://mu.semte.ch/vocabularies/ext/financingPartner> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/financingPartner/FormData> .
+    }
+  }
+}
+;
+INSERT {
+  GRAPH ?g {
+    ?formData a <http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit/FormData> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit> ?formData .
+    ?formData ?p ?o .
+    FILTER NOT EXISTS {
+      ?formData a <http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit/FormData> .
+    }
+  }
+}
