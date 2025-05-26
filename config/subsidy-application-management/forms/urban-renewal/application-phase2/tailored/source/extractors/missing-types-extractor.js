@@ -28,7 +28,7 @@ module.exports = {
     store.add($rdf.sym(source.uri), EXT('financingPartner'), $rdf.sym(financingPartner), graphs.additions);
     store.add($rdf.sym(financingPartner), RDF_TYPE, FINANCING_PARTNER('FormData'), graphs.additions);
 
-    store.add($rdf.sym(source.uri), EXT('attachment'), $rdf.sym(attachment), graphs.additions);
+    store.add($rdf.sym(source.uri), SUBSIDIE('attachment'), $rdf.sym(attachment), graphs.additions);
     store.add($rdf.sym(attachment), RDF_TYPE, ATTACHMENT('FormData'), graphs.additions);
 
     store.add($rdf.sym(source.uri), SUBSIDIE('subsidieBedragListingUnit'), $rdf.sym(subsidieBedragListingUnit), graphs.additions);
