@@ -277,6 +277,7 @@
         "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragAanvraag",
         "http://mu.semte.ch/vocabularies/ext/politicalReferenceContactPoint",
         "http://mu.semte.ch/vocabularies/ext/FinancingPartner",
+        "http://mu.semte.ch/vocabularies/ext/financingPartner",
         "http://lblod.data.gift/vocabularies/projectOnderdeelUnit",
         "http://lblod.data.gift/vocabularies/subsidie/subsidieBedragListingUnit",
         "http://lblod.data.gift/vocabularies/subsidie/toekomstigeElementenBeschrijving",
@@ -331,7 +332,16 @@
         "http://lblod.data.gift/vocabularies/subsidie/omschrijvingNoodConceptbegeleiding",
         "http://lblod.data.gift/vocabularies/subsidie/projectorganisatie",
         "http://lblod.data.gift/vocabularies/subsidie/verloopConceptstudie",
-        "http://lblod.data.gift/vocabularies/subsidie/bestandNaam"
+        "http://lblod.data.gift/vocabularies/subsidie/bestandNaam",
+        "http://lblod.data.gift/vocabularies/subsidie/samenvattingSummaryDescription",
+        "http://lblod.data.gift/vocabularies/subsidie/diagnose",
+        "http://lblod.data.gift/vocabularies/subsidie/visieEnBeleidscontext",
+        "http://lblod.data.gift/vocabularies/subsidie/ambitieusProject",
+        "http://lblod.data.gift/vocabularies/subsidie/coalitieCoproductieEnPartnerschap",
+        "http://lblod.data.gift/vocabularies/subsidie/momentum",
+        "http://lblod.data.gift/vocabularies/subsidie/bestandenListingUnit"
+
+
       ],
       "graphsFilter": [
         "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
