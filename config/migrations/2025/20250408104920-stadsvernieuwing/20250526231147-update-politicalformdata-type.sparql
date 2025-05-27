@@ -1,0 +1,16 @@
+DELETE {
+  GRAPH ?g {
+    ?politicalReferenceContactPoint <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?politicalReferenceContactPoint <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://mu.semte.ch/vocabularies/ext/PoliticalReferenceContactPoint> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?applicationForm <http://mu.semte.ch/vocabularies/ext/politicalReferenceContactPoint> ?politicalReferenceContactPoint .
+  }
+}
+;

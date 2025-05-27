@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-subsidiepunt:1.10.0
+    image: lblod/frontend-subsidiepunt:1.14.0
     links:
       - identifier:backend
     labels:
@@ -122,6 +122,12 @@ services:
       LOG_SINK_URL: "http://sink"
       ORGANIZATION_TYPE: "http://www.w3.org/ns/org#Organization"
       GROUP_TYPE_LABEL: "organizations"
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+  impersonation:
+    image: lblod/impersonation-service:0.2.0
     labels:
       - "logging=true"
     restart: always
