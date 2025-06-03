@@ -12,6 +12,10 @@ defmodule Dispatcher do
   #   forward conn, path, "http://resource/themes/"
   # end
 
+  match "/management-form-file/*path" do
+    forward conn, path, "http://subsidy-applications-retrieval/form-file/"
+  end
+
   match "/job-initiator/*path" do
     forward conn, path, "http://delta-producer-background-jobs-initiator-subsidies/"
   end
@@ -132,6 +136,13 @@ defmodule Dispatcher do
   #################################################################
   get "/sync/subsidies/files/*path" do
     forward conn, path, "http://delta-producer-publication-graph-maintainer-subsidies/files/"
+  end
+
+  #################################################################
+  # LDES-producer
+  #################################################################
+  get "/streams/ldes/subsidies/*path" do
+    forward conn, path, "http://ldes-backend/"
   end
 
   #################################################################

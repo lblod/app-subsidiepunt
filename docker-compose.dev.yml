@@ -10,6 +10,11 @@ services:
     image: lblod/mock-login-service:0.7.0
     environment:
       GROUP_TYPE: "http://www.w3.org/ns/org#Organization"
+  subsidy-applications-retrieval:
+    image: lblod/subsidy-applications-retrieval-service:0.1.2
+    volumes:
+      - ./config/subsidy-application-management:/config
+    restart: "no"
   impersonation:
     restart: "no"
   frontend:
@@ -20,6 +25,8 @@ services:
       EMBER_FEATURE_WORSHIP_MINISTER_MANAGEMENT_ENABLED: "true"
       EMBER_WORSHIP_DECISIONS_DATABASE_URL: "https://dev.databankerediensten.lokaalbestuur.lblod.info"
       EMBER_WORSHIP_ORGANISATIONS_DATABASE_URL: "https://dev.organisaties.lokaalbestuur.lblod.info"
+    ports:
+      - "80:80"
   identifier:
     ports:
       - "90:80"
@@ -75,3 +82,13 @@ services:
     restart: "no"
   mock-account-generation:
     restart: "no"
+  ldes-delta-pusher:
+    restart: "no"
+    environment:
+      DEBUG: "true"
+      LDES_BASE: "http://localhost:90/streams/ldes/subsidies"
+  ldes-backend:
+    restart: "no"
+    environment:
+      BASE_URL: "http://localhost:90/streams/ldes/subsidies/"
+      LDES_STREAM_PREFIX: "http://localhost:90/streams/ldes/subsidies/"

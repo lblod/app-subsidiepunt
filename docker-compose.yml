@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-subsidiepunt:1.14.0
+    image: lblod/frontend-subsidiepunt:1.14.1
     links:
       - identifier:backend
     labels:
@@ -238,7 +238,7 @@ services:
     environment:
       EMAIL_FROM: "noreply@lblod.info"
       EMAIL_TO: "support+lblod@redpencil.io"
-      APP_NAME: "app-digitaal-loket-dev"
+      APP_NAME: "app-subsidiepunt"
       OUTBOX: "http://data.lblod.info/id/mail-folders/2"
     labels:
       - "logging=true"
@@ -351,3 +351,51 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+
+  ################################################################################
+  # LDES PRODUCERS
+  ################################################################################
+  ldes-delta-pusher:
+    image: redpencil/ldes-delta-pusher:1.2.7
+    environment:
+      LDES_ENDPOINT: "http://ldes-backend"
+      LDES_BASE: "https://dev.subsidiepunt.lblod.info/streams/ldes/subsidies"
+      LDES_FOLDER: public
+      DATA_FOLDER: /data
+      CRON_HEALING: "0 0 0 * * *" # Every day at midnight
+      AUTO_HEALING: "true"
+      CRON_CHECKPOINT: "0 0 5 1 * *"
+      SUDO_QUERY_RETRY_TIMEOUT_INCREMENT_FACTOR: 0.003
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: 429,500,502,503,504
+      MAX_PAGE_SIZE_BYTES: 10000000
+      INITIAL_STATE_LIMIT: 500
+      HEALING_LIMIT: 500
+      WRITE_INITIAL_STATE: "false"
+    volumes:
+      - ./config/ldes:/config
+      - ./data/ldes-feed/:/data/
+    restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
+  ldes-backend:
+    image: redpencil/fragmentation-producer:0.4.2
+    restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
+    environment:
+      BASE_URL: "https://dev.subsidiepunt.lblod.info/streams/ldes/subsidies/"
+      LDES_STREAM_PREFIX: "https://dev.subsidiepunt.lblod.info/streams/ldes/subsidies/"
+      FOLDER_DEPTH: 1
+      PAGE_RESOURCES_COUNT: 20
+      TIME_TREE_RELATION_PATH: "http://www.w3.org/ns/prov#generatedAtTime"
+      CACHE_SIZE: 10
+      DATA_FOLDER: "/data"
+      ENABLE_AUTH: "false"
+    volumes:
+      - ./data/ldes-feed/:/data/
+
+  ################################################################################
+  # LDES PRODUCERS: END
+  ################################################################################
