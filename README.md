@@ -71,6 +71,40 @@ Once the migrations have ran, you can start developing your application by conne
 ### Ingesting external data
 Currently no external data is to be ingested. This might change over time.
 
+### Setting up ldes-producer [experimental]
+
+Currently, an LDES stream is included in the app that generates basic information so others can experiment with it.
+
+Out of the box, it should work for all newly created `SubsidieMaatregelconsumptie`, and the data is available (locally) at `http://localhost:90/streams/ldes/subsidies/public/1`.
+
+If you want to include historical data, do the following:
+
+Ensure in `docker-compose.override.yml`:
+
+```yaml
+  ldes-delta-pusher:
+    environment:
+      WRITE_INITIAL_STATE: "true" # This should be toggled after initial sync
+```
+
+Then run:
+
+```bash
+drc up -d ldes-delta-pusher ldes-backend virtuoso database
+
+drc logs -f --tail=200 ldes-delta-pusher # and wait for "done writing initial state"
+```
+
+After that, update `docker-compose.override.yml` to ensure it doesn't reinitialize the full LDES feeds on restart:
+
+```yaml
+  ldes-delta-pusher:
+    environment:
+      WRITE_INITIAL_STATE: "false" # This changed
+```
+
+For further configuration, check the repositories of the respective LDES services.
+
 ### Setting up the delta-producers related services
 
 To ensure the app can share data, producers need to be set up. There is an initial sync that is potentially very expensive and must be started manually. In the case of this app, there is only one delta-stream: the one for sharing information about the existing subsidies-dossiers. Note, of course, this might evolve over time.
