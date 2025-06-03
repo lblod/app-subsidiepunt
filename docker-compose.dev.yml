@@ -10,6 +10,11 @@ services:
     image: lblod/mock-login-service:0.7.0
     environment:
       GROUP_TYPE: "http://www.w3.org/ns/org#Organization"
+  subsidy-applications-retrieval:
+    image: lblod/subsidy-applications-retrieval-service:0.1.2
+    volumes:
+      - ./config/subsidy-application-management:/config
+    restart: "no"
   impersonation:
     restart: "no"
   frontend:
