@@ -1,28 +1,17 @@
 defmodule Dispatcher do
   use Matcher
-  define_accept_types []
 
-  # In order to forward the 'themes' resource to the
-  # resource service, use the following forward rule.
-  #
-  # docker-compose stop; docker-compose rm; docker-compose up
-  # after altering this file.
-  #
-  # match "/themes/*path" do
-  #   forward conn, path, "http://resource/themes/"
-  # end
+  define_accept_types [
+    html: ["text/html", "application/xhtml+html"],
+    json: ["application/json", "application/vnd.api+json"],
+    upload: ["multipart/form-data"],
+    any: [ "*/*" ],
+  ]
 
-  match "/management-form-file/*path" do
-    forward conn, path, "http://subsidy-applications-retrieval/form-file/"
-  end
-
-  match "/job-initiator/*path" do
-    forward conn, path, "http://delta-producer-background-jobs-initiator-subsidies/"
-  end
-
-  match "/impersonations/*path" do
-    forward conn, path, "http://impersonation/impersonations/"
-  end
+  @html %{ accept: %{ html: true } }
+  @json %{ accept: %{ json: true } }
+  @upload %{ accept: %{ upload: true } }
+  @any %{ accept: %{ any: true } }
 
   #############################################################################
   # Frontend resources
