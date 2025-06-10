@@ -28,15 +28,19 @@ defmodule Dispatcher do
   match "/bestuurseenheden/*path" do
     forward conn, path, "http://cache/bestuurseenheden/"
   end
+
   match "/werkingsgebieden/*path" do
     forward conn, path, "http://cache/werkingsgebieden/"
   end
+
   match "/bestuurseenheid-classificatie-codes/*path" do
     forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
+
   match "/bestuursorganen/*path" do
     forward conn, path, "http://cache/bestuursorganen/"
   end
+
   match "/bestuursorgaan-classificatie-codes/*path" do
     forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
   end
@@ -49,6 +53,7 @@ defmodule Dispatcher do
   match "/document-statuses/*path" do
     forward conn, path, "http://cache/document-statuses/"
   end
+
   match "/submission-document-statuses/*path" do
     forward conn, path, "http://cache/submission-document-statuses/"
   end
@@ -306,4 +311,5 @@ defmodule Dispatcher do
   match "/*_" do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
+
 end
