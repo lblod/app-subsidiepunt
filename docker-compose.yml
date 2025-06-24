@@ -208,7 +208,7 @@ services:
     restart: always
     logging: *default-logging
   mock-account-generation:
-    image: lblod/update-bestuurseenheid-mock-login-service:0.5.0
+    image: lblod/update-bestuurseenheid-mock-login-service:0.6.0
     environment:
       GROUP_TYPE: "org:Organization"
     volumes:
@@ -326,7 +326,7 @@ services:
   # OP PUBLIC CONSUMER
   ################################################################################
   op-public-consumer:
-    image: lblod/delta-consumer:0.0.27
+    image: lblod/delta-consumer:0.1.4
     environment:
       DCR_SERVICE_NAME: "op-public-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info" # replace with link to OP API
@@ -345,7 +345,7 @@ services:
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/op-consumer/mapping:/config/mapping
+      - ./config/delta-consumers/op-consumer/mapping:/config/mapping
       - ./data/files/consumer-files/op-public:/consumer-files/
     restart: always
     labels:
