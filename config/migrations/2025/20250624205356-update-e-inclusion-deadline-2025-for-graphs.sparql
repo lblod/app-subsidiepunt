@@ -1,0 +1,96 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime "2025-06-30T21:59:00Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime "2025-06-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  VALUES ?g {
+    <http://mu.semte.ch/graphs/organizations/0a71e2b47c58e6d13ac628f733863543b791869395afcfe5b5c82c98ff894e3d/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/b4aa8ca2a4daa74ef8297b0b4dba2ad292e73da5337e20c65066860279751307/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/6d323b27377e803eccb4261e8014f5198bba924b7ec3d7d7fa2d2a3a41f7e0f2/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/18eb574437cc9fa5af24990f495aaed7af868d33341faf60cffa2ee0e57dc914/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/bb749fce340952ed57a7055edbec4c7a0aec9b2623ab5c41997eb4b013287997/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/f0326d3687d05c2e41ddbfaee635ce7ecb00eddc81454e58eb5fc8c66f511629/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/e41ffa04f94bb450a79793020e70d55b5fee5033a5280277998608a9d0913117/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/c73ee91f068da28ed1f16fb057f38808e7c0d29f4c5b8b9d7b2eec235ed4d5a4/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/28346950e285b8b816133fece5ac9408097c3f190c7f32573cf0c640d6c34b1a/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/788f5e9af7c2e5e158bb9b72d7cababff6d4a871c5b63f346c8fcedefed33905/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/985774e5593009ffa08804ffad482f0dee8490f1cdfde072116cd60e4528892e/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/b40be11d4f04a2e0fff76e8feae92471963c063e2d65a68210dab2707ac62726/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/b456cda7fa9b2b176adb216e5598aeeb60ff19753a5a08ade6ffd32e9a0ead89/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/8745182191882c1185893960aecc2ed4f91825d7a5ea2e62e9f2d7acca082a5e/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/23d04e951dabc6c108803eac7e8faf08c639ba6984d1cda170f09fbd8a511855/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/764278b3ceac360476b418c108d1b022b6e0cc8fb676f3f6b6b9faf78a2375ba/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/763adc09114dd8d54a1c8bfabeaec5e5ce543d858c3dff057a1c39f9103249a0/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/a9e63c13a602de3cc5463cc81eee0b8d80d14a1846d1deb82b3a2d4e7efc96af/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/1b983548dc44e39bc920a7a8ec1901b692a664865d5fee5133ae96e7281eca6f/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/19a90656ebde5754d524ca8a17d06b857a6392b0b3db57dd24f899a1b71eda7d/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/2fb596ee22eb20999478e63cfb8f270ab00e4336e34442c031471293ca6f92e8/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/0c2d775df43f87d2048eb26c322d1bc9423e0a3f0ee7ceefd2011cdb077f12df/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/0916618d3560fe5a168ef536c25ffaddb15ef6ce43105d3ed20df38615803c77/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/5a7f00816df0382694760a86baf23bb6c72a7ab5de0eb7f6db8c38a24b9c9aba/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/3b6163727a5930106e631885999aa8e1dbd24eaf1931367b7f38123a89f14f10/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/6a56d8c050b6c2a76912c5f6ec3859b939de6d990815f35403e5be41a7703a44/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/53eb88088ce2822bcef97df5f71154045e113b750c6b97b29793a29c4f0ac7b4/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/c7ff21a1a6c315ca5aec2b136ffcf0d9d285dd37a1d5b10d8d134bb714e8d774/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/44c5d81bf86b888159e3c2ee2cf3fd39e4afd58c73edc27245111c8a32bf5fa0/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/e580b3ee33ff28d93f803e7f70cdb1d99bf6ae9d56b0f630fd7b6837adf8cd4c/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/4e6d15d5c7fd95c996087bb13cdee985f0b550256be745024d5facd1485df284/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/08e1b1e460bc9a9dfbd6570ab96a6b4813fbd4d9df2294dad86b11d9e4093d32/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/17e71437ad9e1abbfd416b7bcb1485c0e6e21ac4f65f2a1584eb0985e246b1c9/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/319016d52cb54b416721b0c5fc74f211fdd4dd576d13a34aa9210759401dc7f2/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/57b1646f-bf4c-4dc4-8bc9-6ec8a6486018/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/5db8cd4f01b90c3dfc31f5d2b5e931cfdd9116a779790ee55cb71cd314c5a4bb/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/c6ce52f7a484e12c7f385f1116766fa9a8d1a1798e4e265a77a8881a2bda9b60/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/169b6bfa2d8ee340f266af26d1a6055182214082dca720b8817d3893692f3068/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/7aa957d6377d45bf9e2a1dbaf7524d01b1999cf0cc5bc8c4f4a2380e13ef096e/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/be278471a2a318edba32e7ac4294c0eafbe4c8077a34dcbb9c2e43211d4a78a6/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/514bd3d6ba551d4b2a7e866c7dafd65e371acd75240dc92610590c5804c641df/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/c94741a612946db4bffa00439a515a831c7d4de0d09d79538af2a1dd781500ca/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/8ef1e4a43efd913e6b09b0ddea344b7b5d723a344ad559389a55ae1ff0bebc8f/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/a510e5ebd5798668f45080e36762539bd3bc5d5b5f05c5e1e7ecaf27e481ad31/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/92349192bc0054f415dc7dddabcd0effd189279fb0e7a0e2b9ab8b1aa8bf73ee/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/c5dbb08e35e2d090a05d119fef4cc161b5ee1f322698cb8ea3c8c6643a521cf2/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/55155a78bd145df7bfa3caaa17ba491fb4dd238f4f4d2c5485bff1be96ca3036/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/f4a187c72e551b9d7745e3b8602b11f12ce0fd5399c7f8aebbd4f8f42dc9c028/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/6eb63a95ebb0e5fcb9e59b25a264977107e690a46a89755da1637d1427693560/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/319db6e275f281d0280da90d6f6aba3462f4e47b6f53a34639feb91015a5822b/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/87548df6451c56b75e1064613f01fa92bb0c1d9b1e0d9019336fabd39e54ace0/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/73840d393bd94828f0903e8357c7f328d4bf4b8fbd63adbfa443e784f056a589/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/36f1c660b51e5809170f17ce6bf420a9ad7bf596f049d0d2f2c638f107e8c509/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/0a3ba641d653b436b14fde37bb6eab4f1054aa0586eb98021b723d58f6ce82fb/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/3e58880a542424b73f85c9ffba8837b0da40d8c43e936c92603cde2015f5cdae/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/59eaecae469f80eccaf6d36a165927eb8ee8749b9866ab1730e6b1ba45dfaaa7/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/7c51e88f8a89d42e054368a7c5da3c16ecce3b86ea63918a0d7e1d46fbdde2b9/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/698c9e2b9495736610180524294fa5f583cc9fd9da535aa6caba1cb29f0e53b0/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/26e9007dd8e6316c45488b1c4d5ceff1707d25e67b892f82c166ee889c0c2e41/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/da17a1c564c4f0aecbe800efaedcee7428e80c127b4a1bc829519b375ad20707/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/d03795d069b5de6a386ad04bdb0970ef079eaac1be473414bcb63a6c9eaed4d0/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/1313d4a58f9ecf52cc7e274e3549a759b35e731973cc9f5e07562e5650f594dd/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/4fb8eb24aa9d5561f3cd7b502715fc758f41b71aafa13b872ee8aeb1d027dbe9/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/f923867abb64ec787e987ad25b3bae8bcf38dce127e3a664ad18b30e18d70986/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/0f8e458aac514d1966ff7594b23fe784dba93ccff5d63fdfa279879eb007233a/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/6093f33e8eacb798481b1f826416eaf310552e9568e74804f59c69dada2187e4/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/93bf61e0c1a48a58c1f6af804e087221de46fc492b30e3a7194b0b098356ab82/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/e9e0287a3a974fba665e2649242a3607b8db35ca22085baf9ec26972b6e6a86c/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/7650801ef7de6598dbb2d45bb2caa877408defcc1337fa698520a25b85a300da/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/af76592773d5172af4a57454ea5c3d94578379048cd7c37a4da016a07a91bb54/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/c362abc58ac4579ff417824ce620962ac57bc344b34fe8f51d21b35ef54da36d/SubsidiepuntGebruiker>
+
+  }
+
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}

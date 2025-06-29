@@ -399,3 +399,13 @@ services:
   ################################################################################
   # LDES PRODUCERS: END
   ################################################################################
+
+  form-data-management:
+    image: lblod/form-data-management-service:0.3.0
+    volumes:
+      - ./config/search-query:/share/search-query
+      - ./data/files/form-data-meta/:/data/
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
