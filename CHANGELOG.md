@@ -5,6 +5,8 @@
 ### Backend
 
 - Added basic ldes producer for LDES-based data exchange with Kalliope see also: DGS-475
+- Revise and strenghten dispatcher rules [DL-6563]
+
 ### Deploy instructions
 
 #### ldes producer
@@ -44,6 +46,13 @@ Then update `docker-composer.override.yml`, ensure it doesn't re-init the full l
 
 Note: If you forgot about it, technically not dramatic, it will just created a lot of unncessary files.
 
+#### Renewed dispatcher rules
+
+Restart the dispatcher:
+
+```
+docker compose restart dispatcher
+```
 
 ## v1.3.0
 - fix the required bicycle infrastructure file uploads
