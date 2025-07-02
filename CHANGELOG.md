@@ -1,10 +1,16 @@
 # Changelog
+
 ## Unreleased
+
 ### Backend
- - Added basic ldes producer for LDES-based data exchange with Kalliope see also: DGS-475
+
+- Added basic ldes producer for LDES-based data exchange with Kalliope see also: DGS-475
 ### Deploy instructions
+
 #### ldes producer
+
 Ensure in `docker-composer.override.yml`:
+
 ```
   ldes-delta-pusher:
     environment:
@@ -15,12 +21,16 @@ Ensure in `docker-composer.override.yml`:
       BASE_URL: "https://subsidiepunt.lblod.info/streams/ldes/subsidies/" # The host should match the deploy-environment.
       LDES_STREAM_PREFIX: "https://subsidiepunt.lblod.info/streams/ldes/subsidies/" # The host should match the deploy-environment.
 ```
+
 Then
+
 ```
 drc up -d ldes-delta-pusher ldes-backend virtuoso database
 drc logs -f --tail=200 ldes-delta-pusher # and wait for "done writing initial state"
 ```
+
 Then update `docker-composer.override.yml`, ensure it doesn't re-init the full ldes feeds on restart:
+
 ```
   ldes-delta-pusher:
     environment:
@@ -31,6 +41,7 @@ Then update `docker-composer.override.yml`, ensure it doesn't re-init the full l
       BASE_URL: "https://subsidiepunt.lblod.info/streams/ldes/subsidies/" # The host should match the deploy-environment.
       LDES_STREAM_PREFIX: "https://subsidiepunt.lblod.info/streams/ldes/subsidies/" # The host should match the deploy-environment.
 ```
+
 Note: If you forgot about it, technically not dramatic, it will just created a lot of unncessary files.
 
 
