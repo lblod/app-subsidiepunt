@@ -17,15 +17,15 @@ defmodule Dispatcher do
   # Frontend resources
   #############################################################################
 
-  match "/organizations/*path", @json do
+  get "/organizations/*path", @json do
     forward conn, path, "http://cache/organizations/"
   end
 
-  match "/organization-classification-codes/*path", @json do
+  get "/organization-classification-codes/*path", @json do
     forward conn, path, "http://cache/organization-classification-codes/"
   end
 
-  match "/bestuurseenheden/*path", @json do
+  get "/bestuurseenheden/*path", @json do
     forward conn, path, "http://cache/bestuurseenheden/"
   end
 
@@ -33,7 +33,7 @@ defmodule Dispatcher do
   #   forward conn, path, "http://cache/werkingsgebieden/"
   # end
 
-  match "/bestuurseenheid-classificatie-codes/*path", @json do
+  get "/bestuurseenheid-classificatie-codes/*path", @json do
     forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
 
@@ -54,7 +54,7 @@ defmodule Dispatcher do
   #   forward conn, path, "http://cache/document-statuses/"
   # end
 
-  match "/submission-document-statuses/*path", @json do
+  get "/submission-document-statuses/*path", @json do
     forward conn, path, "http://cache/submission-document-statuses/"
   end
 
@@ -75,7 +75,7 @@ defmodule Dispatcher do
   # end
 
   # NOTE: resources
-  match "/remote-urls/*path", @json do
+  get "/remote-urls/*path", @json do
     forward conn, path, "http://resource/remote-urls/"
   end
 
@@ -84,7 +84,7 @@ defmodule Dispatcher do
   #############################################################################
 
   # NOTE: resources
-  match "/reports/*path", @json do
+  get "/reports/*path", @json do
     forward conn, path, "http://resource/reports/"
   end
 
@@ -101,19 +101,19 @@ defmodule Dispatcher do
   #   forward conn, path, "http://cache/concepts/"
   # end
 
-  match "/jobs/*path", @json do
+  get "/jobs/*path", @json do
     forward conn, path, "http://cache/jobs/"
   end
 
-  match "/tasks/*path", @json do
+  get "/tasks/*path", @json do
     forward conn, path, "http://cache/tasks/"
   end
 
-  match "/data-containers/*path", @json do
+  get "/data-containers/*path", @json do
     forward conn, path, "http://cache/data-containers/"
   end
 
-  match "/job-errors/*path", @json do
+  get "/job-errors/*path", @json do
     forward conn, path, "http://cache/job-errors/"
   end
 
@@ -166,7 +166,7 @@ defmodule Dispatcher do
     forward conn, path, "http://login/sessions/"
   end
 
-  match "/gebruikers/*path", @json do
+  get "/gebruikers/*path", @json do
     forward conn, path, "http://cache/gebruikers/"
   end
 
@@ -219,7 +219,7 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/subsidy-measure-consumptions/"
   end
 
-  match "/subsidy-measure-consumption-statuses/*path", @json do
+  get "/subsidy-measure-consumption-statuses/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-consumption-statuses/"
   end
 
@@ -231,27 +231,27 @@ defmodule Dispatcher do
   #   forward conn, path, "http://cache/monetary-amounts/"
   # end
 
-  match "/subsidy-measure-offers/*path", @json do
+  get "/subsidy-measure-offers/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-offers/"
   end
 
-  match "/subsidy-measure-offer-series/*path", @json do
+  get "/subsidy-measure-offer-series/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-offer-series/"
   end
 
-  match "/subsidy-application-flows/*path", @json do
+  get "/subsidy-application-flows/*path", @json do
     forward conn, path, "http://cache/subsidy-application-flows/"
   end
 
-  match "/subsidy-application-flow-steps/*path", @json do
+  get "/subsidy-application-flow-steps/*path", @json do
     forward conn, path, "http://cache/subsidy-application-flow-steps/"
   end
 
-  match "/subsidy-procedural-steps/*path", @json do
+  get "/subsidy-procedural-steps/*path", @json do
     forward conn, path, "http://cache/subsidy-procedural-steps/"
   end
 
-  match "/periods-of-time/*path", @json do
+  get "/periods-of-time/*path", @json do
     forward conn, path, "http://cache/periods-of-time/"
   end
 
