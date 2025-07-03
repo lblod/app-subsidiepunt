@@ -17,6 +17,7 @@ services:
     restart: "no"
   impersonation:
     restart: "no"
+
   frontend:
     restart: "no"
     environment:
@@ -92,3 +93,6 @@ services:
     environment:
       BASE_URL: "http://localhost:90/streams/ldes/subsidies/"
       LDES_STREAM_PREFIX: "http://localhost:90/streams/ldes/subsidies/"
+
+  form-data-management:
+    restart: "no"

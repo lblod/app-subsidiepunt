@@ -1,0 +1,34 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+PREFIX transactie: <http://data.vlaanderen.be/ns/transactie#>
+
+# This query moves the e-inclusie verantwoording step DEADLINE triple from the public graph to the organization graphs
+# Reason is because some organizations will have different deadlines for this step
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> 
+      m8g:endTime "2026-06-30T21:59:00Z"^^xsd:dateTime .
+
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998>
+      m8g:endTime "2026-06-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?consumption a subsidie:SubsidiemaatregelConsumptie ;
+      transactie:isInstantieVan <http://lblod.data.info/id/subsidy-measure-offers/0b5cae58-97fb-4982-9fb7-4cf660f003df> .
+  }
+
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?formendtime .
+  }
+}

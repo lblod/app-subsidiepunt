@@ -157,6 +157,7 @@ defmodule Acl.UserGroups.Config do
                         "http://data.europa.eu/m8g/Participation",
                         "http://schema.org/BankAccount",
                         "https://www.gleif.org/ontology/Base/Period",
+                        "http://data.europa.eu/m8g/PeriodOfTime",
                         "http://lblod.data.gift/vocabularies/subsidie/ApplicationFormTable",
                         "http://mu.semte.ch/vocabularies/ext/ApplicationFormEntry",
                         "http://lblod.data.gift/vocabularies/subsidie/EngagementTable",
