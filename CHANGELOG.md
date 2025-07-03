@@ -1,5 +1,8 @@
 # Changelog
 ## unreleased
+- cleanup dispatcher rules (restrict)
+### Deploy instructions
+`drc restart dispatcher`
 
 ## 2.11.0
 ### Backend
