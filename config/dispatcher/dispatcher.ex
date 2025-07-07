@@ -255,6 +255,14 @@ defmodule Dispatcher do
     forward conn, path, "http://subsidy-application-flow-management/flow/"
   end
 
+  ###############################################################
+  # Search Forms
+  ###############################################################
+
+  get "/search-query-forms/*path", @any do
+    forward conn, path, "http://form-data-management/search-query-forms/"
+  end
+
   #############################################################################
   # Others
   #############################################################################
