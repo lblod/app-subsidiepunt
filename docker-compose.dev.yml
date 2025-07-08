@@ -68,10 +68,6 @@ services:
     restart: "no"
   subsidy-application-flow-management:
     restart: "no"
-  publication-triplestore:
-    restart: "no"
-    ports:
-      - "8891:8890"
   delta-producer-report-generator:
     restart: "no"
   delta-producer-dump-file-publisher:
