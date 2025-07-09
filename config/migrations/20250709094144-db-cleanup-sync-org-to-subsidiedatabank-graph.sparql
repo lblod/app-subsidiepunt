@@ -1,0 +1,43 @@
+PREFIX cleanup: <http://mu.semte.ch/vocabularies/ext/cleanup/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/job/id/839f9343-d459-4793-bdae-36947d8f8573> a cleanup:Job;
+      mu:uuid "839f9343-d459-4793-bdae-36947d8f8573";
+      dcterms:title "Move triples in org graphs to abb read graph";
+      cleanup:randomQuery """
+        DELETE {
+          GRAPH <http://mu.semte.ch/graphs/subsidiedatabank> {
+            ?s ?p ?o
+          }
+        }
+        WHERE {
+          GRAPH <http://mu.semte.ch/graphs/subsidiedatabank> {
+            ?s ?p ?o
+          }
+
+          FILTER NOT EXISTS {
+            GRAPH ?g {
+              ?s ?p ?o
+            }
+            FILTER(REGEX(STR(?g), "http://mu.semte.ch/graphs/organizations/*/SubsidiepuntGebruiker"))
+          }
+        }
+        ;
+        INSERT {
+          GRAPH <http://mu.semte.ch/graphs/subsidiedatabank> {
+            ?s ?p ?o
+          }
+        }
+        WHERE {
+          GRAPH ?g {
+            ?s ?p ?o
+          }
+          FILTER(REGEX(STR(?g), "http://mu.semte.ch/graphs/organizations/*/SubsidiepuntGebruiker"))
+        }
+        """;
+      cleanup:cronPattern "0 5 * * *". # Runs daily at 5.00
+    }
+  }
