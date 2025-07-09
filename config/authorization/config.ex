@@ -196,6 +196,36 @@ defmodule Acl.UserGroups.Config do
           },
         ]
       },
+
+      %GroupSpec{
+        name: "o-admin-subsidiedatabank-r",
+        useage: [:read],
+        access: is_admin(),
+        graphs: [
+          %GraphSpec{
+            graph: "<http://mu.semte.ch/graphs/subsidiedatabank>",
+            constraint: %ResourceConstraint {
+               resource_types: [
+                "http://lblod.data.gift/vocabularies/subsidie/ApplicationForm",
+                "http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie",
+                "http://data.vlaanderen.be/ns/subsidie#Aanvraag",
+                "http://schema.org/MonetaryAmount",
+                "http://data.europa.eu/m8g/Participation",
+                "http://schema.org/BankAccount",
+                "https://www.gleif.org/ontology/Base/Period",
+                "http://data.europa.eu/m8g/PeriodOfTime",
+                "http://lblod.data.gift/vocabularies/subsidie/ApplicationFormTable",
+                "http://mu.semte.ch/vocabularies/ext/ApplicationFormEntry",
+                "http://lblod.data.gift/vocabularies/subsidie/EngagementTable",
+                "http://mu.semte.ch/vocabularies/ext/EngagementEntry",
+                "http://schema.org/ContactPoint",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
+              ]
+            }
+          },
+        ]
+      },
+
       %GroupSpec{
         name: "o-admin-sessions-rwf",
         useage: [:read_for_write],
