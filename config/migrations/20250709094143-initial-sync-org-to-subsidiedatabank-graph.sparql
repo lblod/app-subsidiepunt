@@ -1,0 +1,11 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/subsidiedatabank> {
+    ?s ?p ?o
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?s ?p ?o
+  }
+  FILTER(REGEX(STR(?g), "http://mu.semte.ch/graphs/organizations/*/SubsidiepuntGebruiker"))
+}
