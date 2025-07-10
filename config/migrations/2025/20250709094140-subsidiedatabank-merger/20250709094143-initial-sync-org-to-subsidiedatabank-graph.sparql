@@ -7,5 +7,5 @@ WHERE {
   GRAPH ?g {
     ?s ?p ?o
   }
-  FILTER(REGEX(STR(?g), "http://mu.semte.ch/graphs/organizations/*/SubsidiepuntGebruiker"))
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
 }

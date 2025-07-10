@@ -22,7 +22,7 @@ INSERT DATA {
             GRAPH ?g {
               ?s ?p ?o
             }
-            FILTER(REGEX(STR(?g), "http://mu.semte.ch/graphs/organizations/*/SubsidiepuntGebruiker"))
+            FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
           }
         }
         ;
@@ -35,7 +35,7 @@ INSERT DATA {
           GRAPH ?g {
             ?s ?p ?o
           }
-          FILTER(REGEX(STR(?g), "http://mu.semte.ch/graphs/organizations/*/SubsidiepuntGebruiker"))
+          FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
         }
         """;
       cleanup:cronPattern "0 5 * * *". # Runs daily at 5.00
