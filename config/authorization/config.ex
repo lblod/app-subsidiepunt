@@ -203,7 +203,7 @@ defmodule Acl.UserGroups.Config do
         access: is_admin(),
         graphs: [
           %GraphSpec{
-            graph: "<http://mu.semte.ch/graphs/subsidiedatabank>",
+            graph: "http://mu.semte.ch/graphs/subsidiedatabank",
             constraint: %ResourceConstraint {
                resource_types: [
                 "http://lblod.data.gift/vocabularies/subsidie/ApplicationForm",
