@@ -200,7 +200,7 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "o-admin-subsidiedatabank-r",
         useage: [:read],
-        access: is_admin(),
+        access: access_by_role( "SubsidiedatabankGebruiker" ),
         graphs: [
           %GraphSpec{
             graph: "http://mu.semte.ch/graphs/subsidiedatabank",
