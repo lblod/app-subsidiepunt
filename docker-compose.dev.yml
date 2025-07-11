@@ -28,6 +28,10 @@ services:
       EMBER_WORSHIP_ORGANISATIONS_DATABASE_URL: "https://dev.organisaties.lokaalbestuur.lblod.info"
     ports:
       - "80:80"
+  frontend-subsidiedatabank:
+    restart: "no"
+    ports:
+      - "85:80"
   identifier:
     ports:
       - "90:80"

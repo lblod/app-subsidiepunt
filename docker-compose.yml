@@ -15,6 +15,15 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+
+  frontend-subsidiedatabank:
+    image: lblod/frontend-subsidiedatabank:0.12.0
+    links:
+      - identifier:backend
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   dashboard:
     image: lblod/frontend-dashboard:1.6.0
     environment:
@@ -106,8 +115,11 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  # ! Note: this will also populate <http://mu.semte.ch/graphs/subsidiedatabank> periodically!
   db-cleanup:
     image: lblod/db-cleanup-service:0.5.0
+    links:
+      - virtuoso:database
     labels:
       - "logging=true"
     restart: always

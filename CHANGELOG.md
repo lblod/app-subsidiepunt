@@ -1,8 +1,29 @@
 # Changelog
 ## unreleased
 - cleanup dispatcher rules (restrict)
+- introduce subsidiedatabank frontend
+- Add subsidiedatabank graph populated by migrations & db-cleanup
 ### Deploy instructions
-`drc restart dispatcher`
+`git pull`
+task: frontend-subsidiedatabank override:
+```
+  frontend-subsidiedatabank:
+    environment:
+      VIRTUAL_HOST: "subsidiedatabank.abb.vlaanderen.be"
+      LETSENCRYPT_HOST: "subsidiedatabank.abb.vlaanderen.be"
+      LETSENCRYPT_EMAIL: "support+servers@redpencil.io"
+      STATIC_FOLDERS_REGEX: "^/(assets|font|files|@appuniversum)/"
+      EMBER_ACMIDM_CLIENT_ID: "49df4086-d456-4bac-8162-1e89c983e5a1"
+      EMBER_ACMIDM_SCOPE: "openid vo rrn profile abb_subsidiedatabank"
+      EMBER_ACMIDM_AUTH_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+      EMBER_ACMIDM_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+      EMBER_ACMIDM_AUTH_REDIRECT_URL: "https://subsidiedatabank.abb.vlaanderen.be/authorization/callback"
+      EMBER_ACMIDM_SWITCH_REDIRECT_URL: "https://subsidiedatabank.abb.vlaanderen.be/switch-login" 
+``` 
+`drc up -d`
+`drc restart dispatcher migrations`
+`drc restart database cache resource`
+
 
 ## 2.11.0
 ### Backend
