@@ -21,6 +21,7 @@ defmodule Acl.UserGroups.Config do
       query: sparql_query_for_access_role( group_string ) }
   end
 
+
   defp sparql_query_for_access_role( group_string ) do
     "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
     PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
@@ -200,7 +201,7 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "o-admin-subsidiedatabank-r",
         useage: [:read],
-        access: access_by_role( "SubsidiedatabankGebruiker" ),
+        access: access_by_role_for_single_graph( "SubsidiedatabankGebruiker" ),
         graphs: [
           %GraphSpec{
             graph: "http://mu.semte.ch/graphs/subsidiedatabank",
