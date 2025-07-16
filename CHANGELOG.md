@@ -3,6 +3,7 @@
 - cleanup dispatcher rules (restrict)
 - introduce subsidiedatabank frontend
 - Add subsidiedatabank graph populated by migrations & db-cleanup
+- update subsidies producer config 
 ### Deploy instructions
 `git pull`
 task: frontend-subsidiedatabank override:
@@ -23,6 +24,7 @@ task: frontend-subsidiedatabank override:
 `drc up -d`
 `drc restart dispatcher migrations`
 `drc restart database cache resource`
+`drc restart dispatcher delta-producer-publication-graph-maintainer-subsidies`
 
 
 ## 2.11.0
