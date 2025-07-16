@@ -1,8 +1,9 @@
 # Changelog
 ## unreleased
 - cleanup dispatcher rules (restrict)
+- update subsidies producer config 
 ### Deploy instructions
-`drc restart dispatcher`
+`drc restart dispatcher delta-producer-publication-graph-maintainer-subsidies`
 
 ## 2.11.0
 ### Backend
