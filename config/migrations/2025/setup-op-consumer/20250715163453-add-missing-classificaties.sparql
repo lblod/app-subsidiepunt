@@ -1,0 +1,9 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s a <http://mu.semte.ch/vocabularies/ext/BestuurseenheidClassificatieCode>.
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/landing-zone/op-public> {
+    ?s a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode>.
+  }
+}
