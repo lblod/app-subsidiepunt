@@ -22,9 +22,9 @@ task: frontend-subsidiedatabank override:
       EMBER_ACMIDM_SWITCH_REDIRECT_URL: "https://subsidiedatabank.abb.vlaanderen.be/switch-login" 
 ``` 
 `drc up -d`
-`drc restart dispatcher migrations`
-`drc restart database cache resource`
-`drc restart dispatcher delta-producer-publication-graph-maintainer-subsidies`
+`drc restart dispatcher migrations delta-producer-publication-graph-maintainer-subsidies`
+!important: migrations might take longer then usual
+`drc restart database cache resource form-data-management`
 
 
 ## 2.11.0
