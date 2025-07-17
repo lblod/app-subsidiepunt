@@ -5,7 +5,6 @@
 - Add subsidiedatabank graph populated by migrations & db-cleanup
 - update subsidies producer config 
 ### Deploy instructions
-<<<<<<< HEAD
 `git pull`
 task: frontend-subsidiedatabank override:
 ```
@@ -26,9 +25,6 @@ task: frontend-subsidiedatabank override:
 `drc restart dispatcher migrations`
 `drc restart database cache resource`
 `drc restart dispatcher delta-producer-publication-graph-maintainer-subsidies`
-=======
-`drc restart dispatcher migrations delta-producer-publication-graph-maintainer-subsidies`
->>>>>>> origin/development
 
 
 ## 2.11.0
