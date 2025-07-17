@@ -4,6 +4,7 @@
 - introduce subsidiedatabank frontend
 - Add subsidiedatabank graph populated by migrations & db-cleanup
 - update subsidies producer config 
+- Add concept-scheme for filter-form dropdowns
 ### Deploy instructions
 `git pull`
 task: frontend-subsidiedatabank override:
