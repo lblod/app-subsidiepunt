@@ -9,11 +9,11 @@ INSERT DATA {
       dcterms:title "Add new EA organizations to EA concept scheme";
       cleanup:randomQuery """
         INSERT {
-          GRAPH ?g{
+          GRAPH <http://mu.semte.ch/graphs/public>{
             ?organization <http://www.w3.org/2004/02/skos/core#inScheme> <http://data.lblod.info/id/conceptscheme/EconomischeActoren>
           }
         } WHERE {
-          GRAPH ?g {
+          GRAPH <http://mu.semte.ch/graphs/public> {
             ?organization a <http://www.w3.org/ns/org#Organization>.
             
             # We dont want orgs like erediensten in our list at the moment.
