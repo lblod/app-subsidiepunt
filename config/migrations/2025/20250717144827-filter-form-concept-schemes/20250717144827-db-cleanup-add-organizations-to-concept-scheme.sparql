@@ -6,7 +6,7 @@ INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
     <http://data.lblod.info/job/id/7dafe8eb-de89-49c4-9bac-bcaf0222fa3c> a cleanup:Job;
       mu:uuid "7dafe8eb-de89-49c4-9bac-bcaf0222fa3c";
-      dcterms:title "Compensating missing rdf:Type on some formNodes in some subsidy forms";
+      dcterms:title "Add new EA organizations to EA concept scheme";
       cleanup:randomQuery """
         INSERT {
           GRAPH ?g{
