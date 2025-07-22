@@ -9,7 +9,5 @@ INSERT {
 } WHERE {
     GRAPH <http://mu.semte.ch/graphs/public> {
         ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelAanbod> .
-        FILTER NOT EXISTS { ?s skos:inScheme ?inScheme }
-        FILTER NOT EXISTS { ?s skos:topConceptOf ?topConceptOf }
     }
 }
