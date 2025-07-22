@@ -15,12 +15,6 @@ INSERT DATA {
         } WHERE {
           GRAPH <http://mu.semte.ch/graphs/public> {
             ?organization a <http://www.w3.org/ns/org#Organization>.
-            
-            # We dont want orgs like erediensten in our list at the moment.
-            FILTER NOT EXISTS {
-              ?organization a ?otherType.
-              FILTER (?otherType NOT IN (<http://www.w3.org/ns/org#Organization>))
-            }
 
             # Ensure the organization does not already have the scheme attached
             FILTER NOT EXISTS {
