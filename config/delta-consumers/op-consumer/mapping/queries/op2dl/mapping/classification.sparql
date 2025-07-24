@@ -3,6 +3,7 @@ PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
 
 CONSTRUCT {
   ?s besluit:classificatie ?o .
+  ?s org:classification ?o .
 } WHERE {
   ?s org:classification ?o .
 

@@ -1,0 +1,24 @@
+PREFIX cleanup: <http://mu.semte.ch/vocabularies/ext/cleanup/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public>{
+    ?organization <http://www.w3.org/2004/02/skos/core#inScheme> <http://data.lblod.info/id/conceptscheme/EconomischeActoren>
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?organization a <http://www.w3.org/ns/org#Organization>.
+    
+    # We dont want orgs like erediensten in our list at the moment.
+    FILTER NOT EXISTS {
+      ?organization a ?otherType.
+      FILTER (?otherType NOT IN (<http://www.w3.org/ns/org#Organization>))
+    }
+
+    # Ensure the organization does not already have the scheme attached
+    FILTER NOT EXISTS {
+      ?organization <http://www.w3.org/2004/02/skos/core#inScheme> <http://data.lblod.info/id/conceptscheme/EconomischeActoren>
+    }
+  }
+}
