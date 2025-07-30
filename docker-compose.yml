@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-subsidiepunt:1.14.1
+    image: lblod/frontend-subsidiepunt:1.15.0
     links:
       - identifier:backend
     labels:
@@ -17,7 +17,7 @@ services:
     logging: *default-logging
 
   frontend-subsidiedatabank:
-    image: lblod/frontend-subsidiedatabank:0.12.0
+    image: lblod/frontend-subsidiedatabank:1.0.0
     links:
       - identifier:backend
     labels:
@@ -125,6 +125,21 @@ services:
     restart: always
     logging: *default-logging
   login:
+    image: lblod/acmidm-login-service:0.12.0-verenigingen-rc.7
+    environment:
+      MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
+      MU_APPLICATION_AUTH_CLIENT_ID: "a2c0d6ea-01b4-4f68-920b-10834a943c27"
+      MU_APPLICATION_AUTH_REDIRECT_URI: "https://loket.lblod.info/authorization/callback"
+      MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
+      LOG_SINK_URL: "http://sink"
+      ORGANIZATION_TYPE: "http://www.w3.org/ns/org#Organization"
+      GROUP_TYPE_LABEL: "organizations"
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+
+  login-subsidiedatabank:
     image: lblod/acmidm-login-service:0.12.0-verenigingen-rc.7
     environment:
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
