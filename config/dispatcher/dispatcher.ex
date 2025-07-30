@@ -263,6 +263,60 @@ defmodule Dispatcher do
     forward conn, path, "http://form-data-management/search-query-forms/"
   end
 
+  #################################################################
+  # Subsidiedatabank
+  #################################################################
+
+  # Login
+
+  match "/sessions/*path", %{ reverse_host: ["subsidiedatabank" | _rest] } do
+    forward conn, path, "http://login-subsidiedatabank/sessions/"
+  end
+
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["subsidiedatabank" | _rest] }  do
+    forward conn, path, "http://frontend-subsidiedatabank/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["subsidiedatabank" | _rest] } do
+    forward conn, path, "http://frontend-subsidiedatabank/@appuniversum/"
+  end
+
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["subsidiedatabank" | _rest] } do
+    forward conn, [], "http://frontend-subsidiedatabank/index.html"
+  end
+
+  #################################################################
+  # Subsidiepunt
+  #################################################################
+
+  # NOTE: keep this as the last frontend. There is no host/reverse_host
+  # matching. This catches all attempts to access a frontend and should,
+  # because of the order sensitivity of mu-auth, come last.
+  # Some subsidiepunt instances are hosted like "dev.subsidiepunt.[...]" which make matching
+  # difficult.
+
+  # Login
+
+  match "/sessions/*path" do
+    forward conn, path, "http://login/sessions/"
+  end
+
+  # Frontend
+
+  get "/assets/*path", @any do
+    forward conn, path, "http://frontend/assets/"
+  end
+
+  get "/@appuniversum/*path", @any do
+    forward conn, path, "http://frontend/@appuniversum/"
+  end
+
+  match "/*_path", @html do
+    forward conn, [], "http://frontend/index.html"
+  end
+
   #############################################################################
   # Others
   #############################################################################
