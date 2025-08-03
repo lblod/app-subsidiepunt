@@ -1,11 +1,8 @@
 version: '3.7'
 services:
-  proxy:
-    image: nginx:1.13
-    volumes:
-      - ./config/proxy:/etc/nginx/conf.d
+  identifier:
     ports:
-      - "443:443"
+      - "99:80"
   mocklogin:
     image: lblod/mock-login-service:0.7.0
     environment:
@@ -29,12 +26,6 @@ services:
     ports:
       - "80:80"
   frontend-subsidiedatabank:
-    restart: "no"
-    ports:
-      - "85:80"
-  identifier:
-    ports:
-      - "90:80"
     restart: "no"
   dispatcher:
     restart: "no"

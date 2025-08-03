@@ -5,6 +5,8 @@
 - Add subsidiedatabank graph populated by migrations & db-cleanup
 - update subsidies producer config 
 - Add concept-scheme for filter-form dropdowns
+- update frontend images to use static-file
+- add reverse-host for correct frontend routing
 ### Deploy instructions
 `git pull`
 task: frontend-subsidiedatabank override:
