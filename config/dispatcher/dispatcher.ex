@@ -269,21 +269,21 @@ defmodule Dispatcher do
 
   # Login
 
-  match "/sessions/*path", %{ reverse_host: ["dev.subsidiedatabank" | _rest] } do
+  match "/sessions/*path", %{ reverse_host: ["dev", "subsidiedatabank" | _rest] } do
     forward conn, path, "http://login-subsidiedatabank/sessions/"
   end
 
   # Frontend
 
-  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dev.subsidiedatabank" | _rest] }  do
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dev", "subsidiedatabank" | _rest] }  do
     forward conn, path, "http://frontend-subsidiedatabank/assets/"
   end
 
-  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dev.subsidiedatabank" | _rest] } do
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dev", "subsidiedatabank" | _rest] } do
     forward conn, path, "http://frontend-subsidiedatabank/@appuniversum/"
   end
 
-  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dev.subsidiedatabank" | _rest] } do
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dev", "subsidiedatabank" | _rest] } do
     forward conn, [], "http://frontend-subsidiedatabank/index.html"
   end
 
