@@ -118,10 +118,6 @@ defmodule Dispatcher do
     forward conn, path, "http://mocklogin/sessions/"
   end
 
-  match "/sessions/*path", @json do
-    forward conn, path, "http://login/sessions/"
-  end
-
   get "/gebruikers/*path", @json do
     forward conn, path, "http://cache/gebruikers/"
   end
