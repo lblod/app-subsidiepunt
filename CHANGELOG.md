@@ -7,6 +7,7 @@
 - Add concept-scheme for filter-form dropdowns
 - update frontend images to use static-file
 - add reverse-host for correct frontend routing
+- add new step stadsvernieuwing - projectsubsidie - 2025
 ### Deploy instructions
 `git pull`
 task: frontend-subsidiedatabank override:
@@ -27,7 +28,7 @@ task: frontend-subsidiedatabank override:
 `drc up -d`
 `drc restart dispatcher migrations delta-producer-publication-graph-maintainer-subsidies`
 !important: migrations might take longer then usual
-`drc restart database cache resource form-data-management`
+`drc restart database cache resource form-data-management subsidy-application-flow-management subsidy-applications-management`
 
 
 ## 2.11.0
