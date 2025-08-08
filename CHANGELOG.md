@@ -1,5 +1,11 @@
 # Changelog
-## unreleased
+
+## 2.14.0
+- add new step stadsvernieuwing - projectsubsidie - 2025
+- `drc restart migrations; drc restart cache resource subsidy-application-flow-management subsidy-applications-management`
+  
+### Deploy instructions
+## 2.13.0
 - cleanup dispatcher rules (restrict)
 - introduce subsidiedatabank frontend
 - Add subsidiedatabank graph populated by migrations & db-cleanup
@@ -7,7 +13,7 @@
 - Add concept-scheme for filter-form dropdowns
 - update frontend images to use static-file
 - add reverse-host for correct frontend routing
-- add new step stadsvernieuwing - projectsubsidie - 2025
+
 ### Deploy instructions
 `git pull`
 task: frontend-subsidiedatabank override:
