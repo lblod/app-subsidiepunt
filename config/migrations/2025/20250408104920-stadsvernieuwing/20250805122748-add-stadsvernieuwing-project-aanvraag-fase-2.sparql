@@ -54,13 +54,13 @@ INSERT {
 }
 WHERE {
   VALUES ?bestuureenheid {
-    <http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5>
-    <http://data.lblod.info/id/bestuurseenheden/70b79f6678036bf05e970aa3885d1779f143d4eab63ecf339ea6263e7e76ad1d>
-    <http://data.lblod.info/id/bestuurseenheden/8fd5ea9aeb61c45ec79986650bee55142b2f8a599d5d611dd578114216a58430>
-    <http://data.lblod.info/id/bestuurseenheden/c648ea5d12626ee3364a02debb223908a71e68f53d69a7a7136585b58a083e77>
-    <http://data.lblod.info/id/bestuurseenheden/55155a78bd145df7bfa3caaa17ba491fb4dd238f4f4d2c5485bff1be96ca3036>
-    <http://data.lblod.info/id/bestuurseenheden/764a0c6bbc866153ae70cf75d745b9477fa010567246cfe6683b7bb8aec541b4>
-    <http://data.lblod.info/id/bestuurseenheden/3e58880a542424b73f85c9ffba8837b0da40d8c43e936c92603cde2015f5cdae>
+    <http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5> # Gent
+    <http://data.lblod.info/id/bestuurseenheden/70b79f6678036bf05e970aa3885d1779f143d4eab63ecf339ea6263e7e76ad1d> # Herentals
+    <http://data.lblod.info/id/bestuurseenheden/8fd5ea9aeb61c45ec79986650bee55142b2f8a599d5d611dd578114216a58430> # Kortrijk
+    <http://data.lblod.info/id/bestuurseenheden/c648ea5d12626ee3364a02debb223908a71e68f53d69a7a7136585b58a083e77> # Leuven
+    <http://data.lblod.info/id/bestuurseenheden/55155a78bd145df7bfa3caaa17ba491fb4dd238f4f4d2c5485bff1be96ca3036> # Mol
+    <http://data.lblod.info/id/bestuurseenheden/764a0c6bbc866153ae70cf75d745b9477fa010567246cfe6683b7bb8aec541b4> # Oostende
+    <http://data.lblod.info/id/bestuurseenheden/3e58880a542424b73f85c9ffba8837b0da40d8c43e936c92603cde2015f5cdae> # Roeselare
   }
 
   ?bestuureenheid mu:uuid ?uuid.
