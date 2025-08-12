@@ -1,108 +1,54 @@
 defmodule Dispatcher do
   use Matcher
-  define_accept_types []
 
-  # In order to forward the 'themes' resource to the
-  # resource service, use the following forward rule.
-  #
-  # docker-compose stop; docker-compose rm; docker-compose up
-  # after altering this file.
-  #
-  # match "/themes/*path" do
-  #   forward conn, path, "http://resource/themes/"
-  # end
+  define_accept_types [
+    html: ["text/html", "application/xhtml+html"],
+    json: ["application/json", "application/vnd.api+json"],
+    upload: ["multipart/form-data"],
+    any: [ "*/*" ],
+  ]
 
-  match "/management-form-file/*path" do
-    forward conn, path, "http://subsidy-applications-retrieval/form-file/"
-  end
+  @html %{ accept: %{ html: true } }
+  @json %{ accept: %{ json: true } }
+  @upload %{ accept: %{ upload: true } }
+  @any %{ accept: %{ any: true } }
 
-  match "/job-initiator/*path" do
-    forward conn, path, "http://delta-producer-background-jobs-initiator-subsidies/"
-  end
+  #############################################################################
+  # Frontend resources
+  #############################################################################
 
-  match "/impersonations/*path" do
-    forward conn, path, "http://impersonation/impersonations/"
-  end
-
-  match "/organizations/*path" do
+  get "/organizations/*path", @json do
     forward conn, path, "http://cache/organizations/"
   end
 
-  match "/organization-classification-codes/*path" do
+  get "/organization-classification-codes/*path", @json do
     forward conn, path, "http://cache/organization-classification-codes/"
   end
 
-  match "/bestuurseenheden/*path" do
+  get "/bestuurseenheden/*path", @json do
     forward conn, path, "http://cache/bestuurseenheden/"
   end
-  match "/werkingsgebieden/*path" do
-    forward conn, path, "http://cache/werkingsgebieden/"
-  end
-  match "/bestuurseenheid-classificatie-codes/*path" do
+
+  get "/bestuurseenheid-classificatie-codes/*path", @json do
     forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
-  match "/bestuursorganen/*path" do
-    forward conn, path, "http://cache/bestuursorganen/"
-  end
-  match "/bestuursorgaan-classificatie-codes/*path" do
-    forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
-  end
 
-  #TODO: remove?
-  # match "/personen/*path" do
-  #   forward conn, path, "http://cache/personen/"
-  # end
-  match "/mock/sessions/*path" do
-    forward conn, path, "http://mocklogin/sessions/"
-  end
-  match "/sessions/*path" do
-    forward conn, path, "http://login/sessions/"
-  end
-  match "/gebruikers/*path" do
-    forward conn, path, "http://cache/gebruikers/"
-  end
-  match "/accounts/*path" do
-    forward conn, path, "http://resource/accounts/"
-  end
-  match "/document-statuses/*path" do
-    forward conn, path, "http://cache/document-statuses/"
-  end
-  match "/submission-document-statuses/*path" do
+  get "/submission-document-statuses/*path", @json do
     forward conn, path, "http://cache/submission-document-statuses/"
   end
-  get "/files/:id/download" do
-    forward conn, [], "http://file/files/" <> id <> "/download"
-  end
-  get "/files/*path" do
-    forward conn, path, "http://resource/files/"
-  end
-  patch "/files/*path" do
-    forward conn, path, "http://resource/files/"
-  end
-  post "/files/*path" do
-    forward conn, path, "http://file/files/"
-  end
-  # TODO: find all usage of this endpoint and replace it with `POST /files`
-  # This is kept to maintain compatibility with code that uses the "old" endpoint.
-  post "/file-service/files/*path" do
-    forward conn, path, "http://file/files/"
-  end
-  delete "/files/*path" do
-    forward conn, path, "http://file/files/"
-  end
-  match "/file-addresses/*path" do
-    forward conn, path, "http://resource/file-addresses/"
-  end
-  match "/file-address-cache-statuses/*path" do
-    forward conn, path, "http://resource/file-address-cache-statuses/"
-  end
 
-  match "/reports/*path" do
-    forward conn, path, "http://resource/reports/"
-  end
-
-  match "/remote-urls/*path" do
+  # NOTE: resources
+  get "/remote-urls/*path", @json do
     forward conn, path, "http://resource/remote-urls/"
+  end
+
+  #############################################################################
+  # Frontend dashboard resources
+  #############################################################################
+
+  # NOTE: resources
+  get "/reports/*path", @json do
+    forward conn, path, "http://resource/reports/"
   end
 
   get "/form-data/*path" do
@@ -117,75 +63,139 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/concepts/"
   end
 
-  #################################################################
+  get "/jobs/*path", @json do
+    forward conn, path, "http://cache/jobs/"
+  end
+
+  get "/tasks/*path", @json do
+    forward conn, path, "http://cache/tasks/"
+  end
+
+  get "/data-containers/*path", @json do
+    forward conn, path, "http://cache/data-containers/"
+  end
+
+  get "/job-errors/*path", @json do
+    forward conn, path, "http://cache/job-errors/"
+  end
+
+  #############################################################################
+  # Files
+  #############################################################################
+
+  get "/files/:id/download" do
+    forward conn, [], "http://file/files/" <> id <> "/download"
+  end
+
+  # NOTE: resources
+  get "/files/*path", @json do
+    forward conn, path, "http://resource/files/"
+  end
+
+  # NOTE: resources
+  patch "/files/*path", @json do
+    forward conn, path, "http://resource/files/"
+  end
+
+  post "/files/*path" do
+    forward conn, path, "http://file/files/"
+  end
+
+  delete "/files/*path" do
+    forward conn, path, "http://file/files/"
+  end
+
+
+  #############################################################################
+  # Session management
+  #############################################################################
+
+  match "/impersonations/*path", @json do
+    forward conn, path, "http://impersonation/impersonations/"
+  end
+
+  match "/mock/sessions/*path", @json do
+    forward conn, path, "http://mocklogin/sessions/"
+  end
+
+  get "/gebruikers/*path", @json do
+    forward conn, path, "http://cache/gebruikers/"
+  end
+
+  # NOTE: resources
+  match "/accounts/*path", @json do
+    forward conn, path, "http://resource/accounts/"
+  end
+
+  #############################################################################
+  # Job management
+  #############################################################################
+
+  match "/job-initiator/*path" do
+    forward conn, path, "http://delta-producer-background-jobs-initiator-subsidies/"
+  end
+
+  #############################################################################
   # delta-files-share
-  #################################################################
+  #############################################################################
+
   get "/delta-files-share/download/*path" do
     forward conn, path, "http://delta-files-share/download/"
   end
 
-  #################################################################
+  #############################################################################
   # loket-subsidies sync
-  #################################################################
+  #############################################################################
+
   post "/sync/subsidies/login/*path" do
     forward conn, path, "http://delta-producer-publication-graph-maintainer-subsidies/login/"
   end
 
-  #################################################################
-  # loket-subsidies sync
-  #################################################################
   get "/sync/subsidies/files/*path" do
     forward conn, path, "http://delta-producer-publication-graph-maintainer-subsidies/files/"
   end
 
-  #################################################################
+  #############################################################################
   # LDES-producer
-  #################################################################
+  #############################################################################
+
   get "/streams/ldes/subsidies/*path" do
     forward conn, path, "http://ldes-backend/"
   end
 
-  #################################################################
+  #############################################################################
   # subsidy-applications: resources
-  #################################################################
+  #############################################################################
 
-  match "/subsidy-measure-consumptions/*path" do
+  match "/subsidy-measure-consumptions/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-consumptions/"
   end
 
-  match "/subsidy-measure-consumption-statuses/*path" do
+  get "/subsidy-measure-consumption-statuses/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-consumption-statuses/"
   end
 
-  match "/subsidy-requests/*path" do
-    forward conn, path, "http://cache/subsidy-requests/"
-  end
-
-  match "/monetary-amounts/*path" do
-    forward conn, path, "http://cache/monetary-amounts/"
-  end
-
-  match "/subsidy-measure-offers/*path" do
+  get "/subsidy-measure-offers/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-offers/"
   end
 
-  match "/subsidy-measure-offer-series/*path" do
+  get "/subsidy-measure-offer-series/*path", @json do
     forward conn, path, "http://cache/subsidy-measure-offer-series/"
   end
 
-  match "/subsidy-application-flows/*path" do
+  get "/subsidy-application-flows/*path", @json do
     forward conn, path, "http://cache/subsidy-application-flows/"
   end
 
-  match "/subsidy-application-flow-steps/*path" do
+  get "/subsidy-application-flow-steps/*path", @json do
     forward conn, path, "http://cache/subsidy-application-flow-steps/"
   end
 
-  match "/subsidy-procedural-steps/*path" do
+  get "/subsidy-procedural-steps/*path", @json do
     forward conn, path, "http://cache/subsidy-procedural-steps/"
   end
 
-  match "/periods-of-time/*path" do
+  get "/periods-of-time/*path", @json do
     forward conn, path, "http://cache/periods-of-time/"
   end
 
@@ -201,39 +211,39 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/criterion-requirements/"
   end
 
-  match "/participations/*path" do
+  match "/participations/*path", @json do
     forward conn, path, "http://cache/participations/"
   end
 
-  match "/subsidy-application-forms/*path" do
+  match "/subsidy-application-forms/*path", @json do
     forward conn, path, "http://cache/subsidy-application-forms/"
   end
 
-  #################################################################
+  #############################################################################
   # subsidy-applications: custom API endpoints
-  #################################################################
+  #############################################################################
+
+  match "/management-form-file/*path" do
+    forward conn, path, "http://subsidy-applications-retrieval/form-file/"
+  end
 
   match "/case-number-generator/*path" do
     forward conn, path, "http://case-number-generator/"
   end
 
-  get "/management-active-form-file/*path" do
-    forward conn, path, "http://subsidy-applications-management/active-form-file/"
-  end
-
-  get "/management-application-forms/*path" do
+  get "/management-application-forms/*path", @json do
     forward conn, path, "http://subsidy-applications-management/semantic-forms/"
   end
 
-  put "/management-application-forms/*path" do
+  put "/management-application-forms/*path", @json do
     forward conn, path, "http://subsidy-applications-management/semantic-forms/"
   end
 
-  delete "/management-application-forms/*path" do
+  delete "/management-application-forms/*path", @json do
     forward conn, path, "http://subsidy-applications-management/semantic-forms/"
   end
 
-  post "/management-application-forms/:id/submit" do
+  post "/management-application-forms/:id/submit", @json do
     forward conn, [], "http://subsidy-applications-management/semantic-forms/" <> id <> "/submit"
   end
 
@@ -241,31 +251,98 @@ defmodule Dispatcher do
     forward conn, path, "http://subsidy-application-flow-management/flow/"
   end
 
-  match "/jobs/*path" do
-    forward conn, path, "http://cache/jobs/"
+  ###############################################################
+  # Search Forms
+  ###############################################################
+
+  get "/search-query-forms/*path", @any do
+    forward conn, path, "http://form-data-management/search-query-forms/"
   end
 
-  match "/tasks/*path" do
-    forward conn, path, "http://cache/tasks/"
+  #################################################################
+  # Subsidiedatabank DEV
+  #################################################################
+
+  # Login
+
+  match "/sessions/*path", %{ reverse_host: ["dev", "subsidiedatabank" | _rest] } do
+    forward conn, path, "http://login-subsidiedatabank/sessions/"
   end
 
-  match "/data-containers/*path" do
-    forward conn, path, "http://cache/data-containers/"
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dev", "subsidiedatabank" | _rest] }  do
+    forward conn, path, "http://frontend-subsidiedatabank/assets/"
   end
 
-  match "/job-errors/*path"  do
-    forward conn, path, "http://cache/job-errors/"
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dev", "subsidiedatabank" | _rest] } do
+    forward conn, path, "http://frontend-subsidiedatabank/@appuniversum/"
   end
 
-  match "/datasets/*path" do
-    forward conn, path, "http://cache/datasets/"
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dev", "subsidiedatabank" | _rest] } do
+    forward conn, [], "http://frontend-subsidiedatabank/index.html"
   end
 
-  match "/distributions/*path" do
-    forward conn, path, "http://cache/distributions/"
+  #################################################################
+  # Subsidiedatabank
+  #################################################################
+
+  # Login
+
+  match "/sessions/*path", %{ reverse_host: ["subsidiedatabank" | _rest] } do
+    forward conn, path, "http://login-subsidiedatabank/sessions/"
   end
 
-  match "/*_" do
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["subsidiedatabank" | _rest] }  do
+    forward conn, path, "http://frontend-subsidiedatabank/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["subsidiedatabank" | _rest] } do
+    forward conn, path, "http://frontend-subsidiedatabank/@appuniversum/"
+  end
+
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["subsidiedatabank" | _rest] } do
+    forward conn, [], "http://frontend-subsidiedatabank/index.html"
+  end
+
+  #################################################################
+  # Subsidiepunt
+  #################################################################
+
+  # NOTE: keep this as the last frontend. There is no host/reverse_host
+  # matching. This catches all attempts to access a frontend and should,
+  # because of the order sensitivity of mu-auth, come last.
+  # Some subsidiepunt instances are hosted like "dev.subsidiepunt.[...]" which make matching
+  # difficult.
+
+  # Login
+
+  match "/sessions/*path" do
+    forward conn, path, "http://login/sessions/"
+  end
+
+  # Frontend
+
+  get "/assets/*path", @any do
+    forward conn, path, "http://frontend/assets/"
+  end
+
+  get "/@appuniversum/*path", @any do
+    forward conn, path, "http://frontend/@appuniversum/"
+  end
+
+  match "/*_path", @html do
+    forward conn, [], "http://frontend/index.html"
+  end
+
+  #############################################################################
+  # Others
+  #############################################################################
+
+  match "/*_", @any do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
+
 end

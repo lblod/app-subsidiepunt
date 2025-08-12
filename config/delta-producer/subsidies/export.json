@@ -447,7 +447,8 @@
         "http://data.europa.eu/m8g/startTime"
       ],
       "graphsFilter": [
-        "http://mu.semte.ch/graphs/public"
+        "http://mu.semte.ch/graphs/public",
+        "http://mu.semte.ch/graphs/organizations/.*/SubsidiepuntGebruiker"
       ],
       "type": "http://data.europa.eu/m8g/PeriodOfTime"
     },

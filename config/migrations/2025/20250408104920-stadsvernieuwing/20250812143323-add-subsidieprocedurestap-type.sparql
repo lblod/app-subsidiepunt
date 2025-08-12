@@ -1,0 +1,7 @@
+PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-procedural-steps/f3802658-d8c7-4de1-b5eb-4820a323d4ab> subsidie:Subsidieprocedurestap.type <http://lblod.data.gift/concepts/ee855aae-eb10-44aa-ae01-38c4f6cca0f6>.
+  }
+}

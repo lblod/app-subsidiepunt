@@ -1,11 +1,8 @@
 version: '3.7'
 services:
-  proxy:
-    image: nginx:1.13
-    volumes:
-      - ./config/proxy:/etc/nginx/conf.d
+  identifier:
     ports:
-      - "443:443"
+      - "99:80"
   mocklogin:
     image: lblod/mock-login-service:0.7.0
     environment:
@@ -28,9 +25,7 @@ services:
       EMBER_WORSHIP_ORGANISATIONS_DATABASE_URL: "https://dev.organisaties.lokaalbestuur.lblod.info"
     ports:
       - "80:80"
-  identifier:
-    ports:
-      - "90:80"
+  frontend-subsidiedatabank:
     restart: "no"
   dispatcher:
     restart: "no"

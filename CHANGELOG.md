@@ -1,5 +1,41 @@
 # Changelog
-## unreleased
+
+## 2.14.0
+- add new step stadsvernieuwing - projectsubsidie - 2025
+- `drc restart migrations; drc restart cache resource subsidy-application-flow-management subsidy-applications-management`
+  
+### Deploy instructions
+## 2.13.0
+- cleanup dispatcher rules (restrict)
+- introduce subsidiedatabank frontend
+- Add subsidiedatabank graph populated by migrations & db-cleanup
+- update subsidies producer config 
+- Add concept-scheme for filter-form dropdowns
+- update frontend images to use static-file
+- add reverse-host for correct frontend routing
+
+### Deploy instructions
+`git pull`
+task: frontend-subsidiedatabank override:
+```
+  frontend-subsidiedatabank:
+    environment:
+      VIRTUAL_HOST: "subsidiedatabank.abb.vlaanderen.be"
+      LETSENCRYPT_HOST: "subsidiedatabank.abb.vlaanderen.be"
+      LETSENCRYPT_EMAIL: "support+servers@redpencil.io"
+      STATIC_FOLDERS_REGEX: "^/(assets|font|files|@appuniversum)/"
+      EMBER_ACMIDM_CLIENT_ID: "49df4086-d456-4bac-8162-1e89c983e5a1"
+      EMBER_ACMIDM_SCOPE: "openid vo rrn profile abb_subsidiedatabank"
+      EMBER_ACMIDM_AUTH_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+      EMBER_ACMIDM_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+      EMBER_ACMIDM_AUTH_REDIRECT_URL: "https://subsidiedatabank.abb.vlaanderen.be/authorization/callback"
+      EMBER_ACMIDM_SWITCH_REDIRECT_URL: "https://subsidiedatabank.abb.vlaanderen.be/switch-login" 
+``` 
+`drc up -d`
+`drc restart dispatcher migrations delta-producer-publication-graph-maintainer-subsidies`
+!important: migrations might take longer then usual
+`drc restart database cache resource form-data-management subsidy-application-flow-management subsidy-applications-management`
+
 
 ## 2.11.0
 ### Backend

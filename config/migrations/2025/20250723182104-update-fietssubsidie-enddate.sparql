@@ -1,0 +1,81 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+
+# This migration performs the following updates:
+# - Updates new link to more information about the subsidy for investments in bicycle highways.
+# - Updates the end date for step 2 to "2025-12-31T22:59:00Z".
+# - Updates the end date for step 3 to "2026-04-30T21:59:00Z".
+# - Updates the end date for the subsidy to "2026-04-30T21:59:00Z".
+
+# Update link to more info
+DELETE {
+  GRAPH ?g {
+    <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2> <http://www.w3.org/2004/02/skos/core#related> ?oldLink .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2> <http://www.w3.org/2004/02/skos/core#related> "https://www.vlaanderen.be/lokaal-bestuur/subsidie-voor-investeringen-in-fietssnelwegen" .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2> <http://www.w3.org/2004/02/skos/core#related> ?oldLink .
+  }
+}
+;
+
+# Update enddate step 2
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/001dac27-0146-4eb5-9313-8967e20d599b> m8g:endTime ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/001dac27-0146-4eb5-9313-8967e20d599b> m8g:endTime "2025-12-31T22:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/001dac27-0146-4eb5-9313-8967e20d599b> m8g:endTime ?endTime .
+  }
+}
+;
+
+# Update enddate step 3
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/d1d600fb-4cd1-4188-bcbc-bd4df721ad1e> m8g:endTime ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/d1d600fb-4cd1-4188-bcbc-bd4df721ad1e> m8g:endTime "2026-04-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/d1d600fb-4cd1-4188-bcbc-bd4df721ad1e> m8g:endTime ?endTime .
+  }
+}
+;
+
+# Update deadline subsidie
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/2e77f4ea-05f6-4771-ae4b-8cee72d2459f> m8g:endTime ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/2e77f4ea-05f6-4771-ae4b-8cee72d2459f> m8g:endTime "2026-04-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/2e77f4ea-05f6-4771-ae4b-8cee72d2459f> m8g:endTime ?endTime .
+  }
+}
