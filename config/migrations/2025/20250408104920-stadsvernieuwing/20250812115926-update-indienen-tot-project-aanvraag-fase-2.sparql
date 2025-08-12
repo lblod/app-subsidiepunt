@@ -1,0 +1,18 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/5c52fedd-290c-4c6e-baf9-781e763d31fa> m8g:endTime ?endtime.
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/5c52fedd-290c-4c6e-baf9-781e763d31fa> m8g:endTime "2025-09-24T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/5c52fedd-290c-4c6e-baf9-781e763d31fa> m8g:endTime ?endtime.
+  }
+}
