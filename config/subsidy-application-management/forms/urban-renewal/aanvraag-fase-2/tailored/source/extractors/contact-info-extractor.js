@@ -11,6 +11,7 @@ module.exports = {
 
     const SCHEMA = new $rdf.Namespace('http://schema.org/');
     const FOAF = new $rdf.Namespace('http://xmlns.com/foaf/0.1/');
+    const RDF_TYPE = new $rdf.NamedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type');
 
     const contactPoint = new $rdf.NamedNode(URI_BASE + mu.uuid());
 
