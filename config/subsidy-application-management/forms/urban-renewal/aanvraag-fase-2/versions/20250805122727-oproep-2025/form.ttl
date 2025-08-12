@@ -438,9 +438,9 @@ ext:BeschrijfParticipatieCommunicatieInteractieProjectGroup
     Beschrijf hoe de participatie, communicatie en interactie met alle betrokkenen 
 zal verlopen
                     <ul style="list-style-type:disc; margin-left: 30px;">
-                      <li>Bespreek hoe de participatie, communicatie en interactie doorheen heel het projectproces met alle betrokkenen verloopt, verder zal worden gerealiseerd en welke de beoogde impact is op de besluitvorming.</li>
-                      <li>Toon aan hoe het project oog heeft voor de aanwezigheid van alle maatschappelijke groepen</li>
-                      <li>Beschrijf hoe dit leidt tot een echte samenwerking met bewoners, gebruikers, maatschappelijke groepen en andere externe partners (vb. projectontwikkelaars, kennisinstellingen, ...). Geef aan welke de verwachte en/of gerealiseerde impact is van de samenwerking & samenspraak op de besluitvorming.</li>
+                      <li>Bespreek hoe de participatie, communicatie en interactie doorheen heel het projectproces met alle betrokkenen – inclusief de dorpskernen binnen de administratieve grenzen van de stad en omliggende gemeenten – verloopt, verder zal worden gerealiseerd en welke de beoogde impact is op de besluitvorming.</li>
+                      <li>Toon aan hoe het project oog heeft voor de aanwezigheid van alle maatschappelijke groepen.</li>
+                      <li>Beschrijf hoe dit leidt tot een echte samenwerking en synergiën met omliggende gemeente(n), maar ook met bewoners, gebruikers, maatschappelijke groepen en andere externe partners (vb. projectontwikkelaars, kennisinstellingen, …) Geef aan welke de verwachte en/of gerealiseerde impact is van de samenwerking & samenspraak op de besluitvorming.</li>
                     </ul>
                     """ ;
     sh:order        8 .
