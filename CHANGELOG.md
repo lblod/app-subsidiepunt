@@ -1,4 +1,12 @@
 # Changelog
+## Unreleased
+
+## 2.14.2
+- stadsvernieuwing projectsubsidie fase 2
+   - fix text
+   - add missing subsidieprcedure step type triple
+### Deploy instructions
+`drc restart migrations subsidy-applications-management cache resource`
 
 ## 2.14.0
 - add new step stadsvernieuwing - projectsubsidie - 2025
