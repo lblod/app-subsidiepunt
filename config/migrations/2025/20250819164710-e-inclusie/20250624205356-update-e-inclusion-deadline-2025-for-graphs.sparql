@@ -15,7 +15,7 @@ INSERT {
 }
 WHERE {
   VALUES ?g {
-    <http://mu.semte.ch/graphs/organizations/0a71e2b47c58e6d13ac628f733863543b791869395afcfe5b5c82c98ff894e3d/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/0a71e2b47c58e6d13ac628f733863543b791869395afcfe5b5c82c98ff894e3d/SubsidiepuntGebruiker> 
     <http://mu.semte.ch/graphs/organizations/b4aa8ca2a4daa74ef8297b0b4dba2ad292e73da5337e20c65066860279751307/SubsidiepuntGebruiker>
     <http://mu.semte.ch/graphs/organizations/6d323b27377e803eccb4261e8014f5198bba924b7ec3d7d7fa2d2a3a41f7e0f2/SubsidiepuntGebruiker>
     <http://mu.semte.ch/graphs/organizations/18eb574437cc9fa5af24990f495aaed7af868d33341faf60cffa2ee0e57dc914/SubsidiepuntGebruiker>
