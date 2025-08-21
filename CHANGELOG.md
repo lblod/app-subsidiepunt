@@ -1,5 +1,11 @@
 # Changelog
 ## Unreleased
+- extend deadline for e-inclusie
+- Fix faulty status for LEKP 1.0 old submissions
+- extend deadline LEKP 1.0 - last step
+### Deploy instructions
+`drc restart migrations subsidy-applications-management cache resource`
+
 
 ## 2.14.2
 - stadsvernieuwing projectsubsidie fase 2
