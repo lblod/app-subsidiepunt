@@ -1,0 +1,25 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime "2026-06-30T21:59:00Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime "2026-06-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  VALUES ?g {
+    <http://mu.semte.ch/graphs/organizations/6eb63a95ebb0e5fcb9e59b25a264977107e690a46a89755da1637d1427693560/SubsidiepuntGebruiker> # Oostrozebeke
+  }
+
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}
