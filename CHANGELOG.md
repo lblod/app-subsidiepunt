@@ -4,7 +4,8 @@
 - Fix faulty status for LEKP 1.0 old submissions
 - extend deadline LEKP 1.0 - last step
 ### Deploy instructions
-`drc restart migrations subsidy-applications-management cache resource`
+`drc up -d`
+`drc restart migrations dispatcher subsidy-applications-management cache resource`
 
 
 ## 2.14.2
