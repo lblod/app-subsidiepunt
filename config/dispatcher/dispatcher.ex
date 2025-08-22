@@ -284,6 +284,23 @@ defmodule Dispatcher do
   end
 
   #################################################################
+  # Subsidie management (insights)
+  #################################################################
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["insights" | _rest] }  do
+    forward conn, path, "http://frontend-subsidie-management/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["insights" | _rest] } do
+    forward conn, path, "http://frontend-subsidie-management/@appuniversum/"
+  end
+
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["insights" | _rest] } do
+    forward conn, [], "http://frontend-subsidie-management/index.html"
+  end
+
+  #################################################################
   # Subsidiedatabank
   #################################################################
 

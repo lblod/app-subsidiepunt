@@ -12,6 +12,13 @@ services:
     volumes:
       - ./config/subsidy-application-management:/config
     restart: "no"
+
+  frontend-subsidie-management:
+    image: lblod/frontend-subsidie-management:0.1.1
+    links:
+      - identifier:backend
+    restart: "no"
+
   impersonation:
     restart: "no"
 

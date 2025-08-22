@@ -1,0 +1,54 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime "2025-09-30T21:59:00Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime "2025-09-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  VALUES ?g {
+    <http://mu.semte.ch/graphs/organizations/bb749fce340952ed57a7055edbec4c7a0aec9b2623ab5c41997eb4b013287997/SubsidiepuntGebruiker>  # Bocholt
+    <http://mu.semte.ch/graphs/organizations/e41ffa04f94bb450a79793020e70d55b5fee5033a5280277998608a9d0913117/SubsidiepuntGebruiker>  # Borsbeek
+    <http://mu.semte.ch/graphs/organizations/c73ee91f068da28ed1f16fb057f38808e7c0d29f4c5b8b9d7b2eec235ed4d5a4/SubsidiepuntGebruiker>  # Brecht
+    <http://mu.semte.ch/graphs/organizations/788f5e9af7c2e5e158bb9b72d7cababff6d4a871c5b63f346c8fcedefed33905/SubsidiepuntGebruiker>  # Damme
+    <http://mu.semte.ch/graphs/organizations/985774e5593009ffa08804ffad482f0dee8490f1cdfde072116cd60e4528892e/SubsidiepuntGebruiker>  # Dentergem
+    <http://mu.semte.ch/graphs/organizations/b456cda7fa9b2b176adb216e5598aeeb60ff19753a5a08ade6ffd32e9a0ead89/SubsidiepuntGebruiker>  # Edegem
+    <http://mu.semte.ch/graphs/organizations/764278b3ceac360476b418c108d1b022b6e0cc8fb676f3f6b6b9faf78a2375ba/SubsidiepuntGebruiker>  # Geel
+    <http://mu.semte.ch/graphs/organizations/1b983548dc44e39bc920a7a8ec1901b692a664865d5fee5133ae96e7281eca6f/SubsidiepuntGebruiker>  # Herselt
+    <http://mu.semte.ch/graphs/organizations/2fb596ee22eb20999478e63cfb8f270ab00e4336e34442c031471293ca6f92e8/SubsidiepuntGebruiker>  # Heusden-Zolder
+    <http://mu.semte.ch/graphs/organizations/0c2d775df43f87d2048eb26c322d1bc9423e0a3f0ee7ceefd2011cdb077f12df/SubsidiepuntGebruiker>  # Holsbeek
+    <http://mu.semte.ch/graphs/organizations/5a7f00816df0382694760a86baf23bb6c72a7ab5de0eb7f6db8c38a24b9c9aba/SubsidiepuntGebruiker>  # Hulshout
+    <http://mu.semte.ch/graphs/organizations/53eb88088ce2822bcef97df5f71154045e113b750c6b97b29793a29c4f0ac7b4/SubsidiepuntGebruiker>  # Jabbeke
+    <http://mu.semte.ch/graphs/organizations/c7ff21a1a6c315ca5aec2b136ffcf0d9d285dd37a1d5b10d8d134bb714e8d774/SubsidiepuntGebruiker>  # Kalmthout
+    <http://mu.semte.ch/graphs/organizations/4e6d15d5c7fd95c996087bb13cdee985f0b550256be745024d5facd1485df284/SubsidiepuntGebruiker>  # Laakdal
+    <http://mu.semte.ch/graphs/organizations/17e71437ad9e1abbfd416b7bcb1485c0e6e21ac4f65f2a1584eb0985e246b1c9/SubsidiepuntGebruiker>  # Lede
+    <http://mu.semte.ch/graphs/organizations/319016d52cb54b416721b0c5fc74f211fdd4dd576d13a34aa9210759401dc7f2/SubsidiepuntGebruiker>  # Lier
+    <http://mu.semte.ch/graphs/organizations/57b1646f-bf4c-4dc4-8bc9-6ec8a6486018/SubsidiepuntGebruiker>                              # Lievegem
+    <http://mu.semte.ch/graphs/organizations/c6ce52f7a484e12c7f385f1116766fa9a8d1a1798e4e265a77a8881a2bda9b60/SubsidiepuntGebruiker>  # Lint
+    <http://mu.semte.ch/graphs/organizations/514bd3d6ba551d4b2a7e866c7dafd65e371acd75240dc92610590c5804c641df/SubsidiepuntGebruiker>  # Meerhout
+    <http://mu.semte.ch/graphs/organizations/92349192bc0054f415dc7dddabcd0effd189279fb0e7a0e2b9ab8b1aa8bf73ee/SubsidiepuntGebruiker>  # Middelkerke
+    <http://mu.semte.ch/graphs/organizations/c5dbb08e35e2d090a05d119fef4cc161b5ee1f322698cb8ea3c8c6643a521cf2/SubsidiepuntGebruiker>  # Moerbeke
+    <http://mu.semte.ch/graphs/organizations/55155a78bd145df7bfa3caaa17ba491fb4dd238f4f4d2c5485bff1be96ca3036/SubsidiepuntGebruiker>  # Mol
+    <http://mu.semte.ch/graphs/organizations/73840d393bd94828f0903e8357c7f328d4bf4b8fbd63adbfa443e784f056a589/SubsidiepuntGebruiker>  # Pepingen
+    <http://mu.semte.ch/graphs/organizations/0a3ba641d653b436b14fde37bb6eab4f1054aa0586eb98021b723d58f6ce82fb/SubsidiepuntGebruiker>  # Rijkevorsel
+    <http://mu.semte.ch/graphs/organizations/1313d4a58f9ecf52cc7e274e3549a759b35e731973cc9f5e07562e5650f594dd/SubsidiepuntGebruiker>  # Wachtebeke
+    <http://mu.semte.ch/graphs/organizations/4fb8eb24aa9d5561f3cd7b502715fc758f41b71aafa13b872ee8aeb1d027dbe9/SubsidiepuntGebruiker>  # Wemmel
+    <http://mu.semte.ch/graphs/organizations/6093f33e8eacb798481b1f826416eaf310552e9568e74804f59c69dada2187e4/SubsidiepuntGebruiker>  # Wommelgem
+    <http://mu.semte.ch/graphs/organizations/e9e0287a3a974fba665e2649242a3607b8db35ca22085baf9ec26972b6e6a86c/SubsidiepuntGebruiker>  # Zedelgem
+    <http://mu.semte.ch/graphs/organizations/af76592773d5172af4a57454ea5c3d94578379048cd7c37a4da016a07a91bb54/SubsidiepuntGebruiker>  # Zuienkerke
+  }
+
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime ?stependtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> m8g:endTime ?formendtime .
+  }
+}
+
