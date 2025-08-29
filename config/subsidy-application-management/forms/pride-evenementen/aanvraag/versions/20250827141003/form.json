@@ -33,7 +33,6 @@
       "lblodSubsidie:firstName",
       "lblodSubsidie:titelProject",
       "lblodSubsidie:relevantieEnMaatschappelijkeBijdrage",
-      "lblodSubsidie:periode",
       "lblodSubsidie:overzichtErkenningenListing",
       "lblodSubsidie:aandachtIntersectionaliteit",
       "lblodSubsidie:bijlageDocument",
@@ -72,6 +71,17 @@
         ]
       },
       {
+        "s-prefix": "lblodSubsidie:projectPlan",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
         "s-prefix": "lblodSubsidie:bijlageDocument",
         "properties": [
           {
@@ -87,6 +97,7 @@
         "properties": [
           "rdf:type",
           "sh:order",
+          "lblodSubsidie:periode",
           "lblodSubsidie:redenErkenning",
           "lblodSubsidie:subsidierendeInstanties",
           "lblodSubsidie:bedrag"
