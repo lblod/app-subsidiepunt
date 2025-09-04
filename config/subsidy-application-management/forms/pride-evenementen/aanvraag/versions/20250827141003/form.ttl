@@ -714,6 +714,14 @@ ext:gevraagdeSubsidieGelijkeKansen
                 sh:order 1;
                 sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen;
                 sh:resultMessage "Dit veld is verplicht."
+            ],
+            [
+                a form:MaxLength;
+                form:grouping form:MatchEvery;
+                form:max "25000";
+                sh:order 2;
+                sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen;
+                sh:resultMessage "Max. hoeveelheid overschreden."@nl 
             ];
     sh:name "Gevraagde subsidie vanuit Gelijke Kansen (maximaal 25.000 euro)  ";
     sh:order 16;
