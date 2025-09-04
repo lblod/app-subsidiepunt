@@ -187,7 +187,12 @@ ext:email
                 form:grouping form:Bag;
                 sh:path ( schema:contactPoint schema:email );
                 sh:resultMessage "Dit veld is verplicht."
-            ];
+            ] ,
+            [ a form:ValidEmail ;
+                form:grouping form:MatchEvery ;
+                sh:path ( schema:contactPoint schema:email ) ;
+                sh:resultMessage "Geef een geldig e-mailadres op."@nl
+            ] ;
     sh:name "e-mailadres";
     sh:order 8;
     sh:path ( schema:contactPoint schema:email ) .
@@ -648,7 +653,7 @@ ext:redenErkenning
 
 ext:periode
   a form:Field;
-  form:displayType displayTypes:textArea;
+  form:displayType displayTypes:defaultInput;
   form:partOf ext:erkenningenEnSubsidieringSection;
   form:validatedBy
     [
