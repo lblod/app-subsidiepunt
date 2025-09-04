@@ -1,8 +1,8 @@
 # Changelog
 ## unreleased
-
+- add new pride evenementen subsidy
 ### Deploy instructions
-
+`drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
 ## 2.15.0
 - extend deadline for e-inclusie
 - Fix faulty status for LEKP 1.0 old submissions
