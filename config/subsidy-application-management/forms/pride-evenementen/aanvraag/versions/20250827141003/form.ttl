@@ -609,7 +609,6 @@ ext:bijlageDocument
     form:displayType displayTypes:files;
     form:partOf ext:bijlageSection;
     sh:name "Laad hier alle relevante bijlagen op";
-    form:help """Maak een zo gedetailleerd mogelijke begroting op. Het sjabloon kan je vinden op <a href="https://www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken" target="_blank">www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken</a>""";
     sh:order 23;
     sh:path (lblodSubsidie:bijlageDocument dct:hasPart) .
 
