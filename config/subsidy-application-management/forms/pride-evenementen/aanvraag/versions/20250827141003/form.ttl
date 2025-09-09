@@ -76,14 +76,6 @@ ext:website
 ext:subsidierendeInstanties a form:Field;
     form:displayType displayTypes:defaultInput;
     form:partOf ext:erkenningenEnSubsidieringSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:order 1;
-                sh:path lblodSubsidie:subsidierendeInstanties;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
     sh:name "Subsidiërende instantie";
     sh:order 1;
     sh:path lblodSubsidie:subsidierendeInstanties.
@@ -163,9 +155,7 @@ ext:medewerkers
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Geef een overzicht van de medewerkers, zowel betaald als vrijwillig, die worden ingezet voor de uitvoering van het project.
-Omschrijf de taken, de rollen en de vereiste competenties binnen het project. Geef aan op welke manier je hen zal rekruteren,
-opleiden en ondersteunen.""";
+        """Geef een overzicht en een beschrijving van de taken van de medewerkers, zowel betaald als vrijwillig, die worden ingezet voor de uitvoering van het project. Geef aan op welke manier ze worden gerekruteerd, opgeleid en ondersteund.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -206,8 +196,6 @@ nodes:ca3ebdf2-6188-4576-8c42-c3edcd623704
 
 ext:identificatieProjectSection a form:Section; 
   sh:name "Identificatie van het project"; 
-  form:help """Het projectvoorstel start ten vroegste op 15 februari 2026 en heeft een maximale   
-duurtijd van 1 jaar.""";
   sh:order 4 .
 
 ##########################################################
@@ -306,7 +294,7 @@ ext:verantwoordingBegroteMiddelen
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        "Geef een korte verantwoording van de werkings- en personeelskosten die noodzakelijk zijn voor de verwezenlijking van het project. Voor wat betreft de personeelskosten: geef per medewerker de kost aan (met vermelding van de gehanteerde loonschaal) en inzet in het project (aantal VTE). In het oproepkader vind je terug welke kosten subsidiabel zijn.";
+        "Geef een omschrijving en toelichting bij de berekening van alle kosten die werden opgenomen in de begroting en motiveer waarom deze noodzakelijk zijn voor de verwezenlijking van het project. Geef voor de personeelskosten per medewerker de kost aan (met vermelding van de gehanteerde loonschaal) en de inzet in het project (aantal VTE).";
     form:partOf ext:overzichtBegrotingSection;
     form:validatedBy
             [
@@ -490,14 +478,6 @@ ext:bedrag
     a form:Field;
     form:displayType displayTypes:currencyInput;
     form:partOf ext:erkenningenEnSubsidieringSection;
-    form:validatedBy
-      [
-          a form:RequiredConstraint;
-          form:grouping form:Bag;
-          sh:order 1;
-          sh:path lblodSubsidie:bedrag;
-          sh:resultMessage "Dit veld is verplicht."
-      ];
     sh:name "Bedrag";
     sh:order 4;
     sh:path lblodSubsidie:bedrag .
@@ -509,7 +489,7 @@ ext:projectoverzichtSection a form:Section;
 ext:korteOmschrijvingProject
   a form:Field;
   form:displayType displayTypes:textArea;
-  form:help "Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust. Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Motiveer waarom het project een antwoord zal bieden op de uitdagingen en/of noden. Licht toe hoe het project de benoemde doelgroepen zal bereiken en betrekken.";
+  form:help "Vat het project bondig samen (max 3000 tekens).";
   form:partOf ext:projectoverzichtSection;
   form:validatedBy
           [
@@ -589,8 +569,7 @@ ext:aandachtIntersectionaliteit
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Geef aan op welke manier je specifieke noden en perspectieven van diverse doelgroep(en) in het project meeneemt. Beschrijf
-hoe je zal inzetten op integrale toegankelijkheid van het project. (Kijk voor inspiratie naar <a href="https://www.integratie-inburgering.be/nl/wat-kunnen-we-voor-jou-doen/ondersteuning-voor-je-organisatie-of-lokaal-bestuur/participatie/hoe-toegankelijk-is-jouw-vrijetijdsaanbod/9-bs-van-toegankelijkheid" target="_blank">de 9 B’s van toegankelijkheid</a>).
+        """Geef aan op welke manieren het project rekening houdt met diversiteit en intersectionaliteit, en hoe er wordt ingezet op integrale toegankelijkheid (bijvoorbeeld aan de hand van de <a href="https://www.integratie-inburgering.be/nl/wat-kunnen-we-voor-jou-doen/ondersteuning-voor-je-organisatie-of-lokaal-bestuur/participatie/hoe-toegankelijk-is-jouw-vrijetijdsaanbod/9-bs-van-toegankelijkheid" target="_blank">de 9 B’s van toegankelijkheid</a>).
 """;
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
@@ -608,7 +587,7 @@ ext:bijlageDocument
     a form:Field;
     form:displayType displayTypes:files;
     form:partOf ext:bijlageSection;
-    sh:name "Laad hier alle relevante bijlagen op";
+    sh:name "Laad hier andere relevante bijlagen op";
     sh:order 23;
     sh:path (lblodSubsidie:bijlageDocument dct:hasPart) .
 
@@ -645,14 +624,6 @@ ext:redenErkenning
     a form:Field;
     form:displayType displayTypes:textArea;
     form:partOf ext:erkenningenEnSubsidieringSection;
-    form:validatedBy
-      [
-          a form:RequiredConstraint;
-          form:grouping form:Bag;
-          sh:order 1;
-          sh:path lblodSubsidie:redenErkenning;
-          sh:resultMessage "Dit veld is verplicht."
-      ];
     sh:name "Reden van erkenning/subsidie";
     sh:order 2;
     sh:path lblodSubsidie:redenErkenning .
@@ -661,14 +632,6 @@ ext:periode
   a form:Field;
   form:displayType displayTypes:defaultInput;
   form:partOf ext:erkenningenEnSubsidieringSection;
-  form:validatedBy
-    [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:order 1;
-        sh:path lblodSubsidie:periode;
-        sh:resultMessage "Dit veld is verplicht."
-    ];
   sh:name "Periode";
   sh:order 3;
   sh:path lblodSubsidie:periode .
@@ -681,9 +644,7 @@ ext:samenwerkingsverbanden
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Geef aan welke samenwerkingsverbanden je met andere verenigingen of organisaties aangaat binnen dit project en waarom.
-Licht toe hoe je de samenwerking zal organiseren en welke afspraken er zijn over de inbreng, de taken, de verantwoordelijkheden
-en de communicatie.""";
+        """Beschrijf welke samenwerkingsverbanden worden aangegaan binnen dit project en motiveer waarom. Geef aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg een engagements- of intentieverklaring toe waarin de partner de punten waarop zal samengewerkt worden, bevestigt.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
