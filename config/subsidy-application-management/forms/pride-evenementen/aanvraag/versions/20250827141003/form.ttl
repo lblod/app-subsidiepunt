@@ -520,6 +520,13 @@ ext:projectPlan
 doelstellingen, acties, beoogde resultaten, KPI’s en betrokken verantwoordelijken. Geef   
 ook de opvolging, evaluatie en disseminatie weer. Gebruik waar mogelijk schema’s of   
 tabellen om de informatie overzichtelijk te presenteren.""";
+    form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path (lblodSubsidie:projectPlan dct:hasPart);
+                sh:resultMessage "Dit veld is verplicht."
+            ];
     sh:order 23;
     sh:path (lblodSubsidie:projectPlan dct:hasPart) .
 
