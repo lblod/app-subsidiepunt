@@ -1,7 +1,13 @@
 # Changelog
 ## unreleased
-- add new pride evenementen subsidy
+-
 ### Deploy instructions
+``
+## 2.15.0
+- add new pride evenementen subsidy
+- subsidy-applications-management: fix form found in multiple graphs issue (subsidiedatabank graph)
+### Deploy instructions
+`drc up -d`
 `drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
 ## 2.15.0
 - extend deadline for e-inclusie
