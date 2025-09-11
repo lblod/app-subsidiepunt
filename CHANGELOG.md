@@ -3,7 +3,7 @@
 -
 ### Deploy instructions
 ``
-## 2.15.0
+## 2.16.0
 - add new pride evenementen subsidy
 - subsidy-applications-management: fix form found in multiple graphs issue (subsidiedatabank graph)
 ### Deploy instructions
