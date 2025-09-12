@@ -201,6 +201,32 @@ SELECT DISTINCT * WHERE {
   FILTER( STRSTARTS( STR(?g), "http://mu.semte.ch/graphs/organizations/" ) )
 }
 ```
+#### Find steps that are LAST and do not have the status SENT while the form is already sent.
+This most likely means these forms are dangling. They should be able to be removed safely. 
+```
+SELECT DISTINCT * WHERE {
+  GRAPH ?organizationGraph {
+    # Get subsidiemaatregelconsumptie with SENT status
+    ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie> ;
+      <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/2ea29fbf-6d46-4f08-9343-879282a9f484>; # SENT
+      <http://purl.org/dc/terms/source> ?applicationForm.
+    
+    # Get applicationForm that is part of applicationFormSteps
+    ?applicationForm <http://purl.org/dc/terms/isPartOf> ?applicationFormSteps;
+      <http://www.w3.org/ns/adms#status> ?status.
+    
+    # Ensure applicationForm does NOT have SENT status
+    FILTER(?status != <http://lblod.data.gift/concepts/9bd8d86d-bb10-4456-a84e-91e9507c374c>)
+  }
+  
+  # Ensure this is the last step (no ?next triple exists) - check in other (public) graphs
+  FILTER NOT EXISTS {
+    GRAPH ?publicGraph {
+      ?applicationFormSteps <http://rdf-vocabulary.ddialliance.org/xkos#next> ?next.
+    }
+  }
+}
+```
 
 ## Additional Services
 
