@@ -189,6 +189,18 @@ virtuoso:
     - ./config/virtuoso/:/opt/virtuoso-scripts
 ```
 
+### Data integrity checks
+#### Their should be no subsidies with stats sent & having an active step set
+```sparql
+SELECT DISTINCT * WHERE {
+
+  ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie> ;
+    <http://www.w3.org/2007/uwa/context/common.owl#active> ?active; 
+    <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/2ea29fbf-6d46-4f08-9343-879282a9f484>
+
+} LIMIT 10
+```
+
 ## Additional Services
 
 - `delta-producer-report-generator`: Config dependent on deployment
