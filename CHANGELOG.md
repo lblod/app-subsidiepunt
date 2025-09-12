@@ -1,5 +1,8 @@
 # Changelog
-## Unreleased
+## 2.16.2
+- Fix LEKP 1.0 deadline for last instead of first step changed
+### Deploy instructions
+`drc restart migrations cache resource`
 ## 2.16.1
 - Fix fietsinfrastructuur bug for 4 orgs
 ### Deploy instructions
