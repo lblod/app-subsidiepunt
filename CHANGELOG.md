@@ -1,8 +1,9 @@
 # Changelog
-## unreleased
--
+## Unreleased
+## 2.16.1
+- Fix fietsinfrastructuur bug for 4 orgs
 ### Deploy instructions
-``
+`drc restart migrations cache resource`
 ## 2.16.0
 - add new pride evenementen subsidy
 - subsidy-applications-management: fix form found in multiple graphs issue (subsidiedatabank graph)
