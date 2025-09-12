@@ -193,12 +193,13 @@ virtuoso:
 #### Their should be no subsidies with stats sent & having an active step set
 ```sparql
 SELECT DISTINCT * WHERE {
-
-  ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie> ;
-    <http://www.w3.org/2007/uwa/context/common.owl#active> ?active; 
-    <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/2ea29fbf-6d46-4f08-9343-879282a9f484>
-
-} LIMIT 10
+  GRAPH ?g {
+    ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie> ;
+      <http://www.w3.org/2007/uwa/context/common.owl#active> ?active; 
+      <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/2ea29fbf-6d46-4f08-9343-879282a9f484>
+  }
+  FILTER( STRSTARTS( STR(?g), "http://mu.semte.ch/graphs/organizations/" ) )
+}
 ```
 
 ## Additional Services
