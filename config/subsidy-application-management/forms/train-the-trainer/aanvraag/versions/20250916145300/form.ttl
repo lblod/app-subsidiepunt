@@ -115,7 +115,7 @@ ext:startDatum
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Startdatum van het project";
-    form:help "Het projectvoorstel start ten vroegste op 15 februari 2026.";
+    form:help "Het projectvoorstel start ten vroegste op 1 januari 2025.";
     sh:order 14;
     sh:path lblodSubsidie:startDatum .
 
@@ -206,8 +206,8 @@ ext:begrotingDocument
     a form:Field;
     form:displayType displayTypes:files;
     form:partOf ext:overzichtBegrotingSection;
-    form:help """Geef een gedetailleerde begroting in het voorziene sjabloon. Voeg het ingevulde   
-sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2026" target="_blank">www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2026</a>.""";
+    form:help """Geef een gedetailleerde begroting in het voorziene sjabloon. Voeg het ingevulde sjabloon toe
+als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/radicalisering-en-polarisatie/projecten/projectoproep-omstaanderstraining-interventie-straatcultuur" target="_blank">https://www.vlaanderen.be/radicalisering-en-polarisatie/projecten/projectoproep-omstaanderstraining-interventie-straatcultuur</a>.""";
     form:validatedBy
             [
                 a form:RequiredConstraint;
@@ -234,10 +234,9 @@ ext:disseminatieEnVerduurzaming
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Omschrijf hoe resultaten, ervaringen en bevindingen worden gedeeld met specifieke   
-doelgroepen en/of een breder publiek. Geef ook aan welke strategieën of acties worden   
-voorzien om de resultaten duurzaam te verankeren en hun impact op langere termijn te   
-verzekeren.""";
+        """Omschrijf hoe resultaten, ervaringen en bevindingen worden gedeeld met de doelgroepen en
+(eventueel) met een breder publiek. Geef aan hoe u de inkanteling van de ontwikkelde
+methodiek naar de relevante erkende partnerorganisatie zal aanpakken.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -274,10 +273,10 @@ ext:overzichtAndereSubsidierendeInstanties
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Geef aan of er voor dit project ook andere subsidies zijn aangevraagd. Vermeld of deze   
-al zijn toegekend, waarvoor ze specifiek zullen worden gebruikt en voeg de   
-contactgegevens toe van de financierende instantie(s). Geef ook toelichting bij   
-eventuele andere inkomsten die voor het project worden aangewend.""";
+        """Geef aan of er voor dit project ook andere subsidies zijn aangevraagd. Vermeld of deze al
+zijn toegekend, waarvoor ze specifiek zullen worden gebruikt en voeg de contactgegevens
+toe van de financierende instantie(s). Geef ook toelichting bij eventuele andere inkomsten
+die voor het project worden aangewend.""";
     form:partOf ext:overzichtBegrotingSection;
     form:validatedBy
             [
@@ -294,7 +293,11 @@ ext:verantwoordingBegroteMiddelen
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        "Geef een omschrijving en toelichting bij de berekening van alle kosten die werden opgenomen in de begroting en motiveer waarom deze noodzakelijk zijn voor de verwezenlijking van het project. Geef voor de personeelskosten per medewerker de kost aan (met vermelding van de gehanteerde loonschaal) en de inzet in het project (aantal VTE).";
+        """Geef een omschrijving en toelichting bij de berekening van alle werkingskosten die werden
+opgenomen in de begroting en motiveer waarom deze noodzakelijk zijn voor de
+verwezenlijking van het project. Duid bij de personeelskosten het totaal aantal VTE, de naam
+van de medewerker, de inzet per medewerker en de kost per medewerker (met vermelding
+van de gehanteerde loonschaal).""";
     form:partOf ext:overzichtBegrotingSection;
     form:validatedBy
             [
@@ -330,7 +333,14 @@ ext:beoogdeResultatenProject
         """Beschrijf de beoogde resultaten van het project:<br>
 • de directe producten of diensten (output)<br>
 • de effecten op middellange termijn (outcome)<br>
-• de bredere veranderingen op lange termijn (impact)<br>
+• de bredere veranderingen op lange termijn (impact)<br><br>
+Formuleer specifieke, meetbare, realistische en tijdsgebonden (SMART) indicatoren met
+bijhorende streefwaarden (kritieke prestatie-indicatoren / KPI’s) om het behalen van de
+beoogde resultaten te meten. Beschrijf welke risico’s en afhankelijkheden het behalen van de
+projectdoelstellingen binnen de vooropgestelde projecttermijn kunnen beïnvloeden, en geef
+aan hoe hiermee rekening wordt gehouden in de planning en uitvoering. Geef ook aan hoe
+de voortgang en de resultaten van het project worden opgevolgd, geëvalueerd en
+bijgestuurd.
 """;
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
@@ -340,7 +350,7 @@ ext:beoogdeResultatenProject
                 sh:path lblodSubsidie:beoogdeResultatenProject;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name "Beoogde resultaten";
+    sh:name "Beoogde resultaten, opvolging en evaluatie";
     sh:order 19;
     sh:path lblodSubsidie:beoogdeResultatenProject .
     
@@ -357,7 +367,7 @@ ext:einddatumProject
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Einddatum van het project";
-    form:help "Het projectvoorstel eindigt ten laatste op 31 oktober 2026.  ";
+    form:help "Het projectvoorstel heeft een minimale duurtijd van 3 jaar en een maximale duurtijd van 5 jaar.  ";
     sh:order 15;
     sh:path lblodSubsidie:einddatumProject .
 
@@ -479,10 +489,10 @@ ext:projectPlan
     form:displayType displayTypes:files;
     form:partOf ext:projectoverzichtSection;
     sh:name "Laad hier uw projectplan op";
-    form:help """Geef een samenvattend projectplan met een visueel overzicht en een tijdlijn van de   
-doelstellingen, acties, beoogde resultaten, KPI’s en betrokken verantwoordelijken. Geef   
-ook de opvolging, evaluatie en disseminatie weer. Gebruik waar mogelijk schema’s of   
-tabellen om de informatie overzichtelijk te presenteren.""";
+    form:help """Geef een samenvattend projectplan met een visueel overzicht en een tijdlijn van de
+doelstellingen, acties, beoogde resultaten, KPI’s en betrokken verantwoordelijken. Geef ook
+de opvolging, evaluatie, risicobeheer en disseminatie weer. Gebruik waar mogelijk schema’s
+of tabellen om de informatie overzichtelijk te presenteren.""";
     form:validatedBy
             [
                 a form:RequiredConstraint;
@@ -614,7 +624,10 @@ ext:samenwerkingsverbanden
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Beschrijf welke samenwerkingsverbanden worden aangegaan binnen dit project en motiveer waarom. Geef aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg een engagements- of intentieverklaring toe waarin de partner de punten waarop zal samengewerkt worden, bevestigt.""";
+        """Beschrijf welke samenwerkingsverbanden worden aangegaan binnen dit project en motiveer
+waarom. Geef aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg
+engagements- of intentieverklaring(en) toe waarin de partners de punten waarop zal
+samengewerkt worden, bevestigen.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -631,8 +644,13 @@ ext:doelstellingenEnActies
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Formuleer de strategische en operationele doelstellingen van het project en licht toe   
-welke concrete acties worden ondernomen om deze te realiseren.""";
+        """Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de
+projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil
+tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust.
+Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Licht toe hoe het
+project de benoemde doelgroepen zal bereiken en betrekken.
+Formuleer de strategische en operationele doelstellingen van het project en licht toe welke
+concrete acties worden ondernomen om deze te realiseren.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -660,12 +678,12 @@ ext:gevraagdeSubsidieGelijkeKansen
             [
                 a form:MaxLength;
                 form:grouping form:MatchEvery;
-                form:max "25000";
+                form:max "200000";
                 sh:order 2;
                 sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen;
                 sh:resultMessage "Max. hoeveelheid overschreden."@nl 
             ];
-    sh:name "Gevraagde subsidie vanuit Gelijke Kansen (maximaal 25.000 euro)  ";
+    sh:name "Gevraagde subsidie (maximaal 200.000 euro)  ";
     sh:order 16;
     sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen.
 
