@@ -151,23 +151,6 @@ ext:akkoordClausule
     sh:order 21;
     sh:path lblodSubsidie:akkoordClausule .
 
-ext:medewerkers
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help
-        """Geef een overzicht en een beschrijving van de taken van de medewerkers, zowel betaald als vrijwillig, die worden ingezet voor de uitvoering van het project. Geef aan op welke manier ze worden gerekruteerd, opgeleid en ondersteund.""";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:medewerkers;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Medewerkers";
-    sh:order 22;
-    sh:path lblodSubsidie:medewerkers .
-
 ext:email
     a form:Field;
     form:displayType displayTypes:defaultInput;
@@ -698,7 +681,6 @@ emb:source-node
         ext:startDatum,
         ext:juridischStatuut,
         ext:akkoordClausule,
-        ext:medewerkers,
         ext:begrotingDocument,
         ext:hiddenBegrotingDocument,
         ext:disseminatieEnVerduurzaming,
