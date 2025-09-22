@@ -457,23 +457,6 @@ ext:titelProject
     sh:order 13;
     sh:path lblodSubsidie:titelProject .
 
-ext:relevantieEnMaatschappelijkeBijdrage
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help "Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust. Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Motiveer waarom het project een antwoord zal bieden op de uitdagingen en/of noden. Licht toe hoe het project de benoemde doelgroepen zal bereiken en betrekken.";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:order 1;
-                sh:path lblodSubsidie:relevantieEnMaatschappelijkeBijdrage;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Relevantie en maatschappelijke bijdrage";
-    sh:order 17;
-    sh:path lblodSubsidie:relevantieEnMaatschappelijkeBijdrage .
-
 ext:bedrag
     a form:Field;
     form:displayType displayTypes:currencyInput;
@@ -732,7 +715,6 @@ emb:source-node
         ext:bevestigingWaarheid,
         ext:firstName,
         ext:titelProject,
-        ext:relevantieEnMaatschappelijkeBijdrage,
         ext:overzichtErkenningenListing,
         ext:aandachtIntersectionaliteit,
         ext:bijlageDocument,
