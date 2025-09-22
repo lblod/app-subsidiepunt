@@ -377,26 +377,6 @@ ext:straatEnNummer
     sh:order 3;
     sh:path lblodSubsidie:straatEnNummer .
 
-ext:opvolgingEnEvaluatie
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help
-        """Formuleer specifieke, meetbare, realistische en tijdsgebonden indicatoren (kritieke   
-prestatie-indicatoren / KPI’s) met bijhorende streefwaarden om het behalen van de   
-beoogde resultaten te meten. Geef ook aan hoe de voortgang en de resultaten van het   
-project worden opgevolgd en geëvalueerd.""";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:opvolgingEnEvaluatie;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Opvolging en evaluatie";
-    sh:order 20;
-    sh:path lblodSubsidie:opvolgingEnEvaluatie .
-
 ext:overzichtErkenningenSubForm a form:SubForm;
     form:includes
         ext:subsidierendeInstanties,
@@ -711,7 +691,6 @@ emb:source-node
         ext:beoogdeResultatenProject,
         ext:einddatumProject,
         ext:straatEnNummer,
-        ext:opvolgingEnEvaluatie,
         ext:bevestigingWaarheid,
         ext:firstName,
         ext:titelProject,
