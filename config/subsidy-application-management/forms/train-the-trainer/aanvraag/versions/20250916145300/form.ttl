@@ -528,24 +528,6 @@ ext:overzichtErkenningenListing
     form:scope ext:overzichtErkenningenScope;
     sh:order 1 .
 
-ext:aandachtIntersectionaliteit
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help
-        """Geef aan op welke manieren het project rekening houdt met diversiteit en intersectionaliteit, en hoe er wordt ingezet op integrale toegankelijkheid (bijvoorbeeld aan de hand van de <a href="https://www.integratie-inburgering.be/nl/wat-kunnen-we-voor-jou-doen/ondersteuning-voor-je-organisatie-of-lokaal-bestuur/participatie/hoe-toegankelijk-is-jouw-vrijetijdsaanbod/9-bs-van-toegankelijkheid" target="_blank">de 9 B’s van toegankelijkheid</a>).
-""";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:aandachtIntersectionaliteit;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Aandacht voor intersectionaliteit";
-    sh:order 24;
-    sh:path lblodSubsidie:aandachtIntersectionaliteit .
-
 ext:bijlageDocument
     a form:Field;
     form:displayType displayTypes:files;
@@ -695,7 +677,6 @@ emb:source-node
         ext:firstName,
         ext:titelProject,
         ext:overzichtErkenningenListing,
-        ext:aandachtIntersectionaliteit,
         ext:bijlageDocument,
         ext:hiddenBijlageDocument,
         ext:projectPlan,
