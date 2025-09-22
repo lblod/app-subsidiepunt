@@ -1,4 +1,8 @@
 # Changelog
+# unreleased
+- New subsidy train-the-trainer
+### Deploy instructions
+`drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
 ## 2.16.2
 - Fix LEKP 1.0 deadline for last instead of first step changed
 ### Deploy instructions
