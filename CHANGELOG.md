@@ -1,5 +1,5 @@
 # Changelog
-# unreleased
+# 2.17.0
 - New subsidy train-the-trainer
 ### Deploy instructions
 `drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
