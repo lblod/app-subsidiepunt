@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased
+- Reopen fietsinfrastructuur skipped steps for berlare
+### Deploy instructions
+`drc restart migrations cache resource`
 # 2.17.0
 - New subsidy train-the-trainer
 ### Deploy instructions
