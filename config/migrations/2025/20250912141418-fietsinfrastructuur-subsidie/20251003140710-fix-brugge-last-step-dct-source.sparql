@@ -1,0 +1,23 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+
+# BRUGGE
+# The "aanvraag saldo" step for 2 application-forms are missing dct:source. This migration sets the source for these application-forms.
+
+INSERT {
+  GRAPH ?g {
+    ?applicationForm dct:source
+      <config://forms/bicycle-infrastructure/request-balance/versions/20220110162327-initial-version/form.ttl>,
+      <config://forms/bicycle-infrastructure/request-balance/versions/20220110162327-initial-version/form.json> .
+  }
+}
+WHERE {
+  VALUES ?applicationForm {
+    <http://data.lblod.info/id/application-forms/6645F3B313EBE0697F4914C9> 
+    <http://data.lblod.info/id/application-forms/67A089A2F071ADC7ADCF2FF7>
+  }
+
+  # Constrain ?g to a graph that actually contains the resource
+  GRAPH ?g {
+    ?applicationForm ?anyP ?anyO .
+  }
+}

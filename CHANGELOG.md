@@ -4,6 +4,10 @@
 - Reopen e-inclusie subsidie of wielsbeke
 ### Deploy instructions
 `drc restart migrations cache resource`
+# 2.17.1
+- Add missing dct:source to 2 fietsinfrastructuur steps in brugge account
+### Deploy instructions
+`drc restart migrations cache resource`
 # 2.17.0
 - New subsidy train-the-trainer
 ### Deploy instructions
