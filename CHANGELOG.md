@@ -1,5 +1,7 @@
 # Changelog
 ## Unreleased
+### Deploy instructions
+## 2.18.0
 - Reopen fietsinfrastructuur skipped steps for berlare
 - Reopen e-inclusie subsidie of wielsbeke
 - Reopen e-inclusie subsidy of Borsbeek
