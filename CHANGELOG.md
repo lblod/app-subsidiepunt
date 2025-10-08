@@ -2,6 +2,7 @@
 ## Unreleased
 - Reopen fietsinfrastructuur skipped steps for berlare
 - Reopen e-inclusie subsidie of wielsbeke
+- Reopen e-inclusie subsidy of Borsbeek
 ### Deploy instructions
 `drc restart migrations cache resource`
 # 2.17.1
