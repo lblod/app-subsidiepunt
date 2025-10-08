@@ -1,0 +1,24 @@
+PREFIX adms: <http://www.w3.org/ns/adms#>
+
+# Wielsbeke
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/application-forms/632D8641DE441DADF23EFDFC> adms:status ?oldFormStatus .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/subsidy-measure-consumptions/6329DD1955A59A45B09C10F6> <http://www.w3.org/2007/uwa/context/common.owl#active> <http://lblod.data.info/id/subsidie-application-flow-steps/958f92d1-988b-4bcd-8eff-9abe99756582>. # Set to last step
+    <http://data.lblod.info/id/application-forms/632D8641DE441DADF23EFDFC> adms:status <http://lblod.data.gift/concepts/79a52da4-f491-4e2f-9374-89a13cde8ecd> . # CONCEPT
+
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/application-forms/632D8641DE441DADF23EFDFC> adms:status ?oldFormStatus .
+  }
+  VALUES ?g {
+    <http://mu.semte.ch/graphs/organizations/11e23f966461f4740579b5ac2745421c6a3c3f42a9dbd4df7bd3d3f21e44f129/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/subsidiedatabank>
+  }
+}
