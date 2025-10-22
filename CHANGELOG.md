@@ -1,6 +1,19 @@
 # Changelog
 ## Unreleased
 - Replace URIs of dossiers from pre-fusie-besturen. [https://binnenland.atlassian.net/browse/DGS-592]
+### Deploy notes
+:warning: backup first
+#### Non Prod Environment
+```
+drc stop
+cp -r ./data/db yyy-mm-dd-backup-db
+```
+#### Prod Environment
+```
+cd /data/app-borgmatic
+docker compose exec borgmatic borgmatic create --stats --repository app-subsidiepunt
+```
+
 ### Deploy instructions
 ## 2.18.0
 - Reopen fietsinfrastructuur skipped steps for berlare
