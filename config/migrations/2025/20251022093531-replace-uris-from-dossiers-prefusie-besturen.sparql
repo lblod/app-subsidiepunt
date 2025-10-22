@@ -244,6 +244,10 @@ WHERE {
     ?s ?p ?o .
   }
   BIND(IRI(CONCAT(STR(?s), "/new/", STR(SHA256(STR(?s))))) AS ?newUri)
+
+  FILTER NOT EXISTS {
+    ?s a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>.
+  }
 }
 
 ;
