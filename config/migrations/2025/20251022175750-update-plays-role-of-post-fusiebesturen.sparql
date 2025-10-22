@@ -1,0 +1,49 @@
+#
+# This fixes the playsrole triple after we moved the pre-fusion subsidie-dossiers to
+#   the post-fusie bestuurseenheden.
+
+PREFIX m8g: <http://data.europa.eu/m8g/>
+
+DELETE {
+  GRAPH ?g {
+    ?oldBestuurseenheid m8g:playsRole ?participation .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?newBestuurseenheid m8g:playsRole ?participation .
+  }
+}
+WHERE {
+  VALUES ?g {
+    # These are only POST-fusion besturen org-graphs
+    <http://mu.semte.ch/graphs/organizations/104f32d7fb8d4b8b61b71717301656f136fe046eabaf126fb3325896b5c2d625/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/19483103-318e-435a-aa37-45e485406ee9/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/b36da606fba6dd4dc99ae1ef5f4a52bba3268d33f4bc2cd1e65b87f01f35101a/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/add1e4eb-9ec7-4ea6-af82-335aa76b7d48/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/2ac1bb2a7d7bbd98e2e7a24be2c67e42171788a71c2436a33060626593bb2f78/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/b8bb293d-aa22-4b43-bda4-0b6af76e9493/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/cb2a6e0a490ee881ddd0d9ded7f2b3d1dc2df7e57a19d014caac054bfa355f5a/SubsidiepuntGebruiker>
+    <http://mu.semte.ch/graphs/organizations/1ca65d65-54ff-4b44-b750-bd70c91191af/SubsidiepuntGebruiker>
+  }
+
+  GRAPH ?g {
+    ?participation a m8g:Participation .
+    ?oldBestuurseenheid m8g:playsRole ?participation .
+  }
+
+  # UUID from the graph IRI (variable length, dashes allowed)
+  BIND(
+    REPLACE(STR(?g), "^.*?/organizations/([0-9A-Za-z-]+)/SubsidiepuntGebruiker.*$", "$1")
+    AS ?uuid
+  )
+
+  # Build the target bestuurseenheid IRI
+  BIND(
+    IRI(CONCAT("http://data.lblod.info/id/bestuurseenheden/", ?uuid))
+    AS ?newBestuurseenheid
+  )
+
+  # Only change when different
+  FILTER(?oldBestuurseenheid != ?newBestuurseenheid)
+}
