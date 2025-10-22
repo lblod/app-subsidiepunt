@@ -1,5 +1,6 @@
 # Changelog
 ## Unreleased
+- Replace URIs of dossiers from pre-fusie-besturen. [https://binnenland.atlassian.net/browse/DGS-592]
 ### Deploy instructions
 ## 2.18.0
 - Reopen fietsinfrastructuur skipped steps for berlare
