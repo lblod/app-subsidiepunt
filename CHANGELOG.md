@@ -16,8 +16,8 @@ cd /data/app-borgmatic
 docker compose exec borgmatic borgmatic create --stats --repository app-subsidiepunt
 cd /data/app-subsidiepunt 
 drc restart migrations; # wait until success
-drc restart resource cache;
 drc exec db-cleanup curl http://localhost/runCronjob?cronJobID=839f9343-d459-4793-bdae-36947d8f8573
+drc restart resource cache;
 ```
 
 

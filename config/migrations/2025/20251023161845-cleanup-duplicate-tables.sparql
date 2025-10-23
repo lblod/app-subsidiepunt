@@ -1,0 +1,25 @@
+DELETE {
+  GRAPH ?g {
+   ?form ?link ?table.
+   ?table ?rowP ?row.
+   ?row ?cellP ?cell.
+  }
+}
+WHERE {
+  VALUES ?table {
+    <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/d8312b85-5443-4531-bdb6-c7dac9f67cd9>
+    <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/6d892120-6009-4455-b01b-a12812a92ad4>
+    <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/table/e8ed428a-abc0-42b9-b208-52461c355b75>
+    <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/table/ba986ad5-e438-4178-91d3-4415fb22b0fe>
+  }
+  VALUES ?link {
+    <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable>
+    <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable>
+  }
+  GRAPH ?g {
+   ?form ?link ?table.
+   ?table ?rowP ?row.
+   ?row ?cellP ?cell.
+  }
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+}
