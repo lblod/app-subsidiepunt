@@ -6,6 +6,7 @@
 - Bump frontend subsidiedatabank to `v1.0.1`
 ### Deploy notes
 :warning: backup first
+Also there is a local migration file to run!
 #### Non Prod Environment
 ```
 drc stop
