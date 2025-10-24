@@ -1,0 +1,35 @@
+DELETE {
+  GRAPH ?g {
+    ?applicationForm <http://www.w3.org/ns/adms#status> ?status.
+  }
+} INSERT {
+  GRAPH ?g {
+    ?applicationForm <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/9bd8d86d-bb10-4456-a84e-91e9507c374c> # verstuurd
+  }
+} WHERE {
+  GRAPH ?g {
+    VALUES ?applicationForm {
+      <http://data.lblod.info/id/application-forms/62C7E1B8470F7A000800037B> # Merelbeke-Mele Fietsinfrastructuur Step 2
+      <http://data.lblod.info/id/application-forms/65DC8A78E9E0E2C72DFD27D7> # Gooik status last step concept but verstuurd in pajotegem
+      <http://data.lblod.info/id/application-forms/63499231C8723785872F9046> # De pinte step 2 is "concept" vs Nazareth-dePint "verstuurd"
+    }
+    ?applicationForm <http://www.w3.org/ns/adms#status> ?status.
+  }
+}
+;
+DELETE {
+  GRAPH ?g {
+    ?applicationForm <http://www.w3.org/ns/adms#status> ?status.
+  }
+} INSERT {
+  GRAPH ?g {
+    ?applicationForm <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/79a52da4-f491-4e2f-9374-89a13cde8ecd> # concept
+  }
+} WHERE {
+  GRAPH ?g {
+    VALUES ?applicationForm {
+      <http://data.lblod.info/id/application-forms/667034232D3C32FCB73D6CE7> # Borgloon step 3 is "nieuw" vs tongeren-borgloon "concept"
+    }
+    ?applicationForm <http://www.w3.org/ns/adms#status> ?status.
+  }
+}

@@ -1,0 +1,42 @@
+# Clean up double dates
+DELETE {
+  GRAPH ?g {
+    ?consumption <http://purl.org/dc/terms/modified> ?oldModified .
+  }
+}
+WHERE {
+  VALUES ?consumption {
+    <http://data.lblod.info/id/subsidy-measure-consumptions/632B0C82DE441DADF23EFC02>
+    <http://data.lblod.info/id/subsidy-measure-consumptions/6347C0B3C8723785872F8B25>
+    <http://data.lblod.info/id/subsidy-measure-consumptions/6343D145901B8E5E865B6F1C>
+    <http://data.lblod.info/id/subsidy-measure-consumptions/62BC002D470F7A000800026D>
+    <http://data.lblod.info/id/subsidy-measure-consumptions/6349918BC8723785872F9044>
+  }
+
+  GRAPH ?g {
+    ?consumption <http://purl.org/dc/terms/modified> ?oldModified .
+  }
+
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  {
+    SELECT ?consumption (MAX(?modified) as ?latestModified) WHERE {
+      VALUES ?consumption {
+        <http://data.lblod.info/id/subsidy-measure-consumptions/632B0C82DE441DADF23EFC02>
+        <http://data.lblod.info/id/subsidy-measure-consumptions/6347C0B3C8723785872F8B25>
+        <http://data.lblod.info/id/subsidy-measure-consumptions/6343D145901B8E5E865B6F1C>
+        <http://data.lblod.info/id/subsidy-measure-consumptions/62BC002D470F7A000800026D>
+        <http://data.lblod.info/id/subsidy-measure-consumptions/6349918BC8723785872F9044>
+      }
+
+      GRAPH ?g2 {
+        ?consumption <http://purl.org/dc/terms/modified> ?modified .
+      }
+
+      FILTER(REGEX(STR(?g2), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+    }
+    GROUP BY ?consumption
+  }
+
+  FILTER(?oldModified != ?latestModified)
+}

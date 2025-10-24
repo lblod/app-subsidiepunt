@@ -1,0 +1,69 @@
+DELETE {
+  GRAPH ?g {
+    ?form <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable> ?oldTable.
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?form <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable> ?newTable.
+  }
+}
+WHERE {
+
+  VALUES (?form ?newTable) {
+    ( <http://data.lblod.info/id/application-forms/640EEC315440073AC946A18C> <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/table/ba986ad5-e438-4178-91d3-4415fb22b0fe> )
+  }
+
+  GRAPH ?g {
+    ?form <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable> ?oldTable.
+  }
+}
+
+;
+
+DELETE {
+  GRAPH ?g {
+    ?form <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable> ?oldTable.
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?form <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable> ?newTable.
+  }
+}
+WHERE {
+
+  VALUES (?form ?newTable) {
+    ( <http://data.lblod.info/id/application-forms/640EEC315440073AC946A18C> <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/e0707d50-0afc-4f6d-8305-88098a303dc0> )
+  }
+
+  GRAPH ?g {
+    ?form <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable> ?oldTable.
+  }
+}
+
+;
+
+DELETE {
+  GRAPH ?g {
+     ?table ?p ?o
+  }
+
+  GRAPH ?j {
+     ?o ?oP ?oO.
+  }
+}
+WHERE {
+  VALUES ?table {
+   <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/d8312b85-5443-4531-bdb6-c7dac9f67cd9>
+   <http://lblod.data.gift/id/subsidie/bicycle-infrastructure/table/29ae1495-edab-45c9-8c02-a550b5e37437>
+  }
+
+  GRAPH ?g {
+     ?table ?p ?o
+  }
+
+  GRAPH ?j {
+     ?o ?oP ?oO.
+  }
+}

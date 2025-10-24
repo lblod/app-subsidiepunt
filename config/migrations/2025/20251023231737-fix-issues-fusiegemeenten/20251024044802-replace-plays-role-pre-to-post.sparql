@@ -1,0 +1,36 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+
+DELETE {
+  GRAPH ?g {
+    ?oldBestuurseenheid m8g:playsRole ?participation .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?newBestuurseenheid m8g:playsRole ?participation.
+    ?oldBestuurseenheid <http://mu.semte.ch/vocabularies/ext/playedRolePrefusion> ?participation.
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?participation a m8g:Participation .
+    ?oldBestuurseenheid m8g:playsRole ?participation .
+  }
+
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  # UUID from the graph IRI (variable length, dashes allowed)
+  BIND(
+    REPLACE(STR(?g), "^.*?/organizations/([0-9A-Za-z-]+)/SubsidiepuntGebruiker.*$", "$1")
+    AS ?uuid
+  )
+
+  # Build the target bestuurseenheid IRI
+  BIND(
+    IRI(CONCAT("http://data.lblod.info/id/bestuurseenheden/", ?uuid))
+    AS ?newBestuurseenheid
+  )
+
+  # Only change when different
+  FILTER(?oldBestuurseenheid != ?newBestuurseenheid)
+}
