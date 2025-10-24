@@ -3,6 +3,7 @@
 - Fix the issue where fietsinfrastructuur subsidies were spread over pre and post fusie besturen. [https://binnenland.atlassian.net/browse/DGS-592]
   - In this solution, we remove the subsidies that were spread, from the pre-fusion besturen
   - The only change for the users; is that in the these move subsidies will be registed as 'createdBy' the post-fusion besturen.
+- Bump frontend subsidiedatabank to `v1.0.1`
 ### Deploy notes
 :warning: backup first
 #### Non Prod Environment
@@ -18,6 +19,7 @@ cd /data/app-subsidiepunt
 drc restart migrations; # wait until success
 drc exec db-cleanup curl http://localhost/runCronjob?cronJobID=839f9343-d459-4793-bdae-36947d8f8573
 drc restart resource cache;
+drc up -d frontend-subsidiedatabank
 ```
 ## 2.18.0
 - Reopen fietsinfrastructuur skipped steps for berlare
