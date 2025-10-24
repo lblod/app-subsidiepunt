@@ -1,0 +1,89 @@
+DELETE {
+  GRAPH ?b {
+    ?form ?p ?o.
+  }
+  GRAPH ?c {
+    ?bank ?bankP ?bankO.
+  }
+  GRAPH ?d {
+    ?cp ?cpP ?coO.
+  }
+  GRAPH ?f {
+    ?file ?fileP ?fileO.
+  }
+  GRAPH ?g {
+    ?fileO ?fileOP ?fileOO.
+  }
+  GRAPH ?h {
+    ?fileOO ?fileOOP ?fileOOO
+  }
+  GRAPH ?i {
+    ?sourceFile ?sourceFileP ?sourceFileO.
+  }
+  GRAPH ?j {
+    ?table ?extraPredicate ?extraObject.
+    ?extraObject ?entryPredicate ?entryObject.
+  }
+}
+WHERE {
+  VALUES ?form {
+    <http://data.lblod.info/id/application-forms/68F76B85454ADBE23B39963F>
+    <http://data.lblod.info/id/application-forms/68F0F338F5825976A02657D5>
+  }
+  GRAPH ?a {
+    ?consumption <http://purl.org/dc/terms/source> ?form.
+  }
+  {
+    GRAPH ?b {
+      ?form ?p ?o.
+    }
+  }
+  UNION {
+    ?form <http://schema.org/bankAccount> ?bank.
+    GRAPH ?c {
+      ?bank ?bankP ?bankO.
+    }
+  }
+  UNION {
+    ?form <http://schema.org/contactPoint> ?cp.
+    GRAPH ?d {
+      ?cp ?cpP ?coO.
+    }
+  }
+  UNION {
+    VALUES ?fp {
+      <http://lblod.data.gift/vocabularies/subsidie/picturesUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/reportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/invoiceUpload>
+    }
+    ?form ?fp ?file.
+    GRAPH ?f {
+      ?file ?fileP ?fileO.
+    }
+    GRAPH ?g {
+      ?fileO ?fileOP ?fileOO.
+    }
+    GRAPH ?h {
+      ?fileOO ?fileOOP ?fileOOO
+    }
+    ?sourceFile <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource> ?fileOO.
+    GRAPH ?i {
+      ?sourceFile ?sourceFileP ?sourceFileO.
+    }
+  }
+  UNION {
+    VALUES ?tablePredicate {
+      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable>
+      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable>
+    }
+    ?form ?tablePredicate ?table.
+    GRAPH ?j {
+      OPTIONAL {
+        ?table ?extraPredicate ?extraObject.
+        OPTIONAL {
+          ?extraObject ?entryPredicate ?entryObject.
+        }
+      }
+    }
+  }
+}

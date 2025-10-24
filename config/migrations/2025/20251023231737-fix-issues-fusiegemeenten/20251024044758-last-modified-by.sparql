@@ -1,0 +1,22 @@
+DELETE {
+  GRAPH ?g {
+    ?form <http://mu.semte.ch/vocabularies/ext/lastModifiedBy> ?oldLastModBy.
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?form <http://mu.semte.ch/vocabularies/ext/lastModifiedBy> ?newLastModBy.
+  }
+}
+WHERE {
+  VALUES (?form ?newLastModBy) {
+    ( <http://data.lblod.info/id/application-forms/63499231C8723785872F9046> <http://data.lblod.info/id/persoon/fa3f2240-4499-11ed-959b-69f7bf4e2233>)
+    (<http://data.lblod.info/id/application-forms/667034232D3C32FCB73D6CE7> <http://data.lblod.info/id/persoon/ab549770-a8da-11f0-86bb-d36396d75bb1>
+    )
+    (<http://data.lblod.info/id/application-forms/62C7E1B8470F7A000800037B> <http://data.lblod.info/id/persoon/8d44afc0-5d6e-11f0-86bb-d36396d75bb1>)
+  }
+
+  GRAPH ?g {
+    ?form <http://mu.semte.ch/vocabularies/ext/lastModifiedBy> ?oldLastModBy.
+  }
+}

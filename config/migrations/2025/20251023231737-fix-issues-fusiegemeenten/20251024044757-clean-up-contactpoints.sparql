@@ -1,0 +1,31 @@
+DELETE {
+  GRAPH ?g {
+    ?form <http://schema.org/contactPoint> ?oldContactPoint.
+  }
+  GRAPH ?j {
+    ?oldContactPoint  ?oldContactPointP ?oldContactPointO.
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?form <http://schema.org/contactPoint> ?newContactPoint.
+  }
+}
+WHERE {
+  VALUES (?form ?newContactPoint) {
+    ( <http://data.lblod.info/id/application-forms/63499231C8723785872F9046> <http://data.lblod.info/form-data/nodes/311b97a0-6182-11f0-8181-b9ee34492820>)
+    (<http://data.lblod.info/id/application-forms/65DC8A78E9E0E2C72DFD27D7> <http://data.lblod.info/form-data/nodes/85671f80-dfd9-11ef-bbf8-a99190d29ef1>)
+    (<http://data.lblod.info/id/application-forms/667034232D3C32FCB73D6CE7> <http://data.lblod.info/form-data/nodes/bd500400-a8da-11f0-a98f-f3182eea313f>)
+    ( <http://data.lblod.info/id/application-forms/640EEC315440073AC946A18C> <http://data.lblod.info/form-data/nodes/c63ba330-3078-11ee-8d28-43e756a47304>)
+  }
+
+  GRAPH ?g {
+    ?form <http://schema.org/contactPoint> ?oldContactPoint.
+  }
+
+  FILTER(?oldContactPoint != ?newContactPoint)
+
+  GRAPH ?j {
+    ?oldContactPoint ?oldContactPointP ?oldContactPointO.
+  }
+}

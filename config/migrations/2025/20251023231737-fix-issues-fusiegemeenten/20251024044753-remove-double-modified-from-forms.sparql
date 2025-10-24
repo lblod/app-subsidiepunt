@@ -1,0 +1,50 @@
+DELETE {
+  GRAPH ?g {
+    ?form <http://purl.org/dc/terms/modified> ?oldModified .
+  }
+}
+WHERE {
+  VALUES ?form {
+    <http://data.lblod.info/id/application-forms/640EEC315440073AC946A18C>
+    <http://data.lblod.info/id/application-forms/65DC8A78E9E0E2C72DFD27D7>
+    <http://data.lblod.info/id/application-forms/63499231C8723785872F9046>
+    <http://data.lblod.info/id/application-forms/6876644AE649EF89E2FD2649>
+    <http://data.lblod.info/id/application-forms/62C7E1B8470F7A000800037B>
+    <http://data.lblod.info/id/application-forms/667034232D3C32FCB73D6CE7>
+    <http://data.lblod.info/id/application-forms/68DF71DBF8154632E579485F>
+    <http://data.lblod.info/id/application-forms/68F0F338F5825976A02657D5>
+    <http://data.lblod.info/id/application-forms/68F76B85454ADBE23B39963F>
+  }
+
+  GRAPH ?g {
+    ?form <http://purl.org/dc/terms/modified> ?oldModified .
+  }
+  ?form <http://purl.org/dc/terms/modified> ?mod
+
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  {
+    SELECT ?form (MAX(?modified) as ?latestModified) WHERE {
+      VALUES ?form {
+        <http://data.lblod.info/id/application-forms/640EEC315440073AC946A18C>
+        <http://data.lblod.info/id/application-forms/65DC8A78E9E0E2C72DFD27D7>
+        <http://data.lblod.info/id/application-forms/63499231C8723785872F9046>
+        <http://data.lblod.info/id/application-forms/6876644AE649EF89E2FD2649>
+        <http://data.lblod.info/id/application-forms/62C7E1B8470F7A000800037B>
+        <http://data.lblod.info/id/application-forms/667034232D3C32FCB73D6CE7>
+        <http://data.lblod.info/id/application-forms/68DF71DBF8154632E579485F>
+        <http://data.lblod.info/id/application-forms/68F0F338F5825976A02657D5>
+        <http://data.lblod.info/id/application-forms/68F76B85454ADBE23B39963F>
+      }
+
+      GRAPH ?g2 {
+        ?form <http://purl.org/dc/terms/modified> ?modified .
+      }
+
+      FILTER(REGEX(STR(?g2), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+    }
+    GROUP BY ?form
+  }
+
+  FILTER(?oldModified != ?latestModified)
+}
