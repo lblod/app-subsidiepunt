@@ -1,0 +1,22 @@
+DELETE {
+  GRAPH ?g {
+   ?brokenEenheid <http://data.europa.eu/m8g/playsRole> ?participation.
+   ?eenheid <http://mu.semte.ch/vocabularies/ext/playedRolePrefusion> ?participation.
+  }
+}
+INSERT {
+  GRAPH ?g {
+   ?eenheid <http://data.europa.eu/m8g/playsRole> ?participation.
+  }
+}
+WHERE {
+  GRAPH ?g {
+   ?brokenEenheid <http://data.europa.eu/m8g/playsRole> ?participation.
+  }
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  FILTER NOT EXISTS {
+    ?brokenEenheid a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid>
+  }
+  ?eenheid <http://mu.semte.ch/vocabularies/ext/playedRolePrefusion> ?participation;
+    skos:prefLabel ?label.
+}
