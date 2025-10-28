@@ -1,8 +1,7 @@
 # Changelog
 ## 2.18.5 (2025-10-28)
 - Postfix fietsinfrastructuur. 
-  - Some improvements and corrections on the previous release hotfix.
-  - [https://binnenland.atlassian.net/browse/DGS-592]
+  - Some improvements and corrections on the previous release hotfix. see also: [https://binnenland.atlassian.net/browse/DGS-592]
 ### Deploy notes
 :warning: backup first
 Also there is a local migration file to run!
