@@ -1,0 +1,286 @@
+INSERT {
+  # CONSUMPTION
+  GRAPH ?targetGraph {
+    ?consumption ?consumptionP ?consumptionO.
+
+  # CONSUMPTION - FORM
+
+    ?source ?sourceP ?sourceO.
+
+  # CONSUMPTION - FORM - UPLOAD
+
+    ?upload ?uploadP ?uploadO.
+
+  # CONSUMPTION - FORM - UPLOAD - FILE
+
+    ?file ?fileP ?fileO.
+    ?pFile ?pFileP ?pFileO.
+
+
+  # CONSUMPTION - FORM - BANKACCOUNT
+
+    ?bankAccount ?bankAccountP ?bankAccountO.
+
+
+  # CONSUMPTION - FORM - BANKACCOUNT - FILE
+
+    ?file ?fileP ?fileO.
+    ?pFile ?pFileP ?pFileO.
+
+
+  # CONSUMPTION - FORM - CONTACT
+
+    ?contact ?contactP ?contactO.
+
+
+  # CONSUMPTION - FORM - TABLE
+
+    ?table ?tableP ?tableO.
+
+
+  # CONSUMPTION - FORM - TABLE - ENTRY
+
+    ?entry ?entryP ?entryO.
+
+
+  # CONSUMPTION - PARTICIPATION
+
+    ?participation ?participationP ?participationO.
+
+
+  # CONSUMPTION - PARTICIPATION - PLAYS ROLE
+
+    ?newBestuurseenheid <http://data.europa.eu/m8g/role> ?participation.
+    ?preFusieEenheid <http://mu.semte.ch/vocabularies/ext/playedRolePrefusion> ?participation.
+  }
+}
+WHERE {
+  VALUES ?preFusieEenheid {
+    <http://data.lblod.info/id/bestuurseenheden/c362abc58ac4579ff417824ce620962ac57bc344b34fe8f51d21b35ef54da36d>
+   }
+
+   BIND(<http://temp/prefusion/fietssubsides> as ?targetGraph)
+
+
+   ?preFusieEenheid <http://mu.semte.ch/vocabularies/ext/playedRolePrefusion> ?participation.
+   ?consumption <http://data.europa.eu/m8g/hasParticipation> ?participation;
+     a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelConsumptie>.
+
+
+   ?consumption <http://data.vlaanderen.be/ns/transactie#isInstantieVan>  <http://lblod.data.gift/concepts/70cc4947-33a3-4d26-82e0-2e1eacd2fea2>.
+
+
+  # CONSUMPTION
+  {
+    GRAPH ?a {
+      ?consumption ?consumptionP ?consumptionO.
+    }
+    FILTER(REGEX(STR(?a), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+
+  }
+  # CONSUMPTION - FORM
+  UNION {
+    ?consumption <http://purl.org/dc/terms/source> ?source.
+
+    GRAPH ?b {
+      ?source ?sourceP ?sourceO.
+    }
+    FILTER(REGEX(STR(?b), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - FORM - UPLOAD
+  UNION {
+    ?consumption <http://purl.org/dc/terms/source> ?source.
+
+    VALUES ?toUploadP {
+      <http://lblod.data.gift/vocabularies/subsidie/justificationCostsUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/accountabilityNoteUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/awardReportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/justificationExpropriationsUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/picturesUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/decisionUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/reportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/invoiceUpload>
+    }
+
+    ?source ?toUploadP ?upload.
+
+    GRAPH ?c {
+      ?upload ?uploadP ?uploadO.
+    }
+    FILTER(REGEX(STR(?c), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - FORM - UPLOAD - FILE
+  UNION {
+    ?consumption <http://purl.org/dc/terms/source> ?source.
+
+    VALUES ?toUploadP {
+      <http://lblod.data.gift/vocabularies/subsidie/justificationCostsUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/accountabilityNoteUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/awardReportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/justificationExpropriationsUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/picturesUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/decisionUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/reportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/invoiceUpload>
+    }
+
+    ?source ?toUploadP ?upload.
+
+    ?upload <http://purl.org/dc/terms/hasPart> ?file.
+
+    GRAPH ?d {
+      ?file ?fileP ?fileO.
+    }
+    FILTER(REGEX(STR(?d), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  }
+  # CONSUMPTION - FORM - UPLOAD - FILE - PHYSICAL FILE
+  UNION {
+    ?consumption <http://purl.org/dc/terms/source> ?source.
+
+    VALUES ?toUploadP {
+      <http://lblod.data.gift/vocabularies/subsidie/justificationCostsUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/accountabilityNoteUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/awardReportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/justificationExpropriationsUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/picturesUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/decisionUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/reportUpload>
+      <http://lblod.data.gift/vocabularies/subsidie/invoiceUpload>
+    }
+
+    ?source ?toUploadP ?upload.
+
+    ?upload <http://purl.org/dc/terms/hasPart> ?file.
+
+    GRAPH ?e {
+      ?pFile <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource> ?file;
+        ?pFileP ?pFileO.
+    }
+    FILTER(REGEX(STR(?e), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  }
+
+  # CONSUMPTION - FORM - BANKACCOUNT
+  UNION {
+    ?consumption <http://schema.org/bankAccount> ?bankAccount.
+
+    GRAPH ?f {
+      ?bankAccount ?bankAccountP ?bankAccountO.
+    }
+    FILTER(REGEX(STR(?f), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - FORM - BANKACCOUNT - FILE
+  UNION {
+    ?consumption <http://schema.org/bankAccount> ?bankAccount.
+    ?bankAccount <http://purl.org/dc/terms/hasPart> ?file.
+
+    GRAPH ?h {
+      ?file ?fileP ?fileO
+    }
+    FILTER(REGEX(STR(?h), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  }
+  # CONSUMPTION - FORM - BANKACCOUNT - FILE - PHYSICAL FILE
+  UNION {
+    ?consumption <http://schema.org/bankAccount> ?bankAccount.
+    ?bankAccount <http://purl.org/dc/terms/hasPart> ?file.
+
+    GRAPH ?i {
+      ?pFile <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource> ?file;
+        ?pFileP ?pFileO.
+    }
+    FILTER(REGEX(STR(?i), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  }
+  # CONSUMPTION - FORM - CONTACT
+  UNION {
+    ?consumption <http://schema.org/contactPoint> ?contact.
+
+    GRAPH ?j {
+     ?contact ?contactP ?contactO.
+    }
+    FILTER(REGEX(STR(?j), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - FORM - TABLE
+  UNION {
+    VALUES ?toTableP {
+      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable>
+      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable>
+    }
+    ?consumption ?toTableP ?table.
+
+    GRAPH ?k {
+     ?table ?tableP ?tableO.
+    }
+    FILTER(REGEX(STR(?k), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - FORM - TABLE - ENTRY
+  UNION {
+    VALUES ?toTableP {
+      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#estimatedCostTable>
+      <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#objectiveTable>
+    }
+    ?consumption ?toTableP ?table.
+    ?table ?tableP ?entry.
+
+    GRAPH ?l {
+      ?entry ?entryP ?entryO.
+    }
+    FILTER(REGEX(STR(?l), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - PARTICIPATION
+  UNION {
+    ?consumption <http://data.europa.eu/m8g/hasParticipation> ?participation.
+
+    GRAPH ?m {
+      ?participation ?participationP ?participationO.
+    }
+    FILTER(REGEX(STR(?m), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+
+  }
+  # CONSUMPTION - PARTICIPATION - PLAYS ROLE
+  UNION {
+    ?consumption <http://data.europa.eu/m8g/hasParticipation> ?participation.
+
+    GRAPH ?n {
+    ?newBestuurseenheid <http://data.europa.eu/m8g/role> ?participation.
+    ?preFusieEenheid <http://mu.semte.ch/vocabularies/ext/playedRolePrefusion> ?participation.
+    }
+    FILTER(REGEX(STR(?n), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  }
+}
+
+;
+
+DELETE {
+  GRAPH ?sourceGraph {
+    ?s ?p ?o
+  }
+  GRAPH ?g {
+    ?s ?p ?o
+  }
+}
+INSERT {
+  GRAPH ?newTargetGraph {
+    ?s ?p ?o
+  }
+}
+WHERE {
+  BIND(<http://temp/prefusion/fietssubsides> as ?sourceGraph)
+  GRAPH ?sourceGraph {
+    ?s ?p ?o
+  }
+  GRAPH ?g {
+    ?s ?p ?o
+  }
+  FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  BIND(<http://mu.semte.ch/graphs/organizations/19483103-318e-435a-aa37-45e485406ee9/SubsidiepuntGebruiker> as ?newTargetGraph)
+}
+
+;
+
+CLEAR GRAPH <http://temp/prefusion/fietssubsides>

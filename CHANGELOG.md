@@ -1,4 +1,27 @@
 # Changelog
+## 2.18.5 (2025-10-28)
+- Postfix fietsinfrastructuur. 
+  - Some improvements and corrections on the previous release hotfix. see also: [https://binnenland.atlassian.net/browse/DGS-592]
+### Deploy notes
+:warning: backup first
+Also there is a local migration file to run!
+#### Non Prod Environment
+```
+drc stop
+cp -r ./data/db yyy-mm-dd-backup-db
+drc up -d
+drc exec db-cleanup curl http://localhost/runCronjob?cronJobID=839f9343-d459-4793-bdae-36947d8f8573
+drc restart resource cache
+```
+#### Prod Environment
+```
+cd /data/app-borgmatic
+docker compose exec borgmatic borgmatic create --stats --repository app-subsidiepunt
+cd /data/app-subsidiepunt
+drc restart migrations; # wait until success
+drc exec db-cleanup curl http://localhost/runCronjob?cronJobID=839f9343-d459-4793-bdae-36947d8f8573
+drc restart resource cache;
+```
 ## 2.18.4 (2025-10-24)
 - Fix the issue where fietsinfrastructuur subsidies were spread over pre and post fusie besturen. [https://binnenland.atlassian.net/browse/DGS-592]
   - In this solution, we remove the subsidies that were spread, from the pre-fusion besturen
