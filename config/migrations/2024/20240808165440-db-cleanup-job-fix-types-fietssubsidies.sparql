@@ -2,6 +2,9 @@ PREFIX cleanup: <http://mu.semte.ch/vocabularies/ext/cleanup/>
 PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
+# DEPRECATED
+# REPLACED BY 20251021164251-update-subsidiedatabank-db-cleanup-query.sparql
+
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
     <http://data.lblod.info/job/id/bdb6425e-a1ef-42e7-b6a6-495e8d462536> a cleanup:Job;

@@ -1,0 +1,22 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+
+# Merelbeke mele
+# This migration sets the source for these application-forms.
+
+INSERT {
+  GRAPH ?g {
+    ?applicationForm dct:source
+      <config://forms/bicycle-infrastructure/request-balance/versions/20220110162327-initial-version/form.ttl>,
+      <config://forms/bicycle-infrastructure/request-balance/versions/20220110162327-initial-version/form.json> .
+  }
+}
+WHERE {
+  VALUES ?applicationForm {
+    <http://data.lblod.info/id/application-forms/68DF71DBF8154632E579485F>
+  }
+
+  # Constrain ?g to a graph that actually contains the resource
+  GRAPH ?g {
+    ?applicationForm ?anyP ?anyO .
+  }
+}
