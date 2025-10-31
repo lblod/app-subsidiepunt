@@ -1,4 +1,12 @@
 # Changelog
+## 2.18.6 (2025-10-31)
+- remove and fix fietsinfrastructuur identifiers (dossiernummers)
+### Deploy notes
+```
+drc restart migrations
+drc exec db-cleanup curl http://localhost/runCronjob?cronJobID=839f9343-d459-4793-bdae-36947d8f8573
+drc restart resource cache
+```
 ## 2.18.5 (2025-10-28)
 - Postfix fietsinfrastructuur. 
   - Some improvements and corrections on the previous release hotfix. see also: [https://binnenland.atlassian.net/browse/DGS-592]
