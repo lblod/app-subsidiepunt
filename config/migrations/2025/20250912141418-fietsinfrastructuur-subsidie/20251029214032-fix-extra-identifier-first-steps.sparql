@@ -1,0 +1,19 @@
+PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
+
+# Some first steps used as reference have more then 1 identifier. Manually check them and remove the wrong identifier
+DELETE {
+  GRAPH ?g {
+    ?form nie:identifier ?identifier .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?form nie:identifier ?identifier .
+    VALUES ?identifier {
+      "fiets-subsidie-22DA94"  # oostende 63466EEF2C389BF7BC154DC2
+      "fiets-subsidie-62752D"  # londerzeel 6343C96B901B8E5E865B6F0C
+      "fiets-subsidie-F3434C"  # heist-op-den-berg 63B2B20A4B6B4804E093628E
+      "fiets-subsidie-0E2700"  # lokeren 63341352947E4E8DA453AF2F
+    }
+  }
+}
