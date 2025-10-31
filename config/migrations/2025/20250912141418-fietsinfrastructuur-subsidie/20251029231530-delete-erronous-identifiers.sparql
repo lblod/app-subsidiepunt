@@ -27,9 +27,6 @@ WHERE {
                nie:identifier ?otherIdentifier .
 
 
-    # Skip the first form itself
-    FILTER(?otherForm != ?firstForm)
-
     # Step 3: Only delete forms whose identifier differs from the first form
     FILTER(?otherIdentifier != ?firstIdentifier)
   }
