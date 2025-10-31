@@ -17,27 +17,3 @@ WHERE {
     }
   }
 }
-
-# Validations: Check for first steps with more then 1 identifier
-
-## PREFIX nie:     <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
-## PREFIX dcterms: <http://purl.org/dc/terms/>
-## PREFIX cube:    <http://purl.org/linked-data/cube#>
-## 
-## # CHECK FIRST STEPS FOR MORE THEN 1 IDENTIFIER
-## SELECT ?g ?applicationForm (COUNT(?identifier) AS ?identifierCount)
-## WHERE {
-##   GRAPH ?g {
-##     ?applicationForm a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm> ;
-##                      nie:identifier ?identifier ;
-##                      dcterms:isPartOf ?applicationFlowStep .
-##   }
-## 
-##   # Check that this flow step is the one with cube:order 0 in any graph
-##   GRAPH ?any {
-##     ?applicationFlowStep cube:order 0 .
-##   }
-## }
-## GROUP BY ?g ?applicationForm
-## HAVING (COUNT(?identifier) > 1)
-## ORDER BY DESC(?identifierCount)

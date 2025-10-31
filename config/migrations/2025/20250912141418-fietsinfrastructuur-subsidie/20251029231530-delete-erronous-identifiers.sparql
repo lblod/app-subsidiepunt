@@ -34,34 +34,3 @@ WHERE {
     FILTER(?otherIdentifier != ?firstIdentifier)
   }
 }
-
-## Validation: check for identifiers not equal to first step identifier
-
-## PREFIX nie:     <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
-## PREFIX dcterms: <http://purl.org/dc/terms/>
-## PREFIX cube:    <http://purl.org/linked-data/cube#>
-## 
-## SELECT DISTINCT ?consumption ?otherForm ?otherIdentifier ?firstIdentifier
-## WHERE {
-##   GRAPH ?g {
-##     # Step 1: Get the first-step form and its identifier
-##     ?consumption dcterms:source ?firstForm .
-##     ?firstForm a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm> ;
-##                nie:identifier ?firstIdentifier ;
-##                dcterms:isPartOf ?applicationFlowStep .
-##   }
-## 
-##   GRAPH ?any {
-##     ?applicationFlowStep cube:order 0 .
-##   }
-## 
-##   GRAPH ?g {
-##     # Step 2: Get all other forms linked to the same consumption
-##     ?consumption dcterms:source ?otherForm .
-##     ?otherForm a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm> ;
-##                nie:identifier ?otherIdentifier .
-## 
-##     # Step 3: Only keep the forms whose identifier is different from the first step
-##     FILTER(?otherIdentifier != ?firstIdentifier)
-##   }
-## }
