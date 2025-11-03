@@ -1,0 +1,13 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+
+INSERT {
+    GRAPH <http://mu.semte.ch/graphs/public> {
+        ?s skos:topConceptOf <http://lblod.data.gift/concept-schemes/5979ff3e-1f4c-4271-ae40-e1d2000d6412>.
+        ?s skos:inScheme <http://lblod.data.gift/concept-schemes/5979ff3e-1f4c-4271-ae40-e1d2000d6412>.
+    }
+} WHERE {
+    GRAPH <http://mu.semte.ch/graphs/public> {
+        ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelAanbod> .
+    }
+}
