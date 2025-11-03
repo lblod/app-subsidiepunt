@@ -1,4 +1,13 @@
 # Changelog
+## 2.18.6 (2025-11-03)
+- Enable detail view for ALL subsidies
+- Update subsidies filter in subsidiedatabank
+### Deploy notes
+```
+drc up -d
+drc restart migrations
+drc restart form-data-management
+```
 ## 2.18.6 (2025-10-31)
 - remove and fix fietsinfrastructuur identifiers (dossiernummers)
 ### Deploy notes
