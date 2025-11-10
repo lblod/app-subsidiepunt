@@ -1,5 +1,5 @@
 # Changelog
-## 2.19.0 (2025-11-14)
+## 2.20.0 (2025-11-14)
 - Extend pride deadline to 14 november
 ### Deploy notes
 ```
