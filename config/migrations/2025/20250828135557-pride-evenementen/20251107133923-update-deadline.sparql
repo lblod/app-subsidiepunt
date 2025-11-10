@@ -1,0 +1,26 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Pride evenementen 
+# Step Aanvraag
+# END DATES -> 14 November 2025 - 12:00
+DELETE {
+  GRAPH ?g {
+    ?s m8g:endTime ?oldEndTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/ae14664f-303f-477d-aa64-4a4de4d1693e> m8g:endTime "2025-11-14T11:00:00Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/173c0399-a8cc-4179-98c3-4c067b810e8e> m8g:endTime "2025-11-14T11:00:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    VALUES ?s {
+      <http://data.lblod.info/id/periodes/ae14664f-303f-477d-aa64-4a4de4d1693e>
+      <http://data.lblod.info/id/periodes/173c0399-a8cc-4179-98c3-4c067b810e8e>
+    }
+    ?s m8g:endTime ?oldEndTime .
+  }
+}
