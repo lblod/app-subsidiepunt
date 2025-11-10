@@ -1,4 +1,11 @@
 # Changelog
+## 2.19.0 (2025-11-14)
+- Extend pride deadline to 14 november
+### Deploy notes
+```
+drc restart migrations
+drc restart cache resource
+```
 ## 2.18.6 (2025-11-03)
 - Enable detail view for ALL subsidies
 - Update subsidies filter in subsidiedatabank
