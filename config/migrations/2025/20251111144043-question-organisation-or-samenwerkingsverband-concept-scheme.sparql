@@ -1,0 +1,22 @@
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+<http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f> <http://mu.semte.ch/vocabularies/core/uuid> "7dcc5923-8f2e-4cb4-8d2d-1a59035e8453" ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Application type for subsidy: individual organisation or samenwerkingsverband"@en .
+
+<http://lblod.data.gift/concepts/9f16f681-6b24-4674-9ea3-18e8296f63f2> <http://mu.semte.ch/vocabularies/core/uuid> "9f16f681-6b24-4674-9ea3-18e8296f63f2" ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>, <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#definition> "Aanvrager is an individuele organisatie "@en ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f> ;
+	<http://purl.org/linked-data/cube#order> 0;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Een individuele organisatie"@nl .
+
+<http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e> <http://mu.semte.ch/vocabularies/core/uuid> "3ec0b899-2b91-4223-99bf-105cbeb29a7e" ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>, <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#definition> "Aanvrager is a samenwerkingsverband van organisaties"@en ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f> ;
+	<http://purl.org/linked-data/cube#order> 1;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Een samenwerkingsverband van organisaties"@nl .
+
+  }
+}
