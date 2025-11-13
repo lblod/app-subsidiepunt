@@ -137,7 +137,7 @@ zal realiseren.""";
             a form:Field;
             form:displayType displayTypes:files;
             form:partOf ext:keuzeMenuSection;
-            sh:order 2;
+            sh:order 3;
             sh:name "Ondertekende samenwerkingsovereenkomst";
             form:rendersWhen
                 [ 
@@ -154,15 +154,6 @@ zal realiseren.""";
                 sh:path ( lblodSubsidie:samenwerkingsovereenkomst dct:hasPart rdf:type );
                 form:partOf ext:keuzeMenuSection.
 
-        # Label #####################################################
-        ext:organisatiesListingHeading a form:Field;
-            form:displayType displayTypes:heading;
-            sh:name "Organisaties die deel uitmaken van het samenwerkingsverband:";
-            form:help "Voeg alle organisaties toe die deel uitmaken van het samenwerkingsverband";
-            sh:order 3;
-            form:options """{ "level": "1", "skin": "6"}""";
-            sh:group ext:keuzeMenuSection.
-
         # Listing ##################################################
         ext:samenwerkingverbandOrganisaties a form:Listing, form:ListingTable;
             sh:name "Deelnemende organisaties in het samenwerkingsverband";
@@ -171,7 +162,7 @@ zal realiseren.""";
             form:removeLabel "Verwijderen";
             form:canAdd true;
             form:canRemove true;
-            sh:order 4;
+            sh:order 2;
             form:each ext:svItemsForm;
             form:scope ext:svListingScope;
 
@@ -196,7 +187,7 @@ zal realiseren.""";
 
         # Field ##################################################
         ext:organisatieNaam a form:Field ;
-            sh:name "Naam van de organisatie" ;
+            sh:name "Namen van de organisaties" ;
             sh:path ext:organisatieNaam ;
             form:displayType displayTypes:defaultInput ;
             form:partOf ext:keuzeMenuSection.
@@ -231,7 +222,7 @@ vanaf 1 april 2026, mits het ontvangen van de subsidie, de voorgestelde actie su
                     a form:SingleCodelistValue ;
                     form:grouping form:Bag ;
                     sh:path lblodSubsidie:orgOrSamenwerking ;
-                    form:customValue <http://lblod.data.gift/concepts/9f16f681-6b24-4674-9ea3-18e8296f63f2>
+                    form:customValue <http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e>
                 ];
             sh:path lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband .
 
@@ -948,7 +939,6 @@ emb:source-node
         ext:naamSamenwerkingsverband,   
         ext:werkingExpertiseDraagkrachtOrganisatie,
         ext:werkingExpertiseDraagkrachtSamenwerkingsverband,
-        ext:samenwerkingverbandOrganisaties,
         ext:straatEnNummer,
         ext:postnummerEnGemeente,
         ext:ondernemingsnummer,
@@ -960,10 +950,10 @@ emb:source-node
         ext:actie,
         ext:familyName,
         ext:firstName,
-        ext:organisatiesListingHeading,
         ext:overzichtAndereSubsidierendeInstanties,
         ext:verantwoordingBegroteMiddelen,
         ext:titelAanbod,
+        ext:samenwerkingverbandOrganisaties,
         ext:korteOmschrijvingAanbod,
         ext:inhoudeEnDoelstellingenAanbod,
         ext:doelstellingenToelichting,
