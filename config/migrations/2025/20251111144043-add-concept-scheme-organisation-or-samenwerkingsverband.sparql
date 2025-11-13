@@ -1,6 +1,6 @@
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
-<http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f> <http://mu.semte.ch/vocabularies/core/uuid> "7dcc5923-8f2e-4cb4-8d2d-1a59035e8453" ;
+<http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f> <http://mu.semte.ch/vocabularies/core/uuid> "ea0f4c49-3a01-4737-89ea-1a65a416c52f" ;
 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
 	<http://www.w3.org/2004/02/skos/core#prefLabel> "Application type for subsidy: individual organisation or samenwerkingsverband"@en .
 
