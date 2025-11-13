@@ -10,37 +10,47 @@
       "PREFIX sh:             <http://www.w3.org/ns/shacl#>"
     ],
     "properties": [
+      "lblodSubsidie:naamSamenwerkingsverband",
+      "lblodSubsidie:naamOrganisatie",
+      "lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie",
+      "lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband",
+      "lblodSubsidie:orgOrSamenwerking",
       "lblodSubsidie:telephone",
       "lblodSubsidie:website",
       "lblodSubsidie:bankAccount",
       "lblodSubsidie:email",
-      "lblodSubsidie:algemeneDoelstellingenEnOpdrachten",
-      "lblodSubsidie:startDatum",
       "lblodSubsidie:juridischStatuut",
-      "lblodSubsidie:akkoordClausule",
-      "lblodSubsidie:overzichtMedewerkers",
-      "lblodSubsidie:begrotingDocument",
-      "lblodSubsidie:aanpakEnKwaliteitsbewaking",
-      "lblodSubsidie:ondernemingsnummer",
+      "lblodSubsidie:actie",
+      "lblodSubsidie:straatEnNummer",
+      "lblodSubsidie:postnummerEnGemeente",
+      "lblodSubsidie:familyName",
+      "lblodSubsidie:firstName",
       "lblodSubsidie:overzichtAndereSubsidierendeInstanties",
       "lblodSubsidie:verantwoordingBegroteMiddelen",
-      "lblodSubsidie:familyName",
-      "lblodSubsidie:beoogdeResultatenProject",
-      "lblodSubsidie:einddatumProject",
-      "lblodSubsidie:straatEnNummer",
-      "lblodSubsidie:doelpubliekProject",
-      "lblodSubsidie:bevestigingWaarheid",
-      "lblodSubsidie:firstName",
-      "lblodSubsidie:titelProject",
-      "lblodSubsidie:korteOmschrijvingProject",
-      "lblodSubsidie:overzichtErkenningenListing",
-      "lblodSubsidie:aandachtIntersectionaliteit",
-      "lblodSubsidie:bijlageDocument",
-      "lblodSubsidie:postnummerEnGemeente",
-      "lblodSubsidie:samenwerkingsverbandenToelichting",
-      "lblodSubsidie:verduurzamingEnOpenbaarmaking",
+      "lblodSubsidie:titelAanbod",
+      "lblodSubsidie:korteOmschrijvingAanbod",
+      "lblodSubsidie:inhoudeEnDoelstellingenAanbod",
       "lblodSubsidie:doelstellingenToelichting",
-      "lblodSubsidie:gevraagdeSubsidieGelijkeKansen",
+      "lblodSubsidie:aandachtIntersectionaliteit",
+      "lblodSubsidie:doelpubliekProject",
+      "lblodSubsidie:samenwerkingsverbandenToelichting",
+      "lblodSubsidie:aanpakEnKwaliteitsbewaking",
+      "lblodSubsidie:beoogdeResultatenProject",
+      "lblodSubsidie:impactEnBereik",
+      "lblodSubsidie:duurzaamheidEnVerspreiding",
+      "lblodSubsidie:verduurzamingEnOpenbaarmaking",
+      "lblodSubsidie:overzichtErkenningenListing",
+      "lblodSubsidie:overzichtMedewerkers",
+      "lblodSubsidie:bijlageDocument",
+      "lblodSubsidie:jaarrekeningOrganisatie",
+      "lblodSubsidie:gevraagdeSubsidiebedrag",
+      "lblodSubsidie:bevestigingWaarheid",
+      "lblodSubsidie:samenvattingSubsidieaanvraag",
+      "lblodSubsidie:aansluitingIntegratiebeleid",
+      "lblodSubsidie:akkoordClausule",
+      "lblodSubsidie:startEindDatum",
+      "lblodSubsidie:afwijkingSubsidieperiode",
+      "lblodSubsidie:ondernemingsnummer",
       {
         "s-prefix": "schema:contactPoint",
         "properties": [
@@ -80,20 +90,52 @@
         ]
       },
       {
+        "s-prefix": "lblodSubsidie:samenwerkingsovereenkomst",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:jaarrekeningOrganisatie",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
         "s-prefix": "lblodSubsidie:overzichtErkenningen",
         "properties": [
           "rdf:type",
           "sh:order",
           "lblodSubsidie:redenErkenning",
           "lblodSubsidie:subsidierendeInstanties",
+          "lblodSubsidie:periode",
           "lblodSubsidie:bedrag"
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:samenwerkingverbandOrganisaties",
+        "properties": [
+          "rdf:type",
+          "sh:order",
+          "ext:organisatieNaam"
         ]
       }
     ]
   },
   "meta": {
     "schemes": [
-      "http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f"
+      "http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f",
+      "http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad"
     ]
   }
 }
