@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased
+- add new step lekp 1.0 - opvolgmoment 2026
+### Deploy notes
+`drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
 ## 2.20.0 (2025-11-14)
 - Extend pride deadline to 14 november
 ### Deploy notes
