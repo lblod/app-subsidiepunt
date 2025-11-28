@@ -37,7 +37,7 @@ INSERT DATA {
     <http://data.lblod.info/id/periodes/fdda3762-5b5b-4b78-a2ba-38c9c494d5ad> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "fdda3762-5b5b-4b78-a2ba-38c9c494d5ad";
       # Time is set to 31 december 23:00 because UTC+1 this becomes 1 january 00:00
-      <http://data.europa.eu/m8g/startTime> "2024-12-31T23:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/startTime> "2025-12-31T23:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
       # Time is set to 1 june 21:59 because UTC+2 this becomes 1 june 23:59
       <http://data.europa.eu/m8g/endTime> "2026-06-01T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
   }
