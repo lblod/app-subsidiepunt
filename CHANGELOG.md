@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 2.21.0 (2025-12-05)
 - add new step lekp 1.0 - opvolgmoment 2026
 ### Deploy notes
 `drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
