@@ -1,4 +1,11 @@
 # Changelog
+## Unreleased
+- Bump frontend subsidiepunt to `v1.16.0`
+- Bump frontend subsidiedatabank to `v1.1.0`
+### Deploy notes
+```
+drc up -d frontend frontend-subsidiedatabank 
+```
 ## 2.21.0 (2025-12-05)
 - add new step lekp 1.0 - opvolgmoment 2026
 ### Deploy notes
