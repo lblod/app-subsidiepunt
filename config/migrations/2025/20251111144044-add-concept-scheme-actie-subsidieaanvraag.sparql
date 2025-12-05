@@ -1,0 +1,25 @@
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+	<http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad> <http://mu.semte.ch/vocabularies/core/uuid> "8bfe7997-5f90-46e3-8659-941d1ad5e9ad" ;
+		<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+		<http://www.w3.org/2004/02/skos/core#prefLabel> "Application type for subsidy: individual organisation or samenwerkingsverband"@en .
+
+	<http://lblod.data.gift/concepts/7318ab46-f6e9-469e-8ff6-3483e46929cc> <http://mu.semte.ch/vocabularies/core/uuid> "7318ab46-f6e9-469e-8ff6-3483e46929cc" ;
+		<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>, <http://www.w3.org/2004/02/skos/core#Concept> ;
+		<http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad> ;
+		<http://purl.org/linked-data/cube#order> 0;
+		<http://www.w3.org/2004/02/skos/core#prefLabel> "Actie 1: Arbeidsmarktintegratie van personen van buitenlandse herkomst via mentoring"@nl .
+
+	<http://lblod.data.gift/concepts/0edc0e0f-1438-4321-a979-d5d854cdcb13> <http://mu.semte.ch/vocabularies/core/uuid> "0edc0e0f-1438-4321-a979-d5d854cdcb13" ;
+		<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>, <http://www.w3.org/2004/02/skos/core#Concept> ;
+		<http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad> ;
+		<http://purl.org/linked-data/cube#order> 1;
+		<http://www.w3.org/2004/02/skos/core#prefLabel> "Actie 2: Arbeidsmarktintegratie en sociale participatie van maatschappelijk kwetsbare vrouwen en meisjes van buitenlandse herkomst via ambassadeurs en rolmodellen"@nl .
+
+	<http://lblod.data.gift/concepts/d6a9dd50-f4d3-4f24-997d-e73b082cff08> <http://mu.semte.ch/vocabularies/core/uuid> "d6a9dd50-f4d3-4f24-997d-e73b082cff08" ;
+		<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>, <http://www.w3.org/2004/02/skos/core#Concept> ;
+		<http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad> ;
+		<http://purl.org/linked-data/cube#order> 2;
+		<http://www.w3.org/2004/02/skos/core#prefLabel> "Actie 3: De school als buurtgerichte spil voor maatschappelijke participatie, betrokkenheid en verbinding"@nl .
+  }
+}
