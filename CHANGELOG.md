@@ -1,6 +1,6 @@
 # Changelog
 ## Unreleased
-- Bump frontend subsidiepunt to `v1.16.0`
+- Bump frontend subsidiepunt to `v1.16.1`
 - Bump frontend subsidiedatabank to `v1.1.0`
 ### Deploy notes
 ```
