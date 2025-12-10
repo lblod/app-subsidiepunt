@@ -1,0 +1,25 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX m8g: <http://data.europa.eu/m8g/>
+
+# This adds the missing end date triples for the e-inclusion verantwoording step deadline
+# Note that this exists in the org graph because different orgs can have different deadlines for this step
+
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> m8g:endTime "2025-09-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?any ?p ?o .
+    FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  }
+
+  FILTER NOT EXISTS {
+    GRAPH ?g {
+      <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903>
+        m8g:endTime
+        ?s .
+    }
+  }
+}

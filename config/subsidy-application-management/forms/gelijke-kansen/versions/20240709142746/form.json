@@ -73,7 +73,8 @@
           "sh:order",
           "ext:subsidieInstantie",
           "ext:subsidieOfErkenningReden",
-          "ext:erkenningOrSubsidieAmount"
+          "ext:erkenningOrSubsidieAmount",
+          "lblodSubsidie:subisidieOfErkenningsBedrag"
         ]
       },
       {
