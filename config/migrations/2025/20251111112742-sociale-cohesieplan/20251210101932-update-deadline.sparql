@@ -1,0 +1,26 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Sociale cohesieplan 
+# Step Aanvraag
+# END DATES -> 16 february 2026 - 23:59:59
+DELETE {
+  GRAPH ?g {
+    ?s m8g:endTime ?oldEndTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/d8f205d1-4c5e-4f5f-9f84-a6868e11eff5> m8g:endTime "2026-02-16T22:59:59Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/0a9c9627-7f6b-4c11-bef3-f8de493d5211> m8g:endTime "2026-02-16T22:59:59Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    VALUES ?s {
+      <http://data.lblod.info/id/periodes/d8f205d1-4c5e-4f5f-9f84-a6868e11eff5>
+      <http://data.lblod.info/id/periodes/0a9c9627-7f6b-4c11-bef3-f8de493d5211>
+    }
+    ?s m8g:endTime ?oldEndTime .
+  }
+}
