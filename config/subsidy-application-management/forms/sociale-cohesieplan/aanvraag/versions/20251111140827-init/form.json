@@ -52,6 +52,8 @@
       "lblodSubsidie:startEindDatum",
       "lblodSubsidie:afwijkingSubsidieperiode",
       "lblodSubsidie:ondernemingsnummer",
+      "lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext",
+      "lblodSubsidie:projectplan",
       {
         "s-prefix": "schema:contactPoint",
         "properties": [

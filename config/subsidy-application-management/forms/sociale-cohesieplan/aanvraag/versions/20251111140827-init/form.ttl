@@ -339,6 +339,12 @@ ext:gegevensAanvragerSection
         form:displayType displayTypes:defaultInput;
         form:partOf ext:gegevensAanvragerSection;
         form:validatedBy
+                [ 
+                    a form:ValidEmail ;
+                    form:grouping form:MatchEvery ;
+                    sh:path ( schema:contactPoint schema:email ) ;
+                    sh:resultMessage "Geef een geldig e-mailadres op."@nl
+                ],
                 [
                     a form:RequiredConstraint;
                     form:grouping form:Bag;
@@ -1002,6 +1008,11 @@ emb:source-node
         ext:verantwoordingBegroteMiddelen,
         ext:andereSubsidiesEnInkomsten,
         ext:titelAanbod,
+        ext:samenWerkingMetEnAfstemmingOpDeLokaleContext
+        ext:projectplan,
+        ext:hiddenprojectplan,
+        ext:begrotingDocument,
+        ext:hiddenBegrotingDocument,
         ext:samenwerkingverbandOrganisaties,
         ext:korteOmschrijvingAanbod,
         ext:inhoudeEnDoelstellingenAanbod,
@@ -1016,8 +1027,6 @@ emb:source-node
         ext:verduurzamingEnOpenbaarmaking,
         ext:overzichtErkenningenListing,
         ext:overzichtMedewerkers,
-        ext:begrotingDocument,
-        ext:hiddenBegrotingDocument,
         ext:bijlageDocument,
         ext:hiddenBijlageDocument,
         ext:jaarrekeningOrganisatie,
