@@ -81,8 +81,8 @@ ext:keuzeMenuSection
 personeelsbestand, de algemene doelstellingen en opdrachten van de   
 organisatie. Omschrijf over welke expertise, ervaring en organisatorische   
 vaardigheden en capaciteiten de organisatie beschikt in functie van de   
-actie waarvoor ingetekend wordt. Omschrijf ook hoe de organisatie vanaf 1   
-april 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol   
+actie waarvoor ingetekend wordt. Omschrijf ook hoe de organisatie vanaf 15   
+mei 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol   
 zal realiseren.""";
             form:partOf ext:keuzeMenuSection;
             form:validatedBy
@@ -202,7 +202,7 @@ Beschrijf welke organisaties er deel van uitmaken, en welke verdeling van taken,
 verantwoordelijkheden en middelen afgesproken werd. 2. Omschrijf over welke expertise,   
 ervaring en organisatorische vaardigheden en capaciteiten het samenwerkingsverband beschikt   
 in functie van de actie waarvoor ingetekend wordt. Omschrijf ook hoe het samenwerkingsverband   
-vanaf 1 april 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol zal realiseren.""";
+vanaf 15 mei 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol zal realiseren.""";
             form:partOf ext:keuzeMenuSection;
             form:validatedBy
                     [
@@ -467,7 +467,7 @@ ext:samenvattingSubsidieaanvraagSection a form:Section;
     # Field ##################################################
     ext:aansluitingIntegratiebeleid a form:Field ;
         sh:name "Aansluiting bij het Vlaamse integratiebeleid" ;
-        sh:description "Beschrijf kort hoe het aanbod aansluit bij de uitgangspunten, doelstellingen en doelgroep van het Vlaamse integratiebeleid, zoals omschreven in hoofdstuk 3.1 van de subsidieoproep (max. 1000 tekens).";
+        sh:description "Beschrijf kort hoe het aanbod aansluit bij de uitgangspunten, doelstellingen en doelgroep van het Vlaamse integratiebeleid, zoals omschreven in hoofdstuk 3.2 van de subsidieoproep (max. 1000 tekens).";
         sh:path lblodSubsidie:aansluitingIntegratiebeleid ;
         form:validations
         [ a form:RequiredConstraint ;
@@ -496,14 +496,14 @@ ext:samenvattingSubsidieaanvraagSection a form:Section;
                     sh:path lblodSubsidie:gevraagdeSubsidiebedrag;
                     sh:resultMessage "Dit veld is verplicht."
                 ];
-        sh:name "Gevraagde subsidiebedrag";
+        sh:name "Gevraagd subsidiebedrag";
         sh:path lblodSubsidie:gevraagdeSubsidiebedrag.
         
     # CONDITION ##################################################
     ext:startEindDatum a form:Field;
         form:displayType displayTypes:conceptSchemeRadioButtons;
         sh:name "Start- en einddatum";
-        form:help "De gevraagde subsidie geldt voor de subsidieperiode van in totaal 3 jaar, met name van 1 april 2026 tot en met 31 maart 2029.";
+        form:help "De gevraagde subsidie geldt voor de subsidieperiode van in totaal 3 jaar, met name van 15 mei 2026 tot en met 14 mei 2029.";
         form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/e311b861-d8aa-47a1-80e9-7f4a1fb3de09", "orderBy":"http://purl.org/linked-data/cube#order"}""" ;
         form:validatedBy
                 [   
@@ -692,7 +692,7 @@ van de subsidieoproep: het bevorderen van (1) een sterke maatschappelijke positi
 participatie van personen van buitenlandse herkomst en (2) ontmoeting, verbinding en   
 sociale cohesie in de samenleving. Omschrijf ook hoe het aanbod aansluit bij de   
 specifieke verwachtingen rond de actie uit de subsidieoproep waarbinnen het aanbod   
-past, zoals omschreven in hoofdstuk XX van de subsidieoproep. Formuleer welke   
+past, zoals omschreven in hoofdstuk 3.3 van de subsidieoproep. Formuleer welke   
 maatschappelijke uitdaging(en) het aanbod aanpakt, op welke doelgroep(en) men zich   
 richt, welke doelstellingen nagestreefd worden en welke methodieken en acties   
 gehanteerd zullen worden. Licht toe hoe het aanbod de benoemde doelgroep(en) zal   
@@ -723,7 +723,7 @@ de praktijk.""";
 hoe het aanbod hen zal ondersteunen in hun regierol over het integratiebeleid. Geef aan   
 hoe het aanbod afgestemd wordt op lokale contexten, opdat het op maat,   
 complementair aan al bestaande initiatieven en passend bij lokale beleidsprioriteiten   
-ingezet zal worden. Welke samenwerkingen worden aangegaan en waarom? Geef ook 
+ingezet zal worden. Welke samenwerkingen worden aangegaan en waarom? Geef ook   
 aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg eventueel   
 engagements- of intentieverklaring(en) toe waarin lokale partners de punten waarop zal   
 samengewerkt worden, bevestigen.""";
@@ -752,13 +752,12 @@ samengewerkt worden, bevestigen.""";
 verspreid zal worden doorheen Vlaanderen en Brussel-Hoofdstad. Beschrijf welk bereik   
 met het gevraagde subsidiebedrag gerealiseerd zal worden en welke streefcijfers   
 vooropgesteld worden. Besteed aandacht aan de drie gradaties van bereik, zoals   
-omschreven in … van de subsidieoproep. Formuleer specifieke, meetbare, realistische en   
-tijdsgebonden (SMART) indicatoren met bijhorende streefwaarden (kritieke prestatie
-indicatoren / KPI’s) om het behalen van de beoogde resultaten te meten. Beschrijf welke   
-risico’s en afhankelijkheden het behalen van de doelstellingen binnen de vooropgestelde   
-termijn kunnen beïnvloeden, en geef aan hoe er rekening mee wordt gehouden in de   
-planning en uitvoering. Geef ook aan hoe de voortgang en de resultaten worden   
-opgevolgd, geëvalueerd en bijgestuurd.""";
+omschreven in hoofdstuk 3.6 van de subsidieoproep. Formuleer duidelijke indicatoren   
+met bijhorende streefwaarden om het behalen van de beoogde resultaten te meten.   
+Beschrijf welke risico’s en afhankelijkheden het behalen van de doelstellingen binnen de   
+vooropgestelde termijn kunnen beïnvloeden, en geef aan hoe er rekening mee wordt   
+gehouden in de planning en uitvoering. Geef ook aan hoe de voortgang en de resultaten   
+worden opgevolgd, geëvalueerd en bijgestuurd.""";
         form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
         form:validatedBy
                 [
@@ -806,11 +805,10 @@ met het aanbod.""";
         a form:Field;
         form:displayType displayTypes:files;
         form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
-        sh:name "Laad hier uw projectplan op";
-        form:help """Geef een samenvattend projectplan met een visueel overzicht en tijdlijn van de   
-doelstellingen, acties en KPI’s. Geef ook de opvolging, evaluatie, risicobeheer en   
-disseminatie weer. Gebruik waar mogelijk schema’s of tabellen om de informatie   
-overzichtelijk te presenteren.""";
+        sh:name "Laad hier uw visueel plan van aanpak op";
+        form:help """Visualiseer het plan van aanpak met een overzicht en tijdlijn van de doelstellingen, acties   
+en mijlpalen. Gebruik waar mogelijk schema’s of tabellen om de informatie overzichtelijk   
+te presenteren.""";
         sh:path (lblodSubsidie:projectplan dct:hasPart) .
 
         # HIDDEN Field ##################################################
@@ -834,7 +832,7 @@ ext:overzichtBegrotingSection a form:Section;
         form:help """Maak een gedetailleerde begroting op in het voorziene sjabloon. Geef een overzicht van   
 de begrote middelen per jaar en voor de volledige subsidieperiode van drie jaar. Voeg   
 het ingevulde sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te   
-vinden op …""";
+vinden op <a href="https://www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken" target="_blank">https://www.vlaanderen.be/node/273288</a>""";
         form:partOf ext:overzichtBegrotingSection;
         form:validatedBy
                 [
@@ -850,6 +848,56 @@ vinden op …""";
             sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
             sh:path ( lblodSubsidie:begrotingDocument dct:hasPart rdf:type );
             form:partOf ext:overzichtBegrotingSection.
+
+    # Field ##################################################
+    ext:verantwoordingBegroteMiddelen
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Verantwoording van de begrote middelen";
+        form:help """Geef een toelichting bij de begroting van alle personeels- en werkingskosten en motiveer   
+waarom die noodzakelijk zijn voor de verwezenlijking van het aanbod. Duid bij de   
+personeelskosten het totaal aantal begrote VTE’s, de inzet per medewerker en de kost   
+per medewerker (met vermelding van de gehanteerde loonschaal).""";
+        form:partOf ext:overzichtBegrotingSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:verantwoordingBegroteMiddelen;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:verantwoordingBegroteMiddelen
+                ];
+        sh:path lblodSubsidie:verantwoordingBegroteMiddelen .
+
+    # Field ##################################################
+    ext:andereSubsidiesEnInkomsten
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Andere subsidies en inkomsten";
+        form:help """Geef aan of er voor dit aanbod ook andere subsidies werden aangevraagd. Vermeld of   
+deze al zijn toegekend, waarvoor ze specifiek zullen worden gebruikt en voeg de   
+contactgegevens toe van de financierende instantie(s). Geef ook toelichting bij eventuele   
+andere inkomsten die voor het aanbod worden aangewend.""";
+        form:partOf ext:overzichtBegrotingSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:andereSubsidiesEnInkomsten;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:andereSubsidiesEnInkomsten
+                ];
+        sh:path lblodSubsidie:andereSubsidiesEnInkomsten .
 
 ##########################################################
 # SECTION: Verklaring op eer en clausule non-discriminatie en integriteit
@@ -919,7 +967,7 @@ ext:bijlageSection
         form:displayType displayTypes:files;
         form:partOf ext:bijlageSection;
         sh:name "Laad hier alle relevante bijlagen op";
-        form:help """Maak een zo gedetailleerd mogelijke begroting op. Het sjabloon kan je vinden op <a href="https://www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken" target="_blank">www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken</a>""";
+        form:help """Maak een zo gedetailleerd mogelijke begroting op. Het sjabloon kan je vinden op <a href="https://www.vlaanderen.be/node/273288" target="_blank">www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken</a>""";
         sh:path (lblodSubsidie:bijlageDocument dct:hasPart) .
 
     # HIDDEN Field ##################################################
@@ -952,6 +1000,7 @@ emb:source-node
         ext:firstName,
         ext:overzichtAndereSubsidierendeInstanties,
         ext:verantwoordingBegroteMiddelen,
+        ext:andereSubsidiesEnInkomsten,
         ext:titelAanbod,
         ext:samenwerkingverbandOrganisaties,
         ext:korteOmschrijvingAanbod,
