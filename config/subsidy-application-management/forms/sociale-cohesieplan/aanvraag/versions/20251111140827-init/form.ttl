@@ -1,0 +1,1051 @@
+@prefix : <#>.
+@prefix form: <http://lblod.data.gift/vocabularies/forms/>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix displayTypes: <http://lblod.data.gift/display-types/>.
+@prefix nodes: <http://data.lblod.info/form-data/nodes/>.
+@prefix emb: <http://ember-submission-form-fields/>.
+@prefix lblodSubsidie: <http://lblod.data.gift/vocabularies/subsidie/>.
+@prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix schema: <http://schema.org/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix fieldOption: <http://lblod.data.gift/vocabularies/form-field-options/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+
+##########################################################
+# SECTION: Keuzemenu 
+##########################################################
+ext:keuzeMenuSection
+    a form:Section;
+    form:help
+        "Individuele organisatie of samenwerkingsverband.";
+    sh:name "Keuzemenu";
+    sh:order 1 .
+
+    # SELECT CONDITION FIELD ##################################################
+    ext:orgOrSamenwerking a form:Field;
+        form:displayType displayTypes:conceptSchemeRadioButtons;
+        sh:name "De subsidieaanvraag wordt ingediend door:";
+        form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f", "orderBy":"http://purl.org/linked-data/cube#order"}""" ;
+        sh:order 1;
+        form:validatedBy
+                [   
+                    a form:ConceptSchemeConstraint ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:conceptScheme <http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f> ;
+                    sh:resultMessage "Selecteer een waarde uit de lijst."@nl
+                ],
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:orgOrSamenwerking;
+                    sh:resultMessage "Gelieve een optie te kiezen."
+                ];
+
+        form:partOf ext:keuzeMenuSection;
+        sh:path lblodSubsidie:orgOrSamenwerking .
+
+    # CONDITIONAL: Organisaties #################################################################
+
+        # Field ##################################################
+        ext:naamOrganisatie
+            a form:Field;
+            form:displayType displayTypes:defaultInput;
+            form:partOf ext:keuzeMenuSection;
+            form:validatedBy
+                    [
+                        a form:RequiredConstraint;
+                        form:grouping form:Bag;
+                        sh:path lblodSubsidie:naamOrganisatie;
+                        sh:resultMessage "Dit veld is verplicht."
+                    ];
+            sh:name "Naam organisatie";
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/9f16f681-6b24-4674-9ea3-18e8296f63f2>
+                ];
+            sh:path lblodSubsidie:naamOrganisatie .
+
+
+        # Field ##################################################
+        ext:werkingExpertiseDraagkrachtOrganisatie
+            a form:Field;
+            form:displayType displayTypes:textArea;
+            sh:name "Informatie over de werking, ervaring, expertise en draagkracht van de organisatie ";
+            form:help """Schets kort de geschiedenis, het   
+personeelsbestand, de algemene doelstellingen en opdrachten van de   
+organisatie. Omschrijf over welke expertise, ervaring en organisatorische   
+vaardigheden en capaciteiten de organisatie beschikt in functie van de   
+actie waarvoor ingetekend wordt. Omschrijf ook hoe de organisatie vanaf 15   
+mei 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol   
+zal realiseren.""";
+            form:partOf ext:keuzeMenuSection;
+            form:validatedBy
+                    [
+                        a form:RequiredConstraint;
+                        form:grouping form:Bag;
+                        sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie;
+                        sh:resultMessage "Dit veld is verplicht."
+                    ],
+                    [ a form:MaxLength ; 
+                        form:max 3000;
+                        form:grouping form:MatchEvery ;
+                        sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                        sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie
+                    ];
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/9f16f681-6b24-4674-9ea3-18e8296f63f2>
+                ];
+            sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie .
+
+    # CONDITIONAL: Samenwerkingsverband #########################################################
+
+        # Field ##################################################
+        ext:naamSamenwerkingsverband
+            a form:Field;
+            form:displayType displayTypes:defaultInput;
+            sh:name "Naam samenwerkingsverband";
+            form:partOf ext:keuzeMenuSection;
+            sh:order 1;
+            form:validatedBy
+                    [
+                        a form:RequiredConstraint;
+                        form:grouping form:Bag;
+                        sh:path lblodSubsidie:naamSamenwerkingsverband;
+                        sh:resultMessage "Dit veld is verplicht."
+                    ];
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e>
+                ];
+            sh:path lblodSubsidie:naamSamenwerkingsverband .
+
+        # UPLOAD FIELD ##################################################
+        ext:samenwerkingsovereenkomst
+            a form:Field;
+            form:displayType displayTypes:files;
+            form:partOf ext:keuzeMenuSection;
+            sh:order 3;
+            sh:name "Ondertekende samenwerkingsovereenkomst";
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e>
+                ];
+            sh:path (lblodSubsidie:samenwerkingsovereenkomst dct:hasPart) .
+
+        # HIDDEN Field ##################################################
+            ext:hiddensamenwerkingsovereenkomst a form:Field ;
+                sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
+                sh:path ( lblodSubsidie:samenwerkingsovereenkomst dct:hasPart rdf:type );
+                form:partOf ext:keuzeMenuSection.
+
+        # Listing ##################################################
+        ext:samenwerkingverbandOrganisaties a form:Listing, form:ListingTable;
+            sh:name "Deelnemende organisaties in het samenwerkingsverband";
+            form:help "Voeg de organisaties toe die deel uitmaken van het samenwerkingsverband.";
+            form:addLabel "Voeg organisatie toe";
+            form:removeLabel "Verwijderen";
+            form:canAdd true;
+            form:canRemove true;
+            sh:order 2;
+            form:each ext:svItemsForm;
+            form:scope ext:svListingScope;
+
+            form:createGenerator ext:samenwerkingverbandOrganisatiesGenerator;
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e>
+                ];
+            form:partOf ext:keuzeMenuSection.
+
+        # Scope ##################################################
+        ext:svListingScope a form:Scope;
+        sh:path lblodSubsidie:samenwerkingverbandOrganisaties.
+
+        # Subform ##################################################
+        ext:svItemsForm a form:SubForm;
+        sh:name "Samenwerkingsverband organisatie" ;
+        form:includes ext:organisatieNaam.
+
+        # Field ##################################################
+        ext:organisatieNaam a form:Field ;
+            sh:name "Namen van de organisaties" ;
+            sh:path ext:organisatieNaam ;
+            form:displayType displayTypes:defaultInput ;
+            form:partOf ext:keuzeMenuSection.
+
+        # Field ##################################################
+        ext:werkingExpertiseDraagkrachtSamenwerkingsverband
+            a form:Field;
+            form:displayType displayTypes:textArea;
+            sh:name "Informatie over de werking, ervaring, expertise en draagkracht van het samenwerkingsverband";
+            form:help """1. Schets het samenwerkingsverband dat de subsidieaanvraag indient.   
+Beschrijf welke organisaties er deel van uitmaken, en welke verdeling van taken,   
+verantwoordelijkheden en middelen afgesproken werd. 2. Omschrijf over welke expertise,   
+ervaring en organisatorische vaardigheden en capaciteiten het samenwerkingsverband beschikt   
+in functie van de actie waarvoor ingetekend wordt. Omschrijf ook hoe het samenwerkingsverband   
+vanaf 15 mei 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol zal realiseren.""";
+            form:partOf ext:keuzeMenuSection;
+            form:validatedBy
+                    [
+                        a form:RequiredConstraint;
+                        form:grouping form:Bag;
+                        sh:path lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband;
+                        sh:resultMessage "Dit veld is verplicht."
+                    ],
+                    [ a form:MaxLength ; 
+                        form:max 3000;
+                        form:grouping form:MatchEvery ;
+                        sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                        sh:path lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband
+                    ];
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e>
+                ];
+            sh:path lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband .
+
+##########################################################
+# SECTION: Gegevens aanvrager
+##########################################################
+ext:gegevensAanvragerSection
+    a form:Section;
+    form:help
+        "De verantwoordelijke van de organisatie of vereniging die de subsidie aanvraagt, vult dit formulier in.";
+    sh:name "Gegevens van de aanvrager";
+    sh:order 2 .
+
+    # Field ##################################################
+    ext:juridischStatuut
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:juridischStatuut;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "juridisch statuut";
+        sh:path lblodSubsidie:juridischStatuut .
+
+    # Field ##################################################
+    ext:straatEnNummer
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:straatEnNummer;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "straat en nummer";
+        sh:path lblodSubsidie:straatEnNummer .
+
+    # Field ##################################################
+    ext:postnummerEnGemeente
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:postnummerEnGemeente;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "postnummer en gemeente";
+        sh:path lblodSubsidie:postnummerEnGemeente .
+
+    # Field ##################################################
+    ext:familyName
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path ( schema:contactPoint foaf:familyName );
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "naam contactpersoon";
+        sh:path ( schema:contactPoint foaf:familyName ) .
+
+    # Field ##################################################
+    ext:firstName
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path ( schema:contactPoint foaf:firstName );
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "voornaam contactpersoon";
+        sh:path ( schema:contactPoint foaf:firstName ) .
+
+    # Field ##################################################
+    ext:telephone
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:ValidPhoneNumber;
+                    form:defaultCountry "BE";
+                    form:grouping form:MatchEvery;
+                        sh:path ( schema:contactPoint schema:telephone );
+                    sh:resultMessage "Geef een geldig telefoonnummer in."
+                ],
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                        sh:path ( schema:contactPoint schema:telephone );
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "telefoonnummer";
+        sh:path ( schema:contactPoint schema:telephone ).
+
+    # Field ##################################################
+    ext:email
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [ 
+                    a form:ValidEmail ;
+                    form:grouping form:MatchEvery ;
+                    sh:path ( schema:contactPoint schema:email ) ;
+                    sh:resultMessage "Geef een geldig e-mailadres op."@nl
+                ],
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path ( schema:contactPoint schema:email );
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "e-mailadres";
+        sh:path ( schema:contactPoint schema:email ) .
+
+    # Field ##################################################
+    ext:website
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:website;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "website";
+        sh:path lblodSubsidie:website .
+
+    # Field ##################################################
+    ext:bankAccount
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy [
+            a form:RequiredConstraint;
+            form:grouping form:Bag;
+            sh:path ( schema:bankAccount schema:identifier );
+
+            sh:resultMessage "Dit veld is verplicht."@nl ],
+        [
+            a form:ValidIBAN;
+            form:grouping form:MatchEvery;
+            sh:path ( schema:bankAccount schema:identifier );
+            sh:resultMessage "Geef een geldig IBAN op."@nl
+        ];
+        sh:name "IBAN";
+        sh:path ( schema:bankAccount schema:identifier ) .
+
+    # Field ##################################################
+    ext:ondernemingsnummer
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:gegevensAanvragerSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:ondernemingsnummer;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "ondernemingsnummer";
+        sh:path lblodSubsidie:ondernemingsnummer .
+
+##########################################################
+# SECTION: Samenvatting van de subsidieaanvraag
+##########################################################
+ext:samenvattingSubsidieaanvraagSection a form:Section; 
+  sh:name "Samenvatting van de subsidieaanvraag"; 
+  sh:order 3 .
+
+    # Field ##################################################
+    ext:actie a form:Field;
+        form:displayType displayTypes:conceptSchemeRadioButtons;
+        sh:name "Actie";
+        form:help "De subsidieaanvraag heeft betrekking op:";
+        form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad", "orderBy":"http://purl.org/linked-data/cube#order"}""" ;
+        form:validatedBy
+                [   
+                    a form:ConceptSchemeConstraint ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:actie ;
+                    form:conceptScheme <http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad> ;
+                    sh:resultMessage "Selecteer een waarde uit de lijst."@nl
+                ],
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:actie;
+                    sh:resultMessage "Gelieve een optie te kiezen."
+                ];
+
+        form:partOf ext:samenvattingSubsidieaanvraagSection;
+        sh:path lblodSubsidie:actie .
+
+    # Field ##################################################
+    ext:titelAanbod
+        a form:Field;
+        form:displayType displayTypes:defaultInput;
+        form:partOf ext:samenvattingSubsidieaanvraagSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:titelAanbod;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "Titel van het aanbod";
+        sh:path lblodSubsidie:titelAanbod .
+
+    # Field ##################################################
+    ext:samenvattingSubsidieaanvraag a form:Field ;
+        sh:name "Samenvatting van de subsidieaanvraag" ;
+        sh:description "Vat de subsidieaanvraag kort samen.";
+        sh:path lblodSubsidie:samenvattingSubsidieaanvraag ;
+        form:validations
+        [ a form:RequiredConstraint ;
+            form:grouping form:Bag ;
+            sh:resultMessage "Dit veld is verplicht."@nl;
+            sh:path lblodSubsidie:samenvattingSubsidieaanvraag
+        ] ,
+        [ a form:MaxLength ; 
+            form:max 3000;
+            form:grouping form:MatchEvery ;
+            sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+            sh:path lblodSubsidie:samenvattingSubsidieaanvraag
+        ];
+        form:displayType displayTypes:textArea ;
+        form:partOf ext:samenvattingSubsidieaanvraagSection.
+
+    # Field ##################################################
+    ext:aansluitingIntegratiebeleid a form:Field ;
+        sh:name "Aansluiting bij het Vlaamse integratiebeleid" ;
+        sh:description "Beschrijf kort hoe het aanbod aansluit bij de uitgangspunten, doelstellingen en doelgroep van het Vlaamse integratiebeleid, zoals omschreven in hoofdstuk 3.2 van de subsidieoproep (max. 1000 tekens).";
+        sh:path lblodSubsidie:aansluitingIntegratiebeleid ;
+        form:validations
+        [ a form:RequiredConstraint ;
+            form:grouping form:Bag ;
+            sh:resultMessage "Dit veld is verplicht."@nl;
+            sh:path lblodSubsidie:aansluitingIntegratiebeleid
+        ] ,
+        [ a form:MaxLength ; 
+            form:max 1000;
+            form:grouping form:MatchEvery ;
+            sh:resultMessage "Gelieve hat aantal tekens te beperken tot 1000."@nl;
+            sh:path lblodSubsidie:aansluitingIntegratiebeleid
+        ];
+        form:displayType displayTypes:textArea ;
+        form:partOf ext:samenvattingSubsidieaanvraagSection.
+
+    # Field ##################################################
+    ext:gevraagdeSubsidiebedrag
+        a form:Field;
+        form:displayType displayTypes:currencyInput;
+        form:partOf ext:samenvattingSubsidieaanvraagSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:gevraagdeSubsidiebedrag;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name "Gevraagd subsidiebedrag";
+        sh:path lblodSubsidie:gevraagdeSubsidiebedrag.
+        
+    # CONDITION ##################################################
+    ext:startEindDatum a form:Field;
+        form:displayType displayTypes:conceptSchemeRadioButtons;
+        sh:name "Start- en einddatum";
+        form:help "De gevraagde subsidie geldt voor de subsidieperiode van in totaal 3 jaar, met name van 15 mei 2026 tot en met 14 mei 2029.";
+        form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/e311b861-d8aa-47a1-80e9-7f4a1fb3de09", "orderBy":"http://purl.org/linked-data/cube#order"}""" ;
+        form:validatedBy
+                [   
+                    a form:ConceptSchemeConstraint ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:startEindDatum ;
+                    form:conceptScheme <http://lblod.data.gift/concept-schemes/e311b861-d8aa-47a1-80e9-7f4a1fb3de09> ;
+                    sh:resultMessage "Selecteer een waarde uit de lijst."@nl
+                ],
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:startEindDatum;
+                    sh:resultMessage "Gelieve een optie te kiezen."
+                ];
+
+        form:partOf ext:samenvattingSubsidieaanvraagSection;
+        sh:path lblodSubsidie:startEindDatum .
+
+        # CONDITIONAL: NEE ##################################################
+            ext:afwijkingSubsidieperiode
+                a form:Field;
+                form:displayType displayTypes:textArea;
+                sh:name "Leg uit waarom hiervan afgeweken wordt:";
+                form:partOf ext:samenvattingSubsidieaanvraagSection;
+                form:validatedBy
+                        [
+                            a form:RequiredConstraint;
+                            form:grouping form:Bag;
+                            sh:path lblodSubsidie:afwijkingSubsidieperiode;
+                            sh:resultMessage "Dit veld is verplicht."
+                        ];
+                 form:rendersWhen
+                    [ 
+                        a form:SingleCodelistValue ;
+                        form:grouping form:Bag ;
+                        sh:path lblodSubsidie:startEindDatum ;
+                        form:customValue <http://lblod.data.gift/concepts/f55e19a7-2564-4625-aac5-d7e135842fb8>
+                    ];
+                sh:path lblodSubsidie:afwijkingSubsidieperiode .
+
+
+##########################################################
+# SECTION: Overzicht van erkenningen en subsidiëring  
+##########################################################
+ext:erkenningenEnSubsidieringSection
+    a form:Section;
+    sh:name "Overzicht van erkenningen en subsidiëring";
+    form:help
+        """Geef een overzicht van alle overheidsinstanties die de organisatie(s) ondersteunen in   
+onderstaande tabel.""";
+    sh:order 4 .
+
+    # Listing ##################################################
+    ext:overzichtErkenningenListing
+        a form:Listing, form:ListingTable;
+        form:addLabel "Voeg rij toe";
+        form:canAdd true;
+        form:canRemove true;
+        form:createGenerator ext:overzichtErkenningenGenerator;
+        form:scope ext:overzichtErkenningenScope;
+        form:each ext:overzichtErkenningenSubForm;
+        form:partOf ext:erkenningenEnSubsidieringSection.
+
+    # Generator ################################################
+    ext:overzichtErkenningenGenerator a form:Generator; 
+    form:prototype nodes:ca3ebdf2-6188-4576-8c42-c3edcd623704 .
+
+    nodes:ca3ebdf2-6188-4576-8c42-c3edcd623704
+    form:shape nodes:531494b6-55d1-43b1-a045-80c8fd5882eb.
+
+    # Scope ####################################################
+    ext:overzichtErkenningenScope
+    a form:Scope; sh:path lblodSubsidie:overzichtErkenningen.
+
+    # Subform ##################################################
+    ext:overzichtErkenningenSubForm a form:SubForm;
+        form:includes
+            ext:subsidierendeInstanties,
+            ext:periode,
+            ext:bedrag,
+            ext:redenErkenning;
+        form:removeLabel "Verwijder rij";
+        sh:name "Overzicht Erkenningen".
+
+        # Field ##################################################
+        ext:subsidierendeInstanties a form:Field;
+            form:displayType displayTypes:defaultInput;
+            form:partOf ext:erkenningenEnSubsidieringSection;
+            sh:order 1;
+            form:validatedBy
+                    [
+                        a form:RequiredConstraint;
+                        form:grouping form:Bag;
+                        sh:path lblodSubsidie:subsidierendeInstanties;
+                        sh:resultMessage "Dit veld is verplicht."
+                    ];
+            sh:name "Subsidiërende instantie";
+            sh:path lblodSubsidie:subsidierendeInstanties.
+
+        # Field ##################################################
+        ext:redenErkenning
+            a form:Field;
+            form:displayType displayTypes:textArea;
+            form:partOf ext:erkenningenEnSubsidieringSection;
+            sh:order 2; 
+            form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path lblodSubsidie:redenErkenning;
+                sh:resultMessage "Dit veld is verplicht."
+            ];
+            sh:name "Reden van erkenning/subsidie";
+            sh:path lblodSubsidie:redenErkenning .
+
+        # Field ##################################################
+        ext:periode
+            a form:Field;
+            form:displayType displayTypes:defaultInput;
+            form:partOf ext:erkenningenEnSubsidieringSection;
+            sh:order 3; 
+            form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path lblodSubsidie:periode;
+                sh:resultMessage "Dit veld is verplicht."
+            ];
+            sh:name "Periode";
+            sh:path lblodSubsidie:periode .
+
+        # Field ##################################################
+        ext:bedrag
+            a form:Field;
+            form:displayType displayTypes:currencyInput;
+            form:partOf ext:erkenningenEnSubsidieringSection;
+            sh:order 4; 
+            form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path lblodSubsidie:bedrag;
+                sh:resultMessage "Dit veld is verplicht."
+            ];
+            sh:name "Bedrag";
+            sh:path lblodSubsidie:bedrag .
+
+
+##########################################################
+# SECTION: Inhoudelijke omschrijving van het aanbod
+##########################################################
+ext:inhoudelijkeOmschrijvingAanbodSection a form:Section; 
+  sh:name "Inhoudelijke omschrijving van het aanbod"; 
+  sh:order 5 .
+
+    # Field ##################################################
+    ext:korteOmschrijvingAanbod
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Korte omschrijving van het aanbod";
+        form:help "Vat het aanbod bondig samen.";
+        form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:korteOmschrijvingAanbod;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:korteOmschrijvingAanbod
+                ];
+        sh:path lblodSubsidie:korteOmschrijvingAanbod .
+
+    # Field ##################################################
+    ext:inhoudeEnDoelstellingenAanbod
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Inhoud en doelstellingen van het aanbod";
+        form:help """Motiveer hoe het aanbod bijdraagt aan de overkoepelende inhoudelijke doelstellingen   
+van de subsidieoproep: het bevorderen van (1) een sterke maatschappelijke positie en   
+participatie van personen van buitenlandse herkomst en (2) ontmoeting, verbinding en   
+sociale cohesie in de samenleving. Omschrijf ook hoe het aanbod aansluit bij de   
+specifieke verwachtingen rond de actie uit de subsidieoproep waarbinnen het aanbod   
+past, zoals omschreven in hoofdstuk 3.3 van de subsidieoproep. Formuleer welke   
+maatschappelijke uitdaging(en) het aanbod aanpakt, op welke doelgroep(en) men zich   
+richt, welke doelstellingen nagestreefd worden en welke methodieken en acties   
+gehanteerd zullen worden. Licht toe hoe het aanbod de benoemde doelgroep(en) zal   
+bereiken en betrekken. Onderbouw waar mogelijk met onderzoek of vaststellingen uit   
+de praktijk.""";
+        form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:inhoudeEnDoelstellingenAanbod;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:inhoudeEnDoelstellingenAanbod
+                ];
+        sh:path lblodSubsidie:inhoudeEnDoelstellingenAanbod .
+
+    # Field ##################################################
+    ext:samenWerkingMetEnAfstemmingOpDeLokaleContext
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Samenwerking met en afstemming op de lokale context";
+        form:help """Beschrijf hoe lokale besturen kosteloos gebruik zullen kunnen maken van het aanbod en   
+hoe het aanbod hen zal ondersteunen in hun regierol over het integratiebeleid. Geef aan   
+hoe het aanbod afgestemd wordt op lokale contexten, opdat het op maat,   
+complementair aan al bestaande initiatieven en passend bij lokale beleidsprioriteiten   
+ingezet zal worden. Welke samenwerkingen worden aangegaan en waarom? Geef ook   
+aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg eventueel   
+engagements- of intentieverklaring(en) toe waarin lokale partners de punten waarop zal   
+samengewerkt worden, bevestigen.""";
+        form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext
+                ];
+        sh:path lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext .
+
+    # Field ##################################################
+    ext:impactEnBereik
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Impact en bereik   ";
+        form:help """Omschrijf hoe het aanbod zo veel, breed en gebiedsdekkend mogelijk gebruikt en   
+verspreid zal worden doorheen Vlaanderen en Brussel-Hoofdstad. Beschrijf welk bereik   
+met het gevraagde subsidiebedrag gerealiseerd zal worden en welke streefcijfers   
+vooropgesteld worden. Besteed aandacht aan de drie gradaties van bereik, zoals   
+omschreven in hoofdstuk 3.6 van de subsidieoproep. Formuleer duidelijke indicatoren   
+met bijhorende streefwaarden om het behalen van de beoogde resultaten te meten.   
+Beschrijf welke risico’s en afhankelijkheden het behalen van de doelstellingen binnen de   
+vooropgestelde termijn kunnen beïnvloeden, en geef aan hoe er rekening mee wordt   
+gehouden in de planning en uitvoering. Geef ook aan hoe de voortgang en de resultaten   
+worden opgevolgd, geëvalueerd en bijgestuurd.""";
+        form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:impactEnBereik;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:impactEnBereik
+                ];
+        sh:path lblodSubsidie:impactEnBereik .
+
+    # Field ##################################################
+    ext:duurzaamheidEnVerspreiding
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Duurzaamheid en verspreiding";
+        form:help """Omschrijf hoe gedurende de subsidieperiode gewerkt wordt aan verduurzaming en   
+verspreiding van het aanbod. Omschrijf hoe resultaten, ervaringen en bevindingen   
+worden gedeeld met de gebruikers, betrokkenen en (eventueel) met een breder publiek.   
+Geef aan hoe lokale besturen na de subsidieperiode zelfstandig verder kunnen werken   
+met het aanbod.""";
+        form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:duurzaamheidEnVerspreiding;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:duurzaamheidEnVerspreiding
+                ];
+        sh:path lblodSubsidie:duurzaamheidEnVerspreiding .
+
+    # Field ##################################################
+    ext:projectplan
+        a form:Field;
+        form:displayType displayTypes:files;
+        form:partOf ext:inhoudelijkeOmschrijvingAanbodSection;
+        sh:name "Laad hier uw visueel plan van aanpak op";
+        form:help """Visualiseer het plan van aanpak met een overzicht en tijdlijn van de doelstellingen, acties   
+en mijlpalen. Gebruik waar mogelijk schema’s of tabellen om de informatie overzichtelijk   
+te presenteren.""";
+        sh:path (lblodSubsidie:projectplan dct:hasPart) .
+
+        # HIDDEN Field ##################################################
+        ext:hiddenprojectplan a form:Field ;
+            sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
+            sh:path ( lblodSubsidie:projectplan dct:hasPart rdf:type );
+            form:partOf ext:inhoudelijkeOmschrijvingAanbodSection.
+
+##########################################################
+# SECTION: Begroting
+##########################################################
+ext:overzichtBegrotingSection a form:Section; 
+  sh:name "Overzicht begroting"; 
+  sh:order 6 .
+
+    # Field ##################################################
+    ext:begrotingDocument
+        a form:Field;
+        form:displayType displayTypes:files;
+        sh:name "Laad hier uw begroting op";
+        form:help """Maak een gedetailleerde begroting op in het voorziene sjabloon. Geef een overzicht van   
+de begrote middelen per jaar en voor de volledige subsidieperiode van drie jaar. Voeg   
+het ingevulde sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te   
+vinden op <a href="https://www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken" target="_blank">https://www.vlaanderen.be/node/273288</a>""";
+        form:partOf ext:overzichtBegrotingSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path (lblodSubsidie:begrotingDocument dct:hasPart);
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:path (lblodSubsidie:begrotingDocument dct:hasPart) .
+
+        # HIDDEN Field ##################################################
+        ext:hiddenBegrotingDocument a form:Field ;
+            sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
+            sh:path ( lblodSubsidie:begrotingDocument dct:hasPart rdf:type );
+            form:partOf ext:overzichtBegrotingSection.
+
+    # Field ##################################################
+    ext:verantwoordingBegroteMiddelen
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Verantwoording van de begrote middelen";
+        form:help """Geef een toelichting bij de begroting van alle personeels- en werkingskosten en motiveer   
+waarom die noodzakelijk zijn voor de verwezenlijking van het aanbod. Duid bij de   
+personeelskosten het totaal aantal begrote VTE’s, de inzet per medewerker en de kost   
+per medewerker (met vermelding van de gehanteerde loonschaal).""";
+        form:partOf ext:overzichtBegrotingSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:verantwoordingBegroteMiddelen;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:verantwoordingBegroteMiddelen
+                ];
+        sh:path lblodSubsidie:verantwoordingBegroteMiddelen .
+
+    # Field ##################################################
+    ext:andereSubsidiesEnInkomsten
+        a form:Field;
+        form:displayType displayTypes:textArea;
+        sh:name "Andere subsidies en inkomsten";
+        form:help """Geef aan of er voor dit aanbod ook andere subsidies werden aangevraagd. Vermeld of   
+deze al zijn toegekend, waarvoor ze specifiek zullen worden gebruikt en voeg de   
+contactgegevens toe van de financierende instantie(s). Geef ook toelichting bij eventuele   
+andere inkomsten die voor het aanbod worden aangewend.""";
+        form:partOf ext:overzichtBegrotingSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:andereSubsidiesEnInkomsten;
+                    sh:resultMessage "Dit veld is verplicht."
+                ],
+                 [ a form:MaxLength ; 
+                    form:max 3000;
+                    form:grouping form:MatchEvery ;
+                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
+                    sh:path lblodSubsidie:andereSubsidiesEnInkomsten
+                ];
+        sh:path lblodSubsidie:andereSubsidiesEnInkomsten .
+
+##########################################################
+# SECTION: Verklaring op eer en clausule non-discriminatie en integriteit
+##########################################################
+ext:verklaringenSection
+    a form:Section;
+    sh:name "Verklaring op eer en clausule non-discriminatie en integriteit";
+    sh:order 7 .
+
+    # Field ##################################################
+    ext:akkoordClausule
+        a form:Field;
+        form:displayType displayTypes:checkbox;
+        form:partOf ext:verklaringenSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:akkoordClausule;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name """Ik ga akkoord met de clausule inzake non-disciriminatie en integriteit.""";
+        form:help """<a href="https://assets.vlaanderen.be/image/upload/v1741710190/repositories-prd/Clausule_non-discriminatie_en_integriteit_t7jnsj.pdf" target="_blank">Clausule inzake non-disciriminatie en integriteit.</a>""";
+        sh:path lblodSubsidie:akkoordClausule .
+
+    # Field ##################################################
+    ext:bevestigingWaarheid
+        a form:Field;
+        form:displayType displayTypes:checkbox;
+        form:partOf ext:verklaringenSection;
+        form:validatedBy
+                [
+                    a form:RequiredConstraint;
+                    form:grouping form:Bag;
+                    sh:path lblodSubsidie:bevestigingWaarheid;
+                    sh:resultMessage "Dit veld is verplicht."
+                ];
+        sh:name
+            "Ik bevestig dat alle gegevens in dit formulier naar waarheid zijn ingevuld.";
+        sh:path lblodSubsidie:bevestigingWaarheid .
+
+##########################################################
+# SECTION: Bijlagen
+##########################################################
+ext:bijlageSection
+    a form:Section; 
+    sh:name "Bijlagen"; 
+    sh:order 8 .
+
+    # Field ##################################################
+    ext:jaarrekeningOrganisatie
+        a form:Field;
+        form:displayType displayTypes:files;
+        form:partOf ext:bijlageSection;
+        sh:name "Jaarrekening van de organisatie(s)";
+        sh:path (lblodSubsidie:jaarrekeningOrganisatie dct:hasPart) .
+
+    # HIDDEN Field ##################################################
+        ext:hiddenjaarrekeningOrganisatie a form:Field ;
+            sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
+            sh:path ( lblodSubsidie:jaarrekeningOrganisatie dct:hasPart rdf:type );
+            form:partOf ext:bijlageSection.
+
+    # Field ##################################################
+    ext:bijlageDocument
+        a form:Field;
+        form:displayType displayTypes:files;
+        form:partOf ext:bijlageSection;
+        sh:name "Laad hier alle relevante bijlagen op";
+        form:help """Maak een zo gedetailleerd mogelijke begroting op. Het sjabloon kan je vinden op <a href="https://www.vlaanderen.be/node/273288" target="_blank">www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken</a>""";
+        sh:path (lblodSubsidie:bijlageDocument dct:hasPart) .
+
+    # HIDDEN Field ##################################################
+        ext:hiddenBijlageDocument a form:Field ;
+            sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
+            sh:path ( lblodSubsidie:bijlageDocument dct:hasPart rdf:type );
+            form:partOf ext:bijlageSection.
+
+##########################################################
+# DEFINITIONS
+##########################################################
+emb:source-node
+    a form:Form, form:TopLevelForm;
+    form:includes
+        ext:orgOrSamenwerking,
+        ext:naamOrganisatie,
+        ext:naamSamenwerkingsverband,   
+        ext:werkingExpertiseDraagkrachtOrganisatie,
+        ext:werkingExpertiseDraagkrachtSamenwerkingsverband,
+        ext:straatEnNummer,
+        ext:postnummerEnGemeente,
+        ext:ondernemingsnummer,
+        ext:telephone,
+        ext:website,
+        ext:bankAccount,
+        ext:email,
+        ext:juridischStatuut,
+        ext:actie,
+        ext:familyName,
+        ext:firstName,
+        ext:overzichtAndereSubsidierendeInstanties,
+        ext:verantwoordingBegroteMiddelen,
+        ext:andereSubsidiesEnInkomsten,
+        ext:titelAanbod,
+        ext:samenWerkingMetEnAfstemmingOpDeLokaleContext
+        ext:projectplan,
+        ext:hiddenprojectplan,
+        ext:begrotingDocument,
+        ext:hiddenBegrotingDocument,
+        ext:samenwerkingverbandOrganisaties,
+        ext:korteOmschrijvingAanbod,
+        ext:inhoudeEnDoelstellingenAanbod,
+        ext:doelstellingenToelichting,
+        ext:aandachtIntersectionaliteit,
+        ext:doelpubliekProject,
+        ext:samenwerkingsverbandenToelichting,
+        ext:aanpakEnKwaliteitsbewaking,
+        ext:beoogdeResultatenProject,
+        ext:impactEnBereik,
+        ext:duurzaamheidEnVerspreiding,
+        ext:verduurzamingEnOpenbaarmaking,
+        ext:overzichtErkenningenListing,
+        ext:overzichtMedewerkers,
+        ext:bijlageDocument,
+        ext:hiddenBijlageDocument,
+        ext:jaarrekeningOrganisatie,
+        ext:hiddenjaarrekeningOrganisatie,
+        ext:samenwerkingsovereenkomst,
+        ext:hiddensamenwerkingsovereenkomst,
+        ext:gevraagdeSubsidiebedrag,
+        ext:samenvattingSubsidieaanvraag,
+        ext:aansluitingIntegratiebeleid,
+        ext:startEindDatum,
+        ext:afwijkingSubsidieperiode,
+        ext:akkoordClausule,
+        ext:bevestigingWaarheid;
+    form:partOf
+        ext:keuzeMenuSection,
+        ext:erkenningenEnSubsidieringSection,
+        ext:samenvattingSubsidieaanvraagSection,
+        ext:verklaringenSection,
+        ext:bijlageSection,
+        ext:inhoudelijkeOmschrijvingAanbodSection,
+        ext:gegevensAanvragerSection,
+        ext:overzichtBegrotingSection .

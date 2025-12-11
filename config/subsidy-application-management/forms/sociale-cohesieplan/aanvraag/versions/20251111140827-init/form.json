@@ -1,0 +1,144 @@
+{
+  "source": {
+    "prefixes": [
+      "PREFIX rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+      "PREFIX dct:            <http://purl.org/dc/terms/>",
+      "PREFIX lblodSubsidie:  <http://lblod.data.gift/vocabularies/subsidie/>",
+      "PREFIX schema:         <http://schema.org/>",
+      "PREFIX foaf:           <http://xmlns.com/foaf/0.1/>",
+      "PREFIX ext:            <http://mu.semte.ch/vocabularies/ext/>",
+      "PREFIX sh:             <http://www.w3.org/ns/shacl#>"
+    ],
+    "properties": [
+      "lblodSubsidie:naamSamenwerkingsverband",
+      "lblodSubsidie:naamOrganisatie",
+      "lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie",
+      "lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband",
+      "lblodSubsidie:orgOrSamenwerking",
+      "lblodSubsidie:telephone",
+      "lblodSubsidie:website",
+      "lblodSubsidie:bankAccount",
+      "lblodSubsidie:email",
+      "lblodSubsidie:juridischStatuut",
+      "lblodSubsidie:actie",
+      "lblodSubsidie:straatEnNummer",
+      "lblodSubsidie:postnummerEnGemeente",
+      "lblodSubsidie:familyName",
+      "lblodSubsidie:firstName",
+      "lblodSubsidie:overzichtAndereSubsidierendeInstanties",
+      "lblodSubsidie:verantwoordingBegroteMiddelen",
+      "lblodSubsidie:andereSubsidiesEnInkomsten",
+      "lblodSubsidie:titelAanbod",
+      "lblodSubsidie:korteOmschrijvingAanbod",
+      "lblodSubsidie:inhoudeEnDoelstellingenAanbod",
+      "lblodSubsidie:doelstellingenToelichting",
+      "lblodSubsidie:aandachtIntersectionaliteit",
+      "lblodSubsidie:doelpubliekProject",
+      "lblodSubsidie:samenwerkingsverbandenToelichting",
+      "lblodSubsidie:aanpakEnKwaliteitsbewaking",
+      "lblodSubsidie:beoogdeResultatenProject",
+      "lblodSubsidie:impactEnBereik",
+      "lblodSubsidie:duurzaamheidEnVerspreiding",
+      "lblodSubsidie:verduurzamingEnOpenbaarmaking",
+      "lblodSubsidie:overzichtErkenningenListing",
+      "lblodSubsidie:overzichtMedewerkers",
+      "lblodSubsidie:bijlageDocument",
+      "lblodSubsidie:jaarrekeningOrganisatie",
+      "lblodSubsidie:gevraagdeSubsidiebedrag",
+      "lblodSubsidie:bevestigingWaarheid",
+      "lblodSubsidie:samenvattingSubsidieaanvraag",
+      "lblodSubsidie:aansluitingIntegratiebeleid",
+      "lblodSubsidie:akkoordClausule",
+      "lblodSubsidie:startEindDatum",
+      "lblodSubsidie:afwijkingSubsidieperiode",
+      "lblodSubsidie:ondernemingsnummer",
+      "lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext",
+      "lblodSubsidie:projectplan",
+      {
+        "s-prefix": "schema:contactPoint",
+        "properties": [
+          "foaf:firstName",
+          "foaf:familyName",
+          "schema:telephone",
+          "schema:email",
+          "schema:jobTitle"
+        ]
+      },
+      {
+        "s-prefix": "schema:bankAccount",
+        "properties": [
+          "schema:identifier"
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:begrotingDocument",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:bijlageDocument",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:samenwerkingsovereenkomst",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:jaarrekeningOrganisatie",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:overzichtErkenningen",
+        "properties": [
+          "rdf:type",
+          "sh:order",
+          "lblodSubsidie:redenErkenning",
+          "lblodSubsidie:subsidierendeInstanties",
+          "lblodSubsidie:periode",
+          "lblodSubsidie:bedrag"
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:samenwerkingverbandOrganisaties",
+        "properties": [
+          "rdf:type",
+          "sh:order",
+          "ext:organisatieNaam"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "schemes": [
+      "http://lblod.data.gift/concept-schemes/ea0f4c49-3a01-4737-89ea-1a65a416c52f",
+      "http://lblod.data.gift/concept-schemes/8bfe7997-5f90-46e3-8659-941d1ad5e9ad"
+    ]
+  }
+}
