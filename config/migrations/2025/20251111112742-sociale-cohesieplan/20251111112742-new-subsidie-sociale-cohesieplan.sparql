@@ -8,6 +8,7 @@ PREFIX cpsv: <http://purl.org/vocab/cpsv#>
 PREFIX common: <http://www.w3.org/2007/uwa/context/common.owl#>
 PREFIX xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>
 PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
