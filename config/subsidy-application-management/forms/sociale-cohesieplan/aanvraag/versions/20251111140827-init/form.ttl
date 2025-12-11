@@ -1008,7 +1008,7 @@ emb:source-node
         ext:verantwoordingBegroteMiddelen,
         ext:andereSubsidiesEnInkomsten,
         ext:titelAanbod,
-        ext:samenWerkingMetEnAfstemmingOpDeLokaleContext
+        ext:samenWerkingMetEnAfstemmingOpDeLokaleContext,
         ext:projectplan,
         ext:hiddenprojectplan,
         ext:begrotingDocument,
