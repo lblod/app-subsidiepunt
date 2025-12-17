@@ -132,6 +132,30 @@ zal realiseren.""";
                 ];
             sh:path lblodSubsidie:naamSamenwerkingsverband .
 
+
+        # Field ##################################################
+        ext:vertegenwoordigerSamenwerkingsverband
+            a form:Field;
+            form:displayType displayTypes:defaultInput;
+            sh:name "Vertegenwoordiger van het samenwerkingsverband";
+            form:partOf ext:keuzeMenuSection;
+            sh:order 1;
+            form:validatedBy
+                    [
+                        a form:RequiredConstraint;
+                        form:grouping form:Bag;
+                        sh:path lblodSubsidie:vertegenwoordigerSamenwerkingsverband;
+                        sh:resultMessage "Dit veld is verplicht."
+                    ];
+            form:rendersWhen
+                [ 
+                    a form:SingleCodelistValue ;
+                    form:grouping form:Bag ;
+                    sh:path lblodSubsidie:orgOrSamenwerking ;
+                    form:customValue <http://lblod.data.gift/concepts/3ec0b899-2b91-4223-99bf-105cbeb29a7e>
+                ];
+            sh:path lblodSubsidie:vertegenwoordigerSamenwerkingsverband .
+
         # UPLOAD FIELD ##################################################
         ext:samenwerkingsovereenkomst
             a form:Field;
@@ -990,7 +1014,8 @@ emb:source-node
     form:includes
         ext:orgOrSamenwerking,
         ext:naamOrganisatie,
-        ext:naamSamenwerkingsverband,   
+        ext:naamSamenwerkingsverband, 
+        ext:vertegenwoordigerSamenwerkingsverband,
         ext:werkingExpertiseDraagkrachtOrganisatie,
         ext:werkingExpertiseDraagkrachtSamenwerkingsverband,
         ext:straatEnNummer,
