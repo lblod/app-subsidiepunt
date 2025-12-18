@@ -82,7 +82,7 @@ personeelsbestand, de algemene doelstellingen en opdrachten van de
 organisatie. Omschrijf over welke expertise, ervaring en organisatorische   
 vaardigheden en capaciteiten de organisatie beschikt in functie van de   
 actie waarvoor ingetekend wordt. Omschrijf ook hoe de organisatie vanaf 15   
-mei 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol   
+juni 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol   
 zal realiseren.""";
             form:partOf ext:keuzeMenuSection;
             form:validatedBy
@@ -226,7 +226,7 @@ Beschrijf welke organisaties er deel van uitmaken, en welke verdeling van taken,
 verantwoordelijkheden en middelen afgesproken werd. 2. Omschrijf over welke expertise,   
 ervaring en organisatorische vaardigheden en capaciteiten het samenwerkingsverband beschikt   
 in functie van de actie waarvoor ingetekend wordt. Omschrijf ook hoe het samenwerkingsverband   
-vanaf 15 mei 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol zal realiseren.""";
+vanaf 15 juni 2026, mits het ontvangen van de subsidie, de voorgestelde actie succesvol zal realiseren.""";
             form:partOf ext:keuzeMenuSection;
             form:validatedBy
                     [
@@ -533,7 +533,7 @@ ext:samenvattingSubsidieaanvraagSection a form:Section;
     ext:startEindDatum a form:Field;
         form:displayType displayTypes:conceptSchemeRadioButtons;
         sh:name "Start- en einddatum";
-        form:help "De gevraagde subsidie geldt voor de subsidieperiode van in totaal 3 jaar, met name van 15 mei 2026 tot en met 14 mei 2029.";
+        form:help "De gevraagde subsidie geldt voor de subsidieperiode van in totaal 3 jaar, met name van 15 juni 2026 tot en met 14 juni 2029.";
         form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/e311b861-d8aa-47a1-80e9-7f4a1fb3de09", "orderBy":"http://purl.org/linked-data/cube#order"}""" ;
         form:validatedBy
                 [   
@@ -751,7 +751,7 @@ de praktijk.""";
         sh:name "Samenwerking met en afstemming op de lokale context";
         form:help """Beschrijf hoe lokale besturen kosteloos gebruik zullen kunnen maken van het aanbod en   
 hoe het aanbod hen zal ondersteunen in hun regierol over het integratiebeleid. Geef aan   
-hoe het aanbod afgestemd wordt op lokale contexten, opdat het op maat,   
+hoe het aanbod afgestemd wordt op lokale contexten, waaronder de grootstedelijke context van Brussel-Hoofdstad, opdat het op maat,   
 complementair aan al bestaande initiatieven en passend bij lokale beleidsprioriteiten   
 ingezet zal worden. Welke samenwerkingen worden aangegaan en waarom? Geef ook   
 aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg eventueel   
