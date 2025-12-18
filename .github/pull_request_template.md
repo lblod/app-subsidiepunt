@@ -1,6 +1,3 @@
-## ID
-DGS-
-
 ## Description
 ...
 
