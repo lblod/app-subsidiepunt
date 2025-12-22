@@ -1,0 +1,15 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-measure-offers/81282c54-1f15-4f8b-ba7a-00058083d8ee> <http://www.w3.org/2004/02/skos/core#related> ?oldUrl .
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-measure-offers/81282c54-1f15-4f8b-ba7a-00058083d8ee> <http://www.w3.org/2004/02/skos/core#related> "https://www.vlaanderen.be/node/273288" .
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-measure-offers/81282c54-1f15-4f8b-ba7a-00058083d8ee> <http://www.w3.org/2004/02/skos/core#related> ?oldUrl .
+  }
+}

@@ -1,0 +1,15 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://lblod.data.gift/concepts/d6a9dd50-f4d3-4f24-997d-e73b082cff08> <http://www.w3.org/2004/02/skos/core#prefLabel> ?oldLabel .
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://lblod.data.gift/concepts/d6a9dd50-f4d3-4f24-997d-e73b082cff08> <http://www.w3.org/2004/02/skos/core#prefLabel> "Actie 3: De school als uitvalsbasis voor vrijetijdsparticipatie, ouderbetrokkenheid   \nen sociale cohesie   "@nl .
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://lblod.data.gift/concepts/d6a9dd50-f4d3-4f24-997d-e73b082cff08> <http://www.w3.org/2004/02/skos/core#prefLabel> ?oldLabel .
+  }
+}
