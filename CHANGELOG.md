@@ -2,6 +2,7 @@
 ## Unreleased
 - Bump frontend subsidiepunt to `v1.16.1`
 - Bump frontend subsidiedatabank to `v1.1.0`
+- Added migration to flag dangling `ApplicationForm`. So we can easily track them if new ones appear.
 ### Deploy notes
 ```
 drc up -d frontend frontend-subsidiedatabank 
