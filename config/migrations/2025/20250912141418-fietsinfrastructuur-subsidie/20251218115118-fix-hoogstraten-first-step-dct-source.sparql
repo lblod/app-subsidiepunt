@@ -1,0 +1,22 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+
+# HOOGSTRATEN
+# The "indienen voorstel" step for 1 application-forms are missing dct:source. This migration sets the source for these application-forms.
+
+INSERT {
+  GRAPH ?g {
+    ?applicationForm dct:source
+      <config://forms/bicycle-infrastructure/proposal/versions/20210420163405-initial-version/form.ttl>,
+      <config://forms/bicycle-infrastructure/proposal/versions/20210420163405-initial-version/form.json> .
+  }
+}
+WHERE {
+  VALUES ?applicationForm {
+    <http://data.lblod.info/id/application-forms/63480857C8723785872F8C2D>
+  }
+
+  # Constrain ?g to a graph that actually contains the resource
+  GRAPH ?g {
+    ?applicationForm ?anyP ?anyO .
+  }
+}
