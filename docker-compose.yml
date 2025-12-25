@@ -6,7 +6,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-subsidiepunt:1.16.1
+    image: lblod/frontend-subsidiepunt:1.17.0
     links:
       - identifier:backend
     labels:
@@ -426,7 +426,7 @@ services:
   ################################################################################
 
   form-data-management:
-    image: lblod/form-data-management-service:0.3.0
+    image: lblod/form-data-management-service:0.5.0
     volumes:
       - ./config/search-query:/share/search-query
       - ./data/files/form-data-meta/:/data/
