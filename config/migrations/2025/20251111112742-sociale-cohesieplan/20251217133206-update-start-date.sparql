@@ -1,0 +1,22 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/d8f205d1-4c5e-4f5f-9f84-a6868e11eff5> m8g:startTime ?oldStartTime1 .
+    <http://data.lblod.info/id/periodes/0a9c9627-7f6b-4c11-bef3-f8de493d5211> m8g:startTime ?oldStartTime2 .
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/d8f205d1-4c5e-4f5f-9f84-a6868e11eff5> m8g:startTime "2026-01-05T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+    <http://data.lblod.info/id/periodes/0a9c9627-7f6b-4c11-bef3-f8de493d5211> m8g:startTime "2026-01-05T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    OPTIONAL { <http://data.lblod.info/id/periodes/d8f205d1-4c5e-4f5f-9f84-a6868e11eff5> m8g:startTime ?oldStartTime1 . }
+    OPTIONAL { <http://data.lblod.info/id/periodes/0a9c9627-7f6b-4c11-bef3-f8de493d5211> m8g:startTime ?oldStartTime2 . }
+  }
+}
+
