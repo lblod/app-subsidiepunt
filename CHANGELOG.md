@@ -1,7 +1,9 @@
 # Changelog
 ## Unreleased
+- Automatically add subsidiestream to filter
 ### Deploy notes
 ```
+drc restart migrations
 ```
 ## 2.22.0 (2025-12-22)
 - Bump frontend subsidiepunt to `v1.16.1`
