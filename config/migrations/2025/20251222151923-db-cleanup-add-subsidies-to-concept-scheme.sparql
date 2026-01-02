@@ -1,0 +1,31 @@
+PREFIX cleanup: <http://mu.semte.ch/vocabularies/ext/cleanup/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/job/id/a8f9c234-5e1a-4d2b-9f3b-8c7e6d4a2b1c> a cleanup:Job;
+      mu:uuid "a8f9c234-5e1a-4d2b-9f3b-8c7e6d4a2b1c";
+      dcterms:title "Add new SubsidiemaatregelAanbod to filter concept scheme";
+      cleanup:randomQuery """
+        INSERT {
+          GRAPH <http://mu.semte.ch/graphs/public> {
+            ?s <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/5979ff3e-1f4c-4271-ae40-e1d2000d6412>.
+            ?s <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/5979ff3e-1f4c-4271-ae40-e1d2000d6412>.
+          }
+        }
+        WHERE {
+          GRAPH <http://mu.semte.ch/graphs/public> {
+            ?s a <http://data.vlaanderen.be/ns/subsidie#SubsidiemaatregelAanbod> .
+          }
+
+          FILTER NOT EXISTS {
+            GRAPH <http://mu.semte.ch/graphs/public> {
+              ?s <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/5979ff3e-1f4c-4271-ae40-e1d2000d6412> .
+            }
+          }
+        }
+        """;
+      cleanup:cronPattern "0 22 * * *". # Runs daily at 22:00
+    }
+  }
