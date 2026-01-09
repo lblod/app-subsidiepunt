@@ -1,9 +1,12 @@
 # Changelog
 ## Unreleased
 - Automatically add subsidiestream to filter
+- Filter option Subsidiepunt
 ### Deploy notes
 ```
 drc restart migrations
+drc up -d frontend
+drc up -d form-data-management
 ```
 ## 2.22.0 (2025-12-22)
 - Bump frontend subsidiepunt to `v1.16.1`
