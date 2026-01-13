@@ -11,6 +11,7 @@ drc up -d form-data-management
 ## 2.22.0 (2025-12-22)
 - Bump frontend subsidiepunt to `v1.16.1`
 - Bump frontend subsidiedatabank to `v1.1.0`
+- Added migration to flag dangling `ApplicationForm`. So we can easily track them if new ones appear.
 - New subsidy: Sociale cohesieplan
 - Update PR template
 ### Deploy notes
