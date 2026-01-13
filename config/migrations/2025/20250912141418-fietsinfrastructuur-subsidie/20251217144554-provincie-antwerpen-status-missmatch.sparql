@@ -1,0 +1,17 @@
+PREFIX adms: <http://www.w3.org/ns/adms#>
+
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/subsidy-measure-consumptions/636A13DE295F7DB46968F51E> adms:status ?status.
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/subsidy-measure-consumptions/636A13DE295F7DB46968F51E> adms:status <http://lblod.data.gift/concepts/2ea29fbf-6d46-4f08-9343-879282a9f484>.
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/subsidy-measure-consumptions/636A13DE295F7DB46968F51E> adms:status ?status.
+  }
+}
