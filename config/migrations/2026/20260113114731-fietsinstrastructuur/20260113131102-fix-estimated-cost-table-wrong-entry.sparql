@@ -1,0 +1,57 @@
+# FIETSTINFRASTRUCTUU
+# Validation query
+# -------------------------------------------------
+#   SELECT ?tableEntry
+#   WHERE {
+#     {
+#       SELECT DISTINCT ?tableEntry
+#       WHERE {
+#         GRAPH ?g {
+#           ?tableEntry <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#cost> ?cost .
+#         }
+#         FILTER(REGEX(STR(?g), "^http://mu.semte.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+#       }
+#   
+#       GROUP BY ?tableEntry
+#       HAVING (COUNT(?cost) > 1)
+#     }
+#   }
+
+
+# Gemeente Geetbets (/subsidy/applications/6346E718C8723785872F8AE9/steps/5f6193e5-7427-4ec8-90b1-636ed5181c19/forms/6346E84AC8723785872F8AEB)
+DELETE DATA {
+    GRAPH <http://mu.semte.ch/graphs/organizations/243e6582a03e891c3a30a3e5db7552c83e703a609f82e1c5db8844a7ad1c8924/SubsidiepuntGebruiker> {  
+        <http://data.lblod.info/id/subsidies/rules//927fb930-cdcb-418b-a575-b0829c3c2228> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#share> 100 .
+        <http://data.lblod.info/id/subsidies/rules//927fb930-cdcb-418b-a575-b0829c3c2228> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#cost> 0 .
+    }
+}
+; 
+# Gemeente Geetbets (/subsidy/applications/6346E718C8723785872F8AE9/steps/5f6193e5-7427-4ec8-90b1-636ed5181c19/forms/6346E84AC8723785872F8AEB)
+DELETE DATA {
+    GRAPH <http://mu.semte.ch/graphs/organizations/243e6582a03e891c3a30a3e5db7552c83e703a609f82e1c5db8844a7ad1c8924/SubsidiepuntGebruiker> {  
+        <http://data.lblod.info/id/subsidies/rules//c1addb46-5f60-4fa1-83a7-eb5e19bec233> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#cost> 0 .
+    }
+}
+;
+# Provincie Oost-Vlaanderen (/subsidy/applications/636A0B97295F7DB46968F506/steps/ad08beb8-b4a5-4a0e-ae99-1174b3b47d47/forms/69256A0BA18DBAC13B15B4FE)
+DELETE DATA {
+    GRAPH <http://mu.semte.ch/graphs/organizations/298b13541e1e85de4b71535197aa1f3bbc4bdb67f0fe0f58ab4a7dc207af61fa/SubsidiepuntGebruiker> {  
+        <http://data.lblod.info/id/subsidies/rules//082ebc60-fcb6-4526-b3ce-498208faaa96> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#cost> "1" .
+    }
+}
+;
+# Gemeente Boortmeerbeek (subsidy/applications/6349C883C8723785872F9068/steps/5f6193e5-7427-4ec8-90b1-636ed5181c19/forms/6349CE8CC8723785872F906B)
+DELETE DATA {
+    GRAPH <http://mu.semte.ch/graphs/organizations/b942231860865ab0c4108651b117f69a755a04186df97e767707e5d95955ebbd/SubsidiepuntGebruiker> {  
+        <http://data.lblod.info/id/subsidies/rules//bcee3605-4582-45f7-b9dc-ea67e16fe575> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#share> 100 .
+        <http://data.lblod.info/id/subsidies/rules//bcee3605-4582-45f7-b9dc-ea67e16fe575> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#cost> "0" .
+    }
+}
+;
+# Gemeente Boortmeerbeek (subsidy/applications/6349C883C8723785872F9068/steps/5f6193e5-7427-4ec8-90b1-636ed5181c19/forms/6349CE8CC8723785872F906B)
+DELETE DATA {
+    GRAPH <http://mu.semte.ch/graphs/organizations/b942231860865ab0c4108651b117f69a755a04186df97e767707e5d95955ebbd/SubsidiepuntGebruiker> {  
+        <http://data.lblod.info/id/subsidies/rules//c32298c2-4ca5-4ba4-851b-85a6054ca5ee> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#share> 100 .
+        <http://data.lblod.info/id/subsidies/rules//c32298c2-4ca5-4ba4-851b-85a6054ca5ee> <http://lblod.data.gift/vocabularies/subsidie/bicycle-infrastructure#cost> 0 .
+    }
+}
