@@ -1,12 +1,16 @@
 # Changelog
 ## Unreleased
+### Deploy notes
+
+## 2.23.0
 - Automatically add subsidiestream to filter
 - Filter option Subsidiepunt
+- FIX: Provincie Antwerpen faulty step
+- FIX: fietsinfrastructuur multiple values for single cell
 ### Deploy notes
 ```
-drc restart migrations
+drc restart migrations form-data-management db-cleanup subsidy-applications-management subsidy-application-flow-management cache resource
 drc up -d frontend
-drc up -d form-data-management
 ```
 ## 2.22.0 (2025-12-22)
 - Bump frontend subsidiepunt to `v1.16.1`
