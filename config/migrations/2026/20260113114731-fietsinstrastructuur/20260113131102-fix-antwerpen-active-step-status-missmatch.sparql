@@ -1,0 +1,7 @@
+PREFIX adms: <http://www.w3.org/ns/adms#>
+
+DELETE DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/bd74ee38a4b1e296821a11729c1f704cf439576c7ab2c910c95b067cf183d923/SubsidiepuntGebruiker> {
+    <http://data.lblod.info/id/subsidy-measure-consumptions/636A13DE295F7DB46968F51E> <http://www.w3.org/2007/uwa/context/common.owl#active> <http://lblod.data.info/id/subsidie-application-flow-steps/ad08beb8-b4a5-4a0e-ae99-1174b3b47d47>
+  }
+}

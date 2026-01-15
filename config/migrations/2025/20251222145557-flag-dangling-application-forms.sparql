@@ -1,0 +1,27 @@
+#########################################
+# Migration to easily track dangling Application forms.
+# If a new one appears, we can easily see the differences.
+# If we need to restore some of them, we have them ready.
+#########################################
+
+
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+INSERT {
+  GRAPH ?g {
+    ?s <http://www.w3.org/2004/02/skos/core#historyNote>
+"""
+Dangling Application form.
+Flagged on 2025-12-22. We want to track these in case of new dangling forms appear.
+Note: The forms in status "verstuurd" have created again by the user.
+""".
+  }
+}
+WHERE {
+   GRAPH ?g {
+    ?s a <http://lblod.data.gift/vocabularies/subsidie/ApplicationForm>.
+   }
+   FILTER NOT EXISTS {
+     ?source ?sourceP ?s.
+   }
+}
