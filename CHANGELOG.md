@@ -2,6 +2,10 @@
 ## Unreleased
 ### Deploy notes
 
+## 2.23.1
+- Update Sociale Cohesieplan info link
+### Deploy notes
+ ```drc restart migrations cache resource```
 ## 2.23.0
 - Automatically add subsidiestream to filter
 - Filter option Subsidiepunt
