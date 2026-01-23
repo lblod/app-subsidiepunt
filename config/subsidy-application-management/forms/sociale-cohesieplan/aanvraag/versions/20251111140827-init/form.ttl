@@ -862,7 +862,7 @@ ext:overzichtBegrotingSection a form:Section;
         form:help """Maak een gedetailleerde begroting op in het voorziene sjabloon. Geef een overzicht van   
 de begrote middelen per jaar en voor de volledige subsidieperiode van drie jaar. Voeg   
 het ingevulde sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te   
-vinden op <a href="https://www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken" target="_blank">https://www.vlaanderen.be/node/273288</a>""";
+vinden op <a href="https://www.vlaanderen.be/inclusie/subsidieoproep-sociale-cohesie" target="_blank">https://www.vlaanderen.be/inclusie/subsidieoproep-sociale-cohesie</a>""";
         form:partOf ext:overzichtBegrotingSection;
         form:validatedBy
                 [
@@ -997,7 +997,7 @@ ext:bijlageSection
         form:displayType displayTypes:files;
         form:partOf ext:bijlageSection;
         sh:name "Laad hier alle relevante bijlagen op";
-        form:help """Maak een zo gedetailleerd mogelijke begroting op. Het sjabloon kan je vinden op <a href="https://www.vlaanderen.be/node/273288" target="_blank">www.vlaanderen.be/samenleven/projectoproep-safer-spaces-verbinden-en-versterken</a>""";
+        form:help """Maak een zo gedetailleerd mogelijke begroting op. Het sjabloon kan je vinden op <a href="https://www.vlaanderen.be/inclusie/subsidieoproep-sociale-cohesie" target="_blank">https://www.vlaanderen.be/inclusie/subsidieoproep-sociale-cohesie</a>""";
         sh:path (lblodSubsidie:bijlageDocument dct:hasPart) .
 
     # HIDDEN Field ##################################################
