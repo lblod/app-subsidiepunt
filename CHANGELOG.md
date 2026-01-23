@@ -2,6 +2,10 @@
 ## Unreleased
 ### Deploy notes
 
+## 2.23.2
+- Update Sociale Cohesieplan info link within form
+### Deploy notes
+`drc restart subsidy-applications-management subsidy-application-flow-management cache resource`
 ## 2.23.1
 - Update Sociale Cohesieplan info link
 ### Deploy notes
