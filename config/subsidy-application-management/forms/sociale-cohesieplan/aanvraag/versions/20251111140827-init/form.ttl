@@ -91,12 +91,6 @@ zal realiseren.""";
                         form:grouping form:Bag;
                         sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie;
                         sh:resultMessage "Dit veld is verplicht."
-                    ],
-                    [ a form:MaxLength ; 
-                        form:max 3000;
-                        form:grouping form:MatchEvery ;
-                        sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                        sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie
                     ];
             form:rendersWhen
                 [ 
@@ -234,12 +228,6 @@ vanaf 15 juni 2026, mits het ontvangen van de subsidie, de voorgestelde actie su
                         form:grouping form:Bag;
                         sh:path lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband;
                         sh:resultMessage "Dit veld is verplicht."
-                    ],
-                    [ a form:MaxLength ; 
-                        form:max 3000;
-                        form:grouping form:MatchEvery ;
-                        sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                        sh:path lblodSubsidie:werkingExpertiseDraagkrachtSamenwerkingsverband
                     ];
             form:rendersWhen
                 [ 
@@ -735,12 +723,6 @@ de praktijk.""";
                     form:grouping form:Bag;
                     sh:path lblodSubsidie:inhoudeEnDoelstellingenAanbod;
                     sh:resultMessage "Dit veld is verplicht."
-                ],
-                 [ a form:MaxLength ; 
-                    form:max 3000;
-                    form:grouping form:MatchEvery ;
-                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                    sh:path lblodSubsidie:inhoudeEnDoelstellingenAanbod
                 ];
         sh:path lblodSubsidie:inhoudeEnDoelstellingenAanbod .
 
@@ -764,12 +746,6 @@ samengewerkt worden, bevestigen.""";
                     form:grouping form:Bag;
                     sh:path lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext;
                     sh:resultMessage "Dit veld is verplicht."
-                ],
-                 [ a form:MaxLength ; 
-                    form:max 3000;
-                    form:grouping form:MatchEvery ;
-                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                    sh:path lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext
                 ];
         sh:path lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext .
 
@@ -795,12 +771,6 @@ worden opgevolgd, geëvalueerd en bijgestuurd.""";
                     form:grouping form:Bag;
                     sh:path lblodSubsidie:impactEnBereik;
                     sh:resultMessage "Dit veld is verplicht."
-                ],
-                 [ a form:MaxLength ; 
-                    form:max 3000;
-                    form:grouping form:MatchEvery ;
-                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                    sh:path lblodSubsidie:impactEnBereik
                 ];
         sh:path lblodSubsidie:impactEnBereik .
 
@@ -821,12 +791,6 @@ met het aanbod.""";
                     form:grouping form:Bag;
                     sh:path lblodSubsidie:duurzaamheidEnVerspreiding;
                     sh:resultMessage "Dit veld is verplicht."
-                ],
-                 [ a form:MaxLength ; 
-                    form:max 3000;
-                    form:grouping form:MatchEvery ;
-                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                    sh:path lblodSubsidie:duurzaamheidEnVerspreiding
                 ];
         sh:path lblodSubsidie:duurzaamheidEnVerspreiding .
 
@@ -895,12 +859,6 @@ per medewerker (met vermelding van de gehanteerde loonschaal).""";
                     form:grouping form:Bag;
                     sh:path lblodSubsidie:verantwoordingBegroteMiddelen;
                     sh:resultMessage "Dit veld is verplicht."
-                ],
-                 [ a form:MaxLength ; 
-                    form:max 3000;
-                    form:grouping form:MatchEvery ;
-                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                    sh:path lblodSubsidie:verantwoordingBegroteMiddelen
                 ];
         sh:path lblodSubsidie:verantwoordingBegroteMiddelen .
 
@@ -920,12 +878,6 @@ andere inkomsten die voor het aanbod worden aangewend.""";
                     form:grouping form:Bag;
                     sh:path lblodSubsidie:andereSubsidiesEnInkomsten;
                     sh:resultMessage "Dit veld is verplicht."
-                ],
-                 [ a form:MaxLength ; 
-                    form:max 3000;
-                    form:grouping form:MatchEvery ;
-                    sh:resultMessage "Gelieve hat aantal tekens te beperken tot 3000."@nl;
-                    sh:path lblodSubsidie:andereSubsidiesEnInkomsten
                 ];
         sh:path lblodSubsidie:andereSubsidiesEnInkomsten .
 
