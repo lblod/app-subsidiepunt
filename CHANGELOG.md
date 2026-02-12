@@ -2,6 +2,14 @@
 ## Unreleased
 ### Deploy notes
 
+## 2.23.4
+- Hotfix frontend: https://github.com/lblod/frontend-subsidiepunt/pull/46
+  - SeeAlso: DGS-624
+### Deploy notes
+```
+drc up -d frontend
+```
+
 ## 2.23.3
 - Remove chars limit on fields for sociale cohesieplan subsidy
 ### Deploy notes
