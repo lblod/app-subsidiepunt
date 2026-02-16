@@ -54,7 +54,22 @@
       "lblodSubsidie:afwijkingSubsidieperiode",
       "lblodSubsidie:ondernemingsnummer",
       "lblodSubsidie:samenWerkingMetEnAfstemmingOpDeLokaleContext",
+      "lblodSubsidie:begrotingDocument",
+      "lblodSubsidie:samenwerkingsovereenkomst",
+      "lblodSubsidie:samenwerkingverbandOrganisaties",
+      "lblodSubsidie:overzichtErkenningen",
       "lblodSubsidie:projectplan",
+      {
+        "s-prefix": "lblodSubsidie:projectplan",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
       {
         "s-prefix": "schema:contactPoint",
         "properties": [
