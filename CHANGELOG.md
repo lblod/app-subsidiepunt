@@ -2,6 +2,21 @@
 ## Unreleased
 ### Deploy notes
 
+## 2.23.5
+- Hotfix frontend: https://github.com/lblod/frontend-subsidiepunt/pull/47
+  - SeeAlso: DGS-624, DGS-625
+### Deploy notes
+#### Before deploying on PROD
+```
+git checkout config/subsidy-application-management/forms/sociale-cohesieplan/aanvraag/versions/20251111140827-init/form.json
+git checkout docker-compose.yml
+```
+#### All environments
+```
+drc restart subsidy-applications-management
+drc up -d frontend
+```
+
 ## 2.23.4
 - Hotfix frontend: https://github.com/lblod/frontend-subsidiepunt/pull/46
   - SeeAlso: DGS-624
