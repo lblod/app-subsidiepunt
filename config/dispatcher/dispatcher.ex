@@ -47,6 +47,22 @@ defmodule Dispatcher do
   #############################################################################
 
   # NOTE: resources
+  get "/log-entries/*path", @json do
+    forward conn, path, "http://resource/log-entries/"
+  end
+
+  match "/job-errors/*path"  do
+    forward conn, path, "http://cache/job-errors/"
+  end
+
+  match "/log-levels/*path" do
+    forward conn, path, "http://resource/log-levels/"
+  end
+
+  match "/log-sources/*path" do
+    forward conn, path, "http://resource/log-sources/"
+  end
+
   get "/reports/*path", @json do
     forward conn, path, "http://resource/reports/"
   end
@@ -63,11 +79,11 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/concepts/"
   end
 
-  get "/jobs/*path", @json do
+  match "/jobs/*path", @json do
     forward conn, path, "http://cache/jobs/"
   end
 
-  get "/tasks/*path", @json do
+  match "/tasks/*path", @json do
     forward conn, path, "http://cache/tasks/"
   end
 
