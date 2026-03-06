@@ -301,6 +301,23 @@ defmodule Dispatcher do
   end
 
   #################################################################
+  # dashboard
+  #################################################################
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dashboard" | _rest] }  do
+    forward conn, path, "http://dashboard/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dashboard" | _rest] } do
+    forward conn, path, "http://dashboard/@appuniversum/"
+  end
+
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dashboard" | _rest] } do
+    forward conn, [], "http://dashboard/index.html"
+  end
+
+  #################################################################
   # Subsidiedatabank
   #################################################################
 
