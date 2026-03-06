@@ -30,6 +30,7 @@
 (read-domain-file "master-reports-domain.lisp")
 (read-domain-file "master-subsidies-domain.lisp")
 (read-domain-file "master-job-domain.lisp")
+(read-domain-file "master-log-domain.lisp")
 (read-domain-file "dcat.json")
 
 ;; Extra security layer to return 403 on GET /files
