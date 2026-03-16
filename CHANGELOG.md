@@ -1,6 +1,12 @@
 # Changelog
 ## Unreleased
+- [DGS-613]: add organizations support in the dashboard
+
 ### Deploy notes
+```
+drc restart migrations cache resource dispatcher
+drc up -d dashboard
+```
 
 ## 2.23.5
 - Hotfix frontend: https://github.com/lblod/frontend-subsidiepunt/pull/47
