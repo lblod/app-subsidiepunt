@@ -33,6 +33,8 @@ services:
       - "80:80"
   frontend-subsidiedatabank:
     restart: "no"
+  dashboard:
+    restart: "no"
   dispatcher:
     restart: "no"
   database:

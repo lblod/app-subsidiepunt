@@ -23,9 +23,10 @@ services:
     restart: always
     logging: *default-logging
   dashboard:
-    image: lblod/frontend-dashboard:1.6.0
+    image: lblod/frontend-dashboard:1.10.1
     environment:
       EMBER_LOGIN_ROUTE: "mock-login"
+      EMBER_USE_ORGANIZATIONS_MODEL: "true"
     links:
       - identifier:backend
     labels:
@@ -182,7 +183,7 @@ services:
     restart: always
     logging: *default-logging
   report-generation:
-    image: lblod/loket-report-generation-service:0.6.5
+    image: lblod/loket-report-generation-service:0.8.3
     volumes:
       - ./data/files:/share
       - ./config/reports/:/config/

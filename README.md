@@ -14,7 +14,7 @@ This repository includes two Docker Compose configurations:
 
 - `docker-compose.yml`: The main configuration providing backend components and a build-ready frontend for deployment (usually behind a proxy).
 - `docker-compose.dev.yml`: Tailored for development purposes:
-  - Exposes backend services on port `90`
+  - Exposes backend services on port `99`
   - Publishes the triplestore (Virtuoso) on port `8890`
   - Includes a mock-login backend to bypass ACM/IDM during development
 
@@ -38,9 +38,6 @@ Create a `docker-compose.override.yml` file:
 
 ```yaml
 version: '3.7'
-subsidiepunt:
-  ports:
-    - 4205:80
 ```
 
 Create an `.env` file:
@@ -56,14 +53,22 @@ docker-compose up # or use -d for detached mode
 docker-compose logs -f --tail=100 migrations
 ```
 
-Visit the app at `http://localhost:4205` (or change port if needed).
+Visit the app at `http://localhost:99` (or change port if needed).
+
+### Frontend URLs
+
+When running locally with `docker-compose.dev.yml`, the following frontends are available at:
+
+- **frontend-subsidiedatabank**: [subsidiedatabank.localhost:99](http://subsidiedatabank.localhost:99)
+- **frontend-subsidie-management**: [insights.localhost:99](http://insights.localhost:99)
+- **dashboard**: [dashboard.localhost:99](http://dashboard.localhost:99)
 
 ### Development with Ember
 
 To develop the frontend:
 
 ```bash
-ember serve --proxy http://localhost:90/
+ember serve --proxy http://localhost:99/
 ```
 
 Refer to [frontend-subsidiepunt](https://github.com/lblod/frontend-subsidiepunt) for details.
@@ -74,7 +79,7 @@ LDES integration enables live and historical subsidy data to be shared.
 
 Default stream:
 ```
-http://localhost:90/streams/ldes/subsidies/public/1
+http://localhost:99/streams/ldes/subsidies/public/1
 ```
 
 To generate historical data:
