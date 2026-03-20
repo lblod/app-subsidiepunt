@@ -300,6 +300,40 @@ defmodule Dispatcher do
   end
 
   #################################################################
+  # Subsidie management (insights) DEV
+  #################################################################
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dev", "insights" | _rest] }  do
+    forward conn, path, "http://frontend-subsidie-management/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dev", "insights" | _rest] } do
+    forward conn, path, "http://frontend-subsidie-management/@appuniversum/"
+  end
+
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dev", "insights" | _rest] } do
+    forward conn, [], "http://frontend-subsidie-management/index.html"
+  end
+
+  #################################################################
+  # dashboard DEV
+  #################################################################
+  # Frontend
+
+  get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dev", "dashboard" | _rest] }  do
+    forward conn, path, "http://dashboard/assets/"
+  end
+
+  get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dev", "dashboard" | _rest] } do
+    forward conn, path, "http://dashboard/@appuniversum/"
+  end
+
+  match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dev", "dashboard" | _rest] } do
+    forward conn, [], "http://dashboard/index.html"
+  end
+
+  #################################################################
   # Subsidie management (insights)
   #################################################################
   # Frontend
