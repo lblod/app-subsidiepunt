@@ -1,0 +1,96 @@
+DELETE {
+  GRAPH ?g {
+    ?org ?p ?o .
+    ?s ?q ?org .
+  }
+}
+WHERE {
+  VALUES ?org {
+    <http://data.lblod.info/id/organisaties/dd157ef0-d4b4-11ef-b581-55d271ccab7d>      # "'t Heem"
+    <http://data.lblod.info/id/organisaties/16a1b240-1445-11f0-b581-55d271ccab7d>      # "Absolutely Free Festival vzw"
+    <http://data.lblod.info/id/organisaties/98ea2920-2738-11f0-84a9-6b983215480e>      # "BlinkOut"
+    <http://data.lblod.info/id/organisaties/5429c070-3098-11f0-86bb-d36396d75bb1>      # "CCURIT"
+    <http://data.lblod.info/id/organisaties/91238ac0-26bf-11f0-84a9-6b983215480e>      # "CENTRUM VOOR ALGEMEEN WELZIJNSWERK ANTWERPEN"
+    <http://data.lblod.info/id/organisaties/471db4b0-211e-11f0-84a9-6b983215480e>      # "CENTRUM VOOR EXPERTISE EN ADVIES INZAKE PREVENTIE EN INTERVENTIE MET BETREKKING TOT RADICALISME EN EXTRIMISME"
+    <http://data.lblod.info/id/organisaties/0fc74130-25aa-11f0-84a9-6b983215480e>      # "De Stadsnomaden"
+    <http://data.lblod.info/id/organisaties/e1eb37d0-22b1-11f0-84a9-6b983215480e>      # "Federatie Mondiale Democratische Organisaties"
+    <http://data.lblod.info/id/organisaties/f64cbf30-2533-11f0-84a9-6b983215480e>      # "Fleurs Sauvages"
+    <http://data.lblod.info/id/organisaties/3b311320-144b-11f0-b581-55d271ccab7d>      # "G.A.M.S. (Groupe pour l'Abolition des Mutilations sexuelles féminines)-Belgique"
+    <http://data.lblod.info/id/organisaties/7fbba7b0-1c63-11f0-b581-55d271ccab7d>      # "Internationaal Comité"
+    <http://data.lblod.info/id/organisaties/8cb136a0-cd95-11ef-b581-55d271ccab7d>      # "JuTiFin"
+    <http://data.lblod.info/id/organisaties/563ec5c0-1083-11f0-b581-55d271ccab7d>      # "Karel de Grote  Hogeschool, Katholieke Hogeschool Antwerpen"
+    <http://data.lblod.info/id/organisaties/da8b23b0-1082-11f0-b581-55d271ccab7d>      # "LEDA.collective"
+    <http://data.lblod.info/id/organisaties/78fa2a90-19f8-11f0-b581-55d271ccab7d>      # "LEVL"
+    <http://data.lblod.info/id/organisaties/6a6d0c30-0fa4-11f0-b581-55d271ccab7d>      # "Les Femmes prévoyantes socialistes du Brabant - De Socialistische Vooruitziende Vrouwen van Brabant"
+    <http://data.lblod.info/id/organisaties/610992c0-1efa-11f0-b581-55d271ccab7d>      # "OLORIN"
+    <http://data.lblod.info/id/organisaties/1ba7ab50-26d8-11f0-84a9-6b983215480e>      # "Out For The Win"
+    <http://data.lblod.info/id/organisaties/2f701450-6f3c-11ef-bfad-ad4430bc6d93>      # "Parcum"
+    <http://data.lblod.info/id/organisaties/6ea232b0-6092-11ef-ab8f-c7ad3ba4eca3>      # "Raeymaekers, Stijn"
+    <http://data.lblod.info/id/organisaties/3bcdd030-2421-11f0-84a9-6b983215480e>      # "Samen Leven Oost-Vlaanderen"
+    <http://data.lblod.info/id/organisaties/3f78cde0-19fc-11f0-b581-55d271ccab7d>      # "Samenlevingsopbouw Gent"
+    <http://data.lblod.info/id/organisaties/301d0ac0-2526-11f0-84a9-6b983215480e>      # "Sportieq"
+    <http://data.lblod.info/id/organisaties/5f7cd2f0-16d0-11f0-b581-55d271ccab7d>      # "UC Leuven"
+    <http://data.lblod.info/id/organisaties/ba7cb900-112a-11f0-b581-55d271ccab7d>      # "UC Limburg"
+    <http://data.lblod.info/id/organisaties/a003a820-24ff-11f0-84a9-6b983215480e>      # "VZW SAMENLEVINGSOPBOUW ANTWERPEN STAD"
+    <http://data.lblod.info/id/organisaties/278d32a0-0fa9-11f0-b581-55d271ccab7d>      # "ZIJkant, de progressieve"
+  }
+  GRAPH ?g {
+    {
+      ?org ?p ?o .
+    }
+    UNION
+    {
+      ?s ?q ?org .
+    }
+  }
+}
+
+
+# ----------------------------------------------------
+# This query finds organizations that have no form, org exists more then once and was created before July 1, 2025 at 09:00
+# Solves: duplicate verenigingen
+# ----------------------------------------------------
+# PREFIX org: <http://www.w3.org/ns/org#>
+# PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+# PREFIX m8g: <http://data.europa.eu/m8g/>
+# PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+#
+# SELECT DISTINCT ?prefLabel ?organization
+# WHERE {
+#   GRAPH ?g {
+#     ?organization a org:Organization ;
+#                   skos:prefLabel ?prefLabel ;
+#                   <http://purl.org/dc/terms/created> ?createdDate.
+#
+#     FILTER(?createdDate < "2025-07-01T09:00:00Z"^^xsd:dateTime)
+#
+#     FILTER NOT EXISTS {
+#       ?organization m8g:playsRole ?role .
+#     }
+#
+#     FILTER NOT EXISTS {
+#       ?organization a besluit:Bestuurseenheid .
+#     }
+#
+#     {
+#       SELECT ?g ?prefLabel
+#       WHERE {
+#         GRAPH ?g {
+#           ?org a org:Organization ;
+#                skos:prefLabel ?prefLabel .
+#
+#           FILTER NOT EXISTS {
+#             ?org m8g:playsRole ?r .
+#           }
+#
+#           FILTER NOT EXISTS {
+#             ?org a besluit:Bestuurseenheid .
+#           }
+#         }
+#       }
+#       GROUP BY ?g ?prefLabel
+#       HAVING (COUNT(DISTINCT ?org) > 1)
+#     }
+#   }
+# }
+# ORDER BY ?prefLabel ?organization
