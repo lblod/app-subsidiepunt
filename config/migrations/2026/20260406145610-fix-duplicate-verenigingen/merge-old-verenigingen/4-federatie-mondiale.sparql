@@ -1,0 +1,36 @@
+ADD GRAPH <http://mu.semte.ch/graphs/organizations/e1eb37d0-22b1-11f0-84a9-6b983215480e/SubsidiepuntGebruiker> TO <http://mu.semte.ch/graphs/organizations/b6a52470-7da4-11f0-86bb-d36396d75bb1/SubsidiepuntGebruiker> ;
+DROP SILENT GRAPH <http://mu.semte.ch/graphs/organizations/e1eb37d0-22b1-11f0-84a9-6b983215480e/SubsidiepuntGebruiker>
+;
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/organisaties/e1eb37d0-22b1-11f0-84a9-6b983215480e> ?p ?o .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/organisaties/b6a52470-7da4-11f0-86bb-d36396d75bb1> ?p ?o .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/organisaties/e1eb37d0-22b1-11f0-84a9-6b983215480e> ?p ?o .
+  }
+}
+;
+
+# Reverse relationships: transfer triples where the old org is object 
+DELETE {
+  GRAPH ?g {
+    ?s ?p <http://data.lblod.info/id/organisaties/e1eb37d0-22b1-11f0-84a9-6b983215480e> .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?s ?p <http://data.lblod.info/id/organisaties/b6a52470-7da4-11f0-86bb-d36396d75bb1> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?s ?p <http://data.lblod.info/id/organisaties/e1eb37d0-22b1-11f0-84a9-6b983215480e> .
+  }
+}
