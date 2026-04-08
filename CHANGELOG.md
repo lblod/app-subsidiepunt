@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 2.24.0 (2026-04-08)
 - [DGS-613]: add organizations support in the dashboard
 - [DGS-629]: fix duplicate verenigingen issue
 
