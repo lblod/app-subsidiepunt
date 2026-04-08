@@ -1,4 +1,13 @@
 # Changelog
+
+## Unreleased
+- Frontend [v1.18.0](https://github.com/lblod/frontend-subsidiepunt/blob/0694d1f2a652f2173ec557882096854210783c67/CHANGELOG.md#v1180-2026-04-08)
+
+### Deploy notes
+```
+drc up -d frontend
+```
+
 ## 2.24.0 (2026-04-08)
 - [DGS-613]: add organizations support in the dashboard
 - [DGS-629]: fix duplicate verenigingen issue
