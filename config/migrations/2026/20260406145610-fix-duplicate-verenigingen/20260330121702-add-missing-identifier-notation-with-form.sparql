@@ -1,0 +1,79 @@
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+  ?identifier
+    rdf:type adms:Identifier ;
+      mu:uuid ?uuid ;
+      skos:notation ?orgCode .
+  }
+}
+WHERE {
+  VALUES (?organization ?orgCode) {
+    (<http://data.lblod.info/id/organisaties/cd9c2ab0-1531-11f0-b581-55d271ccab7d> "0428652502") # wp Zimmer
+    (<http://data.lblod.info/id/organisaties/e939dc30-26fd-11f0-84a9-6b983215480e> "0410958613") # Elcker-Ik, Centrum
+    (<http://data.lblod.info/id/organisaties/5f275950-1767-11f0-b581-55d271ccab7d> "0860556680") # BOLWERK
+    (<http://data.lblod.info/id/organisaties/7768e020-21e3-11f0-84a9-6b983215480e> "0410893483") # August Vermeylenfonds
+    (<http://data.lblod.info/id/organisaties/55bd84e0-2368-11f0-84a9-6b983215480e> "0562726593") # On Wheels
+    (<http://data.lblod.info/id/organisaties/a785d1c0-210a-11f0-84a9-6b983215480e> "0425420917") # Plan International België
+    (<http://data.lblod.info/id/organisaties/a28edf90-1f5c-11f0-b581-55d271ccab7d> "0553727468") # Assjette
+    (<http://data.lblod.info/id/organisaties/2eefc680-1f61-11f0-b581-55d271ccab7d> "0424378661") # Sociaal-Culturele Vereniging van Vlaamse Liberale Vrouwen
+    (<http://data.lblod.info/id/organisaties/eb19d3f0-2646-11f0-84a9-6b983215480e> "0675709918") # Fiola
+    (<http://data.lblod.info/id/organisaties/2dc1e960-25fa-11f0-84a9-6b983215480e> "0464275949") # CENTRUM ALGEMEEN WELZIJNSWERK ZUID-WEST-VLAANDEREN
+    (<http://data.lblod.info/id/organisaties/0c514a70-1fae-11f0-b581-55d271ccab7d> "0681498640") # BAZZZ
+    (<http://data.lblod.info/id/organisaties/5d6fdcb0-26ba-11f0-84a9-6b983215480e> "0791412706") # Engagement Arts VZW
+    (<http://data.lblod.info/id/organisaties/cd5ec0c0-5a2a-11ef-9e20-f7267108d223> "0681569312") # REDPENCIL
+    (<http://data.lblod.info/id/organisaties/215ab7c0-21c6-11f0-84a9-6b983215480e> "0865071635") # VIJFTACT
+    (<http://data.lblod.info/id/organisaties/3a11aa80-2590-11f0-84a9-6b983215480e> "1000363770") # GIRL
+    (<http://data.lblod.info/id/organisaties/cc8dd9d0-1ad5-11f0-b581-55d271ccab7d> "0802277102") # Platform Systemisch Diversiteitsbeleid
+    (<http://data.lblod.info/id/organisaties/7c2714a0-1523-11f0-b581-55d271ccab7d> "0460162753") # DOKTERS VAN DE WERELD - MEDECINS DU MONDE
+    (<http://data.lblod.info/id/organisaties/81e65590-24d7-11f0-84a9-6b983215480e> "0891076246") # Sociaal Fonds voor de Audiovisuele Sector
+    (<http://data.lblod.info/id/organisaties/d4ee8f00-26b7-11f0-84a9-6b983215480e> "0803736357") # Netwerk Islamexperten
+    (<http://data.lblod.info/id/organisaties/b5fa7f70-1931-11f0-b581-55d271ccab7d> "1020471078") # ELLES POUR ELLES
+    (<http://data.lblod.info/id/organisaties/65809500-20f4-11f0-b581-55d271ccab7d> "0478654319") # POUR LA SOLIDARITE
+    (<http://data.lblod.info/id/organisaties/f8d2d8d0-272b-11f0-84a9-6b983215480e> "0720525403") # Safe Space
+    (<http://data.lblod.info/id/organisaties/34891e40-24b4-11f0-84a9-6b983215480e> "0457322336") # CASA ROSA
+    (<http://data.lblod.info/id/organisaties/fbf6ce10-20e9-11f0-b581-55d271ccab7d> "0420790948") # Universitair Centrum voor Ontwikkelingssamenwerking
+    (<http://data.lblod.info/id/organisaties/0278f810-0fa8-11f0-b581-55d271ccab7d> "0476796372") # beweging tegen geweld vzw zijn
+    (<http://data.lblod.info/id/organisaties/aa1ea8d0-1066-11f0-b581-55d271ccab7d> "0508774601") # Centrum Algemeen Welzijnswerk Oost-Vlaanderen
+    (<http://data.lblod.info/id/organisaties/ef3221d0-1620-11f0-b581-55d271ccab7d> "0726873953") # Punt.
+    (<http://data.lblod.info/id/organisaties/d2eac8f0-2729-11f0-84a9-6b983215480e> "0434153588") # THE FACTORY
+    (<http://data.lblod.info/id/organisaties/7a789520-2699-11f0-84a9-6b983215480e> "0695410519") # O.666
+  }
+
+  ?organization adms:identifier ?identifier .
+
+  FILTER NOT EXISTS {
+    ?identifier skos:notation ?existingCode .
+  }
+
+  BIND(STRUUID() AS ?uuid)
+}
+
+# ----------------------------------------------------
+# This query finds organizations that do have a form but no identifier notation
+# Solves: duplicate verenigingen
+# ----------------------------------------------------
+# PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+# PREFIX m8g: <http://data.europa.eu/m8g/>
+# 
+# SELECT DISTINCT ?organization ?prefLabel ?createdDate
+# WHERE {
+#   ?organization a <http://www.w3.org/ns/org#Organization> ;
+#                 <http://www.w3.org/2004/02/skos/core#prefLabel> ?prefLabel ;
+#                 <http://purl.org/dc/terms/created> ?createdDate ;
+#                  m8g:playsRole ?role ;
+#                 <http://www.w3.org/ns/adms#identifier> ?identifier .
+# 
+#   FILTER NOT EXISTS {
+#     ?identifier <http://www.w3.org/2004/02/skos/core#notation> ?orgCode .
+#   }
+# 
+#   FILTER NOT EXISTS {
+#     ?organization a besluit:Bestuurseenheid .
+#   }
+# } 

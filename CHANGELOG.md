@@ -1,9 +1,11 @@
 # Changelog
 ## Unreleased
 - [DGS-613]: add organizations support in the dashboard
+- [DGS-629]: fix duplicate verenigingen issue
 
 ### Deploy notes
 ```
+# MAKE A BACKUP!
 drc restart migrations cache resource dispatcher
 drc up -d dashboard
 ```

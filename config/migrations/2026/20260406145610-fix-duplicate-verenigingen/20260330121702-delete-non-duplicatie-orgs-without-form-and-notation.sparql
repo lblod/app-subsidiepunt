@@ -1,0 +1,110 @@
+DELETE {
+  GRAPH ?g {
+    ?org ?p ?o .
+    ?s ?q ?org .
+  }
+}
+WHERE {
+  VALUES ?org {
+    <http://data.lblod.info/id/organisaties/f34f0170-6b58-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/dec804c0-6e89-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/e062b090-a0df-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/b5f29260-a19f-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/ca176ea0-a19f-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/0eb195e0-fdb2-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/bde9c850-1092-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/e0641560-1c8c-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/0d623cc0-325b-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/49cbee90-4048-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/308db700-478d-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/f3f2dc50-a460-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/eb9d4170-cf36-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/213c6760-d4c4-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/3f1f5d20-0f91-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/e513d710-1513-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/0f8f5310-7015-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/bd0d6a40-8faa-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/50fa8b60-07d9-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/c0098b70-0a39-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/2b4b9b10-1397-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/1c8f11e0-20f5-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/eba4d8f0-451e-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/834a7740-532b-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/f957c520-6c7f-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/bb3f44e0-7038-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/16b92d20-24f4-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/47083960-65fc-11ef-ab8f-c7ad3ba4eca3>
+    <http://data.lblod.info/id/organisaties/44e766b0-6b56-11ef-ab8f-c7ad3ba4eca3>
+    <http://data.lblod.info/id/organisaties/5503e9b0-8c8a-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/b08fba10-9cf3-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/be3633f0-a19f-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/0f750260-13aa-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/1faa3820-2143-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/a413cb80-2436-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/ff166e70-2698-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/30811170-6b52-11ef-ab8f-c7ad3ba4eca3>
+    <http://data.lblod.info/id/organisaties/3106a5f0-6f54-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/d2a789a0-212f-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/31dd3a20-5edd-11ef-ab8f-c7ad3ba4eca3>
+    <http://data.lblod.info/id/organisaties/5c01a660-7102-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/de0946c0-0957-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/db69edc0-151e-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/dce2ca00-25a4-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/3d45f630-271f-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/bfaf5bb0-2f13-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/337303f0-7658-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/d4312fc0-a19f-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/35a192c0-c7a4-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/688a26e0-e46c-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/8fadaf40-f5cd-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/da355e90-2436-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/221df360-24c9-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/93123d30-2684-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/fc0d6b70-cc07-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/a7795970-d24c-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/3c3784e0-0ee0-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/0e305260-1ac6-11f0-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/7a7561c0-9c29-11ef-bfad-ad4430bc6d93>
+    <http://data.lblod.info/id/organisaties/5fcc7400-a64a-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/9e1b31f0-eead-11ef-b581-55d271ccab7d>
+    <http://data.lblod.info/id/organisaties/7d9e9660-271f-11f0-84a9-6b983215480e>
+    <http://data.lblod.info/id/organisaties/496c1310-413f-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/324461b0-2a83-11f0-86bb-d36396d75bb1>
+  }
+  GRAPH ?g {
+    {
+      ?org ?p ?o .
+    }
+    UNION
+    {
+      ?s ?q ?org .
+    }
+  }
+}
+
+# ----------------------------------------------------
+# This query deletes orgs without notation and without form
+# Solves: duplicate verenigingen
+# ----------------------------------------------------
+# PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+# PREFIX m8g: <http://data.europa.eu/m8g/>
+
+# SELECT DISTINCT ?organization ?prefLabel ?createdDate
+# WHERE {
+#   ?organization a <http://www.w3.org/ns/org#Organization> ;
+#                 <http://www.w3.org/2004/02/skos/core#prefLabel> ?prefLabel ;
+#                 <http://purl.org/dc/terms/created> ?createdDate ;
+#                 <http://www.w3.org/ns/adms#identifier> ?identifier .
+    
+#   FILTER NOT EXISTS {
+#     ?organization m8g:playsRole ?role.
+#   }
+
+#   FILTER NOT EXISTS {
+#     ?identifier <http://www.w3.org/2004/02/skos/core#notation> ?orgCode .
+#   }
+
+#   FILTER NOT EXISTS {
+#     ?organization a besluit:Bestuurseenheid .
+#   }
+# } 
