@@ -1,4 +1,23 @@
 # Changelog
+## 2.24.1 (2026-04-08)
+- Hotfix after issue with: https://github.com/lblod/app-subsidiepunt/pull/128/changes with order of migrations.
+
+### Deploy notes
+#### On prod only
+Ensure files:
+
+```
+./config/migrations/2026/20260406145610-fix-duplicate-verenigingen/20260408145504-restore-missing-data.graph
+./config/migrations/2026/20260406145610-fix-duplicate-verenigingen/20260408145504-restore-missing-data.ttl
+```
+are added in the local migrations.
+
+#### All environments
+```
+drc up restart migrations resource cache
+```
+
+
 ## 2.24.0 (2026-04-08)
 - [DGS-613]: add organizations support in the dashboard
 - [DGS-629]: fix duplicate verenigingen issue
