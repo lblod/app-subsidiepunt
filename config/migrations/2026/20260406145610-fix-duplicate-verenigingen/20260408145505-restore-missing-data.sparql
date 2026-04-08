@@ -1,0 +1,14 @@
+INSERT {
+  GRAPH ?g {
+    ?s ?p ?o.
+  }
+} WHERE {
+  GRAPH <http://git.semte.ch/temp/graphs/id/c8486759-290e-48ce-8815-01a50a397f6d> {
+    ?s ?p ?o;
+      <http://mu.semte.ch/ext/wasInGraph> ?g.
+  }
+}
+
+;
+
+DROP SILENT GRAPH <http://git.semte.ch/temp/graphs/id/c8486759-290e-48ce-8815-01a50a397f6d>
