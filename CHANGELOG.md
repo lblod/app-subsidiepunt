@@ -1,4 +1,11 @@
 # Changelog
+## 2.24.2 (2026-04-08)
+- Hotfix after issue with: https://github.com/lblod/app-subsidiepunt/pull/128/changes with order of migrations.
+### Deploy notes
+```
+drc up restart migrations
+```
+
 ## 2.24.1 (2026-04-08)
 - Hotfix after issue with: https://github.com/lblod/app-subsidiepunt/pull/128/changes with order of migrations.
 
