@@ -1,0 +1,30 @@
+# See: https://github.com/lblod/app-subsidiepunt/pull/128
+# We have te some issues with a bug that happened a while ago, because of this we could have things like dangling orgs or duplicate orgs etc.
+# This fixes these cases
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+DELETE {
+  GRAPH ?g {
+    ?person ?p ?o .
+    ?account ?ap ?ao .
+  }
+}
+WHERE {
+
+  GRAPH ?g {
+    ?person foaf:account ?account ;
+            foaf:member ?org ;
+            ?p ?o .
+    ?account foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service> ;
+             ?ap ?ao .
+  }
+
+  # Keep the one with the lowest URI (arbitrary but deterministic)
+  FILTER EXISTS {
+    ?otherPerson foaf:account ?otherAccount ;
+                 foaf:member ?org .
+    ?otherAccount foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service> .
+    FILTER (?otherPerson < ?person)
+  }
+}
