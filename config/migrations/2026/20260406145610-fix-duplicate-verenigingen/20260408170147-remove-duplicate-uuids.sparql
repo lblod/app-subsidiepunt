@@ -1,0 +1,35 @@
+ # the previous migrations introduced double uuids
+ # e.g. https://github.com/lblod/app-subsidiepunt/pull/128/changes#diff-a28f9f9f13650a811c272c587df6228c55b6f95124e738dfa0ec283f9be34126R4
+ # this migration to fix that
+DELETE {
+  GRAPH ?g {
+    ?org <http://mu.semte.ch/vocabularies/core/uuid> ?oldUuid.
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?org <http://mu.semte.ch/vocabularies/core/uuid> ?newUuid.
+  }
+}
+
+WHERE {
+  VALUES ?org {
+    <http://data.lblod.info/id/organisaties/b6a52470-7da4-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/49017540-080f-11f1-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/248d1150-b455-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/e5aa1500-fb80-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/1a92b0d0-7132-11f0-86bb-d36396d75bb1>
+    <http://data.lblod.info/id/organisaties/f380b910-a386-11f0-86bb-d36396d75bb1>
+  }
+
+  GRAPH ?j {
+    ?org <http://mu.semte.ch/vocabularies/core/uuid> ?oldUuid.
+  }
+  FILTER(STRSTARTS(STR(?j), "http://mu.semte.ch/graphs/organizations/"))
+  FILTER(STRENDS(STR(?j), "/SubsidiepuntGebruiker"))
+  BIND(STRBEFORE(STRAFTER(STR(?j), "http://mu.semte.ch/graphs/organizations/"), "/SubsidiepuntGebruiker") AS ?newUuid)
+
+  GRAPH ?g {
+    ?org <http://mu.semte.ch/vocabularies/core/uuid> ?oldUuid.
+  }
+}
