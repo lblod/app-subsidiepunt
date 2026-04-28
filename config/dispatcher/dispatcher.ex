@@ -353,6 +353,13 @@ defmodule Dispatcher do
   #################################################################
   # dashboard
   #################################################################
+
+  # Login
+
+  match "/sessions/*path", %{ reverse_host: ["dashboard" | _rest] } do
+    forward conn, path, "http://login-dashboard/sessions/"
+  end
+
   # Frontend
 
   get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dashboard" | _rest] }  do
