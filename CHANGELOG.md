@@ -1,11 +1,12 @@
 # Changelog
 
-## 2.25.2 (2026-04-28)
+## 2.25.3 (2026-04-28)
 - [DGS-630] acm/idm for subsidie dashboard [qa/prod], cleanup compose files
 
 ### Deploy notes
 ```
-drc up -d frontend-dashboard login-dashboard frontend login-subsidiedatabank
+drc up -d frontend-dashboard login-dashboard frontend login-subsidiedatabank 
+drc restart database cache identifier
 ```
 
 cleanup dangling dashboard container
