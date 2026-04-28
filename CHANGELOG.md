@@ -7,6 +7,19 @@
 ```
 drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource
 ```
+
+## 2.25.1 (2026-04-28)
+- [DGS-630] acm/idm for subsidie dashboard [qa/prod], cleanup compose files
+
+### Deploy notes
+```
+drc up -d frontend-dashboard login-dashboard frontend login-subsidiedatabank
+```
+
+cleanup dangling dashboard container
+
+Configure the environment variables for the QA/PROD ACM/IDM environments
+
 ## 2.25.0 (2026-04-15)
 - Frontend [v1.18.0](https://github.com/lblod/frontend-subsidiepunt/blob/0694d1f2a652f2173ec557882096854210783c67/CHANGELOG.md#v1180-2026-04-08)
 
