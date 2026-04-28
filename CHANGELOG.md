@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.25.1 (2026-04-28)
+## 2.25.2 (2026-04-28)
 - [DGS-630] acm/idm for subsidie dashboard [qa/prod], cleanup compose files
 
 ### Deploy notes
