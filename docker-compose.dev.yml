@@ -23,17 +23,11 @@ services:
 
   frontend:
     restart: "no"
-    environment:
-      EMBER_FEATURE_PUBLIC_SERVICES_ENABLED: "true"
-      EMBER_FEATURE_EREDIENSTEN_MANDATENBEHEER_ENABLED: "true"
-      EMBER_FEATURE_WORSHIP_MINISTER_MANAGEMENT_ENABLED: "true"
-      EMBER_WORSHIP_DECISIONS_DATABASE_URL: "https://dev.databankerediensten.lokaalbestuur.lblod.info"
-      EMBER_WORSHIP_ORGANISATIONS_DATABASE_URL: "https://dev.organisaties.lokaalbestuur.lblod.info"
     ports:
       - "80:80"
   frontend-subsidiedatabank:
     restart: "no"
-  dashboard:
+  frontend-dashboard:
     restart: "no"
   dispatcher:
     restart: "no"
@@ -56,6 +50,10 @@ services:
   db-cleanup:
     restart: "no"
   login:
+    restart: "no"
+  login-dashboard:
+    restart: "no"
+  login-subsidiedatabank:
     restart: "no"
   file:
     restart: "no"
