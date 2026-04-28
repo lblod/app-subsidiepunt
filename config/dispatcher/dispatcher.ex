@@ -319,18 +319,25 @@ defmodule Dispatcher do
   #################################################################
   # dashboard DEV
   #################################################################
+
+  # Login
+
+  match "/sessions/*path", %{ reverse_host: ["dev", "dashboard" | _rest] } do
+    forward conn, path, "http://login-dashboard/sessions/"
+  end
+
   # Frontend
 
   get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dev", "dashboard" | _rest] }  do
-    forward conn, path, "http://dashboard/assets/"
+    forward conn, path, "http://frontend-dashboard/assets/"
   end
 
   get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dev", "dashboard" | _rest] } do
-    forward conn, path, "http://dashboard/@appuniversum/"
+    forward conn, path, "http://frontend-dashboard/@appuniversum/"
   end
 
   match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dev", "dashboard" | _rest] } do
-    forward conn, [], "http://dashboard/index.html"
+    forward conn, [], "http://frontend-dashboard/index.html"
   end
 
   #################################################################
@@ -363,15 +370,15 @@ defmodule Dispatcher do
   # Frontend
 
   get "/assets/*path",  %{ accept: %{ any: true }, reverse_host: ["dashboard" | _rest] }  do
-    forward conn, path, "http://dashboard/assets/"
+    forward conn, path, "http://frontend-dashboard/assets/"
   end
 
   get "/@appuniversum/*path", %{ accept: %{ any: true }, reverse_host: ["dashboard" | _rest] } do
-    forward conn, path, "http://dashboard/@appuniversum/"
+    forward conn, path, "http://frontend-dashboard/@appuniversum/"
   end
 
   match "/*_path", %{ accept: %{ html: true }, reverse_host: ["dashboard" | _rest] } do
-    forward conn, [], "http://dashboard/index.html"
+    forward conn, [], "http://frontend-dashboard/index.html"
   end
 
   #################################################################
