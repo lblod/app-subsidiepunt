@@ -12,8 +12,8 @@ DELETE {
 }
 INSERT {
   GRAPH ?g {
-    <http://data.lblod.info/id/periodes/5ecb1512-e8b3-40bf-a0c4-a4087090c093> m8g:endTime "2027-07-30T21:59:00Z"^^xsd:dateTime . 
-    <http://data.lblod.info/id/periodes/8265739f-2f05-4ada-8a30-c813b4bd783c> m8g:endTime "2027-07-30T21:59:00Z"^^xsd:dateTime . 
+    <http://data.lblod.info/id/periodes/5ecb1512-e8b3-40bf-a0c4-a4087090c093> m8g:endTime "2027-09-30T21:59:00Z"^^xsd:dateTime . 
+    <http://data.lblod.info/id/periodes/8265739f-2f05-4ada-8a30-c813b4bd783c> m8g:endTime "2027-09-30T21:59:00Z"^^xsd:dateTime . 
   }
 }
 WHERE {
