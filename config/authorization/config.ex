@@ -243,14 +243,14 @@ defmodule Acl.UserGroups.Config do
         ]
       },
 
-      # LOKETADMIN
+      # Dashboard
       %GroupSpec{
         name: "o-admin-rwf",
         useage: [:read, :write, :read_for_write],
-        access: access_by_role("LoketAdmin"),
+        access: is_admin(),
         graphs: [
           %GraphSpec{
-            graph: "http://mu.semte.ch/graphs/organizations/",
+            graph: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b/LoketAdmin",
             constraint: %ResourceConstraint{
               resource_types: [
                 "http://lblod.data.gift/vocabularies/reporting/Report",
