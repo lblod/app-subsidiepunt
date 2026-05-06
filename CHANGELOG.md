@@ -1,5 +1,5 @@
 # Changelog
-## unreleased
+## 2.26.0 (2026-05-06)
 - Add fietssubsidy step 4 and set active 
 - Update deadline step + subsidy nooddorpen to 30 september 2027
 ### Deploy notes
