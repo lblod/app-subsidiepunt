@@ -1,0 +1,25 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcterm: <http://purl.org/dc/terms/>
+
+# Oekraine nooddorpen
+# Update reeks deadlines
+DELETE {
+  GRAPH ?g {
+    ?s m8g:endTime ?endTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/5ecb1512-e8b3-40bf-a0c4-a4087090c093> m8g:endTime "2027-06-30T21:59:00Z"^^xsd:dateTime . 
+  }
+}
+WHERE {
+  GRAPH ?g {
+    VALUES ?s {
+      <http://data.lblod.info/id/periodes/5ecb1512-e8b3-40bf-a0c4-a4087090c093>
+    }
+    ?s m8g:endTime ?endTime .
+  }
+}
