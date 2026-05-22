@@ -115,7 +115,7 @@ ext:startDatum
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Startdatum van het project";
-    form:help "Het projectvoorstel start ten vroegste op 15 februari 2026.";
+    form:help "Het projectvoorstel start ten vroegste op 1 januari 2027.";
     sh:order 14;
     sh:path lblodSubsidie:startDatum .
 
@@ -207,7 +207,7 @@ ext:begrotingDocument
     form:displayType displayTypes:files;
     form:partOf ext:overzichtBegrotingSection;
     form:help """Geef een gedetailleerde begroting in het voorziene sjabloon. Voeg het ingevulde   
-sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2026" target="_blank">www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2026</a>.""";
+sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2027-2029" target="_blank">www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2027-2029</a>.""";
     form:validatedBy
             [
                 a form:RequiredConstraint;
@@ -230,25 +230,41 @@ ext:hiddenBegrotingDocument a form:Field ;
 ##########################################################
 
 
-ext:disseminatieEnVerduurzaming
+ext:disseminatie
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
         """Omschrijf hoe resultaten, ervaringen en bevindingen worden gedeeld met specifieke   
-doelgroepen en/of een breder publiek. Geef ook aan welke strategieën of acties worden   
-voorzien om de resultaten duurzaam te verankeren en hun impact op langere termijn te   
-verzekeren.""";
+doelgroepen en/of een breder publiek.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
                 a form:RequiredConstraint;
                 form:grouping form:Bag;
-                sh:path lblodSubsidie:disseminatieEnVerduurzaming;
+                sh:path lblodSubsidie:disseminatie;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name "Disseminatie en verduurzaming";
+    sh:name "Disseminatie";
     sh:order 23;
-    sh:path lblodSubsidie:disseminatieEnVerduurzaming.
+    sh:path lblodSubsidie:disseminatie.
+
+ext:verduurzaming
+    a form:Field;
+    form:displayType displayTypes:textArea;
+    form:help
+        """Geef aan welke strategieën of acties worden voorzien om de resultaten duurzaam te   
+verankeren en hun impact op langere termijn te verzekeren.""";
+    form:partOf ext:inhoudelijkeGegevensSection;
+    form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path lblodSubsidie:verduurzaming;
+                sh:resultMessage "Dit veld is verplicht."
+            ];
+    sh:name "verduurzaming";
+    sh:order 23;
+    sh:path lblodSubsidie:verduurzaming.
 
 ext:verklaringenSection
     a form:Section;
@@ -323,6 +339,23 @@ ext:familyName
     sh:order 5;
     sh:path ( schema:contactPoint foaf:familyName ) .
 
+ext:beoogdeDoelgroep
+    a form:Field;
+    form:displayType displayTypes:textArea;
+    form:help
+        """Licht toe hoe het project de beoogde doelgroepen zal bereiken en betrekken.""";
+    form:partOf ext:inhoudelijkeGegevensSection;
+    form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path lblodSubsidie:beoogdeDoelgroep;
+                sh:resultMessage "Dit veld is verplicht."
+            ];
+    sh:name "Beoogde doelgroep(en)";
+    sh:order 19;
+    sh:path lblodSubsidie:beoogdeDoelgroep .
+
 ext:beoogdeResultatenProject
     a form:Field;
     form:displayType displayTypes:textArea;
@@ -357,7 +390,7 @@ ext:einddatumProject
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Einddatum van het project";
-    form:help "Het projectvoorstel eindigt ten laatste op 31 oktober 2026.  ";
+    form:help "Het projectvoorstel eindigt ten laatste op 31 december 2029.  ";
     sh:order 15;
     sh:path lblodSubsidie:einddatumProject .
 
@@ -460,7 +493,11 @@ ext:titelProject
 ext:relevantieEnMaatschappelijkeBijdrage
     a form:Field;
     form:displayType displayTypes:textArea;
-    form:help "Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust. Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Motiveer waarom het project een antwoord zal bieden op de uitdagingen en/of noden. Licht toe hoe het project de benoemde doelgroepen zal bereiken en betrekken.";
+    form:help "Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de   
+projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil   
+tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust.   
+Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Motiveer   
+waarom het project een antwoord zal bieden op de uitdagingen en/of noden.";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -702,7 +739,7 @@ ext:gevraagdeSubsidieGelijkeKansen
                 sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen;
                 sh:resultMessage "Max. hoeveelheid overschreden."@nl 
             ];
-    sh:name "Gevraagde subsidie vanuit Gelijke Kansen (maximaal 25.000 euro)  ";
+    sh:name "Gevraagde subsidie vanuit Gelijke Kansen (maximaal 75.000 euro)  ";
     sh:order 16;
     sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen.
 
@@ -720,12 +757,14 @@ emb:source-node
         ext:medewerkers,
         ext:begrotingDocument,
         ext:hiddenBegrotingDocument,
-        ext:disseminatieEnVerduurzaming,
+        ext:disseminatie,
+        ext:verduurzaming,
         ext:ondernemingsnummer,
         ext:overzichtAndereSubsidierendeInstanties,
         ext:verantwoordingBegroteMiddelen,
         ext:familyName,
         ext:beoogdeResultatenProject,
+        ext:beoogdeDoelgroep,
         ext:einddatumProject,
         ext:straatEnNummer,
         ext:opvolgingEnEvaluatie,
