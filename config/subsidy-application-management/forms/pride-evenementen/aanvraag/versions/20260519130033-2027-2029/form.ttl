@@ -493,11 +493,11 @@ ext:titelProject
 ext:relevantieEnMaatschappelijkeBijdrage
     a form:Field;
     form:displayType displayTypes:textArea;
-    form:help "Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de   
+    form:help """Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de   
 projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil   
 tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust.   
 Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Motiveer   
-waarom het project een antwoord zal bieden op de uitdagingen en/of noden.";
+waarom het project een antwoord zal bieden op de uitdagingen en/of noden.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
