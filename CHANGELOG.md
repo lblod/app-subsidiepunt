@@ -1,9 +1,11 @@
 # Changelog
 ## Unreleased
 - Bump acm-login service [DL-7346]
+- New Pride-evenementen reeks (2027-2029)
 ## Deploy notes
 ```
 drc up -d login login-dashboard login-subsidiedatabank
+drc restart migrations cache resource subsidy-applications-management
 ```
 
 ## 2.26.0 (2026-05-06)
