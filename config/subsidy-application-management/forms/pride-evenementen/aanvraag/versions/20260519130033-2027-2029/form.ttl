@@ -734,7 +734,7 @@ ext:gevraagdeSubsidieGelijkeKansen
             [
                 a form:MaxLength;
                 form:grouping form:MatchEvery;
-                form:max "25000";
+                form:max "75000";
                 sh:order 2;
                 sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen;
                 sh:resultMessage "Max. hoeveelheid overschreden."@nl 
