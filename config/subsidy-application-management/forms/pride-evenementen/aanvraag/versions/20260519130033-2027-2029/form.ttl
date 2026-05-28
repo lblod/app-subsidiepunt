@@ -262,7 +262,7 @@ verankeren en hun impact op langere termijn te verzekeren.""";
                 sh:path lblodSubsidie:verduurzaming;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name "verduurzaming";
+    sh:name "Verduurzaming";
     sh:order 23;
     sh:path lblodSubsidie:verduurzaming.
 
