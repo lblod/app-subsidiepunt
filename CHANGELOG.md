@@ -1,7 +1,8 @@
 # Changelog
 ## Unreleased
 - Bump acm-login service [DL-7346]
-- New Pride-evenementen reeks (2027-2029)
+- New Pride-evenementen reeks (2027-2029) [DGS-636]
+- Assenede: re-open LEKP 1.0 - Opvolgmoment 2026 [DGS-639]
 ## Deploy notes
 ```
 drc up -d login login-dashboard login-subsidiedatabank
