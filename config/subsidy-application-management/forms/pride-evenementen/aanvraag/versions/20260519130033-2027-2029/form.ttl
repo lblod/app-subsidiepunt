@@ -146,7 +146,7 @@ ext:akkoordClausule
                 sh:path lblodSubsidie:akkoordClausule;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name """Ik ga akkoord met de clausule inzake non-disciriminatie en integriteit.""";
+    sh:name """De indiener bevestigt dat de organisatie de clausule inzake non-discriminatie en integriteit onderschrijft.""";
     form:help """<a href="https://assets.vlaanderen.be/image/upload/v1741710190/repositories-prd/Clausule_non-discriminatie_en_integriteit_t7jnsj.pdf" target="_blank">Clausule inzake non-disciriminatie en integriteit.</a>""";
     sh:order 21;
     sh:path lblodSubsidie:akkoordClausule .
@@ -451,7 +451,7 @@ ext:bevestigingWaarheid
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name
-        "Ik bevestig dat alle gegevens in dit formulier naar waarheid zijn ingevuld.";
+        "De indiener verklaart dat alle gegevens in dit formulier naar waarheid zijn ingevuld.";
     sh:order 22;
     sh:path lblodSubsidie:bevestigingWaarheid .
 
