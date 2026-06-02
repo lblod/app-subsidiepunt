@@ -207,7 +207,7 @@ ext:begrotingDocument
     form:displayType displayTypes:files;
     form:partOf ext:overzichtBegrotingSection;
     form:help """Geef een gedetailleerde begroting in het voorziene sjabloon. Voeg het ingevulde   
-sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2027-2029" target="_blank">www.vlaanderen.be/inclusie/projectoproep-pride-evenementen-2027-2029</a>.""";
+sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/thematische-oproep-gelijke-kansen-pride-evenementen-2027-2029" target="_blank">www.vlaanderen.be/inclusie/thematische-oproep-gelijke-kansen-pride-evenementen-2027-2029</a>.""";
     form:validatedBy
             [
                 a form:RequiredConstraint;
