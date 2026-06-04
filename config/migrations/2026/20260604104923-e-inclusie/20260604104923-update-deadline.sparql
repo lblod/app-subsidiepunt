@@ -1,0 +1,24 @@
+# Update e-inclusion deadline from 2026-06-30T21:59:00Z to 2026-08-31T21:59:59Z
+
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  GRAPH ?g {
+    ?period m8g:endTime "2026-06-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?period m8g:endTime "2026-08-31T21:59:00Z"^^xsd:dateTime .
+  }
+}
+WHERE {
+  VALUES ?period {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903>
+  }
+
+  GRAPH ?g {
+    ?period m8g:endTime "2026-06-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
