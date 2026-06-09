@@ -1,9 +1,15 @@
 # Changelog
-## Unrelease
-
+## Unreleased
 ## Deploy notes
 ```
-
+```
+## 2.28.0
+- content tweaks: pride-evenementen 2027-2029 
+- deadline change: e-inclusies
+## Deploy notes
+```
+drc restart migrations
+drc restart cache resource subsidy-applications-management
 ```
 ## 2.27.0 (2026-05-30)
 - Bump acm-login service [DL-7346]
