@@ -3,6 +3,12 @@
 ## Deploy notes
 ```
 ```
+## 2.28.1
+- [DGS-643] Bump frontend: fix sticky filter issue
+## Deploy notes
+```
+drc up -d
+```
 ## 2.28.0
 - content tweaks: pride-evenementen 2027-2029 
 - deadline change: e-inclusies
