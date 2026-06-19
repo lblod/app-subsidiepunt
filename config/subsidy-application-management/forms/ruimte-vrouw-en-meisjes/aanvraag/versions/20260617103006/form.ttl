@@ -115,7 +115,7 @@ ext:startDatum
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Startdatum van het project";
-    form:help "Het projectvoorstel start ten vroegste op 1 januari 2027.";
+    form:help """Het projectvoorstel start ten vroegste op <strong>1 februari 2027</strong>.""";
     sh:order 14;
     sh:path lblodSubsidie:startDatum .
 
@@ -150,23 +150,6 @@ ext:akkoordClausule
     form:help """<a href="https://assets.vlaanderen.be/image/upload/v1741710190/repositories-prd/Clausule_non-discriminatie_en_integriteit_t7jnsj.pdf" target="_blank">Clausule inzake non-disciriminatie en integriteit.</a>""";
     sh:order 21;
     sh:path lblodSubsidie:akkoordClausule .
-
-ext:medewerkers
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help
-        """Geef een overzicht en een beschrijving van de taken van de medewerkers, zowel betaald als vrijwillig, die worden ingezet voor de uitvoering van het project. Geef aan op welke manier ze worden gerekruteerd, opgeleid en ondersteund.""";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:medewerkers;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Medewerkers";
-    sh:order 22;
-    sh:path lblodSubsidie:medewerkers .
 
 ext:email
     a form:Field;
@@ -206,8 +189,9 @@ ext:begrotingDocument
     a form:Field;
     form:displayType displayTypes:files;
     form:partOf ext:overzichtBegrotingSection;
-    form:help """Geef een gedetailleerde begroting in het voorziene sjabloon. Voeg het ingevulde   
-sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/thematische-oproep-gelijke-kansen-pride-evenementen-2027-2029" target="_blank">www.vlaanderen.be/inclusie/thematische-oproep-gelijke-kansen-pride-evenementen-2027-2029</a>.""";
+    form:help """Geef een gedetailleerde begroting (tabblad 1) én een budgettering per operationele   
+doelstelling (tabblad 2) in het voorziene sjabloon. Voeg het ingevulde sjabloon toe als   
+een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes" target="_blank">www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes</a>.""";
     form:validatedBy
             [
                 a form:RequiredConstraint;
@@ -228,43 +212,6 @@ ext:hiddenBegrotingDocument a form:Field ;
 ##########################################################
 # UPLOAD FIELD END
 ##########################################################
-
-
-ext:disseminatie
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help
-        """Omschrijf hoe resultaten, ervaringen en bevindingen worden gedeeld met specifieke   
-doelgroepen en/of een breder publiek.""";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:disseminatie;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Disseminatie";
-    sh:order 23;
-    sh:path lblodSubsidie:disseminatie.
-
-ext:verduurzaming
-    a form:Field;
-    form:displayType displayTypes:textArea;
-    form:help
-        """Geef aan welke strategieën of acties worden voorzien om de resultaten duurzaam te   
-verankeren en hun impact op langere termijn te verzekeren.""";
-    form:partOf ext:inhoudelijkeGegevensSection;
-    form:validatedBy
-            [
-                a form:RequiredConstraint;
-                form:grouping form:Bag;
-                sh:path lblodSubsidie:verduurzaming;
-                sh:resultMessage "Dit veld is verplicht."
-            ];
-    sh:name "Verduurzaming";
-    sh:order 23;
-    sh:path lblodSubsidie:verduurzaming.
 
 ext:verklaringenSection
     a form:Section;
@@ -339,11 +286,33 @@ ext:familyName
     sh:order 5;
     sh:path ( schema:contactPoint foaf:familyName ) .
 
+ext:Aanpak
+    a form:Field;
+    form:displayType displayTypes:textArea;
+    form:help
+        """Werk een plan van aanpak uit met concrete acties per onderdeel van het project:   
+praktijkinitiatief, bovenlokale output en sensibiliserende actie.""";
+    form:partOf ext:inhoudelijkeGegevensSection;
+    form:validatedBy
+            [
+                a form:RequiredConstraint;
+                form:grouping form:Bag;
+                sh:path lblodSubsidie:Aanpak;
+                sh:resultMessage "Dit veld is verplicht."
+            ];
+    sh:name "Aanpak";
+    sh:order 19;
+    sh:path lblodSubsidie:Aanpak .
+
 ext:beoogdeDoelgroep
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Licht toe hoe het project de beoogde doelgroepen zal bereiken en betrekken.""";
+        """Beschrijf hoe het project aansluit bij de noden en leefwereld van vrouwen en meisjes in   
+al hun diversiteit. Licht toe op welke manier de beoogde doelgroep(en) worden bereikt   
+en betrokken bij het project in zijn geheel en specifieer welke participatieve trajecten   
+worden opgezet in het kader van de ontwikkeling en uitvoering van het praktijkgericht   
+initiatief.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -356,26 +325,29 @@ ext:beoogdeDoelgroep
     sh:order 19;
     sh:path lblodSubsidie:beoogdeDoelgroep .
 
-ext:beoogdeResultatenProject
+
+ext:disseminatieEnVerduurzaming
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Beschrijf de beoogde resultaten van het project:<br>
-• de directe producten of diensten (output)<br>
-• de effecten op middellange termijn (outcome)<br>
-• de bredere veranderingen op lange termijn (impact)<br>
-""";
+        """Omschrijf welke strategie wordt voorzien om de bovenlokale output te verspreiden bij   
+relevante doelgroepen.   
+Licht het beoogde bereik van de sensibiliserende of informerende actie toe en formuleer   
+strategieën of acties om ervaringen en inzichten rond genderinclusieve publieke ruimte   
+breed maatschappelijk zichtbaar en bespreekbaar te maken.  
+Geef aan welke strategieën of acties worden voorzien om de output duurzaam te   
+verankeren na afloop van de projectmatige financiering.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
                 a form:RequiredConstraint;
                 form:grouping form:Bag;
-                sh:path lblodSubsidie:beoogdeResultatenProject;
+                sh:path lblodSubsidie:disseminatieEnVerduurzaming;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name "Beoogde resultaten";
+    sh:name "Disseminatie en verduurzaming";
     sh:order 19;
-    sh:path lblodSubsidie:beoogdeResultatenProject .
+    sh:path lblodSubsidie:disseminatieEnVerduurzaming.
     
 ext:einddatumProject
     a form:Field;
@@ -390,7 +362,7 @@ ext:einddatumProject
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name "Einddatum van het project";
-    form:help "Het projectvoorstel eindigt ten laatste op 31 december 2029.  ";
+    form:help """Het projectvoorstel eindigt ten laatste op <strong>31 januari 2029</strong>.""";
     sh:order 15;
     sh:path lblodSubsidie:einddatumProject .
 
@@ -493,11 +465,9 @@ ext:titelProject
 ext:relevantieEnMaatschappelijkeBijdrage
     a form:Field;
     form:displayType displayTypes:textArea;
-    form:help """Motiveer hoe dit project bijdraagt aan de realisatie van de doelstellingen van de   
-projectoproep. Beschrijf aan welke maatschappelijke uitdaging(en) het project wil   
-tegemoetkomen en welke noden er zijn bij de doelgroep(en) waarop het project focust.   
-Onderbouw waar mogelijk met onderzoek of vaststellingen uit de praktijk. Motiveer   
-waarom het project een antwoord zal bieden op de uitdagingen en/of noden.""";
+    form:help """Beschrijf aan welke maatschappelijke uitdaging(en) het project wil tegemoetkomen en   
+welke noden er zijn bij de doelgroep(en) waarop het project focust. Onderbouw waar   
+mogelijk met onderzoek of vaststellingen uit de praktijk.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -623,7 +593,7 @@ ext:aandachtIntersectionaliteit
                 sh:path lblodSubsidie:aandachtIntersectionaliteit;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name "Aandacht voor intersectionaliteit";
+    sh:name "Aandacht voor intersectionaliteit en toegankelijkheid   ";
     sh:order 24;
     sh:path lblodSubsidie:aandachtIntersectionaliteit .
 
@@ -668,7 +638,7 @@ ext:redenErkenning
     a form:Field;
     form:displayType displayTypes:textArea;
     form:partOf ext:erkenningenEnSubsidieringSection;
-    sh:name "Reden van erkenning/subsidie";
+    sh:name "Reden van subsidiëring";
     sh:order 2;
     sh:path lblodSubsidie:redenErkenning .
 
@@ -688,7 +658,9 @@ ext:samenwerkingsverbanden
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Beschrijf welke samenwerkingsverbanden worden aangegaan binnen dit project en motiveer waarom. Geef aan of er reeds contacten zijn gelegd of afspraken zijn gemaakt. Voeg een engagements- of intentieverklaring toe waarin de partner de punten waarop zal samengewerkt worden, bevestigt.""";
+        """Beschrijf welke samenwerkingsverbanden worden aangegaan binnen dit project en   
+motiveer de meerwaarde hiervan. Omschrijf de rollen en samenwerking tussen de   
+partners. Voeg intentieverklaring(en) van de beoogde partner(s) toe.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
@@ -701,23 +673,26 @@ ext:samenwerkingsverbanden
     sh:order 21;
     sh:path lblodSubsidie:samenwerkingsverbanden .
 
-ext:doelstellingenEnActies
+ext:doelstellingenEnResultaten
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Formuleer de strategische en operationele doelstellingen van het project en licht toe   
-welke concrete acties worden ondernomen om deze te realiseren.""";
+        """Motiveer hoe dit project inspeelt op de omschreven maatschappelijke uitdaging(en) en   
+bijdraagt aan de realisatie van de doelstellingen van de projectoproep. Formuleer de   
+strategische en operationele doelstellingen van het project, opgedeeld per onderdeel   
+van het project: praktijkinitiatief, bovenlokale output en sensibiliserende actie. Beschrijf   
+welke concrete resultaten of producten het project zal opleveren.""";
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
             [
                 a form:RequiredConstraint;
                 form:grouping form:Bag;
-                sh:path lblodSubsidie:doelstellingenEnActies;
+                sh:path lblodSubsidie:doelstellingenEnResultaten;
                 sh:resultMessage "Dit veld is verplicht."
             ];
-    sh:name "Doelstellingen en acties";
+    sh:name "Doelstellingen en resultaten";
     sh:order 18;
-    sh:path lblodSubsidie:doelstellingenEnActies .
+    sh:path lblodSubsidie:doelstellingenEnResultaten .
     
 ext:gevraagdeSubsidieGelijkeKansen
     a form:Field;
@@ -734,12 +709,12 @@ ext:gevraagdeSubsidieGelijkeKansen
             [
                 a form:MaxLength;
                 form:grouping form:MatchEvery;
-                form:max "75000";
+                form:max "200000";
                 sh:order 2;
                 sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen;
                 sh:resultMessage "Max. hoeveelheid overschreden."@nl 
             ];
-    sh:name "Gevraagde subsidie vanuit Gelijke Kansen (maximaal 75.000 euro)  ";
+    sh:name "Gevraagde subsidie vanuit Gelijke Kansen (maximaal 200.000 euro)  ";
     sh:order 16;
     sh:path lblodSubsidie:gevraagdeSubsidieGelijkeKansen.
 
@@ -754,16 +729,14 @@ emb:source-node
         ext:startDatum,
         ext:juridischStatuut,
         ext:akkoordClausule,
-        ext:medewerkers,
         ext:begrotingDocument,
         ext:hiddenBegrotingDocument,
-        ext:disseminatie,
-        ext:verduurzaming,
+        ext:disseminatieEnVerduurzaming,
         ext:ondernemingsnummer,
         ext:overzichtAndereSubsidierendeInstanties,
         ext:verantwoordingBegroteMiddelen,
         ext:familyName,
-        ext:beoogdeResultatenProject,
+        ext:Aanpak,
         ext:beoogdeDoelgroep,
         ext:einddatumProject,
         ext:straatEnNummer,
@@ -780,7 +753,7 @@ emb:source-node
         ext:hiddenProjectPlan,
         ext:postnummerEnGemeente,
         ext:samenwerkingsverbanden,
-        ext:doelstellingenEnActies,
+        ext:doelstellingenEnResultaten,
         ext:korteOmschrijvingProject,
         ext:gevraagdeSubsidieGelijkeKansen;
     form:partOf
