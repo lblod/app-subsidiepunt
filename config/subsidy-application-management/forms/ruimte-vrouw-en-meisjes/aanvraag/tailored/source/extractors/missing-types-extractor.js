@@ -1,7 +1,7 @@
 const URI_BASE = 'http://data.lblod.info/form-data/nodes/';
 
 module.exports = {
-  name: 'safer-spaces/aanvraag/missing-types-extractor',
+  name: 'ruimte-vrouwen-en-meisjes/aanvraag/missing-types-extractor',
   execute: async (store, graphs, lib, source) => {
     const {$rdf, mu, sudo} = lib;
 
