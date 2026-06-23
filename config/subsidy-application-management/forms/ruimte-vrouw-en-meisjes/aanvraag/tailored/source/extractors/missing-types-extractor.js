@@ -11,10 +11,12 @@ module.exports = {
     const OVERZICHT_ERKENNINGEN = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/overzichtErkenningen/');
     const BEGROTING_DOCUMENT = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/begrotingDocument/');
     const BIJLAGE_DOCUMENT = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/bijlageDocument/');
+    const PROJECTPLAN_DOCUMENT = new $rdf.Namespace('http://lblod.data.gift/vocabularies/subsidie/projectPlanDocument/');
 
     const overzichtErkenningen = new $rdf.NamedNode(URI_BASE + mu.uuid());
     const begrotingDocument = new $rdf.NamedNode(URI_BASE + mu.uuid());
     const bijlageDocument = new $rdf.NamedNode(URI_BASE + mu.uuid());
+    const projectPlanDocument = new $rdf.NamedNode(URI_BASE + mu.uuid());
 
     store.add($rdf.sym(source.uri), SUBSIDIE('overzichtErkenningen'), $rdf.sym(overzichtErkenningen), graphs.additions);
     store.add($rdf.sym(overzichtErkenningen), RDF_TYPE, OVERZICHT_ERKENNINGEN('FormData'), graphs.additions);
@@ -24,5 +26,8 @@ module.exports = {
 
     store.add($rdf.sym(source.uri), SUBSIDIE('bijlageDocument'), $rdf.sym(bijlageDocument), graphs.additions);
     store.add($rdf.sym(bijlageDocument), RDF_TYPE, BIJLAGE_DOCUMENT('FormData'), graphs.additions);
+
+    store.add($rdf.sym(source.uri), SUBSIDIE('projectPlan'), $rdf.sym(projectPlanDocument), graphs.additions);
+    store.add($rdf.sym(projectPlanDocument), RDF_TYPE, PROJECTPLAN_DOCUMENT('FormData'), graphs.additions);
   }
 } 
