@@ -537,7 +537,7 @@ tabellen om de informatie overzichtelijk te presenteren.""";
     sh:order 23;
     sh:path (lblodSubsidie:projectPlan dct:hasPart) .
 
-ext:hiddenprojectPlan a form:Field ;
+ext:hiddenProjectPlan a form:Field ;
     sh:name "Type RemoteDataObject or FileDataObject [hidden input]" ;
     sh:order 23 ;
     sh:path ( lblodSubsidie:projectPlan dct:hasPart rdf:type );
