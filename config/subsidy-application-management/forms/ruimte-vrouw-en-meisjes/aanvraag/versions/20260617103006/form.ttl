@@ -550,24 +550,6 @@ ext:inhoudelijkeGegevensSection a form:Section;
 ext:overzichtErkenningenScope
 a form:Scope; sh:path lblodSubsidie:overzichtErkenningen.
 
-ext:algemeneInformatieSection
-    a form:Section;
-    form:help
-        """Waarvoor dient dit formulier?
-Met dit formulier kun je een projectsubsidie aanvragen voor een project dat kadert binnen de projectoproep \u201cSafe(r) spaces verbinden en versterken\u201d.  
-Wie vult dit formulier in? 
-De verantwoordelijke van de organisatie of vereniging die de subsidie aanvraagt, vult dit formulier in.
-Waar kun je terecht voor meer informatie over dit formulier?
-Alle noodzakelijke documenten kan je raadplegen op de website www.vlaanderen.be/samenleven/subsidies.   
-In de toelichting vind je alle informatie die je nodig hebt om dit formulier correct in te dienen. Het is belangrijk dat je de projectoproep aandachtig leest voor dit aanvraagformulier in te vullen. Bij vragen kun je mailen naar gelijkekansen@vlaanderen.be. 
-Het Besluit Vlaamse Codex Overheidsfinanciën van 17 mei 2019 is steeds van toepassing.
-Wanneer moet je de aanvraag uiterlijk indienen?
-Stuur dit formulier digitaal uiterlijk 2 mei 2025 om 12 uur naar gelijkekansen@vlaanderen.be.  
-Hoe lang mogen de antwoorden op de vragen zijn?
-Er staat geen limiet op de lengte van het antwoord. De antwoordruimte vergroot automatisch als je meer tekst ingeeft.""";
-    sh:name "Algemene informatie";
-    sh:order 1 .
-
 ext:overzichtErkenningenListing
     a form:Listing, form:ListingTable;
     form:addLabel "Voeg rij toe";
@@ -763,6 +745,5 @@ emb:source-node
         ext:bijlageSection,
         ext:projectoverzichtSection,
         ext:inhoudelijkeGegevensSection,
-        ext:algemeneInformatieSection,
         ext:gegevensAanvragerSection,
         ext:overzichtBegrotingSection .
