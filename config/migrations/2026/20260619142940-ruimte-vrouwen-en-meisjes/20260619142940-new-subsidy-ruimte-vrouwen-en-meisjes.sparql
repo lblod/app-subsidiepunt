@@ -50,7 +50,7 @@ INSERT DATA {
     # New subsidiemaatergelaanbodreeks Oproep
     <http://data.lblod.info/id/subsidy-measure-offer-series/83baf943-48a6-4fc4-a777-2625919504f0> a lblodSubsidie:SubsidiemaatregelAanbodReeks;
       mu:uuid "83baf943-48a6-4fc4-a777-2625919504f0";
-      dct:title "Oproep 2026"@nl;
+      dct:title "Oproep"@nl;
       dct:description ""@nl ;
       common:active <http://data.lblod.info/id/subsidie-application-flows/925b4217-e59b-47c4-8cc8-b57bfbf0a8e4> ;
       mobiliteit:periode <http://data.lblod.info/id/periodes/c17a5856-727e-4518-9ff4-60549c503c61> ;
