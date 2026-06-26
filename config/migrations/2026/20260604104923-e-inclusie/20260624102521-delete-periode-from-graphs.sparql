@@ -1,0 +1,13 @@
+# Delete the periodes triple in ANY ORG GRAPH it may be
+DELETE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime .
+  }
+
+  FILTER(REGEX(STR(?g),"^http://mu\\.semte\\.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+}
