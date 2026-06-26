@@ -106,6 +106,7 @@ defmodule Acl.UserGroups.Config do
                         "http://lblod.data.gift/vocabularies/subsidie/ApplicationFlow",
                         "http://lblod.data.gift/vocabularies/subsidie/ApplicationStep",
                         "http://data.vlaanderen.be/ns/subsidie#Subsidieprocedurestap",
+                        "http://lblod.data.gift/vocabularies/subsidie/DeadlineExtension",
                         "http://data.europa.eu/m8g/PeriodOfTime",
                         "http://data.europa.eu/m8g/Criterion",
                         "http://data.europa.eu/m8g/RequirementGroup",
