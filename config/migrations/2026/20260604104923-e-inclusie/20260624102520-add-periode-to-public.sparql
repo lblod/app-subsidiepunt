@@ -1,0 +1,10 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Add the historical real endtime for this periode back to the public graph (coming from the org graphs)
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> "2025-09-30T21:59:00Z"^^xsd:dateTime .
+  }
+}
+
