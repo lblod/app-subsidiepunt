@@ -116,21 +116,40 @@
   :resource-base (s-url "http://lblod.data.info/id/subsidy-application-flow-steps/")
   :on-path "subsidy-application-flow-steps")
 
+
+
+
 (define-resource subsidy-procedural-step ()
   :class (s-prefix "subsidie:Subsidieprocedurestap")
   :properties `((:description :string ,(s-prefix "dct:description"))
                 (:type :uri-set ,(s-prefix "subsidie:Subsidieprocedurestap.type")))
   :has-one `((period-of-time :via ,(s-prefix "mobiliteit:periode")
-                      :as "period")
+                             :as "period")
              (subsidy-measure-offer-series :via ,(s-prefix "lblodSubsidie:heeftSubsidieprocedurestap")
-                                             :inverse t
-                                              :as "subsidy-measure-offer-series")
+                                           :inverse t
+                                           :as "subsidy-measure-offer-series")
              (subsidy-measure-offer :via ,(s-prefix "cpsv:follows")
-                                       :inverse t
-                                       :as "subsidy-measure-offer"))
+                                   :inverse t
+                                   :as "subsidy-measure-offer"))
+  :has-many `((deadline-extension :via ,(s-prefix "lblodSubsidie:forStep")
+                                  :inverse t
+                                 :as "deadline-extensions"))
   :resource-base (s-url "http://data.lblod.info/id/subsidy-procedural-steps/")
   :features '(include-uri)
   :on-path "subsidy-procedural-steps")
+
+(define-resource deadline-extension ()
+  :class (s-prefix "lblodSubsidie:DeadlineExtension")
+  :properties `((:valid :datetime ,(s-prefix "dct:valid"))
+                (:description :string ,(s-prefix "dct:description"))
+                (:created :datetime ,(s-prefix "dct:created")))
+  :has-one `((subsidy-procedural-step :via ,(s-prefix "lblodSubsidie:forStep")
+                             :as "subsidy-procedural-step"))
+  :has-many `((organization :via ,(s-prefix "dct:audience")
+                            :as "audience"))
+  :resource-base (s-url "http://data.lblod.info/id/deadline-extensions/")
+  :features '(include-uri)
+  :on-path "deadline-extensions")
 
 (define-resource period-of-time ()
   :class (s-prefix "m8g:PeriodOfTime")
