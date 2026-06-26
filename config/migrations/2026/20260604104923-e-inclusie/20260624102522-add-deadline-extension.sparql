@@ -10,7 +10,7 @@ INSERT DATA {
     <http://data.lblod.info/id/deadline-extensions/061e44b1-8016-48fa-9860-1901fec7ad22> a lblodSubsidie:DeadlineExtension ;
       mu:uuid "061e44b1-8016-48fa-9860-1901fec7ad22" ;
       dct:valid "2025-06-30T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-      dct:created "2026-06-24T10:25:26Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+      dct:created "2026-06-20T10:25:26Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
       dct:audience <http://data.lblod.info/id/bestuurseenheden/0a71e2b47c58e6d13ac628f733863543b791869395afcfe5b5c82c98ff894e3d>,
                    <http://data.lblod.info/id/bestuurseenheden/18eb574437cc9fa5af24990f495aaed7af868d33341faf60cffa2ee0e57dc914>,
                    <http://data.lblod.info/id/bestuurseenheden/19a90656ebde5754d524ca8a17d06b857a6392b0b3db57dd24f899a1b71eda7d>,
