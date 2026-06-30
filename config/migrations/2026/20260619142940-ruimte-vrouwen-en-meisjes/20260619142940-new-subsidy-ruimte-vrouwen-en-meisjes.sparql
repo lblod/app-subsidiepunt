@@ -30,12 +30,12 @@ INSERT DATA {
       dct:isPartOf  <http://data.lblod.info/id/subsidie-application-flows/925b4217-e59b-47c4-8cc8-b57bfbf0a8e4>;
       dct:source <config://forms/ruimte-vrouw-en-meisjes/aanvraag/versions/20260617103006/form.ttl>.
 
-    # New subsidy step period from 30 June 2026 to 5 September 2026 
+    # New subsidy step period from 30 June 2026 to 5 September 2026
     <http://data.lblod.info/id/periodes/3e2fdaa5-a840-40ec-92e4-16ea0013ef5e> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "3e2fdaa5-a840-40ec-92e4-16ea0013ef5e";
-      <http://data.europa.eu/m8g/startTime> "2026-06-30T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>; 
-      <http://data.europa.eu/m8g/endTime> "2026-09-05T10:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>. 
- 
+      <http://data.europa.eu/m8g/startTime> "2026-06-30T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/endTime> "2026-09-05T10:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+
 
     # Create new subsidy and link to reeks
     <http://data.lblod.info/id/subsidy-measure-offers/28b50036-e1e3-434a-b5bb-08683b08a9a3>
@@ -43,7 +43,7 @@ INSERT DATA {
       mu:uuid "28b50036-e1e3-434a-b5bb-08683b08a9a3";
       dct:title """Ruimte voor vrouwen en meisjes""";
       skos:prefLabel """Ruimte voor vrouwen en meisjes""";
-      skos:related """https://www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes""";
+      skos:related """https://www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes-2026""";
       cpsv:follows <http://data.lblod.info/id/subsidy-procedural-steps/ac4051c5-dc6a-48b6-89e6-3c675ce7cc10> ;
       lblodSubsidie:heeftReeks <http://data.lblod.info/id/subsidy-measure-offer-series/83baf943-48a6-4fc4-a777-2625919504f0> .
 
@@ -56,11 +56,11 @@ INSERT DATA {
       mobiliteit:periode <http://data.lblod.info/id/periodes/c17a5856-727e-4518-9ff4-60549c503c61> ;
       lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/ac4051c5-dc6a-48b6-89e6-3c675ce7cc10>.
 
-    # New subsidy period from 30 June 2026 to 5 September 2026 
+    # New subsidy period from 30 June 2026 to 5 September 2026
     <http://data.lblod.info/id/periodes/c17a5856-727e-4518-9ff4-60549c503c61> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "c17a5856-727e-4518-9ff4-60549c503c61";
-      <http://data.europa.eu/m8g/startTime> "2026-06-30T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>; 
-      <http://data.europa.eu/m8g/endTime> "2026-09-05T10:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>. 
+      <http://data.europa.eu/m8g/startTime> "2026-06-30T22:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/endTime> "2026-09-05T10:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
   }
 }
 ;
