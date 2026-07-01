@@ -147,7 +147,7 @@ ext:akkoordClausule
                 sh:resultMessage "Dit veld is verplicht."
             ];
     sh:name """De indiener bevestigt dat de organisatie de clausule inzake non-discriminatie en integriteit onderschrijft.""";
-    form:help """<a href="https://assets.vlaanderen.be/image/upload/v1741710190/repositories-prd/Clausule_non-discriminatie_en_integriteit_t7jnsj.pdf" target="_blank">Clausule inzake non-disciriminatie en integriteit.</a>""";
+    form:help """<a class="au-c-link" href="https://assets.vlaanderen.be/image/upload/v1741710190/repositories-prd/Clausule_non-discriminatie_en_integriteit_t7jnsj.pdf" target="_blank">Clausule inzake non-disciriminatie en integriteit.</a>""";
     sh:order 21;
     sh:path lblodSubsidie:akkoordClausule .
 
@@ -192,7 +192,7 @@ ext:begrotingDocument
     form:help """Geef een gedetailleerde begroting (tabblad 1) én een budgettering <strong>van de gevraagde subsidie</strong> per operationele doelstelling (tabblad 2) in het voorziene sjabloon.
     <strong>Geef een budgettering van de totale kost per operationele doelstelling (tabblad 3), als je naast de gevraagde gelijkenkansensubsidie ook andere inkomsten voorziet uit eigen middelen of andere subsidies.
     Lees vóór het invullen aandachtig de bijhorende instructies in het sjabloon.</strong> Voeg het ingevulde sjabloon toe als een Excel-bestand (niet als een pdf).
-    Het sjabloon is te vinden op <a href="https://www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes-2026" target="_blank">www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes-2026</a>.""";
+    Het sjabloon is te vinden op <a class="au-c-link" href="https://www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes-2026" target="_blank">www.vlaanderen.be/inclusie/projectoproep-ruimte-voor-vrouwen-en-meisjes-2026</a>.""";
     form:validatedBy
             [
                 a form:RequiredConstraint;
@@ -568,7 +568,7 @@ ext:aandachtIntersectionaliteit
     a form:Field;
     form:displayType displayTypes:textArea;
     form:help
-        """Geef aan op welke manieren het project rekening houdt met diversiteit en intersectionaliteit, en hoe er wordt ingezet op integrale toegankelijkheid (bijvoorbeeld aan de hand van de <a href="https://www.integratie-inburgering.be/nl/wat-kunnen-we-voor-jou-doen/ondersteuning-voor-je-organisatie-of-lokaal-bestuur/participatie/hoe-toegankelijk-is-jouw-vrijetijdsaanbod/9-bs-van-toegankelijkheid" target="_blank">de 9 B’s van toegankelijkheid</a>).
+        """Geef aan op welke manieren het project rekening houdt met diversiteit en intersectionaliteit, en hoe er wordt ingezet op integrale toegankelijkheid (bijvoorbeeld aan de hand van de <a class="au-c-link" href="https://www.integratie-inburgering.be/nl/wat-kunnen-we-voor-jou-doen/ondersteuning-voor-je-organisatie-of-lokaal-bestuur/participatie/hoe-toegankelijk-is-jouw-vrijetijdsaanbod/9-bs-van-toegankelijkheid" target="_blank">de 9 B’s van toegankelijkheid</a>).
 """;
     form:partOf ext:inhoudelijkeGegevensSection;
     form:validatedBy
