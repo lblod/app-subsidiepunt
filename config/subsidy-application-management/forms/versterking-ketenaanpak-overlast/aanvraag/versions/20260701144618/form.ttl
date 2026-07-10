@@ -13,13 +13,18 @@
 
 ext:contactPersonSection
     a form:Section;
-    sh:name "Contactpersoon Versterking Ketenaanpak Overlast bij de gemeente/stad";
+    sh:name "Contactgegevens contactpersoon";
     sh:order 1 .
 
 ext:politicalResponsibleSection
     a form:Section;
     sh:name "Politiek verantwoordelijke bij de gemeente/stad";
     sh:order 2 .
+
+ext:questionsSection
+    a form:Section;
+    form:help "Voor vragen kan je terecht op het adres: LokaleVeiligheid@vlaanderen.be";
+    sh:order 3 .
 
 ext:projectContentSection
     a form:Section;
@@ -35,19 +40,24 @@ ext:financingSection
         projectvoorstellen van afzonderlijke lokale besturen <strong>80.000 euro</strong>.
         De subsidie heeft betrekking op personeels- en werkingsmiddelen. Binnen elk
         projectvoorstel voorziet men een cofinanciering van min. <strong>20 procent</strong>
-        ten aanzien van de ontvangen subsidie. Duid het bedrag van de subsidie en geef aan
-        waaraan de middelen zullen besteed worden. Geef bij
-        intergemeentelijke samenwerking ook op via welke lokale besturen en met welke
-        partners de subsidie ingezet zal worden. Deze informatie zal worden gebruikt bij
-        de opmaak van een eventueel subsidiebesluit.
+        ten aanzien van de ontvangen subsidie. Geef aan waaraan de middelen zullen
+        besteed worden. Geef bij intergemeentelijke samenwerking ook op via welke lokale
+        besturen en met welke partners de subsidie ingezet zal worden. Deze informatie
+        zal worden gebruikt bij de opmaak van een eventueel subsidiebesluit.
     """;
     sh:name "Financiering";
     sh:order 5 .
 
+ext:cofinancieringSection
+    a form:Section;
+    form:help "Geef in onderstaande tabel het aandeel van elke partner is in de cofinanciering aan.";
+    sh:name "Cofinanciering";
+    sh:order 6 .
+
 ext:sustainabilitySection
     a form:Section;
     sh:name "Verduurzaming";
-    sh:order 6 .
+    sh:order 7 .
 
 ext:attachmentSection
     a form:Section;
@@ -61,7 +71,7 @@ ext:attachmentSection
             target="_blank">www.vlaanderen.be/lokaal-bestuur/subsidieoproep-versterking-ketenaanpak-overlast</a>.
     """;
     sh:name "Bijlagen";
-    sh:order 7 .
+    sh:order 8 .
 
 ext:contactPersonFirstName
     a form:Field;
@@ -105,20 +115,6 @@ ext:contactPersonJobTitle
     sh:order 3;
     sh:path ( schema:contactPoint schema:jobTitle ) .
 
-ext:contactPersonAddress
-    a form:Field;
-    form:displayType displayTypes:defaultInput;
-    form:partOf ext:contactPersonSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path ( schema:contactPoint schema:streetAddress );
-        sh:resultMessage "Dit veld is verplicht."
-    ];
-    sh:name "Adres";
-    sh:order 4;
-    sh:path ( schema:contactPoint schema:streetAddress ) .
-
 ext:contactPersonTelephone
     a form:Field;
     form:displayType displayTypes:defaultInput;
@@ -136,28 +132,8 @@ ext:contactPersonTelephone
         sh:resultMessage "Geef een geldig telefoonnummer in."
     ];
     sh:name "Telefoon";
-    sh:order 5;
+    sh:order 4;
     sh:path ( schema:contactPoint schema:telephone ) .
-
-ext:contactPersonMobilePhone
-    a form:Field;
-    form:displayType displayTypes:defaultInput;
-    form:partOf ext:contactPersonSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path ( schema:contactPoint schema:mobilePhone );
-        sh:resultMessage "Dit veld is verplicht."
-    ], [
-        a form:ValidPhoneNumber;
-        form:defaultCountry "BE";
-        form:grouping form:MatchEvery;
-        sh:path ( schema:contactPoint schema:mobilePhone );
-        sh:resultMessage "Geef een geldig gsm-nummer in."
-    ];
-    sh:name "GSM";
-    sh:order 6;
-    sh:path ( schema:contactPoint schema:mobilePhone ) .
 
 ext:contactPersonEmail
     a form:Field;
@@ -175,7 +151,7 @@ ext:contactPersonEmail
         sh:resultMessage "Geef een geldig e-mailadres op."
     ];
     sh:name "E-mail";
-    sh:order 7;
+    sh:order 5;
     sh:path ( schema:contactPoint schema:email ) .
 
 ext:politicalResponsibleFirstName
@@ -220,79 +196,6 @@ ext:politicalResponsibleJobTitle
     sh:order 3;
     sh:path ( ext:politicalResponsibleContactPoint schema:jobTitle ) .
 
-ext:politicalResponsibleAddress
-    a form:Field;
-    form:displayType displayTypes:defaultInput;
-    form:partOf ext:politicalResponsibleSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path ( ext:politicalResponsibleContactPoint schema:streetAddress );
-        sh:resultMessage "Dit veld is verplicht."
-    ];
-    sh:name "Adres";
-    sh:order 4;
-    sh:path ( ext:politicalResponsibleContactPoint schema:streetAddress ) .
-
-ext:politicalResponsibleTelephone
-    a form:Field;
-    form:displayType displayTypes:defaultInput;
-    form:partOf ext:politicalResponsibleSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path ( ext:politicalResponsibleContactPoint schema:telephone );
-        sh:resultMessage "Dit veld is verplicht."
-    ], [
-        a form:ValidPhoneNumber;
-        form:defaultCountry "BE";
-        form:grouping form:MatchEvery;
-        sh:path ( ext:politicalResponsibleContactPoint schema:telephone );
-        sh:resultMessage "Geef een geldig telefoonnummer in."
-    ];
-    sh:name "Telefoon";
-    sh:order 5;
-    sh:path ( ext:politicalResponsibleContactPoint schema:telephone ) .
-
-ext:politicalResponsibleMobilePhone
-    a form:Field;
-    form:displayType displayTypes:defaultInput;
-    form:partOf ext:politicalResponsibleSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path ( ext:politicalResponsibleContactPoint schema:mobilePhone );
-        sh:resultMessage "Dit veld is verplicht."
-    ], [
-        a form:ValidPhoneNumber;
-        form:defaultCountry "BE";
-        form:grouping form:MatchEvery;
-        sh:path ( ext:politicalResponsibleContactPoint schema:mobilePhone );
-        sh:resultMessage "Geef een geldig gsm-nummer in."
-    ];
-    sh:name "GSM";
-    sh:order 6;
-    sh:path ( ext:politicalResponsibleContactPoint schema:mobilePhone ) .
-
-ext:politicalResponsibleEmail
-    a form:Field;
-    form:displayType displayTypes:defaultInput;
-    form:partOf ext:politicalResponsibleSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path ( ext:politicalResponsibleContactPoint schema:email );
-        sh:resultMessage "Dit veld is verplicht."
-    ], [
-        a form:ValidEmail;
-        form:grouping form:MatchEvery;
-        sh:path ( ext:politicalResponsibleContactPoint schema:email );
-        sh:resultMessage "Geef een geldig e-mailadres op."
-    ];
-    sh:name "E-mail";
-    sh:order 7;
-    sh:path ( ext:politicalResponsibleContactPoint schema:email ) .
-
 ext:samenvattendeProjectomschrijving
     a form:Field;
     form:displayType displayTypes:textArea;
@@ -312,7 +215,7 @@ ext:samenvattendeProjectomschrijving
         sh:path lblodSubsidie:samenvattendeProjectomschrijving;
         sh:resultMessage "Max. karakters overschreden."
     ];
-    sh:name "Samenvattende projectomschrijving (max. 1800 tekens)";
+    sh:name "Samenvattende projectomschrijving";
     sh:order 1;
     sh:path lblodSubsidie:samenvattendeProjectomschrijving .
 
@@ -341,7 +244,7 @@ ext:analyseEnProbleemstelling
         sh:path lblodSubsidie:analyseEnProbleemstelling;
         sh:resultMessage "Max. karakters overschreden."
     ];
-    sh:name "Analyse en probleemstelling (max. 6000 tekens)";
+    sh:name "Analyse en probleemstelling";
     sh:order 2;
     sh:path lblodSubsidie:analyseEnProbleemstelling .
 
@@ -370,7 +273,7 @@ ext:projectplanFaseringEnProjectorganisatie
         sh:path lblodSubsidie:projectplanFaseringEnProjectorganisatie;
         sh:resultMessage "Max. karakters overschreden."
     ];
-    sh:name "Projectplan, fasering, en projectorganisatie (max. 4500 tekens)";
+    sh:name "Projectplan, fasering, en projectorganisatie";
     sh:order 3;
     sh:path lblodSubsidie:projectplanFaseringEnProjectorganisatie .
 
@@ -398,7 +301,7 @@ ext:vernieuwendKarakter
         sh:path lblodSubsidie:vernieuwendKarakter;
         sh:resultMessage "Max. karakters overschreden."
     ];
-    sh:name "Vernieuwend karakter (max. 2400 tekens)";
+    sh:name "Vernieuwend karakter";
     sh:order 4;
     sh:path lblodSubsidie:vernieuwendKarakter .
 
@@ -425,7 +328,7 @@ ext:verwachteImpact
         sh:path lblodSubsidie:verwachteImpact;
         sh:resultMessage "Max. karakters overschreden."
     ];
-    sh:name "Verwachte impact (max. 2400 tekens)";
+    sh:name "Verwachte impact";
     sh:order 5;
     sh:path lblodSubsidie:verwachteImpact .
 
@@ -439,33 +342,161 @@ ext:subsidieBedragAanvraag
         sh:path lblodSubsidie:subsidieBedragAanvraag;
         sh:resultMessage "Dit veld is verplicht."
     ];
-    sh:name "Bedrag van de subsidie";
+    sh:name "Totaal subsidiebedrag";
     sh:order 1;
     sh:path lblodSubsidie:subsidieBedragAanvraag .
 
-ext:bestedingSubsidieTable
-    a form:Field;
-    form:displayType displayTypes:placeholderTable;
-    form:help """
-        Tabel besteding subsidie. Onderdelen of aspecten waaraan de subsidie wordt besteed,
-        met bedrag in euro of procent. Voorbeelden zijn personeel en werking.
-    """;
+ext:bestedingSubsidieListing
+    a form:Listing, form:ListingTable;
+    form:addLabel "Voeg rij toe";
+    form:canAdd true;
+    form:canRemove true;
+    form:createGenerator ext:bestedingSubsidieGenerator;
+    form:each ext:bestedingSubsidieSubForm;
     form:partOf ext:financingSection;
-    sh:name "Tabel besteding subsidie";
-    sh:order 2;
-    sh:path custom:placeholderTable .
+    form:removeLabel "Verwijder rij";
+    form:scope ext:bestedingSubsidieScope;
+    sh:maxCount 20;
+    sh:minCount 1;
+    sh:order 2 .
 
-ext:cofinancieringPartnersTable
+ext:bestedingSubsidieCompareTotals
     a form:Field;
-    form:displayType displayTypes:placeholderTable;
-    form:help """
-        Enkel van toepassing bij indiening vanuit een consortium. Geef in onderstaande
-        tabel het aandeel van elke partner in de cofinanciering aan.
-    """;
+    form:displayType displayTypes:ketenaanpakCompareTotals;
     form:partOf ext:financingSection;
-    sh:name "Aandeel cofinanciering partners";
+    sh:order 3 .
+
+ext:bestedingSubsidieScope
+    a form:Scope;
+    sh:path lblodSubsidie:subsidieBedragListingUnit .
+
+ext:bestedingSubsidieGenerator
+    a form:Generator;
+    form:dataGenerator form:addMuUuid;
+    form:prototype [
+        form:shape [
+            a lblodSubsidie:subsidieBedragListingUnit
+        ]
+    ] .
+
+ext:bestedingSubsidieSubForm
+    a form:SubForm;
+    form:includes
+        ext:bestedingSubsidieNaam,
+        ext:bestedingSubsidieBedrag;
+    form:removeLabel "Verwijder rij" .
+
+ext:bestedingSubsidieNaam
+    a form:Field;
+    form:displayType displayTypes:defaultInput;
+    form:partOf ext:financingSection;
+    form:validatedBy [
+        a form:RequiredConstraint;
+        form:grouping form:Bag;
+        sh:path lblodSubsidie:subsidieBedragListingUnitNaam;
+        sh:resultMessage "Dit veld is verplicht."
+    ];
+    sh:name "Onderdelen / -aspecten waaraan de subsidie wordt besteed";
+    sh:order 1;
+    sh:path lblodSubsidie:subsidieBedragListingUnitNaam .
+
+ext:bestedingSubsidieBedrag
+    a form:Field;
+    form:displayType displayTypes:currencyInput;
+    form:partOf ext:financingSection;
+    form:validatedBy [
+        a form:RequiredConstraint;
+        form:grouping form:Bag;
+        sh:path lblodSubsidie:subsidieBedragListingUnitBedrag;
+        sh:resultMessage "Dit veld is verplicht."
+    ];
+    sh:name "Bedrag (€)";
+    sh:order 2;
+    sh:path lblodSubsidie:subsidieBedragListingUnitBedrag .
+
+ext:cofinancieringPartnersListing
+    a form:Listing, form:ListingTable;
+    form:addLabel "Voeg een nieuwe partner toe";
+    form:canAdd true;
+    form:canRemove true;
+    form:createGenerator ext:cofinancieringPartnersGenerator;
+    form:each ext:cofinancieringPartnersSubForm;
+    form:noDataMessage "Er werden nog geen partners toegevoegd";
+    form:partOf ext:cofinancieringSection;
+    form:removeLabel "Verwijder";
+    form:scope ext:cofinancieringPartnersScope;
+    sh:order 1 .
+
+ext:cofinancieringPartnersScope
+    a form:Scope;
+    sh:path ext:financingPartner .
+
+ext:cofinancieringPartnersGenerator
+    a form:Generator;
+    form:dataGenerator form:addMuUuid;
+    form:prototype [
+        form:shape [
+            a ext:FinancingPartner;
+            ext:financingAmount 0
+        ]
+    ] .
+
+ext:cofinancieringPartnersSubForm
+    a form:SubForm;
+    form:includes
+        ext:cofinancieringPartnerNaam,
+        ext:cofinancieringPartnerType,
+        ext:cofinancieringPartnerBedrag .
+
+ext:cofinancieringPartnerNaam
+    a form:Field;
+    form:displayType displayTypes:defaultInput;
+    form:partOf ext:cofinancieringSection;
+    form:validations [
+        a form:RequiredConstraint;
+        form:grouping form:Bag;
+        sh:path ext:partnerTitle;
+        sh:resultMessage "Dit veld is verplicht."@nl
+    ];
+    sh:name "Naam partner";
+    sh:order 1;
+    sh:path ext:partnerTitle .
+
+ext:cofinancieringPartnerType
+    a form:Field;
+    form:displayType displayTypes:conceptSchemeSelector;
+    form:options """{"conceptScheme":"http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/FinancieringPartnerType","searchEnabled":false}""";
+    form:partOf ext:cofinancieringSection;
+    form:validations [
+        a form:RequiredConstraint;
+        form:grouping form:Bag;
+        sh:path ext:partnerType;
+        sh:resultMessage "Dit veld is verplicht."@nl
+    ];
+    sh:name "Type partner";
+    sh:order 2;
+    sh:path ext:partnerType .
+
+ext:cofinancieringPartnerBedrag
+    a form:Field;
+    form:displayType displayTypes:numericalInput;
+    form:partOf ext:cofinancieringSection;
+    form:validations [
+        a form:PositiveNumber;
+        form:grouping form:MatchEvery;
+        sh:path ext:financingAmount;
+        sh:resultMessage "Het bedrag moet groter zijn dan 0."@nl
+    ];
+    sh:name "Bedrag";
     sh:order 3;
-    sh:path custom:placeholderTable .
+    sh:path ext:financingAmount .
+
+ext:cofinancieringPartnersTotals
+    a form:Field;
+    form:displayType displayTypes:ketenaanpakFinancingTotals;
+    form:partOf ext:cofinancieringSection;
+    sh:name "Totaal cofinanciering";
+    sh:order 2 .
 
 ext:verduurzaming
     a form:Field;
@@ -490,7 +521,7 @@ ext:verduurzaming
         sh:path lblodSubsidie:verduurzaming;
         sh:resultMessage "Max. karakters overschreden."
     ];
-    sh:name "Verduurzaming (max. 1800 tekens)";
+    sh:name "Verduurzaming";
     sh:order 1;
     sh:path lblodSubsidie:verduurzaming .
 
@@ -521,32 +552,30 @@ emb:source-node
         ext:contactPersonFirstName,
         ext:contactPersonFamilyName,
         ext:contactPersonJobTitle,
-        ext:contactPersonAddress,
         ext:contactPersonTelephone,
-        ext:contactPersonMobilePhone,
         ext:contactPersonEmail,
         ext:politicalResponsibleFirstName,
         ext:politicalResponsibleFamilyName,
         ext:politicalResponsibleJobTitle,
-        ext:politicalResponsibleAddress,
-        ext:politicalResponsibleTelephone,
-        ext:politicalResponsibleMobilePhone,
-        ext:politicalResponsibleEmail,
         ext:samenvattendeProjectomschrijving,
         ext:analyseEnProbleemstelling,
         ext:projectplanFaseringEnProjectorganisatie,
         ext:vernieuwendKarakter,
         ext:verwachteImpact,
         ext:subsidieBedragAanvraag,
-        ext:bestedingSubsidieTable,
-        ext:cofinancieringPartnersTable,
+        ext:bestedingSubsidieListing,
+        ext:bestedingSubsidieCompareTotals,
+        ext:cofinancieringPartnersListing,
+        ext:cofinancieringPartnersTotals,
         ext:verduurzaming,
         ext:bijlageDocument,
         ext:hiddenBijlageDocument;
     form:partOf
         ext:contactPersonSection,
         ext:politicalResponsibleSection,
+        ext:questionsSection,
         ext:projectContentSection,
         ext:financingSection,
+        ext:cofinancieringSection,
         ext:sustainabilitySection,
         ext:attachmentSection .
