@@ -44,7 +44,7 @@ INSERT DATA {
       mu:uuid "254c7097-4c93-4d7e-a135-32ef18b0de00";
       dct:title """Versterking ketenaanpak overlast""";
       skos:prefLabel """Versterking ketenaanpak overlast""";
-      skos:related """TODO""";
+      skos:related """https://www.vlaanderen.be/lokaal-bestuur/subsidieoproep-versterking-ketenaanpak-overlast""";
       cpsv:follows <http://data.lblod.info/id/subsidy-procedural-steps/301dd0c8-d50b-4c8d-a3ad-36e033a2d194> ;
       lblodSubsidie:heeftReeks <http://data.lblod.info/id/subsidy-measure-offer-series/e72d7617-68df-4e57-90e7-4df1d5a592db> .
 
