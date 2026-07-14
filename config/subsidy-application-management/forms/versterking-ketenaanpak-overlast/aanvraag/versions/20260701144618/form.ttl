@@ -494,11 +494,17 @@ ext:cofinancieringPartnerBedrag
     form:displayType displayTypes:numericalInput;
     form:partOf ext:cofinancieringSection;
     form:validations [
-        a form:PositiveNumber;
-        form:grouping form:MatchEvery;
-        sh:path ext:financingAmount;
-        sh:resultMessage "Het bedrag moet groter zijn dan 0."@nl
-    ];
+            a form:PositiveNumber;
+            form:grouping form:MatchEvery;
+            sh:path ext:financingAmount;
+            sh:resultMessage "Het bedrag moet groter zijn dan 0."@nl
+        ],
+        [
+            a form:RequiredConstraint;
+            form:grouping form:Bag;
+            sh:path ext:financingAmount;
+            sh:resultMessage "Dit veld is verplicht."@nl
+        ];
     sh:name "Bedrag";
     sh:order 3;
     sh:path ext:financingAmount .
