@@ -505,7 +505,7 @@ ext:cofinancieringPartnerBedrag
             sh:path ext:financingAmount;
             sh:resultMessage "Dit veld is verplicht."@nl
         ];
-    sh:name "Bedrag";
+    sh:name "Bedrag (€)";
     sh:order 3;
     sh:path ext:financingAmount .
 
