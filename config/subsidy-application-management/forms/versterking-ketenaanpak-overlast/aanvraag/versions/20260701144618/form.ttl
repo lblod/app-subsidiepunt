@@ -341,12 +341,19 @@ ext:subsidieBedragAanvraag
     a form:Field;
     form:displayType displayTypes:currencyInput;
     form:partOf ext:financingSection;
-    form:validatedBy [
-        a form:RequiredConstraint;
-        form:grouping form:Bag;
-        sh:path lblodSubsidie:subsidieBedragAanvraag;
-        sh:resultMessage "Dit veld is verplicht."
-    ];
+    form:validatedBy 
+        [
+            a form:PositiveNumber;
+            form:grouping form:MatchEvery;
+            sh:path lblodSubsidie:subsidieBedragAanvraag;
+            sh:resultMessage "Het bedrag moet groter zijn dan 0."@nl
+        ],
+        [
+            a form:RequiredConstraint;
+            form:grouping form:Bag;
+            sh:path lblodSubsidie:subsidieBedragAanvraag;
+            sh:resultMessage "Dit veld is verplicht."
+        ];
     sh:name "Totaal subsidiebedrag";
     sh:order 1;
     sh:path lblodSubsidie:subsidieBedragAanvraag .
