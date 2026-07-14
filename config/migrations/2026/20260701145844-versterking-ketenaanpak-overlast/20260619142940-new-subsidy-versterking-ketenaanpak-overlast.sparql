@@ -33,7 +33,7 @@ INSERT DATA {
     # New subsidy step period from 30 June 2026 to 5 September 2026
     <http://data.lblod.info/id/periodes/7c1a14aa-69d1-41a9-b5e0-bbf1ff0bdd3c> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "7c1a14aa-69d1-41a9-b5e0-bbf1ff0bdd3c";
-      <http://data.europa.eu/m8g/startTime> "2026-07-13T00:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/startTime> "2026-07-20T00:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
       <http://data.europa.eu/m8g/endTime> "2026-09-30T12:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
  
 
@@ -60,7 +60,7 @@ INSERT DATA {
     # New subsidy period from 30 June 2026 to 5 September 2026
     <http://data.lblod.info/id/periodes/18a9e627-69c4-48eb-a155-79a08a1e29b1> a <http://data.europa.eu/m8g/PeriodOfTime>;
       mu:uuid "18a9e627-69c4-48eb-a155-79a08a1e29b1";
-      <http://data.europa.eu/m8g/startTime> "2026-07-13T00:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/startTime> "2026-07-20T00:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
       <http://data.europa.eu/m8g/endTime> "2026-09-30T12:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
   }
 }
