@@ -23,8 +23,13 @@ ext:politicalResponsibleSection
 
 ext:questionsSection
     a form:Section;
-    form:help "Voor vragen kan je terecht op het adres: LokaleVeiligheid@vlaanderen.be";
+    sh:name "Voor vragen kan je terecht op het adres: LokaleVeiligheid@vlaanderen.be";
     sh:order 3 .
+
+ext:hiddenQuestionsField
+    a form:Field;
+    form:partOf ext:questionsSection;
+    sh:name "Section Hidden Field".
 
 ext:projectContentSection
     a form:Section;
