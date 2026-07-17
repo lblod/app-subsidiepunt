@@ -1,7 +1,10 @@
 # Changelog
 ## Unreleased
+- New subsidy: Ketenoverlast aanpak
 ## Deploy notes
 ```
+drc up -d
+drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource
 ```
 ## 2.29.0
 - New subsidy: Ruimte voor vrouwen & meisjes
