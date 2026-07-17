@@ -40,6 +40,8 @@
           "rdf:type",
           "sh:order",
           "lblodSubsidie:subsidieBedragListingUnitNaam",
+          "ext:subsidieTypeInzet",
+          "ext:subsidieBesteder",
           "lblodSubsidie:subsidieBedragListingUnitBedrag"
         ]
       },
@@ -70,7 +72,8 @@
   },
   "meta": {
     "schemes": [
-      "http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/FinancieringPartnerType"
+      "http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/FinancieringPartnerType",
+      "http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/TypeInzet"
     ]
   }
 }
