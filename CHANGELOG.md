@@ -1,7 +1,10 @@
 # Changelog
 ## Unreleased
+- New subsidy: Ketenoverlast aanpak
 ## Deploy notes
 ```
+drc up -d
+drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource
 ```
 ## 2.29.1
 - Rollback bump of `lblod/acmidm-login-service` The bumped version doesn't support login of EA yet. [DGS-654]
