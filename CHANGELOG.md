@@ -1,5 +1,9 @@
 # Changelog
 ## Unreleased
+## Deploy notes
+```
+```
+## 2.30.0
 - New subsidy: Ketenoverlast aanpak
 ## Deploy notes
 ```
