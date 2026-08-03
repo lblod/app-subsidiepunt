@@ -3,6 +3,12 @@
 ## Deploy notes
 ```
 ```
+## 2.30.1
+- Ketenoverlast subsidy: update startdate
+## Deploy notes
+```
+drc restart migrations cache resource
+```
 ## 2.30.0
 - New subsidy: Ketenoverlast aanpak
 ## Deploy notes
