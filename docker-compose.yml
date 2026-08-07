@@ -6,7 +6,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-subsidiepunt:1.19.2
+    image: lblod/frontend-subsidiepunt:1.20.0
     links:
       - identifier:backend
     labels:
