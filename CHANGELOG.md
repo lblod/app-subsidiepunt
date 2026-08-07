@@ -3,6 +3,14 @@
 ## Deploy notes
 ```
 ```
+## 2.31.0
+- Support submitted_at and submitted_by for steps
+- frontend: fix status icon after submitting
+## Deploy notes
+```
+drc up -d
+drc restart resource cache
+```
 ## 2.30.2
 - Ketenoverlast subsidy: update startdate 17 august
 ## Deploy notes
