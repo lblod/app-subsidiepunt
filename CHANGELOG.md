@@ -1,7 +1,22 @@
 # Changelog
 ## Unreleased
+- Replace mu-auth by sparql-parser [DL-6569]
 ## Deploy notes
+#### Production only
+In `docker-compose.override.yml`, ensure:
 ```
+  resource:
+    environment:
+      LISP_DYNAMIC_SPACE_SIZE: "8192" # 1GB by default, increase to 8GB on systems with a lot of data
+  database:
+    environment:
+      LISP_DYNAMIC_SPACE_SIZE: 8192
+```
+The `LISP_DYNAMIC_SPACE_SIZE` should be increased to 8192 in both services.
+
+#### All environments
+```
+drc up -d database resource
 ```
 ## 2.31.0
 - Support submitted_at and submitted_by for steps
