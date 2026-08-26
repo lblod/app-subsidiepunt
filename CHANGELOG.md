@@ -1,6 +1,6 @@
 # Changelog
 ## Unreleased
-- Replace mu-auth by sparql-parser [DL-6569]
+- [DL-6569] Replace mu-auth by sparql-parser
 ## Deploy notes
 #### Production only
 In `docker-compose.override.yml`, ensure:
@@ -18,63 +18,63 @@ The `LISP_DYNAMIC_SPACE_SIZE` should be increased to 8192 in both services.
 ```
 drc up -d database resource
 ```
-## 2.31.0
-- Support submitted_at and submitted_by for steps
-- frontend: fix status icon after submitting
+## 2.31.0 (2026-08-07)
+- [DGS-438] Support submitted_at and submitted_by for steps
+- [DGS-661] frontend: fix status icon after submitting
 ## Deploy notes
 ```
 drc up -d
 drc restart resource cache
 ```
-## 2.30.2
-- Ketenoverlast subsidy: update startdate 17 august
+## 2.30.2 (2026-08-04)
+- [DGS-644] Ketenoverlast subsidy: update startdate 17 august
 ## Deploy notes
 ```
 drc restart migrations cache resource
 ```
-## 2.30.1
-- Ketenoverlast subsidy: update startdate
+## 2.30.1 (2026-08-03)
+- [DGS-644] Ketenoverlast subsidy: update startdate
 ## Deploy notes
 ```
 drc restart migrations cache resource
 ```
-## 2.30.0
-- New subsidy: Ketenoverlast aanpak
+## 2.30.0 (2026-08-01)
+- [DGS-644] New subsidy: Ketenoverlast aanpak
 ## Deploy notes
 ```
 drc up -d
 drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource
 ```
-## 2.29.1
-- Rollback bump of `lblod/acmidm-login-service` The bumped version doesn't support login of EA yet. [DGS-654]
+## 2.29.1 (2026-07-24)
+- [DGS-654] Rollback bump of `lblod/acmidm-login-service` The bumped version doesn't support login of EA yet.
 ## Deploy notes
 ```
 drc up -d login
 ```
-## 2.29.0
-- New subsidy: Ruimte voor vrouwen & meisjes
+## 2.29.0 (2026-07-01)
+- [DGS-641] New subsidy: Ruimte voor vrouwen & meisjes
 ## Deploy notes
 ```
 drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource
 ```
-## 2.28.1
+## 2.28.1 (2026-06-12)
 - [DGS-643] Bump frontend: fix sticky filter issue
 ## Deploy notes
 ```
 drc up -d
 ```
-## 2.28.0
-- content tweaks: pride-evenementen 2027-2029 
-- deadline change: e-inclusies
+## 2.28.0 (2026-06-09)
+- [DGS-642] content tweaks: pride-evenementen 2027-2029
+- [DGS-638] deadline change: e-inclusies
 ## Deploy notes
 ```
 drc restart migrations
 drc restart cache resource subsidy-applications-management
 ```
 ## 2.27.0 (2026-05-30)
-- Bump acm-login service [DL-7346]
-- New Pride-evenementen reeks (2027-2029) [DGS-636]
-- Assenede: re-open LEKP 1.0 - Opvolgmoment 2026 [DGS-639]
+- [DL-7346] Bump acm-login service
+- [DGS-636] New Pride-evenementen reeks (2027-2029)
+- [DGS-639] Assenede: re-open LEKP 1.0 - Opvolgmoment 2026
 ## Deploy notes
 ```
 drc up -d login login-dashboard login-subsidiedatabank
@@ -145,7 +145,7 @@ drc restart migrations cache resource dispatcher
 drc up -d dashboard
 ```
 
-## 2.23.5
+## 2.23.5 (2026-02-16)
 - Hotfix frontend: https://github.com/lblod/frontend-subsidiepunt/pull/47
   - SeeAlso: DGS-624, DGS-625
 ### Deploy notes
@@ -160,7 +160,7 @@ drc restart subsidy-applications-management
 drc up -d frontend
 ```
 
-## 2.23.4
+## 2.23.4 (2026-02-12)
 - Hotfix frontend: https://github.com/lblod/frontend-subsidiepunt/pull/46
   - SeeAlso: DGS-624
 ### Deploy notes
@@ -168,20 +168,20 @@ drc up -d frontend
 drc up -d frontend
 ```
 
-## 2.23.3
+## 2.23.3 (2026-02-03)
 - Remove chars limit on fields for sociale cohesieplan subsidy
 ### Deploy notes
 `drc restart subsidy-applications-management subsidy-application-flow-management cache resource`
 
-## 2.23.2
+## 2.23.2 (2026-01-23)
 - Update Sociale Cohesieplan info link within form
 ### Deploy notes
 `drc restart subsidy-applications-management subsidy-application-flow-management cache resource`
-## 2.23.1
+## 2.23.1 (2026-01-20)
 - Update Sociale Cohesieplan info link
 ### Deploy notes
  ```drc restart migrations cache resource```
-## 2.23.0
+## 2.23.0 (2026-01-15)
 - Automatically add subsidiestream to filter
 - Filter option Subsidiepunt
 - FIX: Provincie Antwerpen faulty step
@@ -280,7 +280,7 @@ drc exec db-cleanup curl http://localhost/runCronjob?cronJobID=839f9343-d459-479
 drc restart resource cache;
 drc up -d frontend-subsidiedatabank
 ```
-## 2.18.0
+## 2.18.0 (2025-10-08)
 - Reopen fietsinfrastructuur skipped steps for berlare
 - Reopen e-inclusie subsidie of wielsbeke
 - Reopen e-inclusie subsidy of Borsbeek
@@ -294,21 +294,21 @@ drc up -d frontend-subsidiedatabank
 - New subsidy train-the-trainer
 ### Deploy instructions
 `drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
-## 2.16.2
+## 2.16.2 (2025-09-12)
 - Fix LEKP 1.0 deadline for last instead of first step changed
 ### Deploy instructions
 `drc restart migrations cache resource`
-## 2.16.1
+## 2.16.1 (2025-09-12)
 - Fix fietsinfrastructuur bug for 4 orgs
 ### Deploy instructions
 `drc restart migrations cache resource`
-## 2.16.0
+## 2.16.0 (2025-09-11)
 - add new pride evenementen subsidy
 - subsidy-applications-management: fix form found in multiple graphs issue (subsidiedatabank graph)
 ### Deploy instructions
 `drc up -d`
 `drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource`
-## 2.15.0
+## 2.15.0 (2025-09-04)
 - extend deadline for e-inclusie
 - Fix faulty status for LEKP 1.0 old submissions
 - extend deadline LEKP 1.0 - last step
@@ -317,19 +317,19 @@ drc up -d frontend-subsidiedatabank
 `drc restart migrations dispatcher subsidy-applications-management cache resource`
 
 
-## 2.14.2
+## 2.14.2 (2025-08-12)
 - stadsvernieuwing projectsubsidie fase 2
    - fix text
    - add missing subsidieprcedure step type triple
 ### Deploy instructions
 `drc restart migrations subsidy-applications-management cache resource`
 
-## 2.14.0
+## 2.14.0 (2025-08-08)
 - add new step stadsvernieuwing - projectsubsidie - 2025
 - `drc restart migrations; drc restart cache resource subsidy-application-flow-management subsidy-applications-management`
   
 ### Deploy instructions
-## 2.13.0
+## 2.13.0 (2025-08-08)
 - cleanup dispatcher rules (restrict)
 - introduce subsidiedatabank frontend
 - Add subsidiedatabank graph populated by migrations & db-cleanup
@@ -361,37 +361,37 @@ task: frontend-subsidiedatabank override:
 `drc restart database cache resource form-data-management subsidy-application-flow-management subsidy-applications-management`
 
 
-## 2.11.0
+## 2.11.0 (2025-06-24)
 ### Backend
  - Added basic ldes producer for LDES-based data exchange with Kalliope see also: DGS-475
  - fix op consumer config to avoid accidental deletes
  - reset OP-consumer
 
-## v1.3.0
+## v1.3.0 (2024-09-05)
 - fix the required bicycle infrastructure file uploads
 - update e-inclusion verantwoording form
 - add db-cleanup
 - update frontend
-## v1.2.0
+## v1.2.0 (2024-08-13)
 ### login
 - add organization environment variables
-## v1.2.0
+## v1.2.0 (2024-08-14)
 ### General
 - Add verenigingen support in subsidiepunt
-## v1.1.3
+## v1.1.3 (2025-05-21)
 ### Frontend
 - v1.1.3
-## v1.1.2
+## v1.1.2 (2025-05-21)
 ### Frontend
 - v1.1.2
-## v1.1.1 HOTFIX
+## v1.1.1 (2024-07-03) HOTFIX
 - Add missing rdf types to exisiting form-data
-## v1.1.0
+## v1.1.0 (2024-07-03)
 ### General
 #### Migrations
 - append-loket-admin-rights-to-abb
 #### Delta-producer
 - Change graph match to subsidieGebruiker
-## v1.0.0
+## v1.0.0 (2024-06-25)
 ### General
 - Initial state loket data import
