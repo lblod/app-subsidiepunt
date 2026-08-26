@@ -1,7 +1,11 @@
 # Changelog
 ## Unreleased
 - [DL-6569] Replace mu-auth by sparql-parser
+- [DGS-657] ACMIDM service: use new strategy service image (aatauil/acmidm-login-service:0.1.0-verenigingen)
 ## Deploy notes
+```
+drc up -d 
+```
 #### Production only
 In `docker-compose.override.yml`, ensure:
 ```
