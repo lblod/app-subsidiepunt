@@ -6,7 +6,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-subsidiepunt:1.18.1
+    image: lblod/frontend-subsidiepunt:1.20.0
     links:
       - identifier:backend
     labels:
@@ -56,17 +56,13 @@ services:
     restart: always
     logging: *default-logging
   database:
-    image: semtech/mu-authorization:feature-service-roam-r1.1
+    image: semtech/sparql-parser:0.0.15
     environment:
       MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
-      DATABASE_OVERLOAD_RECOVERY: "true"
-      DATABASE_COMPATIBILITY: "Virtuoso"
-      # Note: not sure wether it gets picked up properly, it is meant for healing-process which may make
-      # heavy queries
-      QUERY_MAX_PROCESSING_TIME: 605000
-      QUERY_MAX_EXECUTION_TIME: 605000
+      LISP_DYNAMIC_SPACE_SIZE: 4096 # 1GB by default, increase to 8GB on systems with a lot of data
     volumes:
       - ./config/authorization:/config
+      - ./data/authorization:/data
     labels:
       - "logging=true"
     restart: always
@@ -108,6 +104,7 @@ services:
     image: semtech/mu-cl-resources:feature-differently-stable-luckless
     environment:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
+      LISP_DYNAMIC_SPACE_SIZE: "4096" # 1GB by default, increase to 8GB on systems with a lot of data
     volumes:
       - ./config/resources:/config
     labels:
@@ -124,7 +121,7 @@ services:
     restart: always
     logging: *default-logging
   login:
-    image: lblod/acmidm-login-service:0.12.1.rc-2
+    image: aatauil/acmidm-login-service:0.1.0-verenigingen
     environment:
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
       MU_APPLICATION_AUTH_CLIENT_ID: "<CLIENT ID>"

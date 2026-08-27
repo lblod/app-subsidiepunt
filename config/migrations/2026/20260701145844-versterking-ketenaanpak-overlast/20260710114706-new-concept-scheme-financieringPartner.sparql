@@ -1,0 +1,30 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+
+# Note: This is a close copy of http://lblod.data.gift/vocabularies/subsidie/FinancieringPartnerType
+# The scheme contains the two partner types requested by the form.
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+
+    <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/FinancieringPartnerType>
+      a skos:ConceptScheme ;
+      mu:uuid "799a7f3f-5289-4063-90bf-fdaa529aa5a7" ;
+      skos:prefLabel "Ketenaanpak Financieringspartnertype" ;
+      skos:hasTopConcept
+        <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/concept/financieringPartnerType/LokaalBestuur> ,
+        <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/concept/financieringPartnerType/Andere> .
+
+    <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/concept/financieringPartnerType/LokaalBestuur>
+      a skos:Concept ;
+      mu:uuid "a047d375-6481-4caf-9122-4d16792e06d7" ;
+      skos:inScheme <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/FinancieringPartnerType> ;
+      skos:prefLabel "Lokaal bestuur" .
+
+    <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/concept/financieringPartnerType/Andere>
+      a skos:Concept ;
+      mu:uuid "79e258df-7921-4d86-b511-02c762257d60" ;
+      skos:inScheme <http://lblod.data.gift/vocabularies/subsidie/ketenaanpak/FinancieringPartnerType> ;
+      skos:prefLabel "Andere" .
+  }
+}

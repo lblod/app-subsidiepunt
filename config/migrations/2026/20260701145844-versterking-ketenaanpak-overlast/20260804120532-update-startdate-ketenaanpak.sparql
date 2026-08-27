@@ -1,0 +1,23 @@
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Update start time for the "Versterking ketenaanpak overlast" subsidy.
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?period m8g:startTime ?oldStartTime .
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?period m8g:startTime "2026-08-17T12:00:00+02:00"^^xsd:dateTime . # Monday 17 August 2026, 12h (noon)
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    VALUES ?period {
+      <http://data.lblod.info/id/periodes/7c1a14aa-69d1-41a9-b5e0-bbf1ff0bdd3c> # Subsidy aanvraag step periode
+      <http://data.lblod.info/id/periodes/18a9e627-69c4-48eb-a155-79a08a1e29b1> # Subsidymaatregel periode
+    }
+    ?period m8g:startTime ?oldStartTime .
+  }
+}
