@@ -205,8 +205,6 @@
              (subsidy-measure-consumption :via ,(s-prefix "dct:source")
                                           :inverse t
                                           :as "subsidy-measure-consumption")
-             (contact-punt :via ,(s-prefix "schema:contactPoint")
-                           :as "contactinfo")
              (bank-account :via ,(s-prefix "schema:bankAccount")
                            :as "bank-account")
              (time-block :via ,(s-prefix "lblodSubsidie:timeBlock")
