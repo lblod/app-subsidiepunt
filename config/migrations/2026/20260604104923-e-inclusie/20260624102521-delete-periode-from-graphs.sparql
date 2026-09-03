@@ -1,17 +1,26 @@
 # PART OF DEADLINE EXTENSION FEATURE
 
 # Delete the periodes triple in ANY ORG GRAPH it may be
+# Do this for the verantwoording step and e-incusie subsidy
+PREFIX m8g: <http://data.europa.eu/m8g/>
+
 DELETE {
   GRAPH ?g {
-    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> <http://data.europa.eu/m8g/endTime> ?endtime . # e-inclusie Subsidy 
-    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime . # Verantwoording step
+    ?period m8g:endTime ?endtime .
   }
 }
 WHERE {
-  GRAPH ?g {
-    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> <http://data.europa.eu/m8g/endTime> ?endtime . # e-inclusie subsidy
-    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime . # verantwoording step
+  VALUES ?period {
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> # verantwoording step
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> # e-inclusie subsidy
   }
 
-  FILTER(REGEX(STR(?g),"^http://mu\\.semte\\.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
+  GRAPH ?g {
+    ?period m8g:endTime ?endtime .
+  }
+
+  FILTER(REGEX(
+    STR(?g),
+    "^http://mu\\.semte\\.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"
+  ))
 }
