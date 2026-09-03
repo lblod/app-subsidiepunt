@@ -1,12 +1,16 @@
+# PART OF DEADLINE EXTENSION FEATURE
+
 # Delete the periodes triple in ANY ORG GRAPH it may be
 DELETE {
   GRAPH ?g {
-    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> <http://data.europa.eu/m8g/endTime> ?endtime . # e-inclusie Subsidy 
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime . # Verantwoording step
   }
 }
 WHERE {
   GRAPH ?g {
-    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> <http://data.europa.eu/m8g/endTime> ?endtime . # e-inclusie subsidy
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> ?endtime . # verantwoording step
   }
 
   FILTER(REGEX(STR(?g),"^http://mu\\.semte\\.ch/graphs/organizations/.+/SubsidiepuntGebruiker$"))
