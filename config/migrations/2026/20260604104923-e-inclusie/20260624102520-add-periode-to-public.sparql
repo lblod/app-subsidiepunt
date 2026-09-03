@@ -1,10 +1,15 @@
 PREFIX m8g: <http://data.europa.eu/m8g/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-# Add the historical real endtime for this periode back to the public graph (coming from the org graphs)
+# PART OF DEADLINE EXTENSION FEATURE
+
+# Add the historical real endtime for this periode back to the public graph (coming from the org graphs) 
+# Part of "Verantwoording" step of the e-inclusie subsidy
+# Original date is 2025-06-30T21:59:00Z
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
-    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> "2025-09-30T21:59:00Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/f727d567-e43e-4c1c-bd6a-6071ab83f903> <http://data.europa.eu/m8g/endTime> "2025-06-30T21:59:00Z"^^xsd:dateTime .
+    <http://data.lblod.info/id/periodes/ce6923f6-06cf-4d16-be69-7fac1eae3998> <http://data.europa.eu/m8g/endTime> "2025-06-30T21:59:00Z"^^xsd:dateTime .
   }
 }
 
