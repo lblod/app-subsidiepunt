@@ -9,8 +9,8 @@ PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
 
 INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/public> {
-    <http://data.lblod.info/id/deadline-extensions/061e44b1-8016-48fa-9860-1901fec7ad22> a lblodSubsidie:DeadlineExtension ;
-      mu:uuid "061e44b1-8016-48fa-9860-1901fec7ad22" ;
+    <http://data.lblod.info/id/deadline-extensions/5c8e1083-253f-414e-9649-8ce54ba5ff09> a lblodSubsidie:DeadlineExtension ;
+      mu:uuid "5c8e1083-253f-414e-9649-8ce54ba5ff09" ;
       dct:valid "2025-09-30T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
       dct:created "2025-09-30T21:59:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
       dct:audience <http://data.lblod.info/id/bestuurseenheden/0278f810-0fa8-11f0-b581-55d271ccab7d> ,
