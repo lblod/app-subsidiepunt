@@ -179,11 +179,6 @@
   :has-one `((organization :via ,(s-prefix "m8g:playsRole")
                             :inverse t
                             :as "participating-organization"))
-  :has-many `((agents :via ,(s-prefix "m8g:playsRole")
-                             :inverse t
-                             :as "participating-agents")
-              (roles :via ,(s-prefix "m8g:role")
-                             :as "roles"))
   :resource-base (s-url "http://data.lblod.info/id/participations/")
   :features '(include-uri)
   :on-path "participations")
