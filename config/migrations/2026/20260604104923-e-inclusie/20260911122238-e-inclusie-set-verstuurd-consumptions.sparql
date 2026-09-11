@@ -23,8 +23,7 @@ WHERE {
                  dct:source ?form .
     ?form a lblodSubsidie:ApplicationForm ;
           dct:isPartOf <http://lblod.data.info/id/subsidie-application-flow-steps/958f92d1-988b-4bcd-8eff-9abe99756582> ; # e-inclusie verantwoording step
-          adms:status <http://lblod.data.gift/concepts/2ea29fbf-6d46-4f08-9343-879282a9f484> ; # SENT
-          dct:dateSubmitted ?date .
+          adms:status <http://lblod.data.gift/concepts/9bd8d86d-bb10-4456-a84e-91e9507c374c> .
   }
   FILTER(STRSTARTS(STR(?g), "http://mu.semte.ch/graphs/organizations/") &&
          STRENDS(STR(?g), "/SubsidiepuntGebruiker"))
