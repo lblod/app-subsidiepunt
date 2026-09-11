@@ -200,6 +200,8 @@
              (subsidy-measure-consumption :via ,(s-prefix "dct:source")
                                           :inverse t
                                           :as "subsidy-measure-consumption")
+             (contact-punt :via ,(s-prefix "schema:contactPoint")
+                           :as "contactinfo")
              (bank-account :via ,(s-prefix "schema:bankAccount")
                            :as "bank-account")
              (time-block :via ,(s-prefix "lblodSubsidie:timeBlock")
@@ -223,6 +225,12 @@
   :resource-base (s-url "http://data.lblod.info/id/application-forms/")
   :features '(include-uri)
   :on-path "subsidy-application-forms")
+
+(define-resource contact-punt ()
+  :class (s-prefix "schema:ContactPoint")
+  :features '(include-uri)
+  :resource-base (s-url "http://data.lblod.info/id/contact-punten/")
+  :on-path "contact-punten")
 
 (define-resource bank-account ()
   :class (s-prefix "schema:BankAccount")
