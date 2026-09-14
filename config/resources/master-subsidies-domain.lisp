@@ -179,11 +179,6 @@
   :has-one `((organization :via ,(s-prefix "m8g:playsRole")
                             :inverse t
                             :as "participating-organization"))
-  :has-many `((agents :via ,(s-prefix "m8g:playsRole")
-                             :inverse t
-                             :as "participating-agents")
-              (roles :via ,(s-prefix "m8g:role")
-                             :as "roles"))
   :resource-base (s-url "http://data.lblod.info/id/participations/")
   :features '(include-uri)
   :on-path "participations")
@@ -205,8 +200,6 @@
              (subsidy-measure-consumption :via ,(s-prefix "dct:source")
                                           :inverse t
                                           :as "subsidy-measure-consumption")
-             (contact-punt :via ,(s-prefix "schema:contactPoint")
-                           :as "contactinfo")
              (bank-account :via ,(s-prefix "schema:bankAccount")
                            :as "bank-account")
              (time-block :via ,(s-prefix "lblodSubsidie:timeBlock")
