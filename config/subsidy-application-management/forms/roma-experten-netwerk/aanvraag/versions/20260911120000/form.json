@@ -1,0 +1,107 @@
+{
+  "source": {
+    "prefixes": [
+      "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+      "PREFIX dct: <http://purl.org/dc/terms/>",
+      "PREFIX lblodSubsidie: <http://lblod.data.gift/vocabularies/subsidie/>",
+      "PREFIX schema: <http://schema.org/>",
+      "PREFIX foaf: <http://xmlns.com/foaf/0.1/>",
+      "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>",
+      "PREFIX sh: <http://www.w3.org/ns/shacl#>"
+    ],
+    "properties": [
+      "lblodSubsidie:naamOrganisatie",
+      "lblodSubsidie:juridischStatuut",
+      "lblodSubsidie:straatEnNummer",
+      "lblodSubsidie:postnummerEnGemeente",
+      "lblodSubsidie:telephone",
+      "lblodSubsidie:website",
+      "lblodSubsidie:email",
+      "lblodSubsidie:bankAccount",
+      "lblodSubsidie:ondernemingsnummer",
+      "lblodSubsidie:titelAanbod",
+      "lblodSubsidie:samenvattingSubsidieaanvraag",
+      "lblodSubsidie:gevraagdeSubsidiebedrag",
+      "lblodSubsidie:startEindDatum",
+      "lblodSubsidie:afwijkingSubsidieperiode",
+      "lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie",
+      "lblodSubsidie:overzichtErkenningen",
+      "lblodSubsidie:korteOmschrijvingProject",
+      "lblodSubsidie:doelstellingenEnActies",
+      "lblodSubsidie:aanbodLokaleBesturenEnPartners",
+      "lblodSubsidie:inhoudelijkeKlemtonen",
+      "lblodSubsidie:kennisborgingEnVerduurzaming",
+      "lblodSubsidie:begrotingDocument",
+      "lblodSubsidie:verantwoordingBegroteMiddelen",
+      "lblodSubsidie:andereSubsidiesEnInkomsten",
+      "lblodSubsidie:akkoordClausule",
+      "lblodSubsidie:bevestigingWaarheid",
+      "lblodSubsidie:jaarrekeningOrganisatie",
+      "lblodSubsidie:bijlageDocument",
+      {
+        "s-prefix": "schema:contactPoint",
+        "properties": [
+          "foaf:firstName",
+          "foaf:familyName",
+          "schema:telephone",
+          "schema:email"
+        ]
+      },
+      {
+        "s-prefix": "schema:bankAccount",
+        "properties": [
+          "schema:identifier"
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:begrotingDocument",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:jaarrekeningOrganisatie",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:bijlageDocument",
+        "properties": [
+          {
+            "s-prefix": "dct:hasPart",
+            "properties": [
+              "rdf:type"
+            ]
+          }
+        ]
+      },
+      {
+        "s-prefix": "lblodSubsidie:overzichtErkenningen",
+        "properties": [
+          "rdf:type",
+          "sh:order",
+          "lblodSubsidie:subsidierendeInstanties",
+          "lblodSubsidie:redenErkenning",
+          "lblodSubsidie:periode",
+          "lblodSubsidie:bedrag"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "schemes": [
+      "http://lblod.data.gift/concept-schemes/e311b861-d8aa-47a1-80e9-7f4a1fb3de09"
+    ]
+  }
+}
