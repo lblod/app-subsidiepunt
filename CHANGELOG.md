@@ -3,9 +3,13 @@
 - [DL-6569] Replace mu-auth by sparql-parser
 - [DGS-657] ACMIDM service: use new strategy service image (aatauil/acmidm-login-service:0.1.0-verenigingen)
 - [DGS-659] Bump mu-cl-resources
+- [DGS-649] Implement deadline-extensions feature
+- [DGS-664] Fix e-inclusies wrong verzend status being shown (actief instead of ingediend)
+- [DGS-660] New Subsidy: Roma Experten Netwerk
 ## Deploy notes
 ```
 drc up -d 
+drc restart migrations cache resource database subsidy-applications-management subsidy-application-flow-management
 ```
 #### Production only
 In `docker-compose.override.yml`, ensure:
