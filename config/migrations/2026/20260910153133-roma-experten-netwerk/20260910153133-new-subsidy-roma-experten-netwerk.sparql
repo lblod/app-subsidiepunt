@@ -1,0 +1,70 @@
+PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
+PREFIX lblodSubsidie: <http://lblod.data.gift/vocabularies/subsidie/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX cpsv: <http://purl.org/vocab/cpsv#>
+PREFIX common: <http://www.w3.org/2007/uwa/context/common.owl#>
+PREFIX xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-procedural-steps/cecba9da-cb4c-42c6-8283-76f5c651e778> a subsidie:Subsidieprocedurestap;
+      mu:uuid "cecba9da-cb4c-42c6-8283-76f5c651e778";
+      dct:description "Aanvraag";
+      subsidie:Subsidieprocedurestap.type <http://lblod.data.gift/concepts/ee855aae-eb10-44aa-ae01-38c4f6cca0f6>;
+      mobiliteit:periode <http://data.lblod.info/id/periodes/3e8f772f-c002-4453-a61c-acdfed2ce586>.
+
+    <http://data.lblod.info/id/subsidie-application-flows/3330cbc4-69fa-45e0-9e8b-7a78f82cdb22> a lblodSubsidie:ApplicationFlow;
+      mu:uuid "3330cbc4-69fa-45e0-9e8b-7a78f82cdb22";
+      xkos:belongsTo <http://data.lblod.info/id/subsidy-measure-offer-series/e7722623-06f0-4143-a198-66607ea43a0c>;
+      xkos:next <http://data.lblod.info/id/subsidie-application-flow-steps/2695cc88-4aa8-44d2-a6ac-6f13d8c76d2f>.
+
+    <http://data.lblod.info/id/subsidie-application-flow-steps/2695cc88-4aa8-44d2-a6ac-6f13d8c76d2f> a lblodSubsidie:ApplicationStep;
+      mu:uuid "2695cc88-4aa8-44d2-a6ac-6f13d8c76d2f";
+      qb:order 0;
+      dct:references <http://data.lblod.info/id/subsidy-procedural-steps/cecba9da-cb4c-42c6-8283-76f5c651e778>;
+      dct:isPartOf <http://data.lblod.info/id/subsidie-application-flows/3330cbc4-69fa-45e0-9e8b-7a78f82cdb22>;
+      dct:source <config://forms/roma-experten-netwerk/aanvraag/versions/20260911120000/form.ttl>.
+
+    # Application window confirmed: 21 September 2026 through 19 October 2026 at 12:00 Brussels time.
+    <http://data.lblod.info/id/periodes/3e8f772f-c002-4453-a61c-acdfed2ce586> a <http://data.europa.eu/m8g/PeriodOfTime>;
+      mu:uuid "3e8f772f-c002-4453-a61c-acdfed2ce586";
+      <http://data.europa.eu/m8g/startTime> "2026-09-21T00:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/endTime> "2026-10-20T12:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+
+    <http://data.lblod.info/id/subsidy-measure-offers/3277394a-0267-406e-a0ed-0326ca7b255d>
+      a subsidie:SubsidiemaatregelAanbod;
+      mu:uuid "3277394a-0267-406e-a0ed-0326ca7b255d";
+      dct:title "Roma Experten Netwerk";
+      skos:prefLabel "Roma Experten Netwerk";
+      skos:related "https://www.vlaanderen.be/inclusie/projectsubsidie-roma-experten-netwerk";
+      cpsv:follows <http://data.lblod.info/id/subsidy-procedural-steps/cecba9da-cb4c-42c6-8283-76f5c651e778>;
+      lblodSubsidie:heeftReeks <http://data.lblod.info/id/subsidy-measure-offer-series/e7722623-06f0-4143-a198-66607ea43a0c>.
+
+    <http://data.lblod.info/id/subsidy-measure-offer-series/e7722623-06f0-4143-a198-66607ea43a0c> a lblodSubsidie:SubsidiemaatregelAanbodReeks;
+      mu:uuid "e7722623-06f0-4143-a198-66607ea43a0c";
+      dct:title "Oproep"@nl;
+      dct:description ""@nl;
+      common:active <http://data.lblod.info/id/subsidie-application-flows/3330cbc4-69fa-45e0-9e8b-7a78f82cdb22>;
+      mobiliteit:periode <http://data.lblod.info/id/periodes/c287acfa-1a77-497f-9fb8-aebaf1b15a8c>;
+      lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/cecba9da-cb4c-42c6-8283-76f5c651e778>.
+
+    <http://data.lblod.info/id/periodes/c287acfa-1a77-497f-9fb8-aebaf1b15a8c> a <http://data.europa.eu/m8g/PeriodOfTime>;
+      mu:uuid "c287acfa-1a77-497f-9fb8-aebaf1b15a8c";
+      <http://data.europa.eu/m8g/startTime> "2026-09-21T00:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+      <http://data.europa.eu/m8g/endTime> "2026-10-20T12:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>.
+  }
+}
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-measure-offers/3277394a-0267-406e-a0ed-0326ca7b255d> <http://data.europa.eu/m8g/hasCriterion>
+      <http://data.lblod.info/id/criterions/28fe1648-dd25-4772-b5e9-0eed4e8f4b90>, # Economische Actoren
+      <http://data.lblod.info/id/criterions/8c32faa4-1167-4fee-932f-3d453e59b09a>, # Ocmw
+      <http://data.lblod.info/id/criterions/f5ea0615-0b0a-47db-a38c-6097ff80815d>. # Gemeente
+  }
+}
