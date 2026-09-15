@@ -62,6 +62,7 @@
     ("subsidie:ApplicationFlow" -> _)
     ("subsidie:ApplicationStep" -> _)
     ("ns:Subsidieprocedurestap" -> _)
+    ("subsidie:DeadlineExtension" -> _)
     ("m8g:PeriodOfTime" -> _)
     ("m8g:Criterion" -> _)
     ("m8g:RequirementGroup" -> _)

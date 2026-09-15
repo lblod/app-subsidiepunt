@@ -235,6 +235,10 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/subsidy-application-forms/"
   end
 
+  match "/deadline-extensions/*path", @json do
+    forward conn, path, "http://resource/deadline-extensions/"
+  end
+
   #############################################################################
   # subsidy-applications: custom API endpoints
   #############################################################################
