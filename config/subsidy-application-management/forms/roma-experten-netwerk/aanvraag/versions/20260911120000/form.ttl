@@ -267,7 +267,7 @@ ext:afwijkingSubsidieperiode a form:Field;
         sh:path lblodSubsidie:afwijkingSubsidieperiode;
         sh:resultMessage "Max. 3000 tekens toegestaan."
     ];
-    sh:name "Indien nee, leg uit waarom hiervan afgeweken wordt";
+    sh:name "Indien nee, leg uit waarom hiervan afgeweken wordt:";
     sh:order 5;
     sh:path lblodSubsidie:afwijkingSubsidieperiode.
 
@@ -278,7 +278,7 @@ ext:ervaringExpertiseSection a form:Section;
 ext:werkingExpertiseDraagkrachtOrganisatie a form:Field;
     form:displayType displayTypes:textArea;
     form:partOf ext:ervaringExpertiseSection;
-    form:help "Schets kort de algemene doelstellingen en opdrachten van de organisatie. Geef aan hoe de Roma-thematiek in de organisatie is ingebed, welke actuele en diepgaande kennis en expertise de organisatie heeft in het werken met Roma en welke ervaring er is in tweedelijnswerk (vorming en advies). (max. 3000 tekens)";
+    form:help "Schets kort de algemene doelstellingen en opdrachten van de organisatie. Geef aan hoe de Roma-thematiek ingebed is in de organisatie en welke actuele en diepgaande kennis en expertise is er in het werken met Roma en dat de thematiek ingebed is in de organisatie. Welke ervaring is er in tweedelijnswerk (vorming en advies). (3000tekens)";
     form:validatedBy [
         a form:RequiredConstraint;
         form:grouping form:Bag;
@@ -291,7 +291,7 @@ ext:werkingExpertiseDraagkrachtOrganisatie a form:Field;
         sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie;
         sh:resultMessage "Max. 3000 tekens toegestaan."
     ];
-    sh:name "Informatie over de werking, ervaring, expertise en draagkracht van de organisatie";
+    sh:name "Informatie over de werking, ervaring en expertise en draagkracht van de organisatie";
     sh:order 1;
     sh:path lblodSubsidie:werkingExpertiseDraagkrachtOrganisatie.
 
@@ -432,13 +432,13 @@ ext:kennisborgingEnVerduurzaming a form:Field;
     sh:path lblodSubsidie:kennisborgingEnVerduurzaming.
 
 ext:overzichtBegrotingSection a form:Section;
-    sh:name "Overzicht begroting";
+    sh:name "Begroting";
     sh:order 6.
 
 ext:begrotingDocument a form:Field;
     form:displayType displayTypes:files;
     form:partOf ext:overzichtBegrotingSection;
-    form:help "Maak een gedetailleerde begroting op. Geef een overzicht van de begrote middelen per jaar en voor de volledige subsidieperiode van drie jaar. [TODO]";
+    form:help "Geef een gedetailleerde begroting in het voorziene sjabloon. Voeg het ingevulde sjabloon toe als een Excel-bestand (niet als een pdf). Het sjabloon is te vinden op <a href=\"https://www.vlaanderen.be/inclusie/projectsubsidie-roma-experten-netwerk\" target=\"_blank\">https://www.vlaanderen.be/inclusie/projectsubsidie-roma-experten-netwerk</a>.";
     form:validatedBy [
         a form:RequiredConstraint;
         form:grouping form:Bag;
