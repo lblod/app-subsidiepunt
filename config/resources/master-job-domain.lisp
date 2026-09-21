@@ -66,3 +66,9 @@
   :resource-base (s-url "http://redpencil.data.gift/id/dataContainers/")
   :features '(include-uri)
   :on-path "data-containers")
+
+(define-resource harvesting-collection ()
+  :class (s-prefix "hrvst:HarvestingCollection")
+  :resource-base (s-url "http://data.lblod.info/id/harvesting-collection/")
+  :features '(include-uri)
+  :on-path "harvesting-collections")
