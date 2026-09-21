@@ -1,5 +1,10 @@
 # Changelog
 ## Unreleased
+## Deploy notes
+```
+```
+
+## 2.31.0 (2026-09-21)
 - [DL-6569] Replace mu-auth by sparql-parser
 - [DGS-657] ACMIDM service: use new strategy service image (aatauil/acmidm-login-service:0.1.0-verenigingen)
 - [DGS-659] Bump mu-cl-resources
