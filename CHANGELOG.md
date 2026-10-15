@@ -3,7 +3,12 @@
 ## Deploy notes
 ```
 ```
-
+## 2.32.0 (2026-10-15)
+- [DGS-720] Update aanpak-ketenoverlast deadline to midnight
+## Deploy notes
+```
+drc restart migrations cache resource 
+```
 ## 2.31.0 (2026-09-21)
 - [DL-6569] Replace mu-auth by sparql-parser
 - [DGS-657] ACMIDM service: use new strategy service image (aatauil/acmidm-login-service:0.1.0-verenigingen)
