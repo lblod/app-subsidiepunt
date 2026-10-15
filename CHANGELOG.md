@@ -3,7 +3,7 @@
 ## Deploy notes
 ```
 ```
-## 2.32.0 (2026-10-15)
+## 2.33.0 (2026-10-15)
 - [DGS-720] Update aanpak-ketenoverlast deadline to midnight
 ## Deploy notes
 ```
