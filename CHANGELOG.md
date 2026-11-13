@@ -1,7 +1,10 @@
 # Changelog
 ## Unreleased
+- [DGS-663] LEKP 1.0 - New step: Opvolgmoment 2027- #149⁠
 ## Deploy notes
 ```
+drc up -d
+drc restart migrations subsidy-applications-management subsidy-application-flow-management cache resource
 ```
 ## 2.33.0 (2026-10-15)
 - [DGS-720] Update aanpak-ketenoverlast deadline to midnight
