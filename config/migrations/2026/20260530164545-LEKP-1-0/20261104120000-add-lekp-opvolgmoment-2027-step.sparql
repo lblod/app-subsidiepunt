@@ -1,0 +1,53 @@
+PREFIX mobiliteit: <https://data.vlaanderen.be/ns/mobiliteit#>
+PREFIX lblodSubsidie: <http://lblod.data.gift/vocabularies/subsidie/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX subsidie: <http://data.vlaanderen.be/ns/subsidie#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX cpsv: <http://purl.org/vocab/cpsv#>
+PREFIX xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>
+PREFIX m8g: <http://data.europa.eu/m8g/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Deploy together with the activation migration on 1 December 2026
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://lblod.data.info/id/subsidy-measure-offers/64d40351-8128-464f-990f-41066154583e>
+      cpsv:follows <http://data.lblod.info/id/subsidy-procedural-steps/89211495-c185-479c-9491-35d519a2d52e> .
+    <http://lblod.data.info/id/subsidy-measure-offer-series/87b87f00-6f87-4412-be26-ea531220457c>
+      lblodSubsidie:heeftSubsidieprocedurestap <http://data.lblod.info/id/subsidy-procedural-steps/89211495-c185-479c-9491-35d519a2d52e> .
+    <http://lblod.data.info/id/subsidie-application-flow-steps/9aa066f6-76fc-476c-a10f-6fb909b19248>
+      xkos:next <http://lblod.data.info/id/subsidie-application-flow-steps/2cbd5674-5d75-4341-9c8f-f1c3ba67bfa0> .
+
+    <http://lblod.data.info/id/subsidie-application-flow-steps/2cbd5674-5d75-4341-9c8f-f1c3ba67bfa0>
+      a lblodSubsidie:ApplicationStep ;
+      mu:uuid "2cbd5674-5d75-4341-9c8f-f1c3ba67bfa0" ;
+      qb:order 6 ;
+      xkos:previous <http://lblod.data.info/id/subsidie-application-flow-steps/9aa066f6-76fc-476c-a10f-6fb909b19248> ;
+      dct:references <http://data.lblod.info/id/subsidy-procedural-steps/89211495-c185-479c-9491-35d519a2d52e> ;
+      dct:isPartOf <http://lblod.data.info/id/subsidie-application-flows/83353c51-0d65-44bb-b3a7-6b8701b395c9> ;
+      dct:source <config://forms/climate/step-submit-opvolgmoment-2027/versions/20261104120000/form.ttl> .
+
+    <http://data.lblod.info/id/subsidy-procedural-steps/89211495-c185-479c-9491-35d519a2d52e>
+      a subsidie:Subsidieprocedurestap ;
+      mu:uuid "89211495-c185-479c-9491-35d519a2d52e" ;
+      dct:description "Opvolgmoment 2027" ;
+      subsidie:Subsidieprocedurestap.type <http://lblod.data.gift/concepts/ee855aae-eb10-44aa-ae01-38c4f6cca0f6> ;
+      mobiliteit:periode <http://data.lblod.info/id/periodes/605596b7-cf44-4db2-957a-a175ca40f36e> .
+
+    <http://data.lblod.info/id/periodes/605596b7-cf44-4db2-957a-a175ca40f36e>
+      a m8g:PeriodOfTime ;
+      mu:uuid "605596b7-cf44-4db2-957a-a175ca40f36e" ;
+      # 1 December 2026 at 00:00 through the end of 1 June 2027
+      m8g:startTime "2026-11-30T23:00:00Z"^^xsd:dateTime ;
+      m8g:endTime "2027-06-01T21:59:59.999Z"^^xsd:dateTime .
+  }
+} ;
+
+# Opvolgement 2026 is no longer the final step
+DELETE DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/subsidy-procedural-steps/081ef890-fb3b-4c9a-b7b2-6beeed9c5c2e>
+      subsidie:Subsidieprocedurestap.type <http://lblod.data.gift/concepts/ee855aae-eb10-44aa-ae01-38c4f6cca0f6> .
+  }
+}
